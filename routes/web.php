@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::domain('www.iacs-icc.dev')->group(function()
+{
+	Route::get('/',                                                     'iacsicc\IndexController@index');
+	Route::get('/{prefecture}/{city?}/{townId?}',                       'iacsicc\IndexController@area');
+});
+
+Route::domain('www.rhs-inc.dev')->group(function()
+{
+	Route::get('/',                                                     'rhsinc\IndexController@index');
+	Route::get('/{prefecture}/{city?}/{townId?}',                       'rhsinc\IndexController@area');
+
 
 });
+
