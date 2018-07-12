@@ -18,14 +18,14 @@
 <link href="/css/rePriceForm.css" rel="stylesheet" type="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.base.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.util.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.html.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.ajax.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.ui.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.el.js"></script>
-<script type="text/javascript" src="/js/setting.js"></script>
-<script type="text/javascript" src="/js/trade.pager.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.base.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.util.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.html.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.ajax.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.ui.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/jquery.drive.el.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/setting.js"></script>
+<script type="text/javascript" src="https://www.ec-satei.com/drive/js/trade.pager.js"></script>
 
 {{--TODO--}}
 {{--{foreach from = $head.js item = 'filename'}--}}
@@ -62,4 +62,4 @@
     );
 </script>
 
-<title>@if (isset($meta)){{$meta.title}}@endif</title>
+<title>{{$body['meta']['title']}}</title>

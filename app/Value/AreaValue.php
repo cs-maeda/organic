@@ -19,6 +19,11 @@ class AreaValue
         $this->areaInfo = $areaInfo;
     }
 
+    public function where(): string
+    {
+        return $this->pwd;
+    }
+
     public function prefectureName(): string
     {
         return $this->areaInfo['prefecture']['name'];
