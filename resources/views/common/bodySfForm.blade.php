@@ -45,13 +45,7 @@
                 <div class="submit">
                     <input type="submit" class="submitButton" value="最短45秒無料査定">
                 </div>
-                <input type="hidden" name="formId" value="
-                        @if (isset($formId))
-                            {{$formId}}
-                        @else
-                            tsfol111souba_fudosan
-                        @endif
-                        ">
+                <input type="hidden" name="formId" value="{{$formId}}">
                 <img class="pMark" src="/images/pMark.gif" alt="プライバシーマーク"/>
                 <ul class="warningPmark">
                     <li><img src="/images/warning.png" width="18" height="15" alt=""/>本サービスは売却検討中の方向けの、不動産会社に査定依頼ができるサービスです。</li>
@@ -62,3 +56,69 @@
     </div>
 </div>
 
+<script>
+
+    function clearCityList()
+    {
+        $('.objectCity').each(function()
+        {
+           $(this).remove();
+        });
+    }
+
+    function storeCityList(items)
+    {
+        $.each(items, function(key, val)
+        {
+            $('.objectCity').append($("<option>").val(key).text(val));
+        });
+    }
+
+    $('.objectPrefecture').on('change', function(e)
+    {
+        $.ajax(
+            {
+                url     : '/api/form/city/' + $(this).val(),
+                dataType: 'json',
+                type    : 'GET',
+                data    : ''
+            })
+            .then(function(res)
+            {
+                storeCityList(res);
+            });
+    });
+
+    function clearTownList()
+    {
+        $('.objectTown').each(function()
+        {
+            $(this).remove();
+        });
+    }
+
+    function storeTownList(items)
+    {
+        $.each(items, function(key, val)
+        {
+            $('.objectTown').append($("<option>").val(key).text(val));
+        });
+    }
+
+    $('.objectCity').on('change', function(e)
+    {
+        $.ajax(
+            {
+                url     : '/api/form/town/' + $(this).val(),
+                dataType: 'json',
+                type    : 'GET',
+                data    : ''
+            })
+            .then(function(res)
+            {
+                storeTownList(res);
+            });
+    });
+
+
+</script>

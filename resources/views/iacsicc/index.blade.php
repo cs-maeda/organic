@@ -11,7 +11,7 @@
         @include('Iacsicc/parts/common/bodyHead')
         @include('Iacsicc/parts/common/bodyMainImg')
         <?php $idNo++; ?>
-        @include('Iacsicc/parts/common/bodySfForm')
+        @include('common.bodySfForm')
 
         @if ($body['where'] == 'index')
             @include('Iacsicc/parts/index/bodyContent')
@@ -35,7 +35,7 @@
                 不動産会社が対応！
             </p>
             <?php $idNo++; ?>
-            @include('Iacsicc/parts/common/bodySfForm')
+            @include('common.bodySfForm')
         </div>
         @include('Iacsicc/parts/common/bodyFormButton')
 
