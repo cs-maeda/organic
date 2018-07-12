@@ -45,7 +45,7 @@
                 <div class="submit">
                     <input type="submit" class="submitButton" value="最短45秒無料査定">
                 </div>
-                <input type="hidden" name="formId" value="{{$formId}}">
+                <input type="hidden" name="formId" value="{{$body['formId']}}">
                 <img class="pMark" src="/images/pMark.gif" alt="プライバシーマーク"/>
                 <ul class="warningPmark">
                     <li><img src="/images/warning.png" width="18" height="15" alt=""/>本サービスは売却検討中の方向けの、不動産会社に査定依頼ができるサービスです。</li>
