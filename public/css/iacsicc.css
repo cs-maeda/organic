@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/* iacsicc */
+/* _variablesIacsicc */
+/* commont */
+/* _variables */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif"; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+table,
+th,
+td,
+ul,
+dl,
+form,
+input,
+textarea,
+select,
+option,
+optgroup,
+button,
+a {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-size: 14px;
+  font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  font-weight: normal;
+  line-height: 1.4;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; }
+
+dev,
+span,
+section,
+article,
+li,
+dt,
+dd {
+  box-sizing: border-box; }
+
+a {
+  color: #2980c3; }
+
+a:hover {
+  color: #61a6da; }
+
+.red {
+  color: #bd1d28; }
+
+img {
+  border: none;
+  vertical-align: bottom; }
+
+.pc,
+.pd,
+.sp {
+  display: none; }
+
+.width100 {
+  width: 100%; }
+
+.clearfix {
+  zoom: 100%; }
+
+.clearfix:after {
+  display: block;
+  content: ".";
+  margin: 0;
+  padding: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both; }
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px; }
+
+.breadcrumb {
+  display: block;
+  margin: 40px auto 0 auto;
+  padding: 0; }
+  .breadcrumb li {
+    display: block;
+    list-style: none;
+    font-size: 14px;
+    white-space: nowrap;
+    float: left; }
+    .breadcrumb li:after {
+      content: ">";
+      padding: 0 10px; }
+    .breadcrumb li:last-child:after {
+      content: ""; }
+
+.pageHeader {
+  height: 58px;
+  background: url(/images/iacsicc/header_bg.jpg) top repeat-x; }
+  .pageHeader .inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; }
+    .pageHeader .inner .pageHeadline a {
+      color: #000000;
+      font-size: 25px;
+      line-height: 58px;
+      text-decoration: none;
+      text-shadow: -1px -1px 1px #000000, 1px 1px #eeeeee; }
+
+.mainV {
+  height: 305px;
+  padding: 15px 0 0 0;
+  text-align: center;
+  background: #22d4fa url(/images/iacsicc/mainVisual.png) center bottom no-repeat;
+  background: url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -moz-linear-gradient(#0699df, #22d4fa);
+  background: url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -ms-linear-gradient(#0699df, #22d4fa);
+  background: url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -webkit-linear-gradient(#0699df, #22d4fa);
+  background: url(/images/iacsicc/mainVisual.png) center bottom no-repeat, linear-gradient(#0699df, #22d4fa); }
+  .mainV .inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; }
+    .mainV .inner h2 {
+      top: 0;
+      left: 0;
+      height: 2.6em;
+      margin: 0 auto;
+      color: #ffc619;
+      font-size: 46px;
+      font-weight: bold;
+      line-height: 1.2;
+      text-shadow: 2px 0 #664b20, 2px 1px #664b20, 2px 2px #664b20, 2px -2px #664b20, 2px -1px #664b20, 1px 0 #664b20, 1px 1px #664b20, 1px 2px #664b20, 1px -2px #664b20, 1px -1px #664b20, -2px 0 #664b20, -2px 1px #664b20, -2px 2px #664b20, -2px -2px #664b20, -2px -1px #664b20, -1px 0 #664b20, -1px 1px #664b20, -1px 2px #664b20, -1px -2px #664b20, -1px -1px #664b20, 0 0 #664b20, 0 1px #664b20, 0 2px #664b20, 0 -2px #664b20, 0 -1px #664b20, 2px 2px 5px rgba(0, 0, 0, 0.5), 0 0 10px white; }
+    .mainV .inner p {
+      font-size: 26px;
+      font-weight: bold;
+      text-shadow: 2px 0 #ffffff, 2px 1px #ffffff, 2px 2px #ffffff, 2px -2px #ffffff, 2px -1px #ffffff, 1px 0 #ffffff, 1px 1px #ffffff, 1px 2px #ffffff, 1px -2px #ffffff, 1px -1px #ffffff, -2px 0 #ffffff, -2px 1px #ffffff, -2px 2px #ffffff, -2px -2px #ffffff, -2px -1px #ffffff, -1px 0 #ffffff, -1px 1px #ffffff, -1px 2px #ffffff, -1px -2px #ffffff, -1px -1px #ffffff, 0 0 #ffffff, 0 1px #ffffff, 0 2px #ffffff, 0 -2px #ffffff, 0 -1px #ffffff, 0 0 10px white; }
+
+.formCopy {
+  background-color: #111230; }
+  .formCopy .top {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 0;
+    color: #ffffff;
+    font-size: 35px;
+    text-align: center; }
+    .formCopy .top .red {
+      font-weight: bold; }
+
+@media screen and (min-width: 1200px) {
+  .pc {
+    display: inherit; } }

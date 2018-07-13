@@ -1,0 +1,122 @@
+/* iacsicc */
+
+@import "variablesIacsicc";
+@import "common";
+
+.pageHeader{
+	height:58px;
+	background: url(/images/iacsicc/header_bg.jpg) top repeat-x;
+	.inner{
+		@include contentWidth;
+		.pageHeadline{
+			a{
+				color:$black;
+				font-size:25px;
+				line-height:58px;
+				text-decoration:none;
+				text-shadow:-1px -1px 1px $black, 1px 1px #eeeeee;
+			}
+		}
+	}
+}
+.mainV{
+    height:305px;
+    padding:15px 0 0 0;
+    text-align:center;
+    background:#22d4fa url(/images/iacsicc/mainVisual.png) center bottom no-repeat;
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -moz-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -ms-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -webkit-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, linear-gradient(#0699df, #22d4fa);
+    .inner{
+        @include contentWidth;
+        h2{
+            top:0;
+            left:0;
+            height:2.6em;
+            margin:0 auto;
+            color:$mainText;
+            font-size:46px;
+            font-weight:bold;
+            line-height:1.2;
+            text-shadow:2px 0 $mainTextBorder,
+                2px 1px $mainTextBorder,
+                2px 2px $mainTextBorder,
+                2px -2px $mainTextBorder,
+                2px -1px $mainTextBorder,
+                1px 0 $mainTextBorder,
+                1px 1px $mainTextBorder,
+                1px 2px $mainTextBorder,
+                1px -2px $mainTextBorder,
+                1px -1px $mainTextBorder,
+                -2px 0 $mainTextBorder,
+                -2px 1px $mainTextBorder,
+                -2px 2px $mainTextBorder,
+                -2px -2px $mainTextBorder,
+                -2px -1px $mainTextBorder,
+                -1px 0 $mainTextBorder,
+                -1px 1px $mainTextBorder,
+                -1px 2px $mainTextBorder,
+                -1px -2px $mainTextBorder,
+                -1px -1px $mainTextBorder,
+                0 0 $mainTextBorder,
+                0 1px $mainTextBorder,
+                0 2px $mainTextBorder,
+                0 -2px $mainTextBorder,
+                0 -1px $mainTextBorder,
+                2px 2px 5px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,255,255,1.0);
+            .red{
+            }
+        }
+        p{
+            font-size:26px;
+            font-weight:bold;
+            text-shadow:2px 0 $white,
+                2px 1px $white,
+                2px 2px $white,
+                2px -2px $white,
+                2px -1px $white,
+                1px 0 $white,
+                1px 1px $white,
+                1px 2px $white,
+                1px -2px $white,
+                1px -1px $white,
+                -2px 0 $white,
+                -2px 1px $white,
+                -2px 2px $white,
+                -2px -2px $white,
+                -2px -1px $white,
+                -1px 0 $white,
+                -1px 1px $white,
+                -1px 2px $white,
+                -1px -2px $white,
+                -1px -1px $white,
+                0 0 $white,
+                0 1px $white,
+                0 2px $white,
+                0 -2px $white,
+                0 -1px $white,
+                0 0 10px rgba(255,255,255,1.0);
+        }
+    }
+}
+.formCopy{
+    background-color:$darakBlue;
+    .top{
+        @include contentWidth;
+        padding:18px 0;
+        color:$white;
+        font-size:35px;
+        text-align:center;
+        .red{
+            font-weight:bold;
+        }
+    }
+}
+
+.pc{
+	@media screen and (min-width:$pc_min){
+		display:inherit;
+	}
+}

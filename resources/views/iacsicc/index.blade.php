@@ -10,6 +10,9 @@
         <?php $idNo = -1; ?>
         @include('Iacsicc/parts/common/bodyHead')
         @include('Iacsicc/parts/common/bodyMainImg')
+        <div class="formCopy">
+            <p class="top">1分以内の簡単入力で<br class="sp">最大<span class="red">6社</span>に<span class="red">一括査定依頼</span></p>
+        </div>
         <?php $idNo++; ?>
         @include('common.bodySfForm')
 
