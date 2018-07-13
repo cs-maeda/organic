@@ -51,6 +51,9 @@ dt,
 dd {
   box-sizing: border-box; }
 
+li {
+  list-style: none; }
+
 a {
   color: #2980c3; }
 
@@ -68,6 +71,18 @@ img {
 .pd,
 .sp {
   display: none; }
+
+@media screen and (min-width: 1200px) {
+  .pc {
+    display: inherit; } }
+
+@media screen and (max-width: 1199px) {
+  .pd {
+    display: inherit; } }
+
+@media screen and (max-width: 640px) {
+  .sp {
+    display: inherit; } }
 
 .width100 {
   width: 100%; }
@@ -153,6 +168,39 @@ img {
       font-weight: bold;
       text-shadow: 2px 0 #ffffff, 2px 1px #ffffff, 2px 2px #ffffff, 2px -2px #ffffff, 2px -1px #ffffff, 1px 0 #ffffff, 1px 1px #ffffff, 1px 2px #ffffff, 1px -2px #ffffff, 1px -1px #ffffff, -2px 0 #ffffff, -2px 1px #ffffff, -2px 2px #ffffff, -2px -2px #ffffff, -2px -1px #ffffff, -1px 0 #ffffff, -1px 1px #ffffff, -1px 2px #ffffff, -1px -2px #ffffff, -1px -1px #ffffff, 0 0 #ffffff, 0 1px #ffffff, 0 2px #ffffff, 0 -2px #ffffff, 0 -1px #ffffff, 0 0 10px white; }
 
+.feature {
+  padding: 40px 0;
+  background-color: #ffffff; }
+  .feature .inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; }
+    .feature .inner .featureTitle {
+      margin: 0 0 30px 0;
+      color: #053c69;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center; }
+    .feature .inner p {
+      font-size: 15px;
+      line-height: 1.5; }
+
+.prefectureLink {
+  padding: 40px 0;
+  background-color: #e6e6e6; }
+  .prefectureLink .inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat; }
+    .prefectureLink .inner .prefectureLinktitle {
+      margin: 0 0 30px 0;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center; }
+
 .formCopy {
   background-color: #111230; }
   .formCopy .top {
@@ -167,6 +215,90 @@ img {
     .formCopy .top .red {
       font-weight: bold; }
 
-@media screen and (min-width: 1200px) {
-  .pc {
-    display: inherit; } }
+.formArea {
+  height: 270px;
+  background: #9b9c9e url(/images/iacsicc/form_bg.jpg) bottom repeat-x; }
+  .formArea .form {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0; }
+    .formArea .form .lpForm {
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      padding: 0 0 10px 0; }
+      .formArea .form .lpForm li {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        width: 25%;
+        max-width: 260px;
+        padding: 0 7px; }
+        .formArea .form .lpForm li select {
+          width: 220px;
+          max-width: 85%;
+          height: 40px;
+          background: #ffffff url(/images/select.png) right 5px top 50% no-repeat;
+          border: 2px solid #999999;
+          box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3); }
+        .formArea .form .lpForm li .formStep {
+          display: block;
+          width: 40px;
+          max-width: 15%;
+          color: #ffffff;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 40px;
+          background-color: #999999;
+          box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3); }
+          .formArea .form .lpForm li .formStep .step {
+            display: none; }
+    .formArea .form .submit {
+      text-align: center;
+      padding: 30px 0 20px 0;
+      background: url(/images/iacsicc/arrowForm.png) center top no-repeat, url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 40px no-repeat; }
+      .formArea .form .submit .submitButton {
+        display: block;
+        width: 100%;
+        max-width: 480px;
+        height: 70px;
+        margin: 0 auto;
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        background: #9e0f0b url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+        background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient(#bd1d28, #9e0f0b);
+        background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient(#bd1d28, #9e0f0b);
+        background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient(#bd1d28, #9e0f0b);
+        background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient(#bd1d28, #9e0f0b);
+        border: 3px solid #9e0f0b;
+        border-radius: 5px;
+        cursor: pointer; }
+        .formArea .form .submit .submitButton:hover {
+          background: #bd1d28 url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+          background: #bd1d28 url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+          background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient(#e53529, #bd1d28);
+          background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient(#e53529, #bd1d28);
+          background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient(#e53529, #bd1d28);
+          background: url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient(#e53529, #bd1d28);
+          border: 3px solid #bd1d28; }
+    .formArea .form .pMark {
+      display: none; }
+    .formArea .form .warning {
+      display: block;
+      width: 100%;
+      max-width: 42.0em;
+      margin: 0 auto; }
+      .formArea .form .warning img {
+        padding-right: 5px;
+        vertical-align: top; }

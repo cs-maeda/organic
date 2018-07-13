@@ -2,6 +2,8 @@
 <html>
     {{--掲載数、クライアント数などはここで定義してください--}}
     <?php $clientCount = '1,400' ?>
+    {{--formのボタンのvalue--}}
+    <?php $formButtonValue = '最短45秒無料査定!' ?>
 
     <head>
         @include('Iacsicc/parts/common/htmlHead')

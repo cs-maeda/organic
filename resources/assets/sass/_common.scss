@@ -50,6 +50,9 @@ dt,
 dd{
 	box-sizing:border-box;
 }
+li{
+    list-style:none;
+}
 a{
 	color:$a;
 }
@@ -67,6 +70,21 @@ img{
 .pd,
 .sp{
 	display:none;
+}
+.pc{
+	@media screen and (min-width:$pc_min){
+		display:inherit;
+	}
+}
+.pd{
+	@media screen and (max-width:$pd_max){
+		display:inherit;
+	}
+}
+.sp{
+	@media screen and (max-width:$sp_max){
+		display:inherit;
+	}
 }
 .width100{
 	width:100%;

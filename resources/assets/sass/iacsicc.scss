@@ -101,6 +101,39 @@
         }
     }
 }
+.feature{
+    padding:40px 0;
+    background-color:$white;
+    .inner{
+        @include contentWidth;
+        .featureTitle{
+            margin:0 0 30px 0;
+            color:$blue;
+            font-size:28px;
+            font-weight:bold;
+            text-align:center;
+        }
+        p{
+            font-size:15px;
+            line-height:1.5;
+        }
+    }
+}
+.prefectureLink{
+    padding:40px 0;
+    background-color:$contentGray;
+    .inner{
+        @include contentWidth;
+        background:url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat;
+        .prefectureLinktitle{
+            margin:0 0 30px 0;
+            font-size:28px;
+            font-weight:bold;
+            text-align:center;
+        }
+    }
+}
+//form
 .formCopy{
     background-color:$darakBlue;
     .top{
@@ -114,9 +147,92 @@
         }
     }
 }
-
-.pc{
-	@media screen and (min-width:$pc_min){
-		display:inherit;
-	}
+.formArea{
+    height:270px;
+    background:#9b9c9e url(/images/iacsicc/form_bg.jpg) bottom repeat-x;
+    .form{
+        @include contentWidth;
+        padding:30px 0;
+        .lpForm{
+            @include displayFlex;
+            @include vp(justify-content, center);
+            padding:0 0 10px 0;
+            li{
+                @include displayFlex;
+                width:25%;
+                max-width:260px;
+                padding:0 7px;
+                select{
+                    width:220px;
+                    max-width:85%;
+                    height:40px;
+                    background:$white url(/images/select.png) right 5px top 50% no-repeat;
+                    border:2px solid $formGray;
+                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                }
+                .formStep{
+                    display:block;
+                    width:40px;
+                    max-width:15%;
+                    color:$white;
+                    font-size:20px;
+                    font-weight:bold;
+                    text-align:center;
+                    line-height:40px;
+                    background-color:$formGray;
+                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                    .step{
+                        display:none;
+                    }
+                }
+            }
+        }
+        .submit{
+            text-align:center;
+            padding:30px 0 20px 0;
+            background:url(/images/iacsicc/arrowForm.png) center top no-repeat,
+                url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 40px no-repeat;
+            .submitButton{
+                display:block;
+                width:100%;
+                max-width:480px;
+                height:70px;
+                margin:0 auto;
+                color:$white;
+                font-size:24px;
+                font-weight:bold;
+                text-align:center;
+                background:#9e0f0b  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient($red , #9e0f0b);
+                border:3px solid #9e0f0b;
+                border-radius:5px;
+                cursor:pointer;
+                &:hover{
+                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient(#e53529 , $red);
+                border:3px solid $red;
+                }
+            }
+        }
+        .pMark{
+            display:none;
+        }
+        .warning{
+            display:block;
+            width:100%;
+            max-width:42.0em;
+            margin:0 auto;
+            img{
+                padding-right:5px;
+                vertical-align:top;
+            }
+        }
+    }
 }
