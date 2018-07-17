@@ -2,50 +2,56 @@
 <html>
     {{--掲載数、クライアント数などはここで定義してください--}}
     <?php $clientCount = '1,400' ?>
+    {{--formのボタンのvalue--}}
+    <?php $formButtonValue = '最短45秒無料査定!' ?>
 
     <head>
         @include('Iacsicc/parts/common/htmlHead')
     </head>
-    <body id="body_{{$type}}">
+    <body id="body_{{$body['where']}}">
         <?php $idNo = -1; ?>
         @include('Iacsicc/parts/common/bodyHead')
         @include('Iacsicc/parts/common/bodyMainImg')
+        <div class="formCopy">
+            <p class="catch">1分以内の簡単入力で<br class="sp">最大<span class="red">6社</span>に<span class="red">一括査定依頼</span></p>
+        </div>
         <?php $idNo++; ?>
-        @include('Iacsicc/parts/common/bodySfForm')
+        @include('common.bodySfForm')
 
-        @if ($type == 'index')
+        @if ($body['where'] == 'index')
             @include('Iacsicc/parts/index/bodyContent')
         @else
             @include('Iacsicc/parts/area/bodyContent')
         @endif
 
         <div>
-            <p class="formCopy">
-                @if ($type != 'index')
+            <div class="formCopy">
+                <p class="catch">
+                @if ($body['where'] != 'index')
                     〇〇の
                 @endif
                 不動産価格・不動産売買の相場で無料一括査定<br>
-                <span class="redTxt">最高価格</span>で売るなら<span class="redTxt">最大6社</span>で比較検討<br>
-                <span class="redTxt">1分以内</span>の簡単入力！<br>
-                @if ($type != 'index')
+                <span class="red">最高価格</span>で売るなら<span class="red">最大6社</span>で比較検討<br>
+                <span class="red">1分以内</span>の簡単入力！<br>
+                @if ($body['where'] != 'index')
                     〇〇の不動産価格に詳しい
                 @else
                     1,400社以上の
                 @endif
                 不動産会社が対応！
-            </p>
+                </p>
+            </div>
             <?php $idNo++; ?>
-            @include('Iacsicc/parts/common/bodySfForm')
+            @include('common.bodySfForm')
         </div>
-        @include('Iacsicc/parts/common/bodyFormButton')
-
-        @if ($type != 'index')
+        @if ($body['where'] != 'index')
             <div class="inner sp">
                 <ul class="breadcrumb clearfix">
                     <li class="name">〇〇</li>
                 </ul>
             </div>
         @endif
+        @include('common/bodyFormButton')
         @include('Iacsicc/parts/common/bodyFoot')
     </body>
 </html>

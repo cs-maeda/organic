@@ -9,28 +9,9 @@
 
 <link rel="canonical" href="{$head.canonical}" />
 <link rel="shortcut icon" href="/favicon.ico" />
-
-<link href="/css/common.css" rel="stylesheet" type="text/css">
-<link href="/css/reset.css" rel="stylesheet" type="text/css">
-<link href="/css/layout.css" rel="stylesheet" type="text/css">
-<!-- <link href="/css/content.css" rel="stylesheet" type="text/css"> -->
-<link href="/css/rePrice.css" rel="stylesheet" type="text/css">
-<link href="/css/rePriceForm.css" rel="stylesheet" type="text/css">
-
+<link href="/css/iacsicc.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.base.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.util.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.html.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.ajax.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.ui.js"></script>
-<script type="text/javascript" src="/js/jquery.drive.el.js"></script>
-<script type="text/javascript" src="/js/setting.js"></script>
-<script type="text/javascript" src="/js/trade.pager.js"></script>
-
-{{--TODO--}}
-{{--{foreach from = $head.js item = 'filename'}--}}
-    {{--<script type="text/javascript" src="{$filename}"></script>--}}
-{{--{/foreach}--}}
+<script src="/js/organic.js"></script>
 
 <script type="text/javascript">
     /***********************************************************
@@ -62,4 +43,4 @@
     );
 </script>
 
-<title>@if (isset($meta)){{$meta.title}}@endif</title>
+<title>{{$body['meta']['title']}}</title>

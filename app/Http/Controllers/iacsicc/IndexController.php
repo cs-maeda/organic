@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Iacsicc;
 use App\Decorators\CityListDecorator;
 use App\Decorators\ListDecorator;
 use App\Decorators\PrefectureListDecorator;
-use App\Decorators\PrefectureTradeDecorator;
 use App\Factories\AreaFactory;
 use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
@@ -29,6 +28,24 @@ class IndexController extends BaseController
     {
         $body = $this->areaImpl($prefecture, $city, $townId);
 
+        return view('iacsicc/index', ['body' => $body]);
+    }
+
+    public function station(ConnectionInterface $conn, string $prefecture, string $city, int $stationId)
+    {
+        $body = $this->stationImpl($prefecture, $city, $stationId);
+
+        return view('iacsicc/index', ['body' => $body]);
+    }
+
+    protected function meta(AreaValue $areaValue = null): array
+    {
+        $prefix = '';
+        $prefixOf = '';
+        if (isset($areaValue)){
+            $displayName = $areaValue->displayName();
+            $prefix = $displayName;
+            $prefixOf = $displayName . 'の';
         $tradeDecorator = new PrefectureTradeDecorator($this->areaValue);
         $records = $tradeDecorator->tradeRecords();
 

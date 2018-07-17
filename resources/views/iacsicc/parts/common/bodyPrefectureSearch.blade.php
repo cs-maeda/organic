@@ -1,4 +1,4 @@
-@if ($type == 'index')
+@if ($body['weher'] == 'index')
     <section id="prefectureSearch" class="content">
         <div class="areaSelect clearfix">
             <h2 class="areaSelectTitle">都道府県ごとに<br class="sp">査定依頼ができる不動産会社を探す</h2>
