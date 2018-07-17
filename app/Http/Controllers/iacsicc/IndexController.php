@@ -78,6 +78,8 @@ class IndexController extends BaseController
         $res[2] = $prefixOf . '不動産価格を知りたい方向けの、無料一括査定の窓口も！';
         $res[3] = $prefixOf . '1分以内の簡単入力で最大6社に一括査定依頼！';
 
+
+        
         return $res;
     }
 
