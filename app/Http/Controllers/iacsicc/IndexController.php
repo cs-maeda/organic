@@ -46,27 +46,6 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefix = $displayName;
             $prefixOf = $displayName . 'の';
-        $tradeDecorator = new PrefectureTradeDecorator($this->areaValue);
-        $records = $tradeDecorator->tradeRecords();
-
-        return view('iacsicc/index', ['body' => $body], ['records' => $records]);
-    }
-
-    public function station(ConnectionInterface $conn, string $prefecture, string $city, int $stationId)
-    {
-        $body = $this->stationImpl($prefecture, $city, $stationId);
-
-        return view('iacsicc/index', ['body' => $body]);
-    }
-
-    protected function meta(AreaValue $areaValue = null): array
-    {
-        $prefix = '';
-        $prefixOf = '';
-        if (isset($areaValue)){
-            $displayName = $areaValue->displayName();
-            $prefix = $displayName;
-            $prefixOf = $displayName . 'の';
         }
         $res['title'] = "{$prefixOf}不動産売買の相場がわかるサイト";
         $res['keywords'] = "不動産,{$prefix} 不動産価格,{$prefix} 不動産売買,国交省,土地総合情報システム";
