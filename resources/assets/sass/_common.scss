@@ -55,9 +55,9 @@ li{
 }
 a{
 	color:$a;
-}
-a:hover{
-	color:$a_hover;
+        &:hover{
+        color:$a_hover;
+    }
 }
 .red{
     color:$red;
@@ -127,4 +127,3 @@ img{
 		}
 	}
 }
-

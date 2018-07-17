@@ -33,6 +33,9 @@ $default_color:(
 	width:100%;
 	max-width:$pc_min;
 	margin:0 auto;
+    @media screen and (max-width:$pd_max){
+        padding:0 10px;
+    }
 }
 
 
