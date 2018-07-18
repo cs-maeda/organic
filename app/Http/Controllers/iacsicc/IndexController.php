@@ -79,7 +79,9 @@ class IndexController extends BaseController
         $res[3] = $prefixOf . '1分以内の簡単入力で最大6社に一括査定依頼！';
 
 
+
         
+
         return $res;
     }
 
