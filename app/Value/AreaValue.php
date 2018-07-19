@@ -66,8 +66,33 @@ class AreaValue
 
     public function displayName(): string
     {
-        $displayName = '';
+        $displayName = $this->displayNameImpl($this->pwd);
+        return $displayName;
+    }
+
+    public function parentAreaName(): string
+    {
+        $parentName = '';
         switch ($this->pwd)
+        {
+            case 'prefecture':
+                $parentName = '全国';
+                break;
+            case 'city':
+            case 'town':
+            case 'station':
+                $parentName = $this->areaInfo['prefecture']['name'];
+                break;
+            default:
+                break;
+        }
+        return $parentName;
+    }
+
+    protected function displayNameImpl(string $where): string
+    {
+        $displayName = '';
+        switch ($where)
         {
             case 'prefecture':
                 $displayName = $this->areaInfo['prefecture']['name'];

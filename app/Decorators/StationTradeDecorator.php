@@ -38,4 +38,13 @@ class StationTradeDecorator extends CityTradeDecorator
         return $res;
     }
 
+    protected function tradeFigure(): array
+    {
+        $stationId = $this->areaValue->stationId();
+
+        $tradeRecordsModel = new TradeRecordsModel();
+        $res = $tradeRecordsModel->averageStation($stationId);
+        return $res;
+    }
+
 }

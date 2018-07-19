@@ -38,5 +38,13 @@ class CityTradeDecorator extends PrefectureTradeDecorator
         return $res;
     }
 
+    protected function tradeFigure(): array
+    {
+        $cityId = $this->areaValue->cityId();
+
+        $tradeRecordsModel = new TradeRecordsModel();
+        $res = $tradeRecordsModel->averageCity($cityId);
+        return $res;
+    }
 
 }
