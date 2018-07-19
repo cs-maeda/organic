@@ -9,7 +9,7 @@
 namespace App\Decorators;
 
 
-use App\TradeRecordsModel;
+use App\Models\TradeRecordsModel;
 use App\Value\AreaValue;
 
 class PrefectureTradeDecorator extends TradeDecorator
