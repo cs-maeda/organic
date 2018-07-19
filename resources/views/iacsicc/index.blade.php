@@ -13,7 +13,7 @@
         @include('Iacsicc/parts/common/bodyHead')
         @include('Iacsicc/parts/common/bodyMainImg')
         <div class="formCopy">
-            <p class="catch">1分以内の簡単入力で<br class="sp">最大<span class="red">6社</span>に<span class="red">一括査定依頼</span></p>
+            <p class="catch">{!! $body['copy'][3] !!}</p>
         </div>
         <?php $idNo++; ?>
         @include('common.bodySfForm')
@@ -23,6 +23,8 @@
         @else
             @include('Iacsicc/parts/area/bodyContent')
         @endif
+
+        @include('Iacsicc/parts/common/bodyPrefectureLink')
 
         <div>
             <div class="formCopy">

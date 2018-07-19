@@ -1,4 +1,4 @@
-<!-- feature -->
+
 <div class="feature">
     <div class="inner">
         <h2 class="featureTitle">不動産価格・不動産売買の相場の特徴</h2>
@@ -22,7 +22,4 @@
         </p>
 	</div>
 </div>
-<!-- feature -->
-
-@include('Iacsicc/parts/common/bodyPrefectureLink')
 

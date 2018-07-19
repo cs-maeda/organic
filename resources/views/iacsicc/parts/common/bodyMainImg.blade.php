@@ -5,7 +5,7 @@
             {{$body['copy'][0]}}
         </h2>
         <p class="mainVsubtitle">
-            {!! $body['copy'][1] !!}<br/>{!! $body['copy'][2] !!}
+            {!! $body['copy'][1] !!}<br>{!! $body['copy'][2] !!}
         </p>
     </div>
 </div>

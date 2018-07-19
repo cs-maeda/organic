@@ -76,7 +76,7 @@ class IndexController extends BaseController
         $res[0] = "{$prefixOf}不動産価格・不動産売買の相場がわかる！";
         $res[1] = "{$prefixOf}エリア別の不動産売買実績を<span class='red'>無料</span>で公開中！";
         $res[2] = "{$prefixOf}不動産価格を知りたい方向けの、<span class='red'>無料一括査定</span>の窓口も！";
-        $res[3] = "{$prefixOf}1分以内の簡単入力で最大<span class='red'>6社</span>に<span class='red'>一括査定依頼！</span>";
+        $res[3] = "1分以内の簡単入力で最大<span class='red'>6社</span>に<span class='red'>一括査定依頼！</span>";
 
         return $res;
     }
