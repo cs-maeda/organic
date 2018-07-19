@@ -56,6 +56,19 @@ abstract class TradeDecorator
         return $this->tradeCount;
     }
 
+    public function figure(): array
+    {
+        $res['count'] = $this->tradeCount;
+
+        $results = $this->tradeFigure();
+        $res['min_price'] = $results['min_price'];
+        $res['max_price'] = $results['max_price'];
+        $res['avg_price'] = $results['avg_price'];
+
+        return $res;
+    }
+
     abstract protected function tradeRecordsCount(): int;
     abstract protected function tradeRecords();
+    abstract protected function tradeFigure(): array;
 }

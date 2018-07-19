@@ -38,4 +38,13 @@ class TownTradeDecorator extends CityTradeDecorator
         return $res;
     }
 
+    protected function tradeFigure(): array
+    {
+        $townId = $this->areaValue->townId();
+
+        $tradeRecordsModel = new TradeRecordsModel();
+        $res = $tradeRecordsModel->averageTown($townId);
+        return $res;
+    }
+
 }

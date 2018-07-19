@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Iacsicc;
 
 use App\Decorators\CityListDecorator;
+use App\Decorators\CityTradeDecorator;
 use App\Decorators\ListDecorator;
 use App\Decorators\PrefectureListDecorator;
+use App\Decorators\PrefectureTradeDecorator;
+use App\Decorators\StationTradeDecorator;
+use App\Decorators\TownTradeDecorator;
+use App\Decorators\TradeDecorator;
 use App\Factories\AreaFactory;
 use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
@@ -27,6 +32,9 @@ class IndexController extends BaseController
     public function area(ConnectionInterface $conn, string $prefecture, string $city = null, int $townId = null)
     {
         $body = $this->areaImpl($prefecture, $city, $townId);
+
+        $tradeDecorator = $this->tradeDecorator($this->areaValue);
+        $body['figure'] = $tradeDecorator->figure();
 
         return view('iacsicc/index', ['body' => $body]);
     }
@@ -84,5 +92,30 @@ class IndexController extends BaseController
     protected function formId(): string
     {
         return 'tsfol111souba_fudosan';
+    }
+
+    protected function tradeDecorator(AreaValue $areaValue): TradeDecorator
+    {
+        $tradeDecorator = null;
+
+        $where = $areaValue->where();
+        switch($where)
+        {
+            case 'prefecture':
+                $tradeDecorator = new PrefectureTradeDecorator($areaValue);
+                break;
+            case 'city':
+                $tradeDecorator = new CityTradeDecorator($areaValue);
+                break;
+            case 'town':
+                $tradeDecorator = new TownTradeDecorator($areaValue);
+                break;
+            case 'station':
+                $tradeDecorator = new StationTradeDecorator($areaValue);
+                break;
+            default:
+                break;
+        }
+        return $tradeDecorator;
     }
 }

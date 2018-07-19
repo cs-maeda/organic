@@ -20,6 +20,8 @@ use App\Value\AreaValue;
 
 abstract class BaseController extends Controller
 {
+    protected $areaValue = null;
+
     public function indexImpl()
     {
         $body = [];
@@ -40,16 +42,17 @@ abstract class BaseController extends Controller
         $body = [];
 
         $areaFactory = new AreaFactory($prefecture, $city, $townId);
-        $areaValue = $areaFactory->product();
+        $this->areaValue = $areaFactory->product();
 
-        $body['meta'] = $this->meta($areaValue);
-        $body['headLine'] = $this->headLine($areaValue);
-        $body['copy'] = $this->catchCopy($areaValue);
+        $body['meta'] = $this->meta($this->areaValue);
+        $body['headLine'] = $this->headLine($this->areaValue);
+        $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
-        $body['list'] = $this->areaList($areaValue);
-        $body['where'] = $areaValue->where();
-        $body['areaCaption'] = $areaValue->displayName();
+        $body['list'] = $this->areaList($this->areaValue);
+        $body['where'] = $this->areaValue->where();
+        $body['areaCaption'] = $this->areaValue->displayName();
         $body['areaCaptionOf'] = $body['areaCaption'] . 'の';
+        $body['parentAreaCaption'] = $this->areaValue->parentAreaName();
 
         return $body;
     }
@@ -59,15 +62,17 @@ abstract class BaseController extends Controller
         $body = [];
 
         $areaFactory = new AreaFactory($prefecture, $city, $stationId, true);
-        $areaValue = $areaFactory->product();
+        $this->areaValue = $areaFactory->product();
 
-        $body['meta'] = $this->meta($areaValue);
-        $body['headLine'] = $this->headLine($areaValue);
-        $body['copy'] = $this->catchCopy();
+        $body['meta'] = $this->meta($this->areaValue);
+        $body['headLine'] = $this->headLine($this->areaValue);
+        $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
-        $body['list'] = $this->areaList($areaValue);
-        $body['where'] = $areaValue->where();
-        $body['areaCaption'] = $areaValue->displayName();
+        $body['list'] = $this->areaList($this->areaValue);
+        $body['where'] = $this->areaValue->where();
+        $body['areaCaption'] = $this->areaValue->displayName();
+        $body['areaCaptionOf'] = $this->areaValue->displayName() . 'の';
+        $body['parentAreaCaption'] = $this->areaValue->parentAreaName();
 
         return $body;
     }

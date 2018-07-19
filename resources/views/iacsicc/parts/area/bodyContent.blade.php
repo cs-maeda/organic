@@ -14,15 +14,15 @@
         <div>
             <dl>
                 <dt>{{$body['areaCaptionOf']}}不動産売却件数</dt>
-                <dd><span class="redTxt">「-売却件数-」</span>件</dd>
+                <dd><span class="redTxt">{{number_format($body['figure']['count'])}}</span>件</dd>
             </dl>
             <dl>
                 <dt>価格帯</dt>
-                <dd><span class="redTxt">「-最低価格-」</span>万円～<span class="redTxt">〇〇</span>万円</dd>
+                <dd><span class="redTxt">{{number_format($body['figure']['min_price'] / 10000, 2)}}</span>万円～<span class="redTxt">{{number_format($body['figure']['max_price'] / 10000)}}</span>万円</dd>
             </dl>
             <dl>
                 <dt>平均価格</dt>
-                <dd><span class="redTxt">「-平均価格-」</span>万円</dd>
+                <dd><span class="redTxt">{{number_format($body['figure']['avg_price'] / 10000)}}</span>万円</dd>
             </dl>
         </div>
     </div>
@@ -71,15 +71,15 @@
         <?php $parentAll = '全国'?>
         <p>
             {{$body['areaCaptionOf']}}不動産売買実績データから算出する不動産価格は、{{--
-            --}}直近一年間では、〇〇万円{{--
-            --}}～〇〇万円の価格帯となっており、{{--
-            --}}平均価格は〇〇万円です。〇〇の平均と比べると、〇〇の不動産価格の{{--
-            --}}平均は〇〇倍になり、{{--
-            --}}〇〇は〇〇で〇〇位となっています。なお、当サイトに掲載しているデータは、{{--
-            --}}国交省が公開している土地総合情報システムの〇〇の不動産売買実績データに基づいており、{{--
+            --}}直近５年間では、{{number_format($body['figure']['min_price'] / 10000, 2)}}万円{{--
+            --}}～{{number_format($body['figure']['max_price'] / 10000)}}万円の価格帯となっており、{{--
+            --}}平均価格は{{number_format($body['figure']['avg_price'] / 10000)}}万円です。{{$body['parentAreaCaption']}}の平均と比べると、{{--
+            --}}{{$body['areaCaption']}}の不動産価格の平均は〇〇倍になり、{{--
+            --}}{{$body['areaCaption']}}は{{$body['parentAreaCaption']}}で〇〇位となっています。なお、当サイトに掲載しているデータは、{{--
+            --}}国交省が公開している土地総合情報システムの{{$body['areaCaption']}}の不動産売買実績データに基づいており、{{--
             --}}不動産取引の当事者に対して国交省が実施しているアンケート調査の結果が元となっています。{{--
             --}}数値の丸め以外の補正は一切行われていませんが、不動産価格は個別の事情で大きく変わるため、{{--
-            --}}不動産価格を知りたい方は不動産会社に査定依頼をすることをお勧めします。当サイトでは、〇〇の不動産価格に詳しく、{{--
+            --}}不動産価格を知りたい方は不動産会社に査定依頼をすることをお勧めします。当サイトでは、{{$body['areaCaption']}}の不動産価格に詳しく、{{--
             --}}不動産売買実績も豊富な不動産会社に無料で査定依頼ができる窓口もご用意しておりますので、是非ご活用ください。
         </p>
     </div>
