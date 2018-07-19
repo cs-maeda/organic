@@ -80,7 +80,7 @@ class IndexController extends BaseController
 
 
 
-        
+
 
         return $res;
     }
