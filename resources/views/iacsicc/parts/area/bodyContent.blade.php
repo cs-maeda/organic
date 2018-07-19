@@ -1,26 +1,24 @@
-@if ($type != 'index')
-    <div class="breadcrumb">
-        <div class="inner">
-            <ul class=" clearfix">
-                <li><a href="/">不動産価格・不動産売買の相場</a></li>
-                <li class="name">〇〇</li>
-            </ul>
-        </div>
+<div class="breadcrumb">
+    <div class="inner">
+        <ul class=" clearfix">
+            <li><a href="/">{{$body['areaCaptionOf']}}不動産価格・不動産売買の相場</a></li>
+            <li class="name">{{$body['areaCaption']}}</li>
+        </ul>
     </div>
-@endif
+</div>
 
 <!-- recentPrice -->
 <div class="recentPrice">
     <div class="inner">
-        <h2 class="recentPriceTitle">直近5年間の〇〇の不動産売買件数と不動産価格相場（売却件数や平均価格など）</h2>
+        <h2 class="recentPriceTitle">直近5年間の{{$body['areaCaptionOf']}}不動産売買件数と不動産価格相場（売却件数や平均価格など）</h2>
         <div>
             <dl>
-                <dt>〇〇の不動産売却件数</dt>
+                <dt>{{$body['areaCaptionOf']}}不動産売却件数</dt>
                 <dd><span class="redTxt">「-売却件数-」</span>件</dd>
             </dl>
             <dl>
                 <dt>価格帯</dt>
-                <dd><span class="redTxt">「-最低価格-」</span>万円～<span class="redTxt">{$records['maxPrice']|number_format}</span>万円</dd>
+                <dd><span class="redTxt">「-最低価格-」</span>万円～<span class="redTxt">〇〇</span>万円</dd>
             </dl>
             <dl>
                 <dt>平均価格</dt>
@@ -31,76 +29,14 @@
 </div>
 <!-- recentPrice -->
 
-<!-- priceList -->
-<div class="priceList">
-    <div class="inner">
-        <h2 class="priceListTitle">〇〇の不動産売却実績・不動産価格一覧</h2>
-        <p class="showCount">〇〇件中 <span class="start_row">〇〇</span>-<span class="end_row">〇〇</span>を表示</p>
-        <div id="trading">
-            <table class="priceTable" border="0">
-                <tr>
-                    <th rowspan="2">&nbsp;</th>
-                    <th rowspan="2">種類</th>
-                    <th rowspan="2">所在地</th>
-                    <th colspan="2">最寄駅</th>
-                    <th rowspan="2">取引総額</th>
-                    <th rowspan="2">面積(m<sup>2</sup>)</th>
-                    <th rowspan="2">建築年</th>
-                    <th rowspan="2">構造</th>
-                    <th rowspan="2">用途</th>
-                    <th rowspan="2">取引時期</th>
-                </tr>
-                <tr>
-                    <th>名称</th>
-                    <th>距離(分)</th>
-                </tr>
-
-                {{--{$count = 0}--}}
-                {{--{foreach $info['body'] as $key => $row}--}}
-                {{--<tr class="table_data">--}}
-                    {{--{$count = $count + 1}--}}
-                    {{--{if $count > 1000}{break}{/if}--}}
-                    {{--<td>{$count}</td>--}}
-                    {{--<td>{$row['tclass']}</td>--}}
-                    {{--<td>{$row['city_name']}</td>--}}
-                    {{--<td>{$row['stationname']}</td>--}}
-                    {{--<td>{$row['stationtime']}</td>--}}
-                    {{--<td>{$row['price1']}</td>--}}
-                    {{--<td>{$row['area']}</td>--}}
-                    {{--<td>{$row['year']}</td>--}}
-                    {{--<td>{$row['building2']}</td>--}}
-                    {{--<td>{$row['building1']}</td>--}}
-                    {{--<td>{$row['time2']}</td>--}}
-                {{--</tr>--}}
-                {{--{/foreach}--}}
-            </table>
-        </div>
-
-
-        {{--{if $info['header']['last_page'] != 1}--}}
-        {{--<div class="pager">--}}
-            {{--<ul>--}}
-                {{--<li class="top pc"><span class="arrow pagerElem" id="top_page_{$info['header']['first_page']}">&lt;&lt;</span></li>--}}
-                {{--<li class="before"><span class="arrow pageBefore pagerElem" id="before_page_{$info['header']['prev_page']}">&lt;</span></li>--}}
-                {{--{foreach range($info['header']['tab_start'], $info['header']['tab_end']) as $count}--}}
-                {{--{if $info['header']['cur_page'] == $count}--}}
-                {{--<li class="current pageBox pagerElem" id="curBox_page_{$count}">{$count}</li>--}}
-                {{--{else}--}}
-                {{--<li class="pageBox pagerElem" id="curBox_page_{$count}">{$count}</li>--}}
-                {{--{/if}--}}
-                {{--{/foreach}--}}
-                {{--<li class="after"><span class="arrow pagerElem" id="after_page_{$info['header']['next_page']}">&gt;</span></li>--}}
-                {{--<li class="last pc"><span class="arrow pagerElem" id="last_page_{$info['header']['last_page']}">&gt;&gt;</span></li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-        {{--{/if}--}}
-    </div>
-</div>
+{{--売買実績テーブル--}}
+@include('common/bodyTradeTable')
 
 <div class="resarchPrice clear">
     <!--  市区町村の不動産価格・不動産売買実績を調べる -->
     <div class="inner first">
-        <h2 class="resarchPriceTitle">〇〇@if ($type == 'town')||($type == 'station')周辺@endifの不動産価格・不動産売買実績を調べる</h2>
+        {{--<h2 class="resarchPriceTitle">〇〇@if ($body['where'] == 'town')||($body['where'] == 'station')周辺@endifの不動産価格・不動産売買実績を調べる</h2>--}}
+        <h2 class="resarchPriceTitle">{{$body['areaCaption']}}周辺の不動産価格・不動産売買実績を調べる</h2>
         <ul class="">
             {{--{foreach $info['header']['desc']['list'] as $key => $value}--}}
             {{--<li><a href="{$value['link']}">{$value['name']} ({$value['count']})</a></li>--}}
@@ -109,10 +45,10 @@
     </div>
     <!--  市区町村の不動産価格・不動産売買実績を調べる -->
 
-    @if ($type != 'pref')
+    @if ($body['where'] != 'prefecture')
         <!--  ○○駅（○○県○○市）周辺の不動産価格・不動産売買実績を調べる -->
         <div class="inner">
-            <h2 class="resarchPriceTitle">〇〇の駅周辺の不動産価格・不動産売買実績を調べる</h2>
+            <h2 class="resarchPriceTitle">{{$body['areaCaptionOf']}}の駅周辺の不動産価格・不動産売買実績を調べる</h2>
             <ul class="">
                 {{--{foreach $info['header']['desc']['stationList'] as $key => $value}--}}
                 {{--{if $type == 'city'}--}}
@@ -130,15 +66,11 @@
 <!-- feature -->
 <div class="feature">
     <div class="inner">
-        <h2 class="featureTitle">{$info['header']['desc']['name']}の不動産価格・不動産売買実績について</h2>
+        <h2 class="featureTitle">{{$body['areaCaptionOf']}}不動産価格・不動産売買実績について</h2>
         <?php $parent = '日本全体'?>
         <?php $parentAll = '全国'?>
-        @if ($type == 'city') || ($type == 'town') || ($type == 'station')
-            {{--<?php $parent = $info['header']['desc']['parentName'] ?>--}}
-            {{--<?php $parentAll = "`$info['header']['desc']['parentName']`内" ?>--}}
-        @endif
         <p>
-            {$info['header']['desc']['name']}の不動産売買実績データから算出する不動産価格は、{{--
+            {{$body['areaCaptionOf']}}不動産売買実績データから算出する不動産価格は、{{--
             --}}直近一年間では、〇〇万円{{--
             --}}～〇〇万円の価格帯となっており、{{--
             --}}平均価格は〇〇万円です。〇〇の平均と比べると、〇〇の不動産価格の{{--

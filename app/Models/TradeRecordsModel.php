@@ -15,5 +15,4 @@ class TradeRecordsModel extends ModelBase
 
 
 
-
 }

@@ -29,6 +29,8 @@ abstract class BaseController extends Controller
         $body['formId'] = $this->formId();
         $body['list'] = $this->areaList();
         $body['where'] = 'index';
+        $body['areaCaption'] = '';
+        $body['areaCaptionOf'] = '';
 
         return $body;
     }
@@ -42,10 +44,12 @@ abstract class BaseController extends Controller
 
         $body['meta'] = $this->meta($areaValue);
         $body['headLine'] = $this->headLine($areaValue);
-        $body['copy'] = $this->catchCopy();
+        $body['copy'] = $this->catchCopy($areaValue);
         $body['formId'] = $this->formId();
         $body['list'] = $this->areaList($areaValue);
         $body['where'] = $areaValue->where();
+        $body['areaCaption'] = $areaValue->displayName();
+        $body['areaCaptionOf'] = $body['areaCaption'] . 'の';
 
         return $body;
     }
@@ -63,6 +67,7 @@ abstract class BaseController extends Controller
         $body['formId'] = $this->formId();
         $body['list'] = $this->areaList($areaValue);
         $body['where'] = $areaValue->where();
+        $body['areaCaption'] = $areaValue->displayName();
 
         return $body;
     }
