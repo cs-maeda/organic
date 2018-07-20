@@ -156,7 +156,7 @@
         }
     }
 }
-.prefectureLink{
+.areaLink{
     padding:40px 0;
     background-color:$contentGray;
     @media screen and (max-width:$sp_max){
@@ -165,10 +165,13 @@
     .inner{
         @include contentWidth;
         background:url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat;
+        &.second{
+            background:none;
+        }
         @media screen and (max-width:$sp_max){
             padding:0;
         }
-        .prefectureLinktitle{
+        .areaLinktitle{
             margin:0 0 30px 0;
             font-size:28px;
             font-weight:bold;
@@ -185,31 +188,56 @@
        }
         ul{
             @include displayFlex;
+            @include vp(flex-wrap, wrap);
             @media screen and (max-width:$sp_max){
                 display:block;
             }
             li{
-                padding:10px 0;
-                &:last-child a{
+                margin:5px 0;
+                padding:2px 0;
+                border-right:1px solid $formGray;
+                &:last-child{
                     border-right:none;
                 }
                 @media screen and (max-width:$sp_max){
+                    margin:0;
                     padding:0;
                     background:$contentGray url(/images/iacsicc/arrowBlue.gif) no-repeat;
                     background-position:right 10px top 50%;
+                    border:none;
                     border-bottom:1px solid $lightGray;
                     border-top:1px solid $formGray;
                 }
+                a{
+                    display:block;
+                    padding:0 15px;
+                    font-size:15px;
+                    @media screen and (max-width:$sp_max){
+                         color:$txt;
+                         line-height:50px;
+                         text-decoration:none;
+                    }
+                }
             }
-            a{
-                display:block;
-                padding:0 15px;
-                font-size:15px;
-                border-right:1px solid $formGray;
+        }
+        &.second{
+            li{
+                width:20%;
+                padding:3px 0;
+                &:nth-child(5n){
+                    border-right:none;
+                }
+                @media screen and (max-width:$pd_max){
+                    width:33.333333%;
+                    &:nth-child(5n){
+                        border-right:1px solid $formGray;
+                    }
+                    &:nth-child(3n){
+                        border-right:none;
+                    }
+                }
                 @media screen and (max-width:$sp_max){
-                     color:$txt;
-                     line-height:50px;
-                     text-decoration:none;
+                    width:100%;
                 }
             }
         }

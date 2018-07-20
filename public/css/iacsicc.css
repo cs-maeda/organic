@@ -258,67 +258,91 @@ img {
       font-size: 15px;
       line-height: 1.5; }
 
-.prefectureLink {
+.areaLink {
   padding: 40px 0;
   background-color: #e6e6e6; }
   @media screen and (max-width: 640px) {
-    .prefectureLink {
+    .areaLink {
       padding: 20px 0 0 0; } }
-  .prefectureLink .inner {
+  .areaLink .inner {
     box-sizing: border-box;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     background: url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat; }
     @media screen and (max-width: 1199px) {
-      .prefectureLink .inner {
+      .areaLink .inner {
         padding: 0 10px; } }
+    .areaLink .inner.second {
+      background: none; }
     @media screen and (max-width: 640px) {
-      .prefectureLink .inner {
+      .areaLink .inner {
         padding: 0; } }
-    .prefectureLink .inner .prefectureLinktitle {
+    .areaLink .inner .areaLinktitle {
       margin: 0 0 30px 0;
       font-size: 28px;
       font-weight: bold;
       text-align: center; }
       @media screen and (max-width: 1199px) {
-        .prefectureLink .inner .prefectureLinktitle {
+        .areaLink .inner .areaLinktitle {
           text-align: left; } }
       @media screen and (max-width: 640px) {
-        .prefectureLink .inner .prefectureLinktitle {
+        .areaLink .inner .areaLinktitle {
           margin-bottom: 10px;
           padding: 0 10px;
           font-size: 20px;
           text-align: left; } }
-    .prefectureLink .inner ul {
+    .areaLink .inner ul {
       display: -moz-flex;
       display: -ms-flex;
       display: -webkit-flex;
-      display: flex; }
+      display: flex;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap; }
       @media screen and (max-width: 640px) {
-        .prefectureLink .inner ul {
+        .areaLink .inner ul {
           display: block; } }
-      .prefectureLink .inner ul li {
-        padding: 10px 0; }
-        .prefectureLink .inner ul li:last-child a {
+      .areaLink .inner ul li {
+        margin: 5px 0;
+        padding: 2px 0;
+        border-right: 1px solid #999999; }
+        .areaLink .inner ul li:last-child {
           border-right: none; }
         @media screen and (max-width: 640px) {
-          .prefectureLink .inner ul li {
+          .areaLink .inner ul li {
+            margin: 0;
             padding: 0;
             background: #e6e6e6 url(/images/iacsicc/arrowBlue.gif) no-repeat;
             background-position: right 10px top 50%;
+            border: none;
             border-bottom: 1px solid #eeeeee;
             border-top: 1px solid #999999; } }
-      .prefectureLink .inner ul a {
-        display: block;
-        padding: 0 15px;
-        font-size: 15px;
-        border-right: 1px solid #999999; }
-        @media screen and (max-width: 640px) {
-          .prefectureLink .inner ul a {
-            color: #333333;
-            line-height: 50px;
-            text-decoration: none; } }
+        .areaLink .inner ul li a {
+          display: block;
+          padding: 0 15px;
+          font-size: 15px; }
+          @media screen and (max-width: 640px) {
+            .areaLink .inner ul li a {
+              color: #333333;
+              line-height: 50px;
+              text-decoration: none; } }
+    .areaLink .inner.second li {
+      width: 20%;
+      padding: 3px 0; }
+      .areaLink .inner.second li:nth-child(5n) {
+        border-right: none; }
+      @media screen and (max-width: 1199px) {
+        .areaLink .inner.second li {
+          width: 33.333333%; }
+          .areaLink .inner.second li:nth-child(5n) {
+            border-right: 1px solid #999999; }
+          .areaLink .inner.second li:nth-child(3n) {
+            border-right: none; } }
+      @media screen and (max-width: 640px) {
+        .areaLink .inner.second li {
+          width: 100%; } }
 
 .pageFoot {
   background-color: #5c5c5c; }
