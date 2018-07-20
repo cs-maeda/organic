@@ -67,4 +67,6 @@ class TradeRecordsModel extends ModelBase
 
         return $result;
     }
+
+
 }
