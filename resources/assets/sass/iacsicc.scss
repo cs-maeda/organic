@@ -433,8 +433,11 @@
     padding:40px 0;
     .inner{
         @include contentWidth;
+        &.recentPrice{
+            padding-bottom:40px;
+        }
         .recentPriceTitle{
-            margin:0 0 30px 0;
+            margin:0 0 10px 0;
             font-size:28px;
             font-weight:bold;
             @media screen and (max-width:$pd_max){
@@ -448,14 +451,58 @@
         }
         .recentPriceList{
             @include displayFlex;
+            @include vp(justify-content, space-between);
             li{
                 display:block;
-                padding:0x15px;
+                text-align:center;
+                border-bottom:1px solid $darkGray;
                 &:first-child{
                     padding-left:0;
                 }
                 &:last-child{
                     padding-right:0;
+                }
+                &.count{
+                    width:40%;
+                }
+                &.lowPrice{
+                    width:35%;
+                }
+                &.highPrice{
+                    width:20%;
+                }
+                h3{
+                    padding:5px 0;
+                    color:$white;
+                    font-size:18px;
+                    text-align:center;
+                    background-color:$darkGray;
+                }
+                p{
+                    padding:10px 0;
+                    font-size:22px;
+                    .red{
+                        font-size:1.4em;
+                        font-weight:bold;
+                    }
+                }
+            }
+        }
+        .showCount{
+        }
+        #trading{
+            .priceTable{
+                width:100%;
+                th{
+                    padding:5px 0;
+                    background-color:$gray;
+                    text-align:center;
+                    border:1px solid $borderGray;
+                }
+                td{
+                    padding:5px ;
+                    background-color:$white;
+                    border:1px solid $borderGray;
                 }
             }
         }

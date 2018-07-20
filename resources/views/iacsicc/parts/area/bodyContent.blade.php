@@ -1,7 +1,7 @@
 
 <div class="recentPrice">
-    <div class="inner">
-        <h2 class="recentPriceTitle">直近5年間の{{$body['areaCaptionOf']}}不動産売買件数と不動産価格相場（売却件数や平均価格など）</h2>
+    <div class="inner recentPrice">
+        <h2 class="recentPriceTitle">直近1年間の{{$body['areaCaptionOf']}}不動産売買件数と不動産価格相場（売却件数や平均価格など）</h2>
         <ul class="recentPriceList">
             <li class="count">
                 <h3>{{$body['areaCaptionOf']}}不動産売却件数</h3>
@@ -17,10 +17,11 @@
             </li>
         </ul>
     </div>
+    <div class="inner trade">
+        {{--売買実績テーブル--}}
+        @include('common/bodyTradeTable')
+    </div>
 </div>
-
-{{--売買実績テーブル--}}
-@include('common/bodyTradeTable')
 
 <div class="resarchPrice clear">
     <!--  市区町村の不動産価格・不動産売買実績を調べる -->

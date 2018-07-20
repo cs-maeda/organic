@@ -53,6 +53,9 @@ dd{
 li{
     list-style:none;
 }
+table{
+    border-collapse:collapse;
+}
 a{
 	color:$a;
         &:hover{

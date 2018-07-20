@@ -54,6 +54,9 @@ dd {
 li {
   list-style: none; }
 
+table {
+  border-collapse: collapse; }
+
 a {
   color: #2980c3; }
   a:hover {
@@ -533,8 +536,10 @@ img {
     @media screen and (max-width: 1199px) {
       .recentPrice .inner {
         padding: 0 10px; } }
+    .recentPrice .inner.recentPrice {
+      padding-bottom: 40px; }
     .recentPrice .inner .recentPriceTitle {
-      margin: 0 0 30px 0;
+      margin: 0 0 10px 0;
       font-size: 28px;
       font-weight: bold; }
       @media screen and (max-width: 1199px) {
@@ -549,11 +554,45 @@ img {
       display: -moz-flex;
       display: -ms-flex;
       display: -webkit-flex;
-      display: flex; }
+      display: flex;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+      -webkit-justify-content: space-between;
+      justify-content: space-between; }
       .recentPrice .inner .recentPriceList li {
         display: block;
-        padding: 0x15px; }
+        text-align: center;
+        border-bottom: 1px solid #777777; }
         .recentPrice .inner .recentPriceList li:first-child {
           padding-left: 0; }
         .recentPrice .inner .recentPriceList li:last-child {
           padding-right: 0; }
+        .recentPrice .inner .recentPriceList li.count {
+          width: 40%; }
+        .recentPrice .inner .recentPriceList li.lowPrice {
+          width: 35%; }
+        .recentPrice .inner .recentPriceList li.highPrice {
+          width: 20%; }
+        .recentPrice .inner .recentPriceList li h3 {
+          padding: 5px 0;
+          color: #ffffff;
+          font-size: 18px;
+          text-align: center;
+          background-color: #777777; }
+        .recentPrice .inner .recentPriceList li p {
+          padding: 10px 0;
+          font-size: 22px; }
+          .recentPrice .inner .recentPriceList li p .red {
+            font-size: 1.4em;
+            font-weight: bold; }
+    .recentPrice .inner #trading .priceTable {
+      width: 100%; }
+      .recentPrice .inner #trading .priceTable th {
+        padding: 5px 0;
+        background-color: #dddedf;
+        text-align: center;
+        border: 1px solid #c2c5c7; }
+      .recentPrice .inner #trading .priceTable td {
+        padding: 5px;
+        background-color: #ffffff;
+        border: 1px solid #c2c5c7; }
