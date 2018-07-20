@@ -28,7 +28,8 @@ select,
 option,
 optgroup,
 button,
-a {
+a,
+sup {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -62,8 +63,21 @@ a {
   a:hover {
     color: #61a6da; }
 
+sup {
+  font-size: 0.6em; }
+
+.textCenter {
+  text-align: center; }
+
+.textLeft {
+  text-align: left; }
+
+.textRight {
+  text-align: right; }
+
 .red {
-  color: #bd1d28; }
+  color: #bd1d28;
+  vertical-align: length; }
 
 img {
   border: none;
@@ -585,6 +599,9 @@ img {
           .recentPrice .inner .recentPriceList li p .red {
             font-size: 1.4em;
             font-weight: bold; }
+    @media screen and (max-width: 640px) {
+      .recentPrice .inner #trading {
+        overflow: auto; } }
     .recentPrice .inner #trading .priceTable {
       width: 100%; }
       .recentPrice .inner #trading .priceTable th {
@@ -593,6 +610,39 @@ img {
         text-align: center;
         border: 1px solid #c2c5c7; }
       .recentPrice .inner #trading .priceTable td {
-        padding: 5px;
+        padding: 10px 5px;
         background-color: #ffffff;
         border: 1px solid #c2c5c7; }
+      @media screen and (max-width: 640px) {
+        .recentPrice .inner #trading .priceTable {
+          width: auto; }
+          .recentPrice .inner #trading .priceTable th,
+          .recentPrice .inner #trading .priceTable td {
+            white-space: nowrap; } }
+    .recentPrice .inner .pager {
+      padding: 10px 0; }
+      .recentPrice .inner .pager .pagerList {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -webkit-justify-content: center;
+        justify-content: center; }
+        .recentPrice .inner .pager .pagerList li {
+          display: block;
+          width: 44px;
+          height: 44px;
+          margin: 0 1px;
+          line-height: 44px;
+          font-size: 16px;
+          text-align: center;
+          background-color: #eeeeee;
+          border-radius: 3px;
+          cursor: pointer; }
+          .recentPrice .inner .pager .pagerList li.current, .recentPrice .inner .pager .pagerList li:hover {
+            color: #ffffff;
+            background-color: #777777; }
+          .recentPrice .inner .pager .pagerList li.end {
+            width: 58px; }

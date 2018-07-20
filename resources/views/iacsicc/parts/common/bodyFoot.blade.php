@@ -1,11 +1,7 @@
 <footer class="pageFoot">
     <div class="inner">
-        <p class="head">地価公示価格・土地評価額がわかるサイト</p>
         <ul class="footerMenu">
             <li><a href="/">トップページ</a></li>
-            <!--<li><a href="#">都道府県ページ</a></li>
-            <li><a href="#">市区町村ページ</a></li>
-            <li><a href="#">町域ページ</a></li>-->
         </ul>
     </div>
 </footer>

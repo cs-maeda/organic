@@ -23,13 +23,13 @@
         </thead>
         <tbody id="tradeRecords">
             <tr>
-                <td>1</td>
+                <td class="textCenter">1</td>
                 <td>宅地(土地と建物)</td>
                 <td>札幌市中央区</td>
                 <td>西２８丁目</td>
                 <td>14分</td>
-                <td>3,200万円</td>
-                <td>340m<sup>2</sup></td>
+                <td class="textRight">3,200万円</td>
+                <td class="textRight">340m<sup>2</sup></td>
                 <td>昭和32年</td>
                 <td>木造</td>
                 <td>共同住宅</td>
@@ -38,6 +38,21 @@
         </tbody>
     </table>
 </div>
+<div class="pager">
+    <ul class="pagerList">
+        <li class="arrow pageFirst end">&lt;&lt;</li>
+        <li class="arrow pageBefore">&lt;</li>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li class="arrow pageNext">&gt;</li>
+        <li class="arrow pageLast end pc">&gt;&gt;</li>
+    </ul>
+</div>
+
+{{--
 {if $info['header']['last_page'] != 1}
 <div class="pager">
     <ul>
@@ -55,3 +70,4 @@
     </ul>
 </div>
 {/if}
+--}}

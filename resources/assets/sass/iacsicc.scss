@@ -491,6 +491,9 @@
         .showCount{
         }
         #trading{
+            @media screen and (max-width:$sp_max){
+                overflow:auto;
+            }
             .priceTable{
                 width:100%;
                 th{
@@ -500,9 +503,43 @@
                     border:1px solid $borderGray;
                 }
                 td{
-                    padding:5px ;
+                    padding:10px 5px;
                     background-color:$white;
                     border:1px solid $borderGray;
+                }
+                @media screen and (max-width:$sp_max){
+                    width:auto;
+                    th,
+                    td{
+                        white-space:nowrap;
+                    }
+                }
+            }
+        }
+        .pager{
+            padding:10px 0;
+            .pagerList{
+                @include displayFlex;
+                @include vp(justify-content, center);
+                li{
+                    display:block;
+                    width:44px;
+                    height:44px;
+                    margin:0 1px;
+                    line-height:44px;
+                    font-size:16px;
+                    text-align:center;
+                    background-color:$lightGray;
+                    border-radius:3px;
+                    cursor:pointer;
+                    &.current,
+                    &:hover{
+                        color:$white;
+                        background-color:$darkGray;
+                    }
+                    &.end{
+                        width:58px;
+                    }
                 }
             }
         }

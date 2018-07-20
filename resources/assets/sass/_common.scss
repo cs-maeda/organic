@@ -27,7 +27,8 @@ select,
 option,
 optgroup,
 button,
-a{
+a,
+sup{
 	box-sizing:border-box;
 	margin:0;
 	padding:0;
@@ -62,8 +63,21 @@ a{
         color:$a_hover;
     }
 }
+sup{
+    font-size:0.6em;
+}
+.textCenter{
+    text-align:center;
+}
+.textLeft{
+    text-align:left;
+}
+.textRight{
+    text-align:right;
+}
 .red{
     color:$red;
+    vertical-align:length;
 }
 img{
 	border:none;
