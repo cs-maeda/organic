@@ -13,6 +13,8 @@ class AreaValue
     protected $pwd = '';
     protected $areaInfo = [];
 
+    const WHOLE_OF_COUNTRY = 99;    // 全国の ID
+
     public function __construct(string $pwd, array $areaInfo)
     {
         $this->pwd = $pwd;
@@ -62,6 +64,25 @@ class AreaValue
     public function stationId(): int
     {
         return $this->areaInfo['station']['id'];
+    }
+
+    public function parentId(): int
+    {
+        $parentId = 0;
+        switch ($this->pwd)
+        {
+            case 'prefecture':
+                $parentId = self::WHOLE_OF_COUNTRY;
+                break;
+            case 'city':
+            case 'town':
+            case 'station':
+                $parentId = $this->areaInfo['prefecture']['id'];
+                break;
+            default:
+                break;
+        }
+        return $parentId;
     }
 
     public function displayName(): string

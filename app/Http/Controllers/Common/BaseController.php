@@ -50,6 +50,10 @@ abstract class BaseController extends Controller
         $body['formId'] = $this->formId();
         $body['list'] = $this->areaList($this->areaValue);
         $body['where'] = $this->areaValue->where();
+        $body['prefectureId'] = $this->areaValue->prefectureId();
+        $body['cityId'] = $this->areaValue->cityId();
+        $body['townId'] = $this->areaValue->townId();
+        $body['stationId'] = 0;
         $body['areaCaption'] = $this->areaValue->displayName();
         $body['areaCaptionOf'] = $body['areaCaption'] . 'の';
         $body['parentAreaCaption'] = $this->areaValue->parentAreaName();
@@ -70,6 +74,10 @@ abstract class BaseController extends Controller
         $body['formId'] = $this->formId();
         $body['list'] = $this->areaList($this->areaValue);
         $body['where'] = $this->areaValue->where();
+        $body['prefectureId'] = $this->areaValue->prefectureId();
+        $body['cityId'] = $this->areaValue->cityId();
+        $body['townId'] = 0;
+        $body['stationId'] = $this->areaValue->stationId();
         $body['areaCaption'] = $this->areaValue->displayName();
         $body['areaCaptionOf'] = $this->areaValue->displayName() . 'の';
         $body['parentAreaCaption'] = $this->areaValue->parentAreaName();

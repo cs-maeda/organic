@@ -17,14 +17,16 @@ use App\Value\AreaValue;
 
 class AreaFactory
 {
-    protected $prefecture = '';
-    protected $city = '';
-    protected $townId = 0;
-    protected $stationId = 0;
+    protected $prefecture = null;
+    protected $prefectureId = null;
+    protected $city = null;
+    protected $cityId = null;
+    protected $townId = null;
+    protected $stationId = null;
 
     protected $areaInfo = null;
 
-    public function __construct(string $prefecture, string $city = null, int $id = null, bool $isStation = false)
+    public function __construct(string $prefecture = null, string $city = null, int $id = null, bool $isStation = false)
     {
         $this->prefecture = $prefecture;
         if (isset($city)){
@@ -44,21 +46,29 @@ class AreaFactory
     {
         $res = [];
         $pwd = '';
-        if ($this->stationId > 0){
+        if (isset($this->stationId)){
             $pwd = 'station';
             $res = $this->stationArea($this->stationId);
         }
-        else if ($this->townId > 0){
+        else if (isset($this->townId)){
             $pwd = 'town';
             $res = $this->townArea($this->townId);
         }
-        else if ($this->city != ''){
+        else if (isset($this->city)){
             $pwd = 'city';
             $res = $this->cityArea($this->prefecture, $this->city);
         }
-        else if ($this->prefecture){
+        else if (isset($this->cityId)){
+            $pwd = 'city';
+            $res = $this->cityIdArea($this->prefectureId, $this->cityId);
+        }
+        else if (isset($this->prefecture)){
             $pwd = 'prefecture';
             $res = $this->prefectureArea($this->prefecture);
+        }
+        else if (isset($this->prefectureId)){
+            $pwd = 'prefecture';
+            $res = $this->prefectureIdArea($this->prefectureId);
         }
 
         $areaValue = new AreaValue($pwd, $res);
@@ -114,12 +124,40 @@ class AreaFactory
         return $res;
     }
 
+    protected function cityIdArea(int $prefectureId, int $cityId): array
+    {
+        $res = $this->initArea();
+
+        $model = new CityModel();
+        $result = $model->retrieveAreaById($prefectureId, $cityId);
+
+        $res['prefecture']['id'] = $result['prefecture_id'];
+        $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['city']['id'] = $result['city_id'];
+        $res['city']['name'] = $result['city_name'];
+
+        return $res;
+    }
+
     protected function prefectureArea(string $prefecture): array
     {
         $res = $this->initArea();
 
         $model = new PrefectureModel();
         $result = $model->retrieveArea($prefecture);
+
+        $res['prefecture']['id'] = $result['prefecture_id'];
+        $res['prefecture']['name'] = $result['prefecture_name'];
+
+        return $res;
+    }
+
+    protected function prefectureIdArea(int $prefectureId): array
+    {
+        $res = $this->initArea();
+
+        $model = new PrefectureModel();
+        $result = $model->retrieveAreaById($prefectureId);
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];

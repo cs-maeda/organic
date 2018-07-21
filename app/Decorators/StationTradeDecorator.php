@@ -9,7 +9,9 @@
 namespace App\Decorators;
 
 
-use App\TradeRecordsModel;
+use App\Condition\StationConditioner;
+use App\Models\TradeRankingModel;
+use App\Models\TradeRecordsModel;
 use App\Value\AreaValue;
 
 class StationTradeDecorator extends CityTradeDecorator
@@ -17,33 +19,34 @@ class StationTradeDecorator extends CityTradeDecorator
     public function __construct(AreaValue $areaValue)
     {
         parent::__construct($areaValue);
+
+        $tradeRankingModel = new TradeRankingModel();
+
+        $stationId = $this->areaValue->stationId();
+        $this->figure = $tradeRankingModel->figure($stationId);
+
+        $this->setTotalPageNum();
     }
 
-    public function tradeRecords()
+    public function tradeRecords(int $pageNum, int $limitCount)
     {
-        $stationId = $this->areaValue->stationId();
+        $conditioner = new StationConditioner($this->areaValue);
 
-        $res = TradeRecordsModel::where('town_id', $stationId)
-            ->offset($this->cursor)
-            ->limit($this->limitCount)
-            ->get();
-        return $res;
-    }
+        $tradeRecordModel = new TradeRecordsModel($conditioner);
+        $results = $tradeRecordModel->retrieve($pageNum, $limitCount);
 
-    protected function tradeRecordsCount(): int
-    {
-        $stationId = $this->areaValue->stationId();
-
-        $res = TradeRecordsModel::where('city_id', $stationId)->count();
-        return $res;
+        return $results;
     }
 
     protected function tradeFigure(): array
     {
-        $stationId = $this->areaValue->stationId();
+        $res['own'] = $this->figure;
 
-        $tradeRecordsModel = new TradeRecordsModel();
-        $res = $tradeRecordsModel->averageStation($stationId);
+        $tradeRankingModel = new TradeRankingModel();
+
+        $parentId = $this->areaValue->parentId();
+        $res['parent'] = $tradeRankingModel->figure($parentId);
+
         return $res;
     }
 

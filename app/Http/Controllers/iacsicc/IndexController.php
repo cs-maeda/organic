@@ -21,6 +21,7 @@ use App\Value\AreaValue;
 class IndexController extends BaseController
 {
     //
+    const IACS_ICC_ORG = 0;
 
     public function index(ConnectionInterface $conn)
     {
@@ -35,6 +36,9 @@ class IndexController extends BaseController
 
         $tradeDecorator = $this->tradeDecorator($this->areaValue);
         $body['figure'] = $tradeDecorator->figure();
+
+        $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
+        $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
 
         return view('iacsicc/index', ['body' => $body]);
     }

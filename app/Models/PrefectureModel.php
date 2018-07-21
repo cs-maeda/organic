@@ -30,6 +30,24 @@ class PrefectureModel extends ModelBase
         return $result;
     }
 
+    public function retrieveAreaById(int $prefectureId)
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "SELECT " .
+                "mst_prefecture.prefecture_id, " .
+                "mst_prefecture.prefecture_name " .
+            "FROM `mst_prefecture` " .
+            "WHERE " .
+                "mst_prefecture.prefecture_id = ?";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$prefectureId]);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     public function prefectureList()
     {
         $pdo = self::getPdo();

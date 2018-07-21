@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\rhsinc;
 
+use App\Factories\TradeDecoratorFactory;
 use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
 use App\Value\AreaValue;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 class IndexController extends BaseController
 {
     //
+    const RHS_INC_COM = 1;
 
     public function index(ConnectionInterface $conn)
     {

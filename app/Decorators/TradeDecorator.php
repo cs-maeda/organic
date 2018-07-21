@@ -9,21 +9,23 @@
 namespace App\Decorators;
 
 
+use App\Exceptions\OrganicException;
 use App\Value\AreaValue;
+use Mockery\Exception;
 
 abstract class TradeDecorator
 {
-    protected $cursor = 0;
+    protected $pageNum = 1;
+    protected $totalPageNum = 0;
+    protected $recordsCount = 0;
     protected $limitCount = 30;
     protected $areaValue = null;
-    protected $tradeCount = 0;
+    protected $figure = null;
 
     public function __construct(AreaValue $areaValue)
     {
-        $this->cursor = 0;
+        $this->pageNum = 1;
         $this->areaValue = $areaValue;
-
-        $this->tradeCount = $this->tradeRecordsCount();
     }
 
     public function setLimitCount(int $count)
@@ -31,44 +33,78 @@ abstract class TradeDecorator
         $this->limitCount = $count;
     }
 
+    public function setPageNum(int $pageNum)
+    {
+        $this->cursor = $pageNum;
+    }
+
+    public function pageNum()
+    {
+        return $this->pageNum;
+    }
+
+    public function recordsCount()
+    {
+        return $this->recordsCount;
+    }
+
     public function next(): array
     {
+        if ((($this->pageNum * $this->limitCount) + 1) > $this->figure['trade_count']){
+            throw new OrganicException();
+        }
+        $offset = $this->pageNum * $this->limitCount + 1;
+        $this->pageNum++;
+        $results = $this->tradeRecords($offset, $this->limitCount);
+        $this->recordsCount = count($results);
 
+        return $results;
     }
 
     public function previous(): array
     {
+        if (($this->cursor - $this->limitCount) < 1){
+            throw new OrganicException();
+        }
+        $this->cursor -= $this->limitCount;
+        $results = $this->tradeRecords($this->cursor, $this->limitCount);
+        $this->recordsCount = count($results);
 
+        return $results;
     }
 
     public function first(): array
     {
+        $this->cursor = 1;
+        $results = $this->tradeRecords($this->cursor, $this->limitCount);
+        $this->recordsCount = count($results);
 
+        return $results;
     }
 
     public function last(): array
     {
+        $this->cursor = 1;
+        for ($index = 1; $index <= $this->figure['trade_count']; $index += $this->limitCount){
+            $this->cursor += $this->limitCount;
+        }
+        $results = $this->tradeRecords($this->cursor, $this->limitCount);
+        $this->recordsCount = count($results);
 
-    }
-
-    public function count(): int
-    {
-        return $this->tradeCount;
+        return $results;
     }
 
     public function figure(): array
     {
-        $res['count'] = $this->tradeCount;
-
         $results = $this->tradeFigure();
-        $res['min_price'] = $results['min_price'];
-        $res['max_price'] = $results['max_price'];
-        $res['avg_price'] = $results['avg_price'];
-
-        return $res;
+        return $results;
     }
 
-    abstract protected function tradeRecordsCount(): int;
-    abstract protected function tradeRecords();
+    protected function setTotalPageNum()
+    {
+        $this->totalPageNum = intval(($this->figure['trade_count'] + ($this->limitCount - 1)) / $this->limitCount);
+    }
+
+    abstract protected function tradeRecords(int $cursor, int $limitCount);
     abstract protected function tradeFigure(): array;
 }

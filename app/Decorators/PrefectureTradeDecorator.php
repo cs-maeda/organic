@@ -9,6 +9,8 @@
 namespace App\Decorators;
 
 
+use App\Condition\PrefectureConditioner;
+use App\Models\TradeRankingModel;
 use App\Models\TradeRecordsModel;
 use App\Value\AreaValue;
 
@@ -17,32 +19,34 @@ class PrefectureTradeDecorator extends TradeDecorator
     public function __construct(AreaValue $areaValue)
     {
         parent::__construct($areaValue);
+
+        $tradeRankingModel = new TradeRankingModel();
+
+        $prefectureId = $this->areaValue->prefectureId();
+        $this->figure = $tradeRankingModel->figure($prefectureId);
+
+        $this->setTotalPageNum();
     }
 
-    public function tradeRecords()
+    public function tradeRecords(int $pageNum, int $limitCount)
     {
-        $prefectureId = $this->areaValue->prefectureId();
+        $conditioner = new PrefectureConditioner($this->areaValue);
 
-        $res = TradeRecordsModel::where('mst_prefecture_id', $prefectureId)
-            ->join('mst_prefecture', 'tbl_trade_records.prefecture_id', '=', 'mst_prefecture.mst_prefecture_id')
-            ->paginate($this->limitCount);
-        return $res;
-    }
+        $tradeRecordModel = new TradeRecordsModel($conditioner);
+        $results = $tradeRecordModel->retrieve($pageNum, $limitCount);
 
-    protected function tradeRecordsCount(): int
-    {
-        $prefectureId = $this->areaValue->prefectureId();
-
-        $res = TradeRecordsModel::where('prefecture_id', $prefectureId)->count();
-        return $res;
+        return $results;
     }
 
     protected function tradeFigure(): array
     {
-        $prefectureId = $this->areaValue->prefectureId();
+        $res['own'] = $this->figure;
 
-        $tradeRecordsModel = new TradeRecordsModel();
-        $res = $tradeRecordsModel->averagePrefecture($prefectureId);
+        $tradeRankingModel = new TradeRankingModel();
+
+        $parentId = $this->areaValue->parentId();
+        $res['parent'] = $tradeRankingModel->figure($parentId);
+
         return $res;
     }
 

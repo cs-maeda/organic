@@ -33,6 +33,27 @@ class CityModel extends ModelBase
         return $result;
     }
 
+    public function retrieveAreaById(int $prefectureId, int $cityId)
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "SELECT " .
+                "mst_city.prefecture_id, " .
+                "mst_city.prefecture_name, " .
+                "mst_city.city_id, " .
+                "mst_city.city_name " .
+            "FROM `mst_city` " .
+            "WHERE " .
+                "mst_city.prefecture_id = ? AND " .
+                "mst_city.city_id = ?";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$prefectureId, $cityId]);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     public function cityList(int $prefectureId)
     {
         $pdo = self::getPdo();

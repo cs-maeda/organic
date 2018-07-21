@@ -1,6 +1,11 @@
 <!-- priceList -->
 <h2 class="recentPriceTitle">{{$body['areaCaptionOf']}}不動産売却実績・不動産価格一覧</h2>
-<p class="showCount">〇〇件中 <span class="start_row">〇〇</span>-<span class="end_row">〇〇</span>を表示</p>
+<input type="hidden" id="prefectureId" value="{{$body['prefectureId']}}">
+<input type="hidden" id="cityId" value="{{$body['cityId']}}">
+<input type="hidden" id="townId" value="{{$body['townId']}}">
+<input type="hidden" id="stationId" value="{{$body['stationId']}}">
+<input type="hidden" id="pageNum" value="{{$body['tradeTable']['pageNum']}}">
+<p class="showCount">{{number_format($body['figure']['own']['trade_count'])}}件中 <span class="start_row">{{number_format($body['tradeTable']['pageNum'])}}</span>-<span class="end_row">{{number_format($body['tradeTable']['pageNum'] + $body['tradeTable']['recordsCount'] - 1)}}</span>を表示</p>
 <div id="trading">
     <table class="priceTable" border="0">
         <thead>
@@ -22,19 +27,6 @@
             </tr>
         </thead>
         <tbody id="tradeRecords">
-            <tr>
-                <td class="textCenter">1</td>
-                <td>宅地(土地と建物)</td>
-                <td>札幌市中央区</td>
-                <td>西２８丁目</td>
-                <td>14分</td>
-                <td class="textRight">3,200万円</td>
-                <td class="textRight">340m<sup>2</sup></td>
-                <td>昭和32年</td>
-                <td>木造</td>
-                <td>共同住宅</td>
-                <td>H29/04-06月</td>
-            </tr>
         </tbody>
     </table>
 </div>
@@ -52,22 +44,111 @@
     </ul>
 </div>
 
-{{--
-{if $info['header']['last_page'] != 1}
-<div class="pager">
-    <ul>
-        <li class="top pc"><span class="arrow pagerElem" id="top_page_{$info['header']['first_page']}">&lt;&lt;</span></li>
-        <li class="before"><span class="arrow pageBefore pagerElem" id="before_page_{$info['header']['prev_page']}">&lt;</span></li>
-        {foreach range($info['header']['tab_start'], $info['header']['tab_end']) as $count}
-        {if $info['header']['cur_page'] == $count}
-        <li class="current pageBox pagerElem" id="curBox_page_{$count}">{$count}</li>
-        {else}
-        <li class="pageBox pagerElem" id="curBox_page_{$count}">{$count}</li>
-        {/if}
-        {/foreach}
-        <li class="after"><span class="arrow pagerElem" id="after_page_{$info['header']['next_page']}">&gt;</span></li>
-        <li class="last pc"><span class="arrow pagerElem" id="last_page_{$info['header']['last_page']}">&gt;&gt;</span></li>
-    </ul>
-</div>
-{/if}
---}}
+<script src="/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
+<script type="text/javascript">
+
+    function clearTradeTable()
+    {
+        var tableObject = $('.priceTable');
+        var tableBody = tableObject.find('tbody');
+        tableBody.find('tr').remove();
+    }
+
+    function storeTradeTable(items)
+    {
+        var tableObject = $('.priceTable');
+
+        var num = items.tradeTable.pageNum;
+        $('#pageNum').val(num);
+
+        $.each(items.tradeRecord, function(i, item)
+        {
+            var row = "";
+            row += "<td class=\"textCenter\">" + num + "</td>";
+            row += "<td>" + item.caption + "</td>";
+            row += "<td>" + item.city_name + item.town_name + "</td>";
+            row += "<td>" + item.station_name + "</td>";
+            row += "<td>" + item.time_to_station + "分</td>";
+            row += "<td>" + item.price + "</td>";
+            row += "<td>" + item.area + "m<sup>2</sup></td>";
+            row += "<td>" + item.building_age + "</td>";
+            row += "<td>" + item.building_structure + "</td>";
+            row += "<td>" + item.land_usage + "</td>";
+            row += "<td>" + item.transaction_date + "</td>";
+
+            tableObject.find('tbody').append(
+                $('<tr>').append(row)
+            );
+            num += 1;
+        });
+
+    }
+
+    function retrieveTradeTableImpl(url)
+    {
+        $.ajax(
+            {
+                url: url,
+                dataType: 'json',
+                type: "GET",
+                data: ""
+            })
+            .then(
+                function(res)
+                {
+                    storeTradeTable(res);
+                },
+                function()
+                {
+                    alert('売買実績データの取得に失敗しました');
+                });
+    }
+
+    function retrieveTradeTable(action)
+    {
+        var prefectureId = $('#prefectureId').val();
+        var cityId = $('#cityId').val();
+        var townId = $('#townId').val();
+        var stationId = $('#stationId').val();
+        var pageNum = $('#pageNum').val();
+
+        var url = '/api/trade/prefecture/' + prefectureId + '/' + pageNum + '/' + action + '/';
+        if (cityId > 0){
+            url = '/api/trade/city/' + cityId + '/' + pageNum + '/' + action + '/';
+        }
+        if (townId > 0){
+            url = '/api/trade/town/' + townId + '/' + pageNum + '/' + action + '/';
+        }
+        if (stationId > 0){
+            url = '/api/trade/station/' + stationId + '/' + pageNum + '/' + action + '/';
+        }
+        retrieveTradeTableImpl(url);
+    }
+
+    $(document).ready(function()
+    {
+        retrieveTradeTable('first');
+    });
+
+    $('.pageFirst').on('click', function()
+    {
+        retrieveTradeTable('first');
+    });
+
+    $('.pageLast').on('click', function()
+    {
+        retrieveTradeTable('last');
+    });
+
+    $('.pageNext').on('click', function()
+    {
+        retrieveTradeTable('next');
+    });
+
+    $('.pageBefore').on('click', function()
+    {
+        retrieveTradeTable('prev');
+    });
+
+</script>
