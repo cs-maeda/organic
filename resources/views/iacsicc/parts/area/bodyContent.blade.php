@@ -23,64 +23,7 @@
     </div>
 </div>
 
-<div class="areaLink">
-    <!--  市区町村の不動産価格・不動産売買実績を調べる -->
-    <div class="inner second">
-        {{--<h2 class="areaLinktitle">〇〇@if ($body['where'] == 'town')||($body['where'] == 'station')周辺@endifの不動産価格・不動産売買実績を調べる</h2>--}}
-        <h2 class="areaLinktitle">{{$body['areaCaption']}}の不動産価格・不動産売買実績を調べる</h2>
-        <ul class="areaList">
-            {{--{foreach $info['header']['desc']['list'] as $key => $value}--}}
-            {{--<li><a href="{$value['link']}">{$value['name']} ({$value['count']})</a></li>--}}
-            {{--{/foreach}--}}
-
-{{--===================★★★ダミーです START★★★==================--}}
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北区 (3887)</a></li>
-            <li><a href="#">札幌市東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石区 (2396)</a></li>
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北東東東東区 (3887)</a></li>
-            <li><a href="#">札幌市東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石白石区 (2396)</a></li>
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北区 (3887)</a></li>
-            <li><a href="#">札幌市東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石区 (2396)</a></li>
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北区 (3887)</a></li>
-            <li><a href="#">札幌市東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石白石区 (2396)</a></li>
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北区 (3887)</a></li>
-            <li><a href="#">札幌市東東東東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石区 (2396)</a></li>
-            <li><a href="#">札幌市中央区 (3545)</a></li>
-            <li><a href="#">札幌市北区 (3887)</a></li>
-            <li><a href="#">札幌市東区 (2801)</a></li>
-            <li><a href="#">札幌市白石白石白石白石白石区 (2396)</a></li>
-{{--===================★★★ダミーです END★★★==================--}}
-
-        </ul>
-    </div>
-    <!--  市区町村の不動産価格・不動産売買実績を調べる -->
-
-    @if ($body['where'] != 'prefecture')
-    <!--  ○○駅（○○県○○市）周辺の不動産価格・不動産売買実績を調べる -->
-    <div class="inner second">
-        <h2 class="areaLinktitle">{{$body['areaCaptionOf']}}の駅周辺の不動産価格・不動産売買実績を調べる</h2>
-        <ul class="areaList">
-            {{--{foreach $info['header']['desc']['stationList'] as $key => $value}--}}
-            {{--{if $type == 'city'}--}}
-            {{--<li><a href="./station/{$key}/">{$value['name']}駅&nbsp;({$value['count']})</a></li>--}}
-            {{--{else}--}}
-            {{--<li><a href="{$value['link']}">{$value['name']}駅&nbsp;({$value['count']})</a></li>--}}
-            {{--{/if}--}}
-            {{--{/foreach}--}}
-        </ul>
-    </div>
-    <!--  ○○駅（○○県○○市）周辺の不動産価格・不動産売買実績を調べる -->
-    @endif
-</div>
+@include('common.bodyAreaLink')
 
 <!-- feature -->
 <div class="feature">

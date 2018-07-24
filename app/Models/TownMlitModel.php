@@ -24,7 +24,7 @@ class TownMlitModel extends ModelBase
                 "mst_town_mlit.id AS town_id, " .
                 "mst_town_mlit.town_name " .
             "FROM `mst_town_mlit` " .
-            "WHERE mst_town_mlit.id = ?";
+            "WHERE mst_town_mlit.town_id = ?";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$townId]);
@@ -44,13 +44,13 @@ class TownMlitModel extends ModelBase
                 "mst_city.city_id, " .
                 "mst_city.city_name, " .
                 "mst_city.city_alphabet, " .
-                "mst_town_mlit.id AS town_id, " .
+                "mst_town_mlit.town_id AS town_id, " .
                 "mst_town_mlit.town_name, " .
                 "tbl_trade_count.trade_count " .
             "FROM `mst_town_mlit` " .
                 "LEFT JOIN mst_city ON mst_town_mlit.city_id = mst_city.city_id " .
                 "LEFT JOIN tbl_trade_count ON mst_town_mlit.town_id = tbl_trade_count.area_id AND tbl_trade_count.station = 0 " .
-            "WHERE mst_city.city_id = ?";
+            "WHERE mst_city.city_id = ? AND mst_town_mlit.town_id > 0";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$cityId]);
