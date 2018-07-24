@@ -31,11 +31,13 @@ abstract class TradeDecorator
     public function setLimitCount(int $count)
     {
         $this->limitCount = $count;
+
+        $this->setTotalPageNum();
     }
 
     public function setPageNum(int $pageNum)
     {
-        $this->cursor = $pageNum;
+        $this->pageNum = $pageNum;
     }
 
     public function pageNum()
@@ -50,46 +52,38 @@ abstract class TradeDecorator
 
     public function next(): array
     {
-        if ((($this->pageNum * $this->limitCount) + 1) > $this->figure['trade_count']){
+        if ($this->pageNum + 1 > $this->totalPageNum){
             throw new OrganicException();
         }
-        $offset = $this->pageNum * $this->limitCount + 1;
         $this->pageNum++;
-        $results = $this->tradeRecords($offset, $this->limitCount);
-        $this->recordsCount = count($results);
+        $results = $this->retrieve($this->pageNum, $this->totalPageNum, $this->limitCount);
 
         return $results;
     }
 
     public function previous(): array
     {
-        if (($this->cursor - $this->limitCount) < 1){
+        if ($this->pageNum <= 1){
             throw new OrganicException();
         }
-        $this->cursor -= $this->limitCount;
-        $results = $this->tradeRecords($this->cursor, $this->limitCount);
-        $this->recordsCount = count($results);
+        $this->pageNum--;
+        $results = $this->retrieve($this->pageNum, $this->totalPageNum, $this->limitCount);
 
         return $results;
     }
 
     public function first(): array
     {
-        $this->cursor = 1;
-        $results = $this->tradeRecords($this->cursor, $this->limitCount);
-        $this->recordsCount = count($results);
+        $this->pageNum = 1;
+        $results = $this->retrieve($this->pageNum, $this->totalPageNum, $this->limitCount);
 
         return $results;
     }
 
     public function last(): array
     {
-        $this->cursor = 1;
-        for ($index = 1; $index <= $this->figure['trade_count']; $index += $this->limitCount){
-            $this->cursor += $this->limitCount;
-        }
-        $results = $this->tradeRecords($this->cursor, $this->limitCount);
-        $this->recordsCount = count($results);
+        $this->pageNum = $this->totalPageNum;
+        $results = $this->retrieve($this->pageNum, $this->totalPageNum, $this->limitCount);
 
         return $results;
     }
@@ -102,9 +96,50 @@ abstract class TradeDecorator
 
     protected function setTotalPageNum()
     {
+        $this->recordsCount = $this->figure['trade_count'];
         $this->totalPageNum = intval(($this->figure['trade_count'] + ($this->limitCount - 1)) / $this->limitCount);
     }
 
-    abstract protected function tradeRecords(int $cursor, int $limitCount);
+    protected function retrieve(int $pageNum, int $totalPageNum, int $limitCount): array
+    {
+        $offset = (($pageNum - 1) * $limitCount) + 1;
+        $results['tradeRecord'] = $this->tradeRecords($offset, $limitCount);
+
+        $results['tradeTable']['pageNum'] = $pageNum;
+        $results['tradeTable']['recordsCount'] = $this->recordsCount;
+
+        $results['pager']['buttonFirst'] = true;
+        $results['pager']['buttonPrev'] = true;
+        $results['pager']['buttonNext'] = true;
+        $results['pager']['buttonLast'] = true;
+
+        $startPageNum = $pageNum - 2;
+        if (($totalPageNum <= 5)||($pageNum <= 3)){
+            $startPageNum = 1;
+        }
+        if (($totalPageNum > 5)&&(($pageNum + 3) > $totalPageNum)){
+            $startPageNum = $totalPageNum - 4;
+        }
+
+        for ($index = $startPageNum, $count = 0; ($index <= $totalPageNum) && ($count < 5); $index++, $count++){
+            $results['pager']['buttonNumber'][] = $index;
+        }
+
+        if ($startPageNum <= 1){
+            $results['pager']['buttonFirst'] = false;
+        }
+        if ($pageNum <= 1){
+            $results['pager']['buttonPrev'] = false;
+        }
+        if ($startPageNum >= ($totalPageNum - 5)){
+            $results['pager']['buttonLast'] = false;
+        }
+        if ($pageNum >= $totalPageNum){
+            $results['pager']['buttonNext'] = false;
+        }
+        return $results;
+    }
+
+    abstract protected function tradeRecords(int $pageNum, int $limitCount);
     abstract protected function tradeFigure(): array;
 }

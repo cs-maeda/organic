@@ -28,12 +28,12 @@ class PrefectureTradeDecorator extends TradeDecorator
         $this->setTotalPageNum();
     }
 
-    public function tradeRecords(int $pageNum, int $limitCount)
+    public function tradeRecords(int $offset, int $limitCount)
     {
         $conditioner = new PrefectureConditioner($this->areaValue);
 
         $tradeRecordModel = new TradeRecordsModel($conditioner);
-        $results = $tradeRecordModel->retrieve($pageNum, $limitCount);
+        $results = $tradeRecordModel->retrieve($offset, $limitCount);
 
         return $results;
     }

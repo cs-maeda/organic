@@ -13,7 +13,7 @@ class TradeRecordsModel extends ModelBase
     protected $primaryKey = 'tbl_trade_records_id';
     protected $table = 'tbl_trade_records';
 
-    protected $conditioner;
+    protected $conditioner = null;
 
     public function __construct(Conditioner $conditioner)
     {
@@ -32,7 +32,9 @@ class TradeRecordsModel extends ModelBase
             "SELECT " .
                 "tbl_trade_records.prefecture_id, " .
                 "tbl_trade_records.city_id, " .
+                "tbl_trade_records.city_name, " .
                 "tbl_trade_records.town_id, " .
+                "tbl_trade_records.town_name, " .
                 "tbl_trade_records.station_name, " .
                 "tbl_trade_records.time_to_station, " .
                 "tbl_trade_records.price, " .
@@ -41,14 +43,10 @@ class TradeRecordsModel extends ModelBase
                 "tbl_trade_records.building_structure, " .
                 "tbl_trade_records.land_usage, " .
                 "tbl_trade_records.transaction_date, " .
-                "tbl_trade_type.caption, " .
-                "mst_town_mlit.city_name, " .
-                "mst_town_mlit.town_name " .
+                "tbl_trade_records.type_caption " .
             "FROM `tbl_trade_records` " .
-                "LEFT JOIN tbl_trade_type ON tbl_trade_records.type = tbl_trade_type.type " .
-                "LEFT JOIN mst_town_mlit ON tbl_trade_records.town_id = mst_town_mlit.id " .
-                "LEFT JOIN mst_station_mlit ON tbl_trade_records.station_id = mst_station_mlit.station_id " .
             "WHERE 1 {$condition} " .
+            "ORDER BY tbl_trade_records.transaction_year DESC " .
             "LIMIT {$cursor}, {$limitCount}";
 
         $stmt = $pdo->prepare($sql);

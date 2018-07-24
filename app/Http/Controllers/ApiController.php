@@ -100,21 +100,21 @@ class ApiController extends Controller
         $tradeDecorator->setPageNum($pageNum);
         switch ($action){
             case 'first':
-                $res['tradeRecord'] = $tradeDecorator->first();
+                $res = $tradeDecorator->first();
                 break;
             case 'last':
-                $res['tradeRecord'] = $tradeDecorator->last();
+                $res = $tradeDecorator->last();
                 break;
             case 'next':
-                $res['tradeRecord'] = $tradeDecorator->next();
+                $res = $tradeDecorator->next();
                 break;
             case 'prev':
-                $res['tradeRecord'] = $tradeDecorator->previous();
+                $res = $tradeDecorator->previous();
+                break;
+            default:
+                $res = [];
                 break;
         }
-        $res['tradeTable']['cursor'] = $tradeDecorator->cursor();
-        $res['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
-
         return response()->json($res);
     }
 
