@@ -24,7 +24,7 @@
             @include('Iacsicc/parts/area/bodyContent')
         @endif
 
-        @include('Iacsicc/parts/common/bodyPrefectureLink')
+        @include('common.bodyPrefectureLink')
 
         <div>
             <div class="formCopy">

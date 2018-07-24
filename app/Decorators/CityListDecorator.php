@@ -20,12 +20,24 @@ class CityListDecorator extends PrefectureListDecorator
 
     public function townStationList(int $cityId)
     {
+        $res = [];
         $townModel = new TownMlitModel();
-        $res['town'] = $townModel->townList($cityId);
+        $results = $townModel->townList($cityId);
+
+        foreach ($results as $result){
+            $caption = $result['town_name'] . "(" . $result['trade_count'] . ")";
+            $link = "/" . $result['prefecture_alphabet'] . "/" . $result['city_alphabet'] . "/" . $result['town_id'] . "/";
+            $res['town'][] = ['caption' => $caption, 'link' => $link];
+        }
 
         $stationModel = new StationMlitModel();
-        $res['station'] = $stationModel->stationList($cityId);
+        $results = $stationModel->stationList($cityId);
 
+        foreach ($results as $result){
+            $caption = $result['station_name'] . "駅(" . $result['trade_count'] . ")";
+            $link = "/" . $result['prefecture_alphabet'] . "/" . $result['city_alphabet'] . "/station/" . $result['station_id'] . "/";
+            $res['station'][] = ['caption' => $caption, 'link' => $link];
+        }
         return $res;
     }
 }

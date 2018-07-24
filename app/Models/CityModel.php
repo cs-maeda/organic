@@ -64,8 +64,10 @@ class CityModel extends ModelBase
                 "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
                 "mst_city.city_name, " .
-                "mst_city.city_alphabet " .
+                "mst_city.city_alphabet, " .
+                "tbl_trade_count.trade_count " .
             "FROM `mst_city` " .
+                "LEFT JOIN tbl_trade_count ON mst_city.city_id = tbl_trade_count.area_id AND tbl_trade_count.station = 0 " .
             "WHERE " .
                 "mst_city.prefecture_id = ? " .
             "ORDER BY mst_city.city_id";

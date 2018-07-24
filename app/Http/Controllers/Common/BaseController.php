@@ -29,7 +29,7 @@ abstract class BaseController extends Controller
         $body['headLine'] = $this->headLine();
         $body['copy'] = $this->catchCopy();
         $body['formId'] = $this->formId();
-        $body['list'] = $this->areaList();
+        $body['areaLink'] = $this->areaList();
         $body['where'] = 'index';
         $body['areaCaption'] = '';
         $body['areaCaptionOf'] = '';
@@ -48,7 +48,7 @@ abstract class BaseController extends Controller
         $body['headLine'] = $this->headLine($this->areaValue);
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
-        $body['list'] = $this->areaList($this->areaValue);
+        $body['areaLink'] = $this->areaList($this->areaValue);
         $body['where'] = $this->areaValue->where();
         $body['prefectureId'] = $this->areaValue->prefectureId();
         $body['cityId'] = $this->areaValue->cityId();
@@ -72,7 +72,7 @@ abstract class BaseController extends Controller
         $body['headLine'] = $this->headLine($this->areaValue);
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
-        $body['list'] = $this->areaList($this->areaValue);
+        $body['areaLink'] = $this->areaList($this->areaValue);
         $body['where'] = $this->areaValue->where();
         $body['prefectureId'] = $this->areaValue->prefectureId();
         $body['cityId'] = $this->areaValue->cityId();
@@ -110,6 +110,7 @@ abstract class BaseController extends Controller
             default:
                 break;
         }
+
         return $res;
     }
 

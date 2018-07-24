@@ -17,11 +17,17 @@ class PrefectureListDecorator extends ListDecorator
     {
     }
 
-    public function cityList(int $prefectureId)
+    public function cityList(int $prefectureId): array
     {
         $model = new CityModel();
-        $res['city'] = $model->cityList($prefectureId);
+        $results = $model->cityList($prefectureId);
 
+        $res = [];
+        foreach ($results as $result){
+            $caption = $result['city_name'] . "(" . $result['trade_count'] . ")";
+            $link = "/" . $result['prefecture_alphabet'] . "/" . $result['city_alphabet'] . "/";
+            $res['city'][] = ['caption' => $caption, 'link' => $link];
+        }
         return $res;
     }
 
