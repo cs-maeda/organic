@@ -140,7 +140,7 @@
 
         var tableObject = $('.priceTable');
 
-        var num = (items.tradeTable.pageNum * 30) + 1;
+        var num = ((items.tradeTable.pageNum - 1) * 30) + 1;
         $('#pageNum').val(items.tradeTable.pageNum);
 
         $.each(items.tradeRecord, function(i, item)
