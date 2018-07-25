@@ -82,6 +82,11 @@
         var thirdButton = $('.thirdButton');
         var forthButton = $('.forthButton');
         var fifthButton = $('.fifthButton');
+        firstButton.hide();
+        secondButton.hide();
+        thirdButton.hide();
+        forthButton.hide();
+        fifthButton.hide();
         $.each(pager.buttonNumber, function(i, item)
         {
             switch(i){

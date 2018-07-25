@@ -21,7 +21,7 @@ class TownMlitModel extends ModelBase
                 "mst_town_mlit.prefecture_name, " .
                 "mst_town_mlit.city_id, " .
                 "mst_town_mlit.city_name, " .
-                "mst_town_mlit.id AS town_id, " .
+                "mst_town_mlit.town_id, " .
                 "mst_town_mlit.town_name " .
             "FROM `mst_town_mlit` " .
             "WHERE mst_town_mlit.town_id = ?";
