@@ -157,7 +157,7 @@ class AreaValue
 
     protected function displayStationName(): string
     {
-        $stationName = $this->areaInfo['station']['name'] . '(' . $this->displayCityName() . ')';
+        $stationName = $this->areaInfo['station']['name'] . '駅(' . $this->displayCityName() . ')';
         return $stationName;
     }
 

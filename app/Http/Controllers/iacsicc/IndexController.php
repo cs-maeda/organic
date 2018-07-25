@@ -46,6 +46,11 @@ class IndexController extends BaseController
     public function station(ConnectionInterface $conn, string $prefecture, string $city, int $stationId)
     {
         $body = $this->stationImpl($prefecture, $city, $stationId);
+        $tradeDecorator = $this->tradeDecorator($this->areaValue);
+        $body['figure'] = $tradeDecorator->figure();
+
+        $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
+        $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
 
         return view('iacsicc/index', ['body' => $body]);
     }
