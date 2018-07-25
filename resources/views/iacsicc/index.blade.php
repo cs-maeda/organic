@@ -6,12 +6,12 @@
     <?php $formButtonValue = '最短45秒無料査定!' ?>
 
     <head>
-        @include('Iacsicc/parts/common/htmlHead')
+        @include('iacsicc/parts/common/htmlHead')
     </head>
     <body id="body_{{$body['where']}}">
         <?php $idNo = -1; ?>
-        @include('Iacsicc/parts/common/bodyHead')
-        @include('Iacsicc/parts/common/bodyMainImg')
+        @include('iacsicc/parts/common/bodyHead')
+        @include('iacsicc/parts/common/bodyMainImg')
         <div class="formCopy">
             <p class="catch">{!! $body['copy'][3] !!}</p>
         </div>
@@ -19,9 +19,9 @@
         @include('common.bodySfForm')
 
         @if ($body['where'] == 'index')
-            @include('Iacsicc/parts/index/bodyContent')
+            @include('iacsicc/parts/index/bodyContent')
         @else
-            @include('Iacsicc/parts/area/bodyContent')
+            @include('iacsicc/parts/area/bodyContent')
         @endif
 
         @include('common.bodyPrefectureLink')
@@ -54,6 +54,6 @@
             </div>
         @endif
         @include('common/bodyFormButton')
-        @include('Iacsicc/parts/common/bodyFoot')
+        @include('iacsicc/parts/common/bodyFoot')
     </body>
 </html>
