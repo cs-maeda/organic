@@ -31,6 +31,7 @@ class TradeRankingModel extends ModelBase
     {
         $pdo = self::getPdo();
         $sql = 'DELETE FROM tbl_trade_ranking';
+// TRUNCATE TABLE
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();

@@ -11,7 +11,8 @@
 |
 */
 
-Route::domain('www.iacs-icc.dev')->group(function()
+Route::domain(env('APP_IACS_ICC_DOMAIN'))->group(function()
+//Route::domain('dev.iacs-icc.org')->group(function()
 {
 // for test -->
     Route::get('/test/{num}',                                           'ApiController@unitTest');
@@ -30,8 +31,12 @@ Route::domain('www.iacs-icc.dev')->group(function()
     Route::get('/{prefecture}/{city}/station/{stationId}',              'iacsicc\IndexController@station');
 });
 
-Route::domain('www.rhs-inc.dev')->group(function()
+Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
+//Route::domain('dev.rhs-inc.com')->group(function()
 {
+// for test -->
+    Route::get('/test/{num}',                                           'ApiController@unitTest');
+// <-- for test
 // web api -->
     Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
     Route::get('/api/form/town/{cityId}',                               'ApiController@townList');

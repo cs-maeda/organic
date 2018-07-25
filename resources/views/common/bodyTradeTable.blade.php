@@ -82,16 +82,15 @@
         var thirdButton = $('.thirdButton');
         var forthButton = $('.forthButton');
         var fifthButton = $('.fifthButton');
-        firstButton.hide();
-        secondButton.hide();
-        thirdButton.hide();
-        forthButton.hide();
-        fifthButton.hide();
+        firstButton.hide().removeClass("current");
+        secondButton.hide().removeClass("current");
+        thirdButton.hide().removeClass("current");
+        forthButton.hide().removeClass("current");
+        fifthButton.hide().removeClass("current");
         $.each(pager.buttonNumber, function(i, item)
         {
             switch(i){
                 case 0:
-                    firstButton.removeClass("current");
                     if (item === pageNum){
                         firstButton.addClass("current");
                     }
@@ -99,7 +98,6 @@
                     firstButton.show();
                     break;
                 case 1:
-                    secondButton.removeClass("current");
                     if (item === pageNum){
                         secondButton.addClass("current");
                     }
@@ -107,7 +105,6 @@
                     secondButton.show();
                     break;
                 case 2:
-                    thirdButton.removeClass("current");
                     if (item === pageNum){
                         thirdButton.addClass("current");
                     }
@@ -115,7 +112,6 @@
                     thirdButton.show();
                     break;
                 case 3:
-                    forthButton.removeClass("current");
                     if (item === pageNum){
                         forthButton.addClass("current");
                     }
@@ -123,7 +119,6 @@
                     forthButton.show();
                     break;
                 case 4:
-                    fifthButton.removeClass("current");
                     if (item === pageNum){
                         fifthButton.addClass("current");
                     }
