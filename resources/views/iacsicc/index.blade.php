@@ -15,9 +15,11 @@
         <div class="formCopy">
             <p class="catch">{!! $body['copy'][3] !!}</p>
         </div>
-        @include('common.bodyBreadcrumb')
         <?php $idNo++; ?>
         @include('common.bodySfForm')
+        @if ($body['where'] != 'index')
+            @include('common.bodyBreadcrumb')
+        @endif
 
         @if ($body['where'] == 'index')
             @include('iacsicc/parts/index/bodyContent')
