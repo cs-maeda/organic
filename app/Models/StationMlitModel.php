@@ -19,8 +19,10 @@ class StationMlitModel extends ModelBase
             "SELECT " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
                 "mst_city.city_name, " .
+                "mst_city.city_alphabet, " .
                 "mst_station_mlit.station_id, " .
                 "mst_station_mlit.station_name " .
             "FROM `mst_station_mlit` " .

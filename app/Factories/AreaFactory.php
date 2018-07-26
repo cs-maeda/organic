@@ -84,8 +84,10 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
         $res['city']['id'] = $result['city_id'];
         $res['city']['name'] = $result['city_name'];
+        $res['city']['alphabet'] = $result['city_alphabet'];
         $res['station']['id'] = $result['station_id'];
         $res['station']['name'] = $result['station_name'];
 
@@ -101,8 +103,10 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
         $res['city']['id'] = $result['city_id'];
         $res['city']['name'] = $result['city_name'];
+        $res['city']['alphabet'] = $result['city_alphabet'];
         $res['town']['id'] = $result['town_id'];
         $res['town']['name'] = $result['town_name'];
 
@@ -118,8 +122,10 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
         $res['city']['id'] = $result['city_id'];
         $res['city']['name'] = $result['city_name'];
+        $res['city']['alphabet'] = $result['city_alphabet'];
 
         return $res;
     }
@@ -133,8 +139,10 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
         $res['city']['id'] = $result['city_id'];
         $res['city']['name'] = $result['city_name'];
+        $res['city']['alphabet'] = $result['city_alphabet'];
 
         return $res;
     }
@@ -148,6 +156,7 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
 
         return $res;
     }
@@ -161,6 +170,7 @@ class AreaFactory
 
         $res['prefecture']['id'] = $result['prefecture_id'];
         $res['prefecture']['name'] = $result['prefecture_name'];
+        $res['prefecture']['alphabet'] = $result['prefecture_alphabet'];
 
         return $res;
     }
