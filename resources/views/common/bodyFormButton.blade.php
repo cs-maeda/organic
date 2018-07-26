@@ -5,6 +5,6 @@
             print 'dev';
         } else {
             print 'com';
-        } ?>/drive/form/sell/?formId={{$body['formId']}}" class="button">最短45秒無料査定　START</a>
+        } ?>/drive/form/sell/?formId={{$body['formId']}}" class="button">{{$body['form']['buttonValue']}}　START</a>
 </div>
 

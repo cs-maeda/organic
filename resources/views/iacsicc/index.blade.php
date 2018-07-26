@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html>
-    {{--掲載数、クライアント数などはここで定義してください--}}
-    <?php $clientCount = '1,400' ?>
-    {{--formのボタンのvalue--}}
-    <?php $formButtonValue = '最短45秒無料査定!' ?>
-    <link rel="shortcut icon" href="/images/iacsicc/favicon.ico" />
-
     <head>
         @include('common.htmlHead')
     </head>
@@ -39,7 +33,7 @@
                 @if ($body['where'] != 'index')
                     {{$body['areaCaptionOf']}}不動産価格に詳しい
                 @else
-                    1,400社以上の
+                    {{$body['form']['clientCount']}}社以上の
                 @endif
                 不動産会社が対応！
                 </p>

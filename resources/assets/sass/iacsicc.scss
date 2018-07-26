@@ -393,6 +393,14 @@
                         display:none;
                     }
                 }
+                &.focusOn{
+                    select{
+                        border:2px solid $red;
+                    }
+                    .formStep{
+                        background-color:$red;
+                    }
+                }
             }
         }
         .submit{
