@@ -47,6 +47,7 @@ abstract class BaseController extends Controller
 
         $body['meta'] = $this->meta($this->areaValue);
         $body['headLine'] = $this->headLine($this->areaValue);
+        $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
         $body['areaLink'] = $this->areaList($this->areaValue);
@@ -71,6 +72,7 @@ abstract class BaseController extends Controller
 
         $body['meta'] = $this->meta($this->areaValue);
         $body['headLine'] = $this->headLine($this->areaValue);
+        $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
         $body['areaLink'] = $this->areaList($this->areaValue);
