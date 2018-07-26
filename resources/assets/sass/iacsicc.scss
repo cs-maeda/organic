@@ -167,6 +167,11 @@
         background:url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat;
         &.second{
             background:none;
+            &.town{
+                padding-bottom:40px;
+                margin-bottom:40px;
+                border-bottom:1px solid $formGray;
+            }
         }
         @media screen and (max-width:$sp_max){
             padding:0;
@@ -219,11 +224,16 @@
                     }
                 }
             }
+            .second &{
+                padding-bottom:40px;
+            }
         }
         &.second{
             li{
                 width:20%;
-                padding:3px 0;
+                margin:2px 0;
+                padding:0;
+                line-height:1.2;
                 &:nth-child(5n){
                     border-right:none;
                 }
