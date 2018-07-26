@@ -16,13 +16,13 @@ class TradeRankingModel extends ModelBase
     protected $primaryKey = 'tbl_trade_ranking_id';
     protected $table = 'tbl_trade_ranking';
 
-    public function figure(int $areaId)
+    public function figure(int $areaId, int $station = 0)
     {
         $pdo = self::getPdo();
-        $sql = 'SELECT * FROM tbl_trade_ranking WHERE area_id = ?';
+        $sql = 'SELECT * FROM tbl_trade_ranking WHERE area_id = ? AND station = ?';
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$areaId]);
+        $stmt->execute([$areaId, $station]);
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $result;
     }
