@@ -23,7 +23,7 @@ class StationTradeDecorator extends CityTradeDecorator
         $tradeRankingModel = new TradeRankingModel();
 
         $stationId = $this->areaValue->stationId();
-        $this->figure = $tradeRankingModel->figure($stationId);
+        $this->figure = $tradeRankingModel->figure($stationId, 1);
 
         $this->setTotalPageNum();
     }

@@ -6,7 +6,7 @@
 <input type="hidden" id="stationId" value="{{$body['stationId']}}">
 <input type="hidden" id="pageNum" value="{{$body['tradeTable']['pageNum']}}">
 <p class="showCount">
-    {{number_format($body['figure']['own']['trade_count'])}}件中
+    <span class="totalCount">{{number_format($body['figure']['own']['trade_count'])}}件中
     <span class="start_row"></span>-<span class="end_row"></span>
     を表示
 </p>
