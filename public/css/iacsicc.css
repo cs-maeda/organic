@@ -605,6 +605,9 @@ img {
       -ms-justify-content: space-between;
       -webkit-justify-content: space-between;
       justify-content: space-between; }
+      @media screen and (max-width: 640px) {
+        .recentPrice .inner .recentPriceList {
+          display: block; } }
       .recentPrice .inner .recentPriceList li {
         display: block;
         text-align: center;
@@ -619,6 +622,9 @@ img {
           width: 35%; }
         .recentPrice .inner .recentPriceList li.highPrice {
           width: 20%; }
+        @media screen and (max-width: 640px) {
+          .recentPrice .inner .recentPriceList li {
+            width: 100% !important; } }
         .recentPrice .inner .recentPriceList li h3 {
           padding: 5px 0;
           color: #ffffff;
@@ -628,6 +634,9 @@ img {
         .recentPrice .inner .recentPriceList li p {
           padding: 10px 0;
           font-size: 22px; }
+          @media screen and (max-width: 640px) {
+            .recentPrice .inner .recentPriceList li p {
+              font-size: 18px; } }
           .recentPrice .inner .recentPriceList li p .red {
             font-size: 1.4em;
             font-weight: bold; }
@@ -636,6 +645,28 @@ img {
         overflow: auto; } }
     .recentPrice .inner #trading .priceTable {
       width: 100%; }
+      .recentPrice .inner #trading .priceTable .col01 {
+        width: 3%; }
+      .recentPrice .inner #trading .priceTable .col02 {
+        width: 14%; }
+      .recentPrice .inner #trading .priceTable .col03 {
+        width: 16%; }
+      .recentPrice .inner #trading .priceTable .col04 {
+        width: 13%; }
+      .recentPrice .inner #trading .priceTable .col05 {
+        width: 6%; }
+      .recentPrice .inner #trading .priceTable .col06 {
+        width: 8%; }
+      .recentPrice .inner #trading .priceTable .col07 {
+        width: 7%; }
+      .recentPrice .inner #trading .priceTable .col08 {
+        width: 7%; }
+      .recentPrice .inner #trading .priceTable .col09 {
+        width: 6%; }
+      .recentPrice .inner #trading .priceTable .col10 {
+        width: 6%; }
+      .recentPrice .inner #trading .priceTable .col11 {
+        width: 14%; }
       .recentPrice .inner #trading .priceTable th {
         padding: 5px 0;
         background-color: #dddedf;

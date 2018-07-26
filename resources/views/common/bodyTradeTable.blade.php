@@ -12,6 +12,17 @@
 </p>
 <div id="trading">
     <table class="priceTable" border="0">
+        <colgroup class="col01">
+        <colgroup class="col02">
+        <colgroup class="col03">
+        <colgroup class="col04">
+        <colgroup class="col05">
+        <colgroup class="col06">
+        <colgroup class="col07">
+        <colgroup class="col08">
+        <colgroup class="col09">
+        <colgroup class="col10">
+        <colgroup class="col11">
         <thead>
             <tr>
                 <th rowspan="2">&nbsp;</th>

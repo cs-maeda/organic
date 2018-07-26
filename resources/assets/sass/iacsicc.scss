@@ -490,6 +490,9 @@
         .recentPriceList{
             @include displayFlex;
             @include vp(justify-content, space-between);
+            @media screen and (max-width:$sp_max){
+                display:block;
+            }
             li{
                 display:block;
                 text-align:center;
@@ -509,6 +512,9 @@
                 &.highPrice{
                     width:20%;
                 }
+                @media screen and (max-width:$sp_max){
+                    width:100% !important;
+                }
                 h3{
                     padding:5px 0;
                     color:$white;
@@ -519,6 +525,9 @@
                 p{
                     padding:10px 0;
                     font-size:22px;
+                    @media screen and (max-width:$sp_max){
+                        font-size:18px;
+                    }
                     .red{
                         font-size:1.4em;
                         font-weight:bold;
@@ -534,6 +543,39 @@
             }
             .priceTable{
                 width:100%;
+                .col01{
+                    width:3%;
+                }
+                .col02{
+                    width:14%;
+                }
+                .col03{
+                    width:16%;
+                }
+                .col04{
+                    width:13%;
+                }
+                .col05{
+                    width:6%;
+                }
+                .col06{
+                    width:8%;
+                }
+                .col07{
+                    width:7%;
+                }
+                .col08{
+                    width:7%;
+                }
+                .col09{
+                    width:6%;
+                }
+                .col10{
+                    width:6%;
+                }
+                .col11{
+                    width:14%;
+                }
                 th{
                     padding:5px 0;
                     background-color:$gray;
