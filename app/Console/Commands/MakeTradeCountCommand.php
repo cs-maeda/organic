@@ -106,35 +106,6 @@ class MakeTradeCountCommand extends CommandBase
         $tradeRankingModel->importJapanAverage($domainName);
     }
 
-    protected function makePrefectureRanking(string $domainName, TradeRankingModel $tradeRankingModel)
-    {
-        $tradeRankingModel->importPrefectureRanking($domainName);
-    }
-
-    protected function makeCityRanking(string $domainName, TradeRankingModel $tradeRankingModel)
-    {
-        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
-        {
-            $tradeRankingModel->importCityRanking($domainName, $prefectureId);
-        }
-    }
-
-    protected function makeTownRanking(string $domainName, TradeRankingModel $tradeRankingModel)
-    {
-        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
-        {
-            $tradeRankingModel->importTownRanking($domainName, $prefectureId);
-        }
-    }
-
-    protected function makeStationRanking(string $domainName, TradeRankingModel $tradeRankingModel)
-    {
-        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
-        {
-            $tradeRankingModel->importStationRanking($domainName, $prefectureId);
-        }
-    }
-
     protected function sendErrorMessage(string $message)
     {
 //        $this->send(self::MAIL_TO, '[make:cpta] failed', '[make:cpta] cron ended in failure\n' . $message);

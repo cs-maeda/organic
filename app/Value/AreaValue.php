@@ -130,7 +130,7 @@ class AreaValue
         if (($pwd == 'city')||
             ($pwd == 'town')||
             ($pwd == 'station')){
-            $link = "/{$this->areaInfo['city']['alphabet']}/";
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/{$this->areaInfo['city']['alphabet']}/";
             if ($pwd == 'city'){
                 $link = '';
             }

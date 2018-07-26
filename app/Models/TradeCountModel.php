@@ -52,11 +52,11 @@ class TradeCountModel extends ModelBase
         DB::insert(
             "INSERT INTO tbl_trade_count (area_id, station, trade_count) " .
                     "SELECT " .
-                    "mst_city.city_id AS area_id, " .
-                    "0 AS station, " .
-                    "COUNT(mst_city.city_id) AS trade_count " .
+                        "mst_city.city_id AS area_id, " .
+                        "0 AS station, " .
+                        "COUNT(mst_city.city_id) AS trade_count " .
                     "FROM mst_city " .
-                    "LEFT JOIN `tbl_trade_records` ON mst_city.city_id = tbl_trade_records.city_id " .
+                        "LEFT JOIN `tbl_trade_records` ON mst_city.city_id = tbl_trade_records.city_id " .
                     "WHERE mst_city.prefecture_id = ? " .
                     "GROUP BY mst_city.city_id", [$prefectureId]);
     }
@@ -79,17 +79,28 @@ class TradeCountModel extends ModelBase
     public function importStationTradeCount(int $cityId)
     {
         echo 'station' . PHP_EOL;
+
         DB::insert(
             "INSERT INTO tbl_trade_count (area_id, station, trade_count) " .
+            "SELECT " .
+            "station.station_id AS area_id, " .
+            "1 AS station, " .
+            "COUNT(station.station_id) AS trade_count " .
+            "FROM " .
+            "(" .
                 "SELECT " .
-                    "mst_station_mlit.station_id AS area_id, " .
-                    "1 AS station, " .
-                    "COUNT(mst_station_mlit.station_id) AS trade_count " .
+                "prefecture_id, " .
+                "city_id, " .
+                "station_id, " .
+                "station_name " .
                 "FROM mst_station_mlit " .
-                    "LEFT JOIN `tbl_trade_records` ON mst_station_mlit.station_id = tbl_trade_records.station_id " .
-                "WHERE mst_station_mlit.city_id = ? " .
-                "GROUP BY mst_station_mlit.station_id " .
-                "ORDER BY mst_station_mlit.station_id ", [$cityId]);
+                "GROUP BY prefecture_id, city_id, station_id, station_name " .
+            ") AS station " .
+            "LEFT JOIN `tbl_trade_records` ON station.station_id = tbl_trade_records.station_id " .
+            "LEFT JOIN mst_city ON mst_city.city_id = station.city_id " .
+            "WHERE station.city_id = ? " .
+            "GROUP BY station.station_id, station.station_name " .
+            "ORDER BY station.station_id ", [$cityId]);
     }
 
 }

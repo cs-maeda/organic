@@ -27,6 +27,7 @@ abstract class BaseController extends Controller
         $body = [];
         $body['meta'] = $this->meta();
         $body['headLine'] = $this->headLine();
+        $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy();
         $body['formId'] = $this->formId();
         $body['areaLink'] = $this->areaList();
@@ -111,6 +112,13 @@ abstract class BaseController extends Controller
                 break;
         }
 
+        return $res;
+    }
+
+    protected function form(): array
+    {
+        $res = ['clientCount' => '1,400',
+                'buttonValue' => '最短45秒無料査定!'];
         return $res;
     }
 
