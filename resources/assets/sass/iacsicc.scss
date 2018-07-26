@@ -619,6 +619,9 @@
                     }
                     &.end{
                         width:58px;
+                        @media screen and (max-width:$sp_max){
+                            display:none !important;
+                        }
                     }
                 }
             }

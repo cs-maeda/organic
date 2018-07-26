@@ -709,3 +709,6 @@ img {
             background-color: #777777; }
           .recentPrice .inner .pager .pagerList li.end {
             width: 58px; }
+            @media screen and (max-width: 640px) {
+              .recentPrice .inner .pager .pagerList li.end {
+                display: none !important; } }
