@@ -52,7 +52,7 @@ class MakeTradeCountCommand extends CommandBase
 
 //            $this->send(self::MAIL_TO, '[make:ranking] successful', '[make:ranking] cron was executed successfully');
 
-            $this->myEcho(' End: Make tbl_trade_ranking table.');
+            $this->myEcho(' End: Make tbl_trade_count table.');
 
             self::$errorInfo = 1;
         }

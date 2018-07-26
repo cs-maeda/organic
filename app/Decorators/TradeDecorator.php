@@ -102,7 +102,7 @@ abstract class TradeDecorator
 
     protected function retrieve(int $pageNum, int $totalPageNum, int $limitCount): array
     {
-        $offset = (($pageNum - 1) * $limitCount) + 1;
+        $offset = (($pageNum - 1) * $limitCount);
         $results['tradeRecord'] = $this->tradeRecords($offset, $limitCount);
 
         $results['tradeTable']['pageNum'] = $pageNum;
