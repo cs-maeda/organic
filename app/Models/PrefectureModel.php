@@ -18,7 +18,8 @@ class PrefectureModel extends ModelBase
         $sql =
             "SELECT " .
                 "mst_prefecture.prefecture_id, " .
-                "mst_prefecture.prefecture_name " .
+                "mst_prefecture.prefecture_name, " .
+                "mst_prefecture.prefecture_alphabet " .
             "FROM `mst_prefecture` " .
             "WHERE " .
                 "mst_prefecture.prefecture_alphabet = ?";
@@ -36,7 +37,8 @@ class PrefectureModel extends ModelBase
         $sql =
             "SELECT " .
                 "mst_prefecture.prefecture_id, " .
-                "mst_prefecture.prefecture_name " .
+                "mst_prefecture.prefecture_name, " .
+                "mst_prefecture.prefecture_alphabet " .
             "FROM `mst_prefecture` " .
             "WHERE " .
                 "mst_prefecture.prefecture_id = ?";

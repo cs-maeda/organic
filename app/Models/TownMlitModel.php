@@ -19,11 +19,14 @@ class TownMlitModel extends ModelBase
             "SELECT " .
                 "mst_town_mlit.prefecture_id, " .
                 "mst_town_mlit.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_town_mlit.city_id, " .
                 "mst_town_mlit.city_name, " .
+                "mst_city.city_alphabet, " .
                 "mst_town_mlit.town_id, " .
                 "mst_town_mlit.town_name " .
             "FROM `mst_town_mlit` " .
+                "LEFT JOIN mst_city ON mst_town_mlit.city_id = mst_city.city_id " .
             "WHERE mst_town_mlit.town_id = ?";
 
         $stmt = $pdo->prepare($sql);

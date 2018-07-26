@@ -113,7 +113,31 @@ class AreaValue
     public function breadcrumb(string $siteName): array
     {
         $breadcrumb = [];
-
+        $breadcrumb[] = ['caption' => $siteName,
+                         'link' => '/'];
+        $pwd = $this->where();
+        if (($pwd == 'prefecture')||
+            ($pwd == 'city')||
+            ($pwd == 'town')||
+            ($pwd == 'station')){
+            $breadcrumb[] = ['caption' => $this->areaInfo['prefecture']['name'],
+                            'link' => "/{$this->areaInfo['prefecture']['alphabet']}/"];
+        }
+        if (($pwd == 'city')||
+            ($pwd == 'town')||
+            ($pwd == 'station')){
+            $breadcrumb[] = ['caption' => $this->areaInfo['city']['name'],
+                            'link' => "/{$this->areaInfo['city']['alphabet']}/"];
+        }
+        if ($pwd == 'town'){
+            $breadcrumb[] = ['caption' => $this->areaInfo['town']['name'],
+                            'link' => "/{$this->areaInfo['city']['id']}/"];
+        }
+        if ($pwd == 'station'){
+            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'],
+                            'link' => "/station/{$this->areaInfo['station']['id']}/"];
+        }
+        return $breadcrumb;
     }
 
     protected function displayNameImpl(string $where): string

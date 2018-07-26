@@ -19,8 +19,10 @@ class CityModel extends ModelBase
             "SELECT " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
-                "mst_city.city_name " .
+                "mst_city.city_name, " .
+                "mst_city.city_alphabet " .
             "FROM `mst_city` " .
             "WHERE " .
                 "mst_city.prefecture_alphabet = ? AND " .
@@ -40,8 +42,10 @@ class CityModel extends ModelBase
             "SELECT " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
-                "mst_city.city_name " .
+                "mst_city.city_name, " .
+                "mst_city.city_alphabet " .
             "FROM `mst_city` " .
             "WHERE " .
                 "mst_city.prefecture_id = ? AND " .

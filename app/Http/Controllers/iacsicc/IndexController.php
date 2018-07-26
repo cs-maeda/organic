@@ -27,6 +27,8 @@ class IndexController extends BaseController
     {
         $body = $this->indexImpl();
 
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
+
         return view('iacsicc/index', ['body' => $body]);
     }
 
@@ -40,6 +42,8 @@ class IndexController extends BaseController
         $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
         $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
 
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
+
         return view('iacsicc/index', ['body' => $body]);
     }
 
@@ -52,7 +56,15 @@ class IndexController extends BaseController
         $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
         $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
 
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
+
         return view('iacsicc/index', ['body' => $body]);
+    }
+
+    protected function breadcrumb(AreaValue $areaValue): array
+    {
+        $res['breadcrumb'] = $areaValue->breadcrumb('不動産価格・不動産売買の相場');
+        return $res;
     }
 
     protected function meta(AreaValue $areaValue = null): array
