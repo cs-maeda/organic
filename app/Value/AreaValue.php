@@ -120,22 +120,30 @@ class AreaValue
             ($pwd == 'city')||
             ($pwd == 'town')||
             ($pwd == 'station')){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/";
+            if ($pwd == 'prefecture'){
+                $link = '';
+            }
             $breadcrumb[] = ['caption' => $this->areaInfo['prefecture']['name'],
-                            'link' => "/{$this->areaInfo['prefecture']['alphabet']}/"];
+                            'link' => $link];
         }
         if (($pwd == 'city')||
             ($pwd == 'town')||
             ($pwd == 'station')){
+            $link = "/{$this->areaInfo['city']['alphabet']}/";
+            if ($pwd == 'city'){
+                $link = '';
+            }
             $breadcrumb[] = ['caption' => $this->areaInfo['city']['name'],
-                            'link' => "/{$this->areaInfo['city']['alphabet']}/"];
+                            'link' => $link];
         }
         if ($pwd == 'town'){
             $breadcrumb[] = ['caption' => $this->areaInfo['town']['name'],
-                            'link' => "/{$this->areaInfo['city']['id']}/"];
+                            'link' => ""];
         }
         if ($pwd == 'station'){
-            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'],
-                            'link' => "/station/{$this->areaInfo['station']['id']}/"];
+            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'] . "駅（{$this->areaInfo['city']['name']}）",
+                            'link' => ""];
         }
         return $breadcrumb;
     }

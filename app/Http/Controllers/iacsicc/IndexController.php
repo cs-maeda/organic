@@ -61,9 +61,14 @@ class IndexController extends BaseController
         return view('iacsicc/index', ['body' => $body]);
     }
 
-    protected function breadcrumb(AreaValue $areaValue): array
+    protected function breadcrumb(AreaValue $areaValue = null): array
     {
-        $res['breadcrumb'] = $areaValue->breadcrumb('不動産価格・不動産売買の相場');
+        if ($areaValue == null){
+            $res[] = ['caption' => '不動産価格・不動産売買の相場',
+                        'link' => ''];
+            return $res;
+        }
+        $res = $areaValue->breadcrumb('不動産価格・不動産売買の相場');
         return $res;
     }
 
