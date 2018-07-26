@@ -5,7 +5,11 @@
 <input type="hidden" id="townId" value="{{$body['townId']}}">
 <input type="hidden" id="stationId" value="{{$body['stationId']}}">
 <input type="hidden" id="pageNum" value="{{$body['tradeTable']['pageNum']}}">
-<p class="showCount">{{number_format($body['figure']['own']['trade_count'])}}件中 <span class="start_row">{{number_format($body['tradeTable']['pageNum'])}}</span>-<span class="end_row">{{number_format($body['tradeTable']['pageNum'] + $body['tradeTable']['recordsCount'] - 1)}}</span>を表示</p>
+<p class="showCount">
+    {{number_format($body['figure']['own']['trade_count'])}}件中
+    <span class="start_row"></span>-<span class="end_row"></span>
+    を表示
+</p>
 <div id="trading">
     <table class="priceTable" border="0">
         <thead>
@@ -137,6 +141,7 @@
 
         var num = ((items.tradeTable.pageNum - 1) * 30) + 1;
         $('#pageNum').val(items.tradeTable.pageNum);
+        $('.start_row').text(num);
 
         $.each(items.tradeRecord, function(i, item)
         {
@@ -167,6 +172,7 @@
             );
             num += 1;
         });
+        $('.end_row').text(num - 1);
 
         pagerControl(items.pager, items.tradeTable.pageNum);
     }
