@@ -34,10 +34,26 @@ function spFormButton(){
     });
 }
 
+//3.フォームのフォーカス
+function formFocus(){
+    $('.lpForm select').on('change',
+    function()
+    {
+        $('.lpForm li').removeClass('focusOn');
+        var $_selectVal = $(this).val();
+        if($_selectVal != ""){
+            $(this).parent('li').next().addClass('focusOn');
+        }
+    });
+}
+
 $().ready(function()
 {
     //1.トップへ戻るボタン
     pageTop();
+    //3.フォームのフォーカス
+   formFocus();
+
 
 //windowWidth<640　対応
     var $_windowWidth = $(window).outerWidth();

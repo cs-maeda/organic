@@ -6,7 +6,7 @@
             print 'com';
         } ?>/drive/form/sell/" class="form">
         <ul class="lpForm clearfix">
-            <li class="st1">
+            <li class="st1 focusOn">
                 <span class="formStep"><span class="step">step</span><span class="nun">1</span></span>
                 <select id="objectType_{{$idNo}}" class="objectType" name="objectType">
                     <option value="">物件種別を選択</option>
@@ -109,7 +109,7 @@
             </li>
         </ul>
         <div class="submit">
-            <input type="submit" class="submitButton" value="{{$formButtonValue}}">
+            <input type="submit" class="submitButton" value="{{$body['form']['buttonValue']}}">
         </div>
         <input type="hidden" name="formId" value="{{$body['formId']}}">
         <img class="pMark" src="//www.lvn.co.jp/images/pMark60_60.gif" alt="プライバシーマーク"/>

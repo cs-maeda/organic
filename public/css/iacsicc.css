@@ -507,6 +507,10 @@ img {
               box-shadow: none; } }
           .formArea .form .lpForm li .formStep .step {
             display: none; }
+        .formArea .form .lpForm li.focusOn select {
+          border: 2px solid #bd1d28; }
+        .formArea .form .lpForm li.focusOn .formStep {
+          background-color: #bd1d28; }
     .formArea .form .submit {
       text-align: center;
       padding: 30px 0 20px 0;
