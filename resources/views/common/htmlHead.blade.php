@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width">
 
 <link rel="canonical" href="{$head.canonical}" />
-<link rel="shortcut icon" href="/favicon.ico" />
 <link href="/css/iacsicc.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/organic.js"></script>

@@ -4,6 +4,7 @@
     <?php $clientCount = '1,400' ?>
     {{--formのボタンのvalue--}}
     <?php $formButtonValue = '最短45秒無料査定!' ?>
+    <link rel="shortcut icon" href="/images/iacsicc/favicon.ico" />
 
     <head>
         @include('common.htmlHead')
