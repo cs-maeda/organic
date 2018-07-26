@@ -2,6 +2,7 @@
 <html>
     <head>
         @include('common.htmlHead')
+        <link rel="shortcut icon" href="/images/iacsicc/favicon.ico">
     </head>
     <body id="body_{{$body['where']}}">
         <?php $idNo = -1; ?>
