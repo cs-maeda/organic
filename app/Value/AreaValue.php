@@ -110,6 +110,12 @@ class AreaValue
         return $parentName;
     }
 
+    public function breadcrumb(string $siteName): array
+    {
+        $breadcrumb = [];
+
+    }
+
     protected function displayNameImpl(string $where): string
     {
         $displayName = '';

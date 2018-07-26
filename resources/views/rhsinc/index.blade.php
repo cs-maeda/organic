@@ -15,7 +15,6 @@
         <div class="formCopy">
             <p class="catch">{!! $body['copy'][3] !!}</p>
         </div>
-        @include('common.bodyBreadcrumb')
         <?php $idNo++; ?>
         @include('common.bodySfForm')
 
@@ -30,11 +29,14 @@
         <div>
             <div class="formCopy">
                 <p class="catch">
-                {{$body['areaCaptionOf']}}不動産価格・不動産売買の相場で無料一括査定<br>
+                @if ($body['where'] != 'index')
+                    〇〇の
+                @endif
+                不動産価格・不動産売買の相場で無料一括査定<br>
                 <span class="red">最高価格</span>で売るなら<span class="red">最大6社</span>で比較検討<br>
                 <span class="red">1分以内</span>の簡単入力！<br>
                 @if ($body['where'] != 'index')
-                    {{$body['areaCaptionOf']}}不動産価格に詳しい
+                    〇〇の不動産価格に詳しい
                 @else
                     1,400社以上の
                 @endif
@@ -44,6 +46,13 @@
             <?php $idNo++; ?>
             @include('common.bodySfForm')
         </div>
+        @if ($body['where'] != 'index')
+            <div class="inner sp">
+                <ul class="breadcrumb clearfix">
+                    <li class="name">〇〇</li>
+                </ul>
+            </div>
+        @endif
         @include('common/bodyFormButton')
         @include('iacsicc/parts/common/bodyFoot')
     </body>
