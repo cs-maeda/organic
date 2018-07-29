@@ -9,6 +9,9 @@
 namespace App\Models;
 
 
+use App\Condition\Conditioner;
+use Mockery\Exception;
+
 class TradeRankingModel extends ModelBase
 {
     //
@@ -16,27 +19,41 @@ class TradeRankingModel extends ModelBase
     protected $primaryKey = 'tbl_trade_ranking_id';
     protected $table = 'tbl_trade_ranking';
 
-    public function figure(int $areaId, int $station = 0)
+    public function figure(Conditioner $conditioner, int $prefectureId, int $areaId, int $station = 0)
     {
+        $bindArray = [];
+        $bindArray[] = $prefectureId;
+        $bindArray[] = $areaId;
+        $bindArray[] = $station;
+        $condition = $conditioner->siteCondition($bindArray);
+
         $pdo = self::getPdo();
-        $sql = 'SELECT * FROM tbl_trade_ranking WHERE area_id = ? AND station = ?';
+        $sql = "SELECT * FROM tbl_trade_ranking WHERE prefecture_id = ? AND area_id = ? AND station = ? {$condition}";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$areaId, $station]);
+        $stmt->execute($bindArray);
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        $bindArray = [];
+        $bindArray[] = $areaId;
+        $bindArray[] = $station;
+        $condition = $conditioner->siteCondition($bindArray);
+        // 駅は都道府県を跨いで、取引事例がある場合があるので全てのレコードを SUM する.
+        $sql = "SELECT SUM(trade_count) as trade_count FROM tbl_trade_ranking WHERE area_id = ? AND station = ? {$condition}";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($bindArray);
+        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $result['trade_count'] = $res['trade_count'];
+
         return $result;
     }
 
     public function clearTable()
     {
         $pdo = self::getPdo();
-        $sql = 'DELETE FROM tbl_trade_ranking';
-// TRUNCATE TABLE
+        $sql = 'TRUNCATE TABLE tbl_trade_ranking';
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-
-        $sql = 'ALTER TABLE tbl_trade_ranking AUTO_INCREMENT = 1';
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
     }
@@ -56,6 +73,7 @@ class TradeRankingModel extends ModelBase
                 "tbl_trade_ranking " .
                 "( " .
                     "site_number, " .
+                    "prefecture_id, " .
                     "ranking, " .
                     "area_id, " .
                     "station, " .
@@ -65,7 +83,8 @@ class TradeRankingModel extends ModelBase
                     "trade_count " .
                 ") " .
             "SELECT " .
-                "0 AS site_number, " .
+                "{$siteNumber} AS site_number, " .
+                "0 AS prefecture_id, " .
                 "0 AS ranking, " .
                 "99 AS area_id, " .
                 "0 AS station, " .
@@ -77,7 +96,7 @@ class TradeRankingModel extends ModelBase
             "WHERE " .
                 "transaction_year IN (2017, 2016, 2015, 2014, 2013) {$condition}";
 
-        echo $sql . PHP_EOL . PHP_EOL;
+//        echo $sql . PHP_EOL . PHP_EOL;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -99,6 +118,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "ranking, " .
                     "site_number, " .
+                    "prefecture_id, " .
                     "area_id, " .
                     "station, " .
                     "avg_price, " .
@@ -114,6 +134,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "SELECT " .
                         "{$siteNumber} AS site_number, " .
+                        "0 AS prefecture_id, " .
                         "prefecture_id AS area_id, " .
                         "0 AS station, " .
                         "AVG(price) AS avg_price, " .
@@ -128,7 +149,7 @@ class TradeRankingModel extends ModelBase
                     "ORDER BY avg_price DESC " .
                 ") AS ranking_table";
 
-        echo $sql . PHP_EOL . PHP_EOL;
+//        echo $sql . PHP_EOL . PHP_EOL;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -150,6 +171,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "ranking, " .
                     "site_number, " .
+                    "prefecture_id, " .
                     "area_id, " .
                     "station, " .
                     "avg_price, " .
@@ -165,6 +187,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                 "SELECT " .
                     "{$siteNumber} AS site_number, " .
+                    "{$prefectureId} AS prefecture_id, " .
                     "city_id AS area_id, " .
                     "0 AS station, " .
                     "AVG(price) AS avg_price, " .
@@ -180,8 +203,8 @@ class TradeRankingModel extends ModelBase
                 "ORDER BY avg_price DESC " .
                 ") AS ranking_table ";
 
-        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
-        echo $sql . PHP_EOL . PHP_EOL;
+//        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
+//        echo $sql . PHP_EOL . PHP_EOL;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$prefectureId]);
@@ -203,6 +226,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "ranking, " .
                     "site_number, " .
+                    "prefecture_id, " .
                     "area_id, " .
                     "station, " .
                     "avg_price, " .
@@ -218,6 +242,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "SELECT " .
                         "{$siteNumber} AS site_number, " .
+                        "{$prefectureId} AS prefecture_id, " .
                         "town_id AS area_id, " .
                         "0 AS station, " .
                         "AVG(price) AS avg_price, " .
@@ -233,13 +258,21 @@ class TradeRankingModel extends ModelBase
                     "ORDER BY avg_price DESC " .
                 ") AS ranking_table ";
 
-        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
-        echo $sql . PHP_EOL . PHP_EOL;
+//        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
+//        echo $sql . PHP_EOL . PHP_EOL;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$prefectureId]);
     }
 
+    /**
+     * @param string $domainName
+     * @param int $prefectureId
+     *
+     * @note 駅ランキングは、取引数が都道府県を跨ぐ場合があるので注意が必要
+     *       例）相模原駅 神奈川県で 807 件、 東京都町田市で 18 件 とか....
+     *
+     */
     public function importStationRanking(string $domainName, int $prefectureId)
     {
         $siteNumber = 0;
@@ -256,6 +289,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                     "ranking, " .
                     "site_number, " .
+                    "prefecture_id, " .
                     "area_id, " .
                     "station, " .
                     "avg_price, " .
@@ -271,6 +305,7 @@ class TradeRankingModel extends ModelBase
                 "( " .
                 "SELECT " .
                     "{$siteNumber} AS site_number, " .
+                    "{$prefectureId} AS prefecture_id, " .
                     "station_id AS area_id, " .
                     "1 AS station, " .
                     "AVG(price) AS avg_price, " .
@@ -286,8 +321,8 @@ class TradeRankingModel extends ModelBase
                 "ORDER BY avg_price DESC " .
                 ") AS ranking_table ";
 
-        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
-        echo $sql . PHP_EOL . PHP_EOL;
+//        echo '$prefectureId = ' . $prefectureId . PHP_EOL;
+//        echo $sql . PHP_EOL . PHP_EOL;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$prefectureId]);

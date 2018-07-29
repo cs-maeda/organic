@@ -13,9 +13,17 @@ use App\Value\AreaValue;
 
 class StationConditioner extends Conditioner
 {
-    public function __construct(AreaValue $areaValue)
+    protected function __construct(AreaValue $areaValue, string $root = null)
     {
-        parent::__construct($areaValue);
+        parent::__construct($areaValue, $root);
+    }
+
+    static public function instance(AreaValue $areaValue, string $root = null): Conditioner
+    {
+        if (self::$instance == null){
+            self::$instance = new StationConditioner($areaValue, $root);
+        }
+        return self::$instance;
     }
 
     public function tradeTableCondition(array &$bindArray): string

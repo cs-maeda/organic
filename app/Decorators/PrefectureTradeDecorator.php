@@ -20,17 +20,19 @@ class PrefectureTradeDecorator extends TradeDecorator
     {
         parent::__construct($areaValue);
 
+        $conditioner = PrefectureConditioner::instance($this->areaValue);
+
         $tradeRankingModel = new TradeRankingModel();
 
         $prefectureId = $this->areaValue->prefectureId();
-        $this->figure = $tradeRankingModel->figure($prefectureId);
+        $this->figure = $tradeRankingModel->figure($conditioner, 0, $prefectureId);
 
         $this->setTotalPageNum();
     }
 
     public function tradeRecords(int $offset, int $limitCount)
     {
-        $conditioner = new PrefectureConditioner($this->areaValue);
+        $conditioner = PrefectureConditioner::instance($this->areaValue);
 
         $tradeRecordModel = new TradeRecordsModel($conditioner);
         $results = $tradeRecordModel->retrieve($offset, $limitCount);
@@ -42,10 +44,12 @@ class PrefectureTradeDecorator extends TradeDecorator
     {
         $res['own'] = $this->figure;
 
+        $conditioner = PrefectureConditioner::instance($this->areaValue);
+
         $tradeRankingModel = new TradeRankingModel();
 
         $parentId = $this->areaValue->parentId();
-        $res['parent'] = $tradeRankingModel->figure($parentId);
+        $res['parent'] = $tradeRankingModel->figure($conditioner, 0, $parentId);
 
         return $res;
     }

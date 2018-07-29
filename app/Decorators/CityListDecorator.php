@@ -9,20 +9,25 @@
 namespace App\Decorators;
 
 
+use App\Condition\CityConditioner;
 use App\Models\StationMlitModel;
 use App\Models\TownMlitModel;
+use App\Value\AreaValue;
 
 class CityListDecorator extends PrefectureListDecorator
 {
-    public function __construct()
+    public function __construct(AreaValue $areaValue)
     {
+        parent::__construct($areaValue);
     }
 
     public function townStationList(int $cityId)
     {
+        $conditioner = CityConditioner::instance($this->areaValue);
+
         $res = [];
         $townModel = new TownMlitModel();
-        $results = $townModel->townList($cityId);
+        $results = $townModel->townList($cityId, $conditioner);
 
         foreach ($results as $result){
             $caption = $result['town_name'] . "(" . $result['trade_count'] . ")";
@@ -31,7 +36,7 @@ class CityListDecorator extends PrefectureListDecorator
         }
 
         $stationModel = new StationMlitModel();
-        $results = $stationModel->stationList($cityId);
+        $results = $stationModel->stationList($cityId, $conditioner);
 
         foreach ($results as $result){
             $caption = $result['station_name'] . "駅(" . $result['trade_count'] . ")";

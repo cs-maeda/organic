@@ -15,7 +15,7 @@ use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\TownMlitModel;
 use Illuminate\Database\ConnectionInterface;
-use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Request;
 use App\Value\AreaValue;
 
 class IndexController extends BaseController
@@ -50,6 +50,7 @@ class IndexController extends BaseController
     public function station(ConnectionInterface $conn, string $prefecture, string $city, int $stationId)
     {
         $body = $this->stationImpl($prefecture, $city, $stationId);
+
         $tradeDecorator = $this->tradeDecorator($this->areaValue);
         $body['figure'] = $tradeDecorator->figure();
 
@@ -120,28 +121,4 @@ class IndexController extends BaseController
         return 'tsfol111souba_fudosan';
     }
 
-    protected function tradeDecorator(AreaValue $areaValue): TradeDecorator
-    {
-        $tradeDecorator = null;
-
-        $where = $areaValue->where();
-        switch($where)
-        {
-            case 'prefecture':
-                $tradeDecorator = new PrefectureTradeDecorator($areaValue);
-                break;
-            case 'city':
-                $tradeDecorator = new CityTradeDecorator($areaValue);
-                break;
-            case 'town':
-                $tradeDecorator = new TownTradeDecorator($areaValue);
-                break;
-            case 'station':
-                $tradeDecorator = new StationTradeDecorator($areaValue);
-                break;
-            default:
-                break;
-        }
-        return $tradeDecorator;
-    }
 }

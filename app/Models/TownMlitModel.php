@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Condition\CityConditioner;
+use App\Condition\Conditioner;
+use App\Decorators\CityListDecorator;
 use App\Models\ModelBase;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,8 +39,11 @@ class TownMlitModel extends ModelBase
         return $result;
     }
 
-    public function townList(int $cityId): array
+    public function townList(int $cityId, Conditioner $conditioner): array
     {
+        $bindArray = [];
+        $bindArray[] = $cityId;
+        $condition = $conditioner->siteCondition($bindArray);
         $pdo = self::getPdo();
         $sql =
             "SELECT " .
@@ -53,10 +59,10 @@ class TownMlitModel extends ModelBase
             "FROM `mst_town_mlit` " .
                 "LEFT JOIN mst_city ON mst_town_mlit.city_id = mst_city.city_id " .
                 "LEFT JOIN tbl_trade_count ON mst_town_mlit.town_id = tbl_trade_count.area_id AND tbl_trade_count.station = 0 " .
-            "WHERE mst_city.city_id = ? AND mst_town_mlit.town_id > 0";
+            "WHERE mst_city.city_id = ? {$condition} AND mst_town_mlit.town_id > 0 ";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$cityId]);
+        $stmt->execute($bindArray);
         $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         return $results;

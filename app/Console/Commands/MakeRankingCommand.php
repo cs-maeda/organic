@@ -69,11 +69,24 @@ class MakeRankingCommand extends CommandBase
         $tradeRankingModel = new TradeRankingModel();
         $tradeRankingModel->clearTable();
 
-        $this->makeJapanAverage('iacs-icc.org', $tradeRankingModel);
-        $this->makePrefectureRanking('iacs-icc.org', $tradeRankingModel);
-        $this->makeCityRanking('iacs-icc.org', $tradeRankingModel);
-        $this->makeTownRanking('iacs-icc.org', $tradeRankingModel);
-        $this->makeStationRanking('iacs-icc.org', $tradeRankingModel);
+        echo '------ www.iacs-icc.org ------------------' . PHP_EOL;
+        $this->makeRankingImpl('iacs-icc.org', $tradeRankingModel);
+        echo '------ www.rhs-inc.com ------------------' . PHP_EOL;
+        $this->makeRankingImpl('rhs-inc.com', $tradeRankingModel);
+    }
+
+    protected function makeRankingImpl(string $domainName, TradeRankingModel $tradeRankingModel)
+    {
+        echo '   average of within the country' . PHP_EOL;
+        $this->makeJapanAverage($domainName, $tradeRankingModel);
+        echo '   prefecture ranking' . PHP_EOL;
+        $this->makePrefectureRanking($domainName, $tradeRankingModel);
+        echo '   city ranking' . PHP_EOL;
+        $this->makeCityRanking($domainName, $tradeRankingModel);
+        echo '   town ranking' . PHP_EOL;
+        $this->makeTownRanking($domainName, $tradeRankingModel);
+        echo '   station ranking' . PHP_EOL;
+        $this->makeStationRanking($domainName, $tradeRankingModel);
     }
 
     protected function makeJapanAverage(string $domainName, TradeRankingModel $tradeRankingModel)
@@ -90,6 +103,7 @@ class MakeRankingCommand extends CommandBase
     {
         for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
         {
+            echo "     {$prefectureId}" . PHP_EOL;
             $tradeRankingModel->importCityRanking($domainName, $prefectureId);
         }
     }
@@ -98,6 +112,7 @@ class MakeRankingCommand extends CommandBase
     {
         for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
         {
+            echo "     {$prefectureId}" . PHP_EOL;
             $tradeRankingModel->importTownRanking($domainName, $prefectureId);
         }
     }
@@ -106,6 +121,7 @@ class MakeRankingCommand extends CommandBase
     {
         for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
         {
+            echo "     {$prefectureId}" . PHP_EOL;
             $tradeRankingModel->importStationRanking($domainName, $prefectureId);
         }
     }

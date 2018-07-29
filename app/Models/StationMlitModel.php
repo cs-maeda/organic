@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Condition\Conditioner;
 use App\Models\ModelBase;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,8 +37,11 @@ class StationMlitModel extends ModelBase
         return $result;
     }
 
-    public function stationList(int $cityId)
+    public function stationList(int $cityId, Conditioner $conditioner)
     {
+        $bindArray = [];
+        $bindArray[] = $cityId;
+        $condition = $conditioner->siteCondition($bindArray);
         $pdo = self::getPdo();
         $sql =
             "SELECT " .
@@ -53,7 +57,7 @@ class StationMlitModel extends ModelBase
             "FROM `mst_station_mlit` " .
                 "LEFT JOIN mst_city ON mst_station_mlit.city_id = mst_city.city_id " .
                 "LEFT JOIN tbl_trade_count ON mst_station_mlit.station_id = tbl_trade_count.area_id AND tbl_trade_count.station = 1 " .
-            "WHERE mst_city.city_id = ? " .
+            "WHERE mst_city.city_id = ? {$condition} " .
             "GROUP BY " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
@@ -66,7 +70,7 @@ class StationMlitModel extends ModelBase
                 "tbl_trade_count.trade_count ";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$cityId]);
+        $stmt->execute($bindArray);
         $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         return $results;

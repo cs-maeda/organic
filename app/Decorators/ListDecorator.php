@@ -9,11 +9,15 @@
 namespace App\Decorators;
 
 use App\Models\PrefectureModel;
+use App\Value\AreaValue;
 
 class ListDecorator
 {
-    public function __construct()
+    protected $areaValue = null;
+
+    public function __construct(AreaValue $areaValue)
     {
+        $this->areaValue = $areaValue;
     }
 
     public function prefectureList(): array

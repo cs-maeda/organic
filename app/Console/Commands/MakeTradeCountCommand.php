@@ -74,31 +74,35 @@ class MakeTradeCountCommand extends CommandBase
         $tradeCountModel->clearTable();
 
         for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++){
-            $this->importTradeCount($tradeCountModel, $prefectureId);
+            $this->importTradeCount('iacs-icc.org', $tradeCountModel, $prefectureId);
+        }
+
+        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++){
+            $this->importTradeCount('rhs-inc.com', $tradeCountModel, $prefectureId);
         }
     }
 
-    protected function importTradeCount(TradeCountModel $tradeCountModel, int $prefectureId)
+    protected function importTradeCount(string $domainName, TradeCountModel $tradeCountModel, int $prefectureId)
     {
         echo $prefectureId . PHP_EOL;
-        $tradeCountModel->importCityTradeCount($prefectureId);
+        $tradeCountModel->importCityTradeCount($domainName, $prefectureId);
 
-        $results = $tradeCountModel->getTradeCount($prefectureId);
+        $results = $tradeCountModel->getTradeCount($domainName, $prefectureId);
         foreach ($results as $result){
             echo $prefectureId . ":" . $result['area_id'] . PHP_EOL;
-            $this->importTownTradeCount($tradeCountModel, $result['area_id']);
-            $this->importStationTradeCount($tradeCountModel, $result['area_id']);
+            $this->importTownTradeCount($domainName, $tradeCountModel, $result['area_id']);
+            $this->importStationTradeCount($domainName, $tradeCountModel, $result['area_id']);
         }
     }
 
-    protected function importTownTradeCount(TradeCountModel $tradeCountModel, int $cityId)
+    protected function importTownTradeCount(string $domainName, TradeCountModel $tradeCountModel, int $cityId)
     {
-        $tradeCountModel->importTownTradeCount($cityId);
+        $tradeCountModel->importTownTradeCount($domainName, $cityId);
     }
 
-    protected function importStationTradeCount(TradeCountModel $tradeCountModel, int $cityId)
+    protected function importStationTradeCount(string $domainName, TradeCountModel $tradeCountModel, int $cityId)
     {
-        $tradeCountModel->importStationTradeCount($cityId);
+        $tradeCountModel->importStationTradeCount($domainName, $cityId);
     }
 
     protected function makeJapanAverage(string $domainName, TradeRankingModel $tradeRankingModel)

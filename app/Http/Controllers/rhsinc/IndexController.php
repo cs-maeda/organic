@@ -18,12 +18,22 @@ class IndexController extends BaseController
     {
         $body = $this->indexImpl();
 
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
+
         return view('rhsinc/index', ['body' => $body]);
     }
 
     public function area(ConnectionInterface $conn, string $prefecture, string $city = null, int $townId = null)
     {
         $body = $this->areaImpl($prefecture, $city, $townId);
+
+        $tradeDecorator = $this->tradeDecorator($this->areaValue);
+        $body['figure'] = $tradeDecorator->figure();
+
+        $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
+        $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
+
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
         return view('rhsinc/index', ['body' => $body]);
     }
@@ -32,7 +42,26 @@ class IndexController extends BaseController
     {
         $body = $this->stationImpl($prefecture, $city, $stationId);
 
+        $tradeDecorator = $this->tradeDecorator($this->areaValue);
+        $body['figure'] = $tradeDecorator->figure();
+
+        $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
+        $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
+
+        $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
+
         return view('rhsinc/index', ['body' => $body]);
+    }
+
+    protected function breadcrumb(AreaValue $areaValue = null): array
+    {
+        if ($areaValue == null){
+            $res[] = ['caption' => '土地価格・土地売買の相場',
+                'link' => ''];
+            return $res;
+        }
+        $res = $areaValue->breadcrumb('土地価格・土地売買の相場');
+        return $res;
     }
 
     protected function meta(AreaValue $areaValue = null): array

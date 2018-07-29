@@ -27,7 +27,7 @@ class TradeRecordsModel extends ModelBase
         $pdo = self::getPdo();
 
         $bindArray = [];
-        $condition = $this->conditioner->tradeTableCondition($bindArray);
+        $tradeCondition = $this->conditioner->tradeTableCondition($bindArray);
         $sql =
             "SELECT " .
                 "tbl_trade_records.prefecture_id, " .
@@ -45,7 +45,7 @@ class TradeRecordsModel extends ModelBase
                 "tbl_trade_records.transaction_date, " .
                 "tbl_trade_records.type_caption " .
             "FROM `tbl_trade_records` " .
-            "WHERE 1 {$condition} " .
+            "WHERE 1 {$tradeCondition} " .
             "ORDER BY tbl_trade_records.transaction_year DESC " .
             "LIMIT {$cursor}, {$limitCount}";
 

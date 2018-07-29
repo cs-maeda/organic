@@ -5,7 +5,11 @@
             <h2 class="areaLinktitle">{{$body['areaCaption']}}の不動産価格・不動産売買実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['city'] as $city)
-                    <li><a href="{{$city['link']}}">{{$city['caption']}}</a></li>
+                    @if ($city['link'] == '')
+                        <li>{{$city['caption']}}</li>
+                    @else
+                        <li><a href="{{$city['link']}}">{{$city['caption']}}</a></li>
+                    @endif
                 @endforeach
             </ul>
         </div>
@@ -17,7 +21,11 @@
             <h2 class="areaLinktitle">{{$body['areaCaption']}}の不動産価格・不動産売買実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['town'] as $town)
-                    <li><a href="{{$town['link']}}">{{$town['caption']}}</a></li>
+                    @if ($town['link'] == '')
+                        <li>{{$town['caption']}}</li>
+                    @else
+                        <li><a href="{{$town['link']}}">{{$town['caption']}}</a></li>
+                    @endif
                 @endforeach
             </ul>
         </div>
@@ -29,7 +37,11 @@
             <h2 class="areaLinktitle">{{$body['areaCaptionOf']}}の駅周辺の不動産価格・不動産売買実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['station'] as $station)
-                    <li><a href="{{$station['link']}}">{{$station['caption']}}</a></li>
+                    @if ($station['link'] == '')
+                        <li>{{$station['caption']}}</li>
+                    @else
+                        <li><a href="{{$station['link']}}">{{$station['caption']}}</a></li>
+                    @endif
                 @endforeach
             </ul>
         </div>

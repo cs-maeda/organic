@@ -14,23 +14,26 @@ use App\Models\TradeRankingModel;
 use App\Models\TradeRecordsModel;
 use App\Value\AreaValue;
 
-class StationTradeDecorator extends CityTradeDecorator
+class StationTradeDecorator extends TradeDecorator
 {
     public function __construct(AreaValue $areaValue)
     {
         parent::__construct($areaValue);
 
+        $conditioner = StationConditioner::instance($this->areaValue);
+
         $tradeRankingModel = new TradeRankingModel();
 
         $stationId = $this->areaValue->stationId();
-        $this->figure = $tradeRankingModel->figure($stationId, 1);
+        $prefectureId = $this->areaValue->prefectureId();
+        $this->figure = $tradeRankingModel->figure($conditioner, $prefectureId, $stationId, 1);
 
         $this->setTotalPageNum();
     }
 
     public function tradeRecords(int $offset, int $limitCount)
     {
-        $conditioner = new StationConditioner($this->areaValue);
+        $conditioner = StationConditioner::instance($this->areaValue);
 
         $tradeRecordModel = new TradeRecordsModel($conditioner);
         $results = $tradeRecordModel->retrieve($offset, $limitCount);
@@ -42,10 +45,12 @@ class StationTradeDecorator extends CityTradeDecorator
     {
         $res['own'] = $this->figure;
 
+        $conditioner = StationConditioner::instance($this->areaValue);
+
         $tradeRankingModel = new TradeRankingModel();
 
         $parentId = $this->areaValue->parentId();
-        $res['parent'] = $tradeRankingModel->figure($parentId);
+        $res['parent'] = $tradeRankingModel->figure($conditioner,0, $parentId);
 
         return $res;
     }

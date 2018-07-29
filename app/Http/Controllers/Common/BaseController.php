@@ -9,8 +9,13 @@
 namespace App\Http\Controllers\Common;
 
 use App\Decorators\CityListDecorator;
+use App\Decorators\CityTradeDecorator;
 use App\Decorators\ListDecorator;
 use App\Decorators\PrefectureListDecorator;
+use App\Decorators\PrefectureTradeDecorator;
+use App\Decorators\StationTradeDecorator;
+use App\Decorators\TownTradeDecorator;
+use App\Decorators\TradeDecorator;
 use App\Factories\AreaFactory;
 use App\Http\Controllers\Controller;
 use App\Models\TownMlitModel;
@@ -100,14 +105,14 @@ abstract class BaseController extends Controller
         switch ($where){
             case 'prefecture':
                 $prefectureId = $areaValue->prefectureId();
-                $listDecorator = new PrefectureListDecorator();
+                $listDecorator = new PrefectureListDecorator($areaValue);
                 $res = $listDecorator->cityList($prefectureId);
                 break;
             case 'city':
             case 'town':
             case 'station':
                 $cityId = $areaValue->cityId();
-                $listDecorator = new CityListDecorator();
+                $listDecorator = new CityListDecorator($areaValue);
                 $res = $listDecorator->townStationList($cityId);
                 break;
             default:
@@ -122,6 +127,31 @@ abstract class BaseController extends Controller
         $res = ['clientCount' => '1,400',
                 'buttonValue' => '最短45秒無料査定!'];
         return $res;
+    }
+
+    protected function tradeDecorator(AreaValue $areaValue): TradeDecorator
+    {
+        $tradeDecorator = null;
+
+        $where = $areaValue->where();
+        switch($where)
+        {
+            case 'prefecture':
+                $tradeDecorator = new PrefectureTradeDecorator($areaValue);
+                break;
+            case 'city':
+                $tradeDecorator = new CityTradeDecorator($areaValue);
+                break;
+            case 'town':
+                $tradeDecorator = new TownTradeDecorator($areaValue);
+                break;
+            case 'station':
+                $tradeDecorator = new StationTradeDecorator($areaValue);
+                break;
+            default:
+                break;
+        }
+        return $tradeDecorator;
     }
 
     /*
