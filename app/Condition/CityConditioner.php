@@ -29,8 +29,14 @@ class CityConditioner extends Conditioner
     {
         $cityId = $this->areaValue->cityId();
 
+        $condition = $this->appendCondition . ' AND tbl_trade_records.city_id = ? ';
         $bindArray[] = $cityId;
-        return $this->appendCondition . ' AND tbl_trade_records.city_id = ? ';
+
+        if ($this->siteNumber == 1){
+            $condition .= 'AND type = ? ';
+            $bindArray[] = self::TRADE_TYPE_LAND;
+        }
+        return $condition;
     }
 
 }

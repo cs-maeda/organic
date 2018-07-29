@@ -19,6 +19,13 @@ abstract class Conditioner
     protected $siteNumber = null;
     protected $appendCondition = '';
 
+    const TRADE_TYPE_LAND = 1;          // 宅地（土地）
+    const TRADE_TYPE_LAND_AND_BLDG = 2; // 宅地（土地と建物）
+    const TRADE_TYPE_USED_MANSION = 3;  // 中古マンション等
+    const TRADE_TYPE_FOREST_LAND = 4;   // 林地
+    const TRADE_TYPE_FARM_LAND = 5;     // 農地
+
+
     protected function __construct(AreaValue $areaValue, string $root = null)
     {
         $this->areaValue = $areaValue;

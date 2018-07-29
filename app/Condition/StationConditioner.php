@@ -30,8 +30,14 @@ class StationConditioner extends Conditioner
     {
         $stationId = $this->areaValue->stationId();
 
+        $condition = $this->appendCondition . ' AND tbl_trade_records.station_id = ? ';
         $bindArray[] = $stationId;
-        return $this->appendCondition . ' AND tbl_trade_records.station_id = ? ';
+
+        if ($this->siteNumber == 1){
+            $condition .= 'AND type = ? ';
+            $bindArray[] = self::TRADE_TYPE_LAND;
+        }
+        return $condition;
     }
 
 }

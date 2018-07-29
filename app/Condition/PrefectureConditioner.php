@@ -29,7 +29,13 @@ class PrefectureConditioner extends Conditioner
     {
         $prefectureId = $this->areaValue->prefectureId();
 
+        $condition = $this->appendCondition . ' AND tbl_trade_records.prefecture_id = ? ';
         $bindArray[] = $prefectureId;
-        return $this->appendCondition . ' AND tbl_trade_records.prefecture_id = ? ';
+
+        if ($this->siteNumber == 1){
+            $condition .= 'AND type = ? ';
+            $bindArray[] = self::TRADE_TYPE_LAND;
+        }
+        return $condition;
     }
 }
