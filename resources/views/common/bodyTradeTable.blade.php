@@ -72,23 +72,20 @@
 
     function pagerControl(pager, pageNum)
     {
+        $('.pagerList li').hide().removeClass("current");
         var pageFirst = $('.pageFirst');
-        pageFirst.hide();
         if (pager.buttonFirst === true){
             pageFirst.show();
         }
         var pageBefore = $('.pageBefore');
-        pageBefore.hide();
         if (pager.buttonPrev === true){
             pageBefore.show();
         }
         var pageNext = $('.pageNext');
-        pageNext.hide();
         if (pager.buttonNext === true){
             pageNext.show();
         }
         var pageLast = $('.pageLast');
-        pageLast.hide();
         if (pager.buttonLast === true){
             pageLast.show();
         }
@@ -97,11 +94,11 @@
         var thirdButton = $('.thirdButton');
         var forthButton = $('.forthButton');
         var fifthButton = $('.fifthButton');
-        firstButton.hide().removeClass("current");
-        secondButton.hide().removeClass("current");
-        thirdButton.hide().removeClass("current");
-        forthButton.hide().removeClass("current");
-        fifthButton.hide().removeClass("current");
+//        firstButton.hide().removeClass("current");
+//        secondButton.hide().removeClass("current");
+//        thirdButton.hide().removeClass("current");
+//        forthButton.hide().removeClass("current");
+//        fifthButton.hide().removeClass("current");
         $.each(pager.buttonNumber, function(i, item)
         {
             switch(i){
@@ -144,6 +141,16 @@
         });
     }
 
+    function priceFormat(value)
+    {
+        var price = Number(value).toLocaleString() + '万円';
+        if (value > 10000){
+            price = Number(value / 10000).toLocaleString();
+            price += '万円';
+        }
+        return price;
+    }
+
     function storeTradeTable(items)
     {
         clearTradeTable();
@@ -156,11 +163,7 @@
 
         $.each(items.tradeRecord, function(i, item)
         {
-            var price = item.price + '万円';
-            if (item.price > 10000){
-                price = item.price / 10000;
-                price += '万円';
-            }
+            var price = priceFormat(item.price);
             var time_to_station = "";
             if (item.time_to_station !== 0){
                 time_to_station = item.time_to_station + "分";
