@@ -142,7 +142,7 @@ class AreaValue
                             'link' => ""];
         }
         if ($pwd == 'station'){
-            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'] . "駅（{$this->areaInfo['city']['name']}）",
+            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'] . "駅",
                             'link' => ""];
         }
         return $breadcrumb;

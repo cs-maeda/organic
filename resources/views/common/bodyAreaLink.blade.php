@@ -18,7 +18,7 @@
     @isset($body['areaLink']['town'])
         <!--  町域の不動産価格・不動産売買実績を調べる -->
         <div class="inner second town">
-            <h2 class="areaLinktitle">{{$body['areaCaption']}}の不動産価格・不動産売買実績を調べる</h2>
+            <h2 class="areaLinktitle">{{$body['areaCaption']}}周辺の不動産価格・不動産売買実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['town'] as $town)
                     @if ($town['link'] == '')
