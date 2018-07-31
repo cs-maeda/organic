@@ -15,7 +15,7 @@ class ListDecorator
 {
     protected $areaValue = null;
 
-    public function __construct(AreaValue $areaValue)
+    public function __construct(AreaValue $areaValue = null)
     {
         $this->areaValue = $areaValue;
     }
