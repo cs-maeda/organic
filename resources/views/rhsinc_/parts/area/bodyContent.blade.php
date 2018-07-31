@@ -9,8 +9,7 @@
             </li>
             <li class="lowPrice">
                 <h3>価格帯</h3>
-                <p><span class="red">@if ($body['figure']['own']['min_price'] < 10000){{number_format($body['figure']['own']['min_price'] / 10000, 2)}}@else{{number_format($body['figure']['own']['min_price'] / 10000)}}@endif</span>万円～
-                    <span class="red">{{number_format($body['figure']['own']['max_price'] / 10000)}}</span>万円</p>
+                <p><span class="red">{{number_format($body['figure']['own']['min_price'] / 10000, 2)}}</span>万円～<span class="red">{{number_format($body['figure']['own']['max_price'] / 10000)}}</span>万円</p>
             </li>
             <li class="highPrice">
                 <h3>平均価格</h3>
