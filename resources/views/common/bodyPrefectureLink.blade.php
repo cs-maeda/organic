@@ -14,13 +14,13 @@
         </ul>
         <ul>
             <li class="top clearfix">関東<span class="dn">▼</span></li>
+            <li><a class="pref" href="/tokyo">東京都</a></li>
+            <li><a class="pref" href="/kanagawa">神奈川県</a></li>
+            <li><a class="pref" href="/chiba">千葉県</a></li>
+            <li><a class="pref" href="/saitama">埼玉県</a></li>
             <li><a class="pref" href="/ibaraki">茨城県</a></li>
             <li><a class="pref" href="/tochigi">栃木県</a></li>
             <li><a class="pref" href="/gunma">群馬県</a></li>
-            <li><a class="pref" href="/saitama">埼玉県</a></li>
-            <li><a class="pref" href="/chiba">千葉県</a></li>
-            <li><a class="pref" href="/tokyo">東京都</a></li>
-            <li><a class="pref" href="/kanagawa">神奈川県</a></li>
         </ul>
         <ul class="hokuriku">
             <li class="top clearfix">北陸・甲信越<span class="dn">▼</span></li>
