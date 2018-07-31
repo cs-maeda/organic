@@ -47,6 +47,21 @@ function formFocus(){
     });
 }
 
+//4.都道府県のプルダウン
+function openPref(){
+    $('.areaLink .top').on('click',
+    function()
+    {
+        if($(this).hasClass('open')){
+            $(this).removeClass('open');
+            $(this).parent('ul').children('li').slideUp(200);
+        } else {
+            $(this).addClass('open');
+            $(this).parent('ul').children('li').slideDown(200);
+        }
+    });
+}
+
 $().ready(function()
 {
     //1.トップへ戻るボタン
@@ -60,5 +75,7 @@ $().ready(function()
     if($_windowWidth < 640){
         //2.スマホ、フォームボタン表示
         spFormButton();
+        //4.都道府県のプルダウン
+        openPref();
     }
 });

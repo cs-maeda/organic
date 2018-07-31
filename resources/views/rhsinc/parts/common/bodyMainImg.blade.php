@@ -1,6 +1,6 @@
 <div class="mainV">
     <div class="inner">
-        <img src="/images/iacsicc/mainVisual_bg_SP.jpg" class="width100 sp">
+        <img src="/images/rhsinc/mainImgSp.jpg" class="width100 sp">
         <h2 class="mainVtitle wf-mplus1p" title="{{$body['copy'][0]}}">
             {{$body['copy'][0]}}
         </h2>

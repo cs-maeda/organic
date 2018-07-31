@@ -93,6 +93,14 @@ img{
 		display:inherit;
 	}
 }
+.pcpd{
+    @media screen and (min-width:$pd_min){
+        display:inherit;
+    }
+    @media screen and (max-width:$sp_max){
+        display:none;
+    }
+}
 .pd{
 	@media screen and (max-width:$pd_max){
 		display:inherit;

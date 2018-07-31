@@ -97,10 +97,10 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefixOf = $displayName . 'の';
         }
-        $res[0] = $prefixOf . '土地価格・土地売買の相場がわかる！';
-        $res[1] = $prefixOf . 'エリア別の土地売買実績を無料で公開中！';
-        $res[2] = $prefixOf . '土地価格を知りたい方向けの、無料一括査定の窓口も！';
-        $res[3] = $prefixOf . '1分以内の簡単入力で最大6社に一括査定依頼！';
+        $res[0] = $prefixOf . '土地価格・土地売買の相場がわかる!';
+        $res[1] = $prefixOf . 'エリア別の土地売買実績を<span class="orange">無料</span>で公開中!';
+        $res[2] = $prefixOf . '土地価格を知りたい方向けの、<span class="orange">無料一括査定</span>の窓口も!';
+        $res[3] = $prefixOf . '1分以内の簡単入力で<br class="sp">最大<span class="yellow">6社</span>に<span class="yellow">一括査定依頼</span>!';
 
         return $res;
     }

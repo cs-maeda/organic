@@ -1,20 +1,34 @@
-/* iacsicc */
+/* rhsinc */
 
-@import "variablesIacsicc";
+@import "variablesRhsinc";
 @import "common";
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.yellow{
+    color:$yellow;
+}
+.orange{
+    color:$orange;
+}
 .pageHeader{
-	height:58px;
-	background: url(/images/iacsicc/header_bg.jpg) top repeat-x;
+	height:55px;
+	background-color:$white;
 	.inner{
 		@include contentWidth;
 		.pageHeadline{
 			a{
 				color:$black;
 				font-size:25px;
-				line-height:58px;
+                font-weight:bold;
+				line-height:55px;
 				text-decoration:none;
-				text-shadow:-1px -1px 1px $black, 1px 1px #eeeeee;
                 @media screen and (max-width:$sp_max){
                     font-size:20px;
                 }
@@ -24,24 +38,21 @@
 }
 .breadcrumb{
     padding:10px 0;
-    border-bottom:1px solid $borderGray;
+    border-bottom:1px solid $lightGray
 }
 .mainV{
-    height:305px;
-    padding:15px 0 0 0;
-    text-align:center;
-    background:#22d4fa url(/images/iacsicc/mainVisual.png) center bottom no-repeat;
-    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -moz-linear-gradient(#0699df, #22d4fa);
-    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -ms-linear-gradient(#0699df, #22d4fa);
-    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -webkit-linear-gradient(#0699df, #22d4fa);
-    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, linear-gradient(#0699df, #22d4fa);
+    height:298px;
+    background:$white url(/images/rhsinc/mainImg.jpg) center top no-repeat;
     @media screen and (max-width:$sp_max){
         height:auto;
         padding:0;
         background:none;
     }
     .inner{
-        @include contentWidth;
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:30px 0 0 360px;
         @media screen and (max-width:$sp_max){
             position:relative;
             padding:0;
@@ -49,37 +60,37 @@
         h2{
             top:0;
             left:0;
-            height:2.8em;
+            min-height:2.8em;
             margin:0 auto;
-            color:$mainText;
-            font-size:46px;
+            color:$white;
+            font-size:36px;
             font-weight:bold;
             line-height:1.2;
-            text-shadow:2px 0 $mainTextBorder,
-                2px 1px $mainTextBorder,
-                2px 2px $mainTextBorder,
-                2px -2px $mainTextBorder,
-                2px -1px $mainTextBorder,
-                1px 0 $mainTextBorder,
-                1px 1px $mainTextBorder,
-                1px 2px $mainTextBorder,
-                1px -2px $mainTextBorder,
-                1px -1px $mainTextBorder,
-                -2px 0 $mainTextBorder,
-                -2px 1px $mainTextBorder,
-                -2px 2px $mainTextBorder,
-                -2px -2px $mainTextBorder,
-                -2px -1px $mainTextBorder,
-                -1px 0 $mainTextBorder,
-                -1px 1px $mainTextBorder,
-                -1px 2px $mainTextBorder,
-                -1px -2px $mainTextBorder,
-                -1px -1px $mainTextBorder,
-                0 0 $mainTextBorder,
-                0 1px $mainTextBorder,
-                0 2px $mainTextBorder,
-                0 -2px $mainTextBorder,
-                0 -1px $mainTextBorder,
+            text-shadow:2px 0 $green,
+                2px 1px $green,
+                2px 2px $green,
+                2px -2px $green,
+                2px -1px $green,
+                1px 0 $green,
+                1px 1px $green,
+                1px 2px $green,
+                1px -2px $green,
+                1px -1px $green,
+                -2px 0 $green,
+                -2px 1px $green,
+                -2px 2px $green,
+                -2px -2px $green,
+                -2px -1px $green,
+                -1px 0 $green,
+                -1px 1px $green,
+                -1px 2px $green,
+                -1px -2px $green,
+                -1px -1px $green,
+                0 0 $green,
+                0 1px $green,
+                0 2px $green,
+                0 -2px $green,
+                0 -1px $green,
                 2px 2px 5px rgba(0,0,0,0.5),
                 0 0 10px rgba(255,255,255,1.0);
             @media screen and (max-width:$pd_max){
@@ -98,7 +109,7 @@
             }
         }
         p{
-            font-size:26px;
+            font-size:23px;
             font-weight:bold;
             text-shadow:2px 0 $white,
                 2px 1px $white,
@@ -148,9 +159,8 @@
         @include contentWidth;
         .featureTitle{
             margin:0 0 30px 0;
-            color:$blue;
+            color:$green;
             font-size:28px;
-            font-weight:bold;
             text-align:center;
             @media screen and (max-width:$pd_max){
                 text-align:left;
@@ -167,19 +177,21 @@
 }
 .areaLink{
     padding:40px 0;
-    background-color:$contentGray;
     @media screen and (max-width:$sp_max){
         padding:20px 0 0 0;
     }
     .inner{
         @include contentWidth;
-        background:url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat;
+        background:url(/images/rhsinc/bgPrefList.png)right 100px top 80% no-repeat;
+        @media screen and (max-width:$pd_max){
+            background:none;
+        }
         &.second{
             background:none;
             &.town{
                 padding-bottom:40px;
                 margin-bottom:40px;
-                border-bottom:1px solid $formGray;
+                border-bottom:1px solid $lightGray;
             }
         }
         @media screen and (max-width:$sp_max){
@@ -187,8 +199,8 @@
         }
         .areaLinktitle{
             margin:0 0 30px 0;
+            color:$green;
             font-size:28px;
-            font-weight:bold;
             text-align:center;
             @media screen and (max-width:$pd_max){
                 text-align:left;
@@ -209,30 +221,46 @@
             li{
                 margin:5px 0;
                 padding:2px 0;
-                border-right:1px solid $formGray;
+                border-right:1px solid $gray;
                 &:last-child{
                     border-right:none;
                 }
+                @media screen and (max-width:$sp_max){
+                    display:none;
+                }
                 &.top{
                     display:none;
+                    @media screen and (max-width:$sp_max){
+                        display:block;
+                        padding:0 15px;
+                        color:$white;
+                        line-height:50px;
+                        background-color:$gray;
+                        .dn{
+                            display:block;
+                            float:right;
+                        }
+                        &.open{
+                            background-color:$orange;
+                            .dn{
+                                @include vp(transform, rotate(180deg));
+                            }
+                        }
+                    }
                 }
                 @media screen and (max-width:$sp_max){
                     margin:0;
                     padding:0;
-                    background:$contentGray url(/images/iacsicc/arrowBlue.gif) no-repeat;
-                    background-position:right 10px top 50%;
                     border:none;
-                    border-bottom:1px solid $lightGray;
-                    border-top:1px solid $formGray;
+                    border-bottom:1px solid $white;
+                    border-top:1px solid $gray;
                 }
                 a{
                     display:block;
                     padding:0 15px;
                     font-size:15px;
                     @media screen and (max-width:$sp_max){
-                         color:$txt;
                          line-height:50px;
-                         text-decoration:none;
                     }
                 }
             }
@@ -252,7 +280,7 @@
                 @media screen and (max-width:$pd_max){
                     width:33.333333%;
                     &:nth-child(5n){
-                        border-right:1px solid $formGray;
+                        border-right:1px solid $lightGray;
                     }
                     &:nth-child(3n){
                         border-right:none;
@@ -266,7 +294,7 @@
     }
 }
 .pageFoot{
-    background-color:$footGray;
+    background-color:$darkGray;
     .inner{
         @include contentWidth;
         padding:30px 0;
@@ -285,7 +313,7 @@
             li{
                 margin:0 0 5px 0;
                 padding:0 0 0 1.0em;
-                background:url(/images/iacsicc/arrowWhite.png) left no-repeat;
+                background:url(/images/rhsinc/arrowWhite.png) left no-repeat;
                 a{
                     color:$white;
                     text-decoration:none;
@@ -317,38 +345,56 @@
         width:40px;
         height:40px;
         background-color:$white;
-        border:1px solid $bgBlue;
+        border:1px solid $darkGray;
         border-radius:50%;
         cursor:pointer;
+        box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
     }
 }
 //form
 .formCopy{
-    background-color:$darakBlue;
+    background-color:$green;
     .catch{
-        @include contentWidth;
-        padding:18px 0;
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:10px 0;
         color:$white;
         font-size:35px;
+        font-weight:bold;
+        font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
         text-align:center;
-        @media screen and (max-width:$sp_max){
-            padding:10px;
-            font-size:20px;
+        line-height:1.2;
+        .large{
+            font-size:1.4em;
         }
-        .red{
+        @media screen and (max-width:$pd_max){
+            padding:10px;
+            font-size:3.4vw;
+        }
+        @media screen and (max-width:$sp_max){
+            font-size:25px;
+        }
+        .yellow{
             font-weight:bold;
+        }
+    }
+    &.bottom{
+        .catch{
+            font-size:30px;
         }
     }
 }
 .formArea{
-    height:270px;
-    background:#9b9c9e url(/images/iacsicc/form_bg.jpg) bottom repeat-x;
+    background-color:$lightGray;
     @media screen and (max-width:$sp_max){
         height:auto;
     }
     .form{
-        @include contentWidth;
-        padding:30px 0;
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:20px 0;
         @media screen and (max-width:$sp_max){
             padding:10px;
         }
@@ -375,8 +421,7 @@
                     max-width:85%;
                     height:40px;
                     background:$white url(/images/select.png) right 5px top 50% no-repeat;
-                    border:2px solid $formGray;
-                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                    border:1px solid $darkGray;
                     @media screen and (max-width:$sp_max){
                         width:85%;
                         height:50px;
@@ -393,12 +438,11 @@
                     font-weight:bold;
                     text-align:center;
                     line-height:40px;
-                    background-color:$formGray;
-                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                    background-color:$darkGray;
                     @media screen and (max-width:$sp_max){
                         width:15%;
                         line-height:50px;
-                        background-color:$footGray;
+                        background-color:$darkGray;
                         box-shadow:none;
                     }
                     .step{
@@ -407,45 +451,38 @@
                 }
                 &.focusOn{
                     select{
-                        border:2px solid $red;
+                        border:1px solid $orange;
                     }
                     .formStep{
-                        background-color:$red;
+                        background-color:$orange;
                     }
                 }
             }
         }
         .submit{
             text-align:center;
-            padding:30px 0 20px 0;
-            background:url(/images/iacsicc/arrowForm.png) center top no-repeat,
-                url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 40px no-repeat;
+            padding:10px 0 20px 0;
+            background:url(/images/rhsinc/arrowForm.png) center top no-repeat,
+                url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 20px no-repeat;
+            @media screen and (max-width:$pd_max){
+                background:none;
+            }
             .submitButton{
                 display:block;
                 width:100%;
-                max-width:480px;
+                max-width:520px;
                 height:70px;
                 margin:0 auto;
                 color:$white;
                 font-size:24px;
                 font-weight:bold;
                 text-align:center;
-                background:#9e0f0b  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient($red , #9e0f0b);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient($red , #9e0f0b);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient($red , #9e0f0b);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient($red , #9e0f0b);
-                border:3px solid #9e0f0b;
+                background-color:$orange;
+                border:none;
                 border-radius:5px;
                 cursor:pointer;
                 &:hover{
-                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
-                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient(#e53529 , $red);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient(#e53529 , $red);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient(#e53529 , $red);
-                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient(#e53529 , $red);
-                border:3px solid $red;
+                    margin:-2px auto 2px auto;
                 }
             }
         }
@@ -470,7 +507,7 @@
     bottom:-80px;
     width:100%;
     padding:10px;
-    background-color:$bgBlue;
+    background-color:$orange;
     @include vp(transition-duration, 0.3s);
     &.show{
         bottom:0;
@@ -483,7 +520,7 @@
         text-decoration:none;
         text-align:center;
         line-height:50px;
-        background-color:$red;
+        background-color:$orange;
         border-radius:5px;
     }
 }
@@ -598,14 +635,14 @@
                 }
                 th{
                     padding:5px 0;
-                    background-color:$gray;
+                    background-color:$lightGray;
                     text-align:center;
-                    border:1px solid $borderGray;
+                    border:1px solid $lightGray
                 }
                 td{
                     padding:10px 5px;
                     background-color:$white;
-                    border:1px solid $borderGray;
+                    border:1px solid $lightGray
                 }
                 @media screen and (max-width:$sp_max){
                     width:auto;
