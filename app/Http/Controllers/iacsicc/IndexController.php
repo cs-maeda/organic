@@ -82,7 +82,7 @@ class IndexController extends BaseController
             $prefix = $displayName;
             $prefixOf = $displayName . 'の';
         }
-        $res['title'] = "{$prefixOf}動産価格・不動産売買の相場がわかるサイト";
+        $res['title'] = "{$prefixOf}不動産価格・不動産売買の相場がわかるサイト";
         $res['keywords'] = "不動産,{$prefix} 不動産価格,{$prefix} 不動産売買,国交省,土地総合情報システム";
         $res['description'] = "不動産価格・不動産売買の相場では、国交省の公開データを元に、実際に行われた取引における不動産価格を無料で公開しています。不動産価格に詳しく、不動産売買実績も豊富な不動産会社に、無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
         if ($prefix != ''){
