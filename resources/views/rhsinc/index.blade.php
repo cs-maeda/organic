@@ -14,10 +14,6 @@
         </div>
         <?php $idNo++; ?>
         @include('common.bodySfForm')
-        @if ($body['where'] != 'index')
-            @include('common.bodyBreadcrumb')
-        @endif
-
         @if ($body['where'] == 'index')
             @include('rhsinc/parts/index/bodyContent')
         @else
@@ -44,6 +40,9 @@
             @include('common.bodySfForm')
         </div>
         @include('common/bodyFormButton')
+        @if ($body['where'] != 'index')
+            @include('common.bodyBreadcrumb')
+        @endif
         @include('rhsinc/parts/common/bodyFoot')
     </body>
 </html>
