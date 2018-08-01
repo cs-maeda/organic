@@ -670,6 +670,9 @@ h6{
                     &:nth-child(10){
                         display:none;
                     }
+                    sup{
+                        color:$white;
+                    }
                 }
                 td{
                     padding:5px;
