@@ -18,17 +18,23 @@ h6{
     color:$orange;
 }
 .pageHeader{
-	height:55px;
 	background-color:$white;
 	.inner{
 		@include contentWidth;
 		.pageHeadline{
+            padding:12px 0;
+            @media screen and (max-width:$sp_max){
+                padding:5px 0;
+            }
 			a{
 				color:$black;
 				font-size:25px;
                 font-weight:bold;
-				line-height:55px;
+				line-height:31px;
 				text-decoration:none;
+                @media screen and (max-width:$pd_max){
+                    line-height:28px;
+                }
                 @media screen and (max-width:$sp_max){
                     font-size:20px;
                 }

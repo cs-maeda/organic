@@ -156,20 +156,19 @@ img {
       text-decoration: none; }
 
 .pageHeader {
-  height: 58px;
-  background: url(/images/iacsicc/header_bg.jpg) top repeat-x; }
+  background: #dddedf url(/images/iacsicc/header_bg.jpg) bottom repeat-x; }
   .pageHeader .inner {
-    box-sizing: border-box;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding: 14px 0; }
     @media screen and (max-width: 1199px) {
       .pageHeader .inner {
-        padding: 0 10px; } }
+        padding: 10px; } }
     .pageHeader .inner .pageHeadline a {
       color: #000000;
       font-size: 25px;
-      line-height: 58px;
+      line-height: 30px;
       text-decoration: none;
       text-shadow: -1px -1px 1px #000000, 1px 1px #eeeeee; }
       @media screen and (max-width: 640px) {

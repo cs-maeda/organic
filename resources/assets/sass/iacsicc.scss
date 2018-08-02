@@ -4,15 +4,20 @@
 @import "common";
 
 .pageHeader{
-	height:58px;
-	background: url(/images/iacsicc/header_bg.jpg) top repeat-x;
+	background:$gray url(/images/iacsicc/header_bg.jpg) bottom repeat-x;
 	.inner{
-		@include contentWidth;
+		width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:14px 0;
+        @media screen and (max-width:$pd_max){
+            padding:10px;
+        }
 		.pageHeadline{
 			a{
 				color:$black;
 				font-size:25px;
-				line-height:58px;
+				line-height:30px;
 				text-decoration:none;
 				text-shadow:-1px -1px 1px $black, 1px 1px #eeeeee;
                 @media screen and (max-width:$sp_max){

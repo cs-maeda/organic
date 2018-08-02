@@ -170,7 +170,6 @@ h6 {
   color: #ea5504; }
 
 .pageHeader {
-  height: 55px;
   background-color: #ffffff; }
   .pageHeader .inner {
     box-sizing: border-box;
@@ -180,15 +179,23 @@ h6 {
     @media screen and (max-width: 1023px) {
       .pageHeader .inner {
         padding: 0 10px; } }
-    .pageHeader .inner .pageHeadline a {
-      color: #000000;
-      font-size: 25px;
-      font-weight: bold;
-      line-height: 55px;
-      text-decoration: none; }
+    .pageHeader .inner .pageHeadline {
+      padding: 12px 0; }
       @media screen and (max-width: 640px) {
-        .pageHeader .inner .pageHeadline a {
-          font-size: 20px; } }
+        .pageHeader .inner .pageHeadline {
+          padding: 5px 0; } }
+      .pageHeader .inner .pageHeadline a {
+        color: #000000;
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 31px;
+        text-decoration: none; }
+        @media screen and (max-width: 1023px) {
+          .pageHeader .inner .pageHeadline a {
+            line-height: 28px; } }
+        @media screen and (max-width: 640px) {
+          .pageHeader .inner .pageHeadline a {
+            font-size: 20px; } }
 
 .breadcrumb {
   padding: 10px 0; }
