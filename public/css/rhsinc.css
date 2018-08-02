@@ -744,8 +744,8 @@ h6 {
       padding: 5px;
       background-color: #ffffff;
       border: 1px solid #a1a1a1; }
-      .recentPrice .inner #trading .priceTable td:nth-child(8), .recentPrice .inner #trading .priceTable td:nth-child(9), .recentPrice .inner #trading .priceTable td:nth-child(10) {
-        display: none; }
+    .recentPrice .inner #trading .priceTable tr td:nth-child(8), .recentPrice .inner #trading .priceTable tr td:nth-child(9), .recentPrice .inner #trading .priceTable tr td:nth-child(10) {
+      display: none; }
     @media screen and (max-width: 640px) {
       .recentPrice .inner #trading .priceTable {
         width: auto; }
