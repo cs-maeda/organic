@@ -8,10 +8,24 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-use Mockery\Exception;
-
-class OrganicException extends Exception
+class OrganicException extends Handler
 {
+    protected function renderHttpException(HttpException $exception)
+    {
+        $body = [];
+//        switch ($exception->getStatusCode()){
+//            case 403:
+//            case 404:
+//            case 500:
+//            default:
+//
+//        }
 
+
+        return response()->view('errors/error', ['body' => $body]);
+    }
 }

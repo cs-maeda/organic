@@ -25,6 +25,8 @@ abstract class Conditioner
     const TRADE_TYPE_FOREST_LAND = 4;   // 林地
     const TRADE_TYPE_FARM_LAND = 5;     // 農地
 
+    const SITE_NUMBER_IACSICC = 0;      // www.iacs-icc.org
+    const SITE_NUMBER_RHSINC = 1;       // www.rhs-inc.com
 
     protected function __construct(AreaValue $areaValue, string $root = null)
     {

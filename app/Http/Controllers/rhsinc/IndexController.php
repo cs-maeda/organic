@@ -75,8 +75,14 @@ class IndexController extends BaseController
         }
         $res['title'] = "{$prefixOf}土地価格・土地売買の相場がわかるサイト";
         $res['keywords'] = "土地,{$prefix} 土地価格,{$prefix} 土地売買,国交省,土地総合情報システム";
-        $res['description'] = "{$prefixOf}土地価格に詳しく、土地売買実績も豊富な不動産会社に、無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
-
+        if ($prefixOf == ''){
+            $res['description'] = '土地価格・土地売買の相場では、国交省の公開データを元に、実際に行われた取引における土地価格を無料で公開しています。';
+        }
+        else {
+            $res['description'] = "国交省が公開している{$prefixOf}土地売却実績における土地価格を無料で公開しています。";
+        }
+        $res['description'] .= "{$prefixOf}土地価格に詳しく、土地売買実績も豊富な不動産会社に、無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
+        $res['linkTitle'] = '都道府県ごとに土地価格・土地売買の相場を調べる';
         return $res;
     }
 
