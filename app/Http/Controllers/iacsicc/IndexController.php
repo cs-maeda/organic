@@ -88,6 +88,7 @@ class IndexController extends BaseController
         if ($prefix != ''){
             $res['description'] = "国交省が公開している{$prefix}の不動産売却実績における不動産価格を無料で公開しています。{$prefix}の不動産価格に詳しく、不動産売買実績も豊富な会社に無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
         }
+        $res['linkTitle'] = '都道府県ごとに不動産価格・不動産売買の相場を調べる';
         return $res;
     }
 
