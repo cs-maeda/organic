@@ -124,14 +124,19 @@
 
     function clearCityList()
     {
-        $('.objectCity').each(function()
+        $('.objectCity option').each(function()
         {
-           $(this).remove();
+            if ($(this).text() !== '市区町村を選択'){
+                $(this).remove();
+            }
         });
     }
 
     function storeCityList(items)
     {
+        clearTownList();
+        clearCityList();
+
         $.each(items, function(key, val)
         {
             $('.objectCity').append($("<option>").val(key).text(val));
@@ -155,14 +160,18 @@
 
     function clearTownList()
     {
-        $('.objectTown').each(function()
+        $('.objectTown option').each(function()
         {
-            $(this).remove();
+            if ($(this).text() !== '町名を選択') {
+                $(this).remove();
+            }
         });
     }
 
     function storeTownList(items)
     {
+        clearTownList();
+
         $.each(items, function(key, val)
         {
             $('.objectTown').append($("<option>").val(key).text(val));
