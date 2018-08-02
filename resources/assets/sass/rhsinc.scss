@@ -1,0 +1,734 @@
+/* rhsinc */
+
+@import "variablesRhsinc";
+@import "common";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.yellow{
+    color:$yellow;
+}
+.orange{
+    color:$orange;
+}
+.pageHeader{
+	background-color:$white;
+	.inner{
+		@include contentWidth;
+		.pageHeadline{
+            padding:12px 0;
+            @media screen and (max-width:$sp_max){
+                padding:5px 0;
+            }
+			a{
+				color:$black;
+				font-size:25px;
+                font-weight:bold;
+				line-height:31px;
+				text-decoration:none;
+                @media screen and (max-width:$pd_max){
+                    line-height:28px;
+                }
+                @media screen and (max-width:$sp_max){
+                    font-size:20px;
+                }
+			}
+		}
+	}
+}
+.breadcrumb{
+    padding:10px 0;
+}
+.mainV{
+    height:298px;
+    background:$white url(/images/rhsinc/mainImg.jpg) center top no-repeat;
+    @media screen and (max-width:$sp_max){
+        height:auto;
+        padding:0;
+        background:none;
+    }
+    .inner{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:30px 0 0 360px;
+        @media screen and (max-width:$pd_max){
+            padding-left:20%;
+        }
+        @media screen and (max-width:$sp_max){
+            position:relative;
+            padding:0;
+        }
+        h2{
+            top:0;
+            left:0;
+            min-height:2.8em;
+            margin:0 auto;
+            color:$white;
+            font-size:36px;
+            font-weight:bold;
+            line-height:1.2;
+            text-shadow:2px 0 $green,
+                2px 1px $green,
+                2px 2px $green,
+                2px -2px $green,
+                2px -1px $green,
+                1px 0 $green,
+                1px 1px $green,
+                1px 2px $green,
+                1px -2px $green,
+                1px -1px $green,
+                -2px 0 $green,
+                -2px 1px $green,
+                -2px 2px $green,
+                -2px -2px $green,
+                -2px -1px $green,
+                -1px 0 $green,
+                -1px 1px $green,
+                -1px 2px $green,
+                -1px -2px $green,
+                -1px -1px $green,
+                0 0 $green,
+                0 1px $green,
+                0 2px $green,
+                0 -2px $green,
+                0 -1px $green,
+                2px 2px 5px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,255,255,1.0);
+            @media screen and (max-width:$pd_max){
+                height:auto;
+                min-height:3.6em;
+                font-size:40px;
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                position:absolute;
+                top:3.0vw;
+                left:0;
+                padding:0 1.5vw;
+                font-size:6.3vw;
+                line-height:1.4;
+            }
+        }
+        p{
+            font-size:23px;
+            font-weight:bold;
+            text-shadow:2px 0 $white,
+                2px 1px $white,
+                2px 2px $white,
+                2px -2px $white,
+                2px -1px $white,
+                1px 0 $white,
+                1px 1px $white,
+                1px 2px $white,
+                1px -2px $white,
+                1px -1px $white,
+                -2px 0 $white,
+                -2px 1px $white,
+                -2px 2px $white,
+                -2px -2px $white,
+                -2px -1px $white,
+                -1px 0 $white,
+                -1px 1px $white,
+                -1px 2px $white,
+                -1px -2px $white,
+                -1px -1px $white,
+                0 0 $white,
+                0 1px $white,
+                0 2px $white,
+                0 -2px $white,
+                0 -1px $white,
+                0 0 10px rgba(255,255,255,1.0);
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+                font-size:22px;
+            }
+            @media screen and (max-width:$sp_max){
+                position:absolute;
+                top:25.0vw;
+                left:0;
+                padding:0 1.5vw;
+                font-size:4.2vw;
+                line-height:1.3;
+            }
+        }
+    }
+}
+.feature{
+    padding:40px 0;
+    background-color:$white;
+    .inner{
+        @include contentWidth;
+        .featureTitle{
+            margin:0 0 30px 0;
+            color:$green;
+            font-size:28px;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                font-size:20px;
+            }
+        }
+        p{
+            font-size:15px;
+            line-height:1.5;
+        }
+    }
+}
+.areaLink{
+    padding:40px 0;
+    @media screen and (max-width:$sp_max){
+        padding:20px 0 0 0;
+    }
+    .inner{
+        @include contentWidth;
+        background:url(/images/rhsinc/bgPrefList.png)right 100px top 80% no-repeat;
+        @media screen and (max-width:$pd_max){
+            background:none;
+        }
+        &.second{
+            background:none;
+            &.town{
+                padding-bottom:40px;
+                margin-bottom:40px;
+                border-bottom:1px solid $gray;
+            }
+            @media screen and (max-width:$sp_max){
+                padding:0 10px;
+            }
+        }
+        @media screen and (max-width:$sp_max){
+            padding:0;
+        }
+        .areaLinktitle{
+            margin:0 0 30px 0;
+            color:$green;
+            font-size:28px;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-bottom:10px;
+                padding:0 10px;
+                font-size:20px;
+                text-align:left;
+            }
+       }
+        ul{
+            @include displayFlex;
+            @include vp(flex-wrap, wrap);
+            @media screen and (max-width:$sp_max){
+                display:block;
+            }
+            li{
+                margin:5px 0;
+                padding:2px 0;
+                border-right:1px solid $gray;
+                &:last-child{
+                    border-right:none;
+                }
+                @media screen and (max-width:$sp_max){
+                    &.pref{
+                        display:none;
+                        a{
+                            line-height:50px;
+                        }
+                    }
+                }
+                &.top{
+                    display:none;
+                    @media screen and (max-width:$sp_max){
+                        display:block;
+                        padding:0 15px;
+                        color:$white;
+                        line-height:50px;
+                        background-color:$gray;
+                        .dn{
+                            display:block;
+                            float:right;
+                        }
+                        &.open{
+                            background-color:$orange;
+                            .dn{
+                                @include vp(transform, rotate(180deg));
+                            }
+                        }
+                    }
+                }
+                @media screen and (max-width:$sp_max){
+                    margin:0;
+                    padding:0;
+                    border:none;
+                    border-bottom:1px solid $white;
+                    border-top:1px solid $gray;
+                }
+                a{
+                    display:block;
+                    padding:0 15px;
+                    font-size:15px;
+                }
+            }
+            .second &{
+                padding-bottom:40px;
+            }
+        }
+        &.second{
+            li{
+                width:20%;
+                margin:0;
+                padding:2px 0 2px 0;
+                background: url(/images/rhsinc/listArrow.png) left no-repeat;
+                border:none;
+                @media screen and (max-width:$pd_max){
+                    width:33.333333%;
+                }
+                @media screen and (max-width:$sp_max){
+                    width:50%;
+                    float:left;
+                }
+            }
+            &:after{
+                content:".";
+                display:block;
+                margin:0;
+                padding:0;
+                font-size:0;
+                line-height:0;
+                visibility:hidden;
+                clear:both;
+            }
+        }
+    }
+}
+.pageFoot{
+    background-color:$darkGray;
+    .inner{
+        @include contentWidth;
+        padding:30px 0;
+        .head{
+            margin:0 0 5px 0;
+            color:$white;
+            font-size:15px;
+        }
+        @media screen and (max-width:$pd_max){
+            padding:20px 10px;
+        }
+        @media screen and (max-width:$sp_max){
+            padding:10px 10px 70px 10px;
+        }
+        .footerMenu{
+            li{
+                margin:0 0 5px 0;
+                padding:0 0 0 1.0em;
+                a{
+                    color:$white;
+                    text-decoration:none;
+                }
+                &:before{
+                    content:"▼";
+                    display:inline-block;
+                    margin:0 5px 0 0;
+                    color:$white;
+                    @include vp(transform, rotate(-90deg));
+                }
+            }
+            
+        }
+    }
+}
+.pageTop{
+    position:fixed;
+    bottom:-50px;
+    right:10%;
+    height:40px;
+    width:40px;
+    z-index:999;
+    @include vp(transition-duration, 0.3s);
+    @media screen and (max-width:$pd_max){
+        right:10px;
+    }
+    &.on{
+        bottom:30px;
+        @media screen and (max-width:$sp_max){
+            bottom:80px;
+        }
+    }
+    .button{
+        display:block;
+        width:40px;
+        height:40px;
+        background-color:$white;
+        border:1px solid $darkGray;
+        border-radius:50%;
+        cursor:pointer;
+        box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
+    }
+}
+//form
+.formCopy{
+    background-color:$green;
+    .catch{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:10px 0;
+        color:$white;
+        font-size:35px;
+        font-weight:bold;
+        font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+        text-align:center;
+        line-height:1.2;
+        .large{
+            font-size:1.4em;
+        }
+        @media screen and (max-width:$pd_max){
+            padding:10px;
+            font-size:3.4vw;
+        }
+        @media screen and (max-width:$sp_max){
+            font-size:25px;
+        }
+        .yellow{
+            font-weight:bold;
+        }
+    }
+    &.bottom{
+        .catch{
+            font-size:30px;
+        }
+    }
+}
+.formArea{
+    background-color:$lightGray;
+    @media screen and (max-width:$sp_max){
+        height:auto;
+    }
+    .form{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:20px 0;
+        @media screen and (max-width:$sp_max){
+            padding:10px;
+        }
+      .lpForm{
+            @include displayFlex;
+            @include vp(justify-content, center);
+            padding:0 0 10px 0;
+             @media screen and (max-width:$sp_max){
+                 display:block;
+            }
+            li{
+                @include displayFlex;
+                width:25%;
+                max-width:260px;
+                padding:0 7px;
+                @media screen and (max-width:$sp_max){
+                    width:100%;
+                    max-width:inherit;
+                    margin:10px 0;
+                    padding:0;
+                }
+               select{
+                    width:220px;
+                    max-width:85%;
+                    height:40px;
+                    background:$white url(/images/select.png) right 5px top 50% no-repeat;
+                    border:1px solid $darkGray;
+                    @media screen and (max-width:$sp_max){
+                        width:85%;
+                        height:50px;
+                        border:none;
+                        box-shadow:none;
+                   }
+                }
+                .formStep{
+                    display:block;
+                    width:40px;
+                    max-width:15%;
+                    color:$white;
+                    font-size:20px;
+                    font-weight:bold;
+                    text-align:center;
+                    line-height:40px;
+                    background-color:$darkGray;
+                    @media screen and (max-width:$sp_max){
+                        width:15%;
+                        line-height:50px;
+                        background-color:$darkGray;
+                        box-shadow:none;
+                    }
+                    .step{
+                        display:none;
+                    }
+                }
+                &.focusOn{
+                    select{
+                        border:1px solid $orange;
+                    }
+                    .formStep{
+                        background-color:$orange;
+                    }
+                }
+            }
+        }
+        .submit{
+            text-align:center;
+            padding:10px 0 20px 0;
+            background:url(/images/rhsinc/arrowForm.png) center top no-repeat,
+                url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 20px no-repeat;
+            @media screen and (max-width:$pd_max){
+                background:none;
+            }
+            .submitButton{
+                display:block;
+                width:100%;
+                max-width:520px;
+                height:70px;
+                margin:0 auto;
+                color:$white;
+                font-size:24px;
+                font-weight:bold;
+                text-align:center;
+                background-color:$orange;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+                &:hover{
+                    margin:-2px auto 2px auto;
+                }
+            }
+        }
+        .pMark{
+            display:none;
+        }
+        .warning{
+            display:block;
+            width:100%;
+            max-width:42.0em;
+            margin:0 auto;
+            img{
+                padding-right:5px;
+                vertical-align:top;
+            }
+        }
+    }
+}
+.formButton{
+    position:fixed;
+    left:0;
+    bottom:-80px;
+    width:100%;
+    padding:10px;
+    background-color:rgba(0,0,0,0.8);
+    @include vp(transition-duration, 0.3s);
+    z-index:100;
+    &.show{
+        bottom:0;
+    }
+    a.button{
+        display:block;
+        color:$white;
+        font-size:18px;
+        font-weight:bold;
+        text-decoration:none;
+        text-align:center;
+        line-height:50px;
+        background-color:$orange;
+        border-radius:5px;
+    }
+}
+.recentPrice{
+    .inner{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:40px 0;
+        &.recentPrice{
+            padding-bottom:40px;
+        }
+        &.trade{
+            padding:0;
+        }
+        .recentPriceTitle{
+            margin:0 0 10px 0;
+            color:$green;
+            font-size:28px;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-bottom:10px;
+                padding:0 10px;
+                font-size:20px;
+            }
+        }
+        .recentPriceList{
+            @include displayFlex;
+            @include vp(justify-content, space-between);
+            @media screen and (max-width:$sp_max){
+                display:block;
+                padding:0 10px;
+            }
+            li{
+                display:block;
+                text-align:center;
+                border:1px solid $darkGray;
+                &:first-child{
+                    padding-left:0;
+                }
+                &:last-child{
+                    padding-right:0;
+                }
+                &.count{
+                    width:32%;
+                }
+                &.lowPrice{
+                    width:32%;
+                }
+                &.highPrice{
+                    width:32%;
+                }
+                @media screen and (max-width:$sp_max){
+                    width:100% !important;
+                    margin-bottom:10px;
+                }
+                h3{
+                    padding:5px 0;
+                    color:$white;
+                    text-align:center;
+                    background-color:$darkGray;
+                }
+                p{
+                    padding:10px 0;
+                    font-size:20px;
+                    @media screen and (max-width:$sp_max){
+                        font-size:18px;
+                    }
+                    .orange{
+                        font-size:1.3em;
+                        font-weight:bold;
+                        white-space:nowrap;
+                    }
+                }
+            }
+        }
+        .showCount{
+        }
+        #trading{
+            @media screen and (max-width:$sp_max){
+                padding:0 10px;
+                overflow:auto;
+            }
+            .priceTable{
+                width:100%;
+                .col01{
+                    width:3%;
+                }
+                .col02{
+                    width:16%;
+                }
+                .col03{
+                    width:22%;
+                }
+                .col04{
+                    width:17%;
+                }
+                .col05{
+                    width:6%;
+                }
+                .col06{
+                    width:10%;
+                }
+                .col07{
+                    width:9%;
+                }
+                .col08{
+                    display:none;
+                }
+                .col09{
+                    display:none;
+                }
+                .col10{
+                    display:none;
+                }
+                .col11{
+                    width:20%;
+                }
+                th{
+                    padding:5px 0;
+                    color:$white;
+                    background-color:$green;
+                    text-align:center;
+                    border:1px solid $gray;
+                    &:nth-child(8),
+                    &:nth-child(9),
+                    &:nth-child(10){
+                        display:none;
+                    }
+                    sup{
+                        color:$white;
+                    }
+                }
+                td{
+                    padding:5px;
+                    background-color:$white;
+                    border:1px solid $gray;
+                    &:nth-child(8),
+                    &:nth-child(9),
+                    &:nth-child(10){
+                        display:none;
+                    }
+                }
+                @media screen and (max-width:$sp_max){
+                    width:auto;
+                    th,
+                    td{
+                        white-space:nowrap;
+                    }
+                }
+            }
+        }
+        .pager{
+            padding:10px 0;
+            .pagerList{
+                @include displayFlex;
+                @include vp(justify-content, center);
+                li{
+                    display:block;
+                    min-width:30px;
+                    height:30px;
+                    margin:0 1px;
+                    line-height:30px;
+                    text-align:center;
+                    background-color:$white;
+                    border:1px solid $gray;
+                    cursor:pointer;
+                    &.current,
+                    &:hover{
+                        background-color:$lightGray;
+                    }
+                    &.arrow{
+                        border:none;
+                    }
+                    &.end{
+                        border:none;
+                        @media screen and (max-width:$sp_max){
+                            display:none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

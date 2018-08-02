@@ -1,0 +1,667 @@
+/* iacsicc */
+
+@import "variablesIacsicc";
+@import "common";
+
+.pageHeader{
+	background:$gray url(/images/iacsicc/header_bg.jpg) bottom repeat-x;
+	.inner{
+		width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:14px 0;
+        @media screen and (max-width:$pd_max){
+            padding:10px;
+        }
+		.pageHeadline{
+			a{
+				color:$black;
+				font-size:25px;
+				line-height:30px;
+				text-decoration:none;
+				text-shadow:-1px -1px 1px $black, 1px 1px #eeeeee;
+                @media screen and (max-width:$sp_max){
+                    font-size:20px;
+                }
+			}
+		}
+	}
+}
+.breadcrumb{
+    padding:10px 0;
+    border-bottom:1px solid $borderGray;
+}
+.mainV{
+    height:305px;
+    padding:15px 0 0 0;
+    text-align:center;
+    background:#22d4fa url(/images/iacsicc/mainVisual.png) center bottom no-repeat;
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -moz-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -ms-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, -webkit-linear-gradient(#0699df, #22d4fa);
+    background:url(/images/iacsicc/mainVisual.png) center bottom no-repeat, linear-gradient(#0699df, #22d4fa);
+    @media screen and (max-width:$sp_max){
+        height:auto;
+        padding:0;
+        background:none;
+    }
+    .inner{
+        @include contentWidth;
+        @media screen and (max-width:$sp_max){
+            position:relative;
+            padding:0;
+        }
+        h2{
+            top:0;
+            left:0;
+            height:2.8em;
+            margin:0 auto;
+            color:$mainText;
+            font-size:46px;
+            font-weight:bold;
+            line-height:1.2;
+            text-shadow:2px 0 $mainTextBorder,
+                2px 1px $mainTextBorder,
+                2px 2px $mainTextBorder,
+                2px -2px $mainTextBorder,
+                2px -1px $mainTextBorder,
+                1px 0 $mainTextBorder,
+                1px 1px $mainTextBorder,
+                1px 2px $mainTextBorder,
+                1px -2px $mainTextBorder,
+                1px -1px $mainTextBorder,
+                -2px 0 $mainTextBorder,
+                -2px 1px $mainTextBorder,
+                -2px 2px $mainTextBorder,
+                -2px -2px $mainTextBorder,
+                -2px -1px $mainTextBorder,
+                -1px 0 $mainTextBorder,
+                -1px 1px $mainTextBorder,
+                -1px 2px $mainTextBorder,
+                -1px -2px $mainTextBorder,
+                -1px -1px $mainTextBorder,
+                0 0 $mainTextBorder,
+                0 1px $mainTextBorder,
+                0 2px $mainTextBorder,
+                0 -2px $mainTextBorder,
+                0 -1px $mainTextBorder,
+                2px 2px 5px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,255,255,1.0);
+            @media screen and (max-width:$pd_max){
+                height:auto;
+                min-height:3.6em;
+                font-size:40px;
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                position:absolute;
+                top:3.0vw;
+                left:0;
+                padding:0 1.5vw;
+                font-size:6.3vw;
+                line-height:1.4;
+            }
+        }
+        p{
+            font-size:26px;
+            font-weight:bold;
+            text-shadow:2px 0 $white,
+                2px 1px $white,
+                2px 2px $white,
+                2px -2px $white,
+                2px -1px $white,
+                1px 0 $white,
+                1px 1px $white,
+                1px 2px $white,
+                1px -2px $white,
+                1px -1px $white,
+                -2px 0 $white,
+                -2px 1px $white,
+                -2px 2px $white,
+                -2px -2px $white,
+                -2px -1px $white,
+                -1px 0 $white,
+                -1px 1px $white,
+                -1px 2px $white,
+                -1px -2px $white,
+                -1px -1px $white,
+                0 0 $white,
+                0 1px $white,
+                0 2px $white,
+                0 -2px $white,
+                0 -1px $white,
+                0 0 10px rgba(255,255,255,1.0);
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+                font-size:22px;
+            }
+            @media screen and (max-width:$sp_max){
+                position:absolute;
+                top:30.0vw;
+                left:0;
+                padding:0 1.5vw;
+                font-size:4.2vw;
+                line-height:1.3;
+            }
+        }
+    }
+}
+.feature{
+    padding:40px 0;
+    background-color:$white;
+    .inner{
+        @include contentWidth;
+        .featureTitle{
+            margin:0 0 30px 0;
+            color:$blue;
+            font-size:28px;
+            font-weight:bold;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                font-size:20px;
+            }
+        }
+        p{
+            font-size:15px;
+            line-height:1.5;
+        }
+    }
+}
+.areaLink{
+    padding:40px 0;
+    background-color:$contentGray;
+    @media screen and (max-width:$sp_max){
+        padding:20px 0 0 0;
+    }
+    .inner{
+        @include contentWidth;
+        background:url(/images/iacsicc/banknote.png) right 100px top 50% no-repeat;
+        &.second{
+            background:none;
+            &.town{
+                padding-bottom:40px;
+                margin-bottom:40px;
+                border-bottom:1px solid $formGray;
+            }
+        }
+        @media screen and (max-width:$sp_max){
+            padding:0;
+        }
+        .areaLinktitle{
+            margin:0 0 30px 0;
+            font-size:28px;
+            font-weight:bold;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-bottom:10px;
+                padding:0 10px;
+                font-size:20px;
+                text-align:left;
+            }
+       }
+        ul{
+            @include displayFlex;
+            @include vp(flex-wrap, wrap);
+            @media screen and (max-width:$sp_max){
+                display:block;
+            }
+            li{
+                margin:5px 0;
+                padding:2px 0;
+                border-right:1px solid $formGray;
+                &:last-child{
+                    border-right:none;
+                }
+                &.top{
+                    display:none;
+                }
+                @media screen and (max-width:$sp_max){
+                    margin:0;
+                    padding:0;
+                    background:$contentGray url(/images/iacsicc/arrowBlue.gif) no-repeat;
+                    background-position:right 10px top 50%;
+                    border:none;
+                    border-bottom:1px solid $lightGray;
+                    border-top:1px solid $formGray;
+                }
+                a{
+                    display:block;
+                    padding:0 15px;
+                    font-size:15px;
+                    @media screen and (max-width:$sp_max){
+                         color:$txt;
+                         line-height:50px;
+                         text-decoration:none;
+                    }
+                }
+            }
+            .second &{
+                padding-bottom:40px;
+            }
+        }
+        &.second{
+            li{
+                width:20%;
+                margin:2px 0;
+                padding:0;
+                line-height:1.2;
+                &:nth-child(5n){
+                    border-right:none;
+                }
+                @media screen and (max-width:$pd_max){
+                    width:33.333333%;
+                    &:nth-child(5n){
+                        border-right:1px solid $formGray;
+                    }
+                    &:nth-child(3n){
+                        border-right:none;
+                    }
+                }
+                @media screen and (max-width:$sp_max){
+                    width:100%;
+                }
+            }
+        }
+    }
+}
+.pageFoot{
+    background-color:$footGray;
+    .inner{
+        @include contentWidth;
+        padding:30px 0;
+        .head{
+            margin:0 0 5px 0;
+            color:$white;
+            font-size:15px;
+        }
+        @media screen and (max-width:$pd_max){
+            padding:20px 10px;
+        }
+        @media screen and (max-width:$sp_max){
+            padding:10px 10px 70px 10px;
+        }
+        .footerMenu{
+            li{
+                margin:0 0 5px 0;
+                padding:0 0 0 1.0em;
+                background:url(/images/iacsicc/arrowWhite.png) left no-repeat;
+                a{
+                    color:$white;
+                    text-decoration:none;
+                }
+            }
+            
+        }
+    }
+}
+.pageTop{
+    position:fixed;
+    bottom:-50px;
+    right:10%;
+    height:40px;
+    width:40px;
+    z-index:999;
+    @include vp(transition-duration, 0.3s);
+    @media screen and (max-width:$pd_max){
+        right:10px;
+    }
+    &.on{
+        bottom:30px;
+        @media screen and (max-width:$sp_max){
+            bottom:80px;
+        }
+    }
+    .button{
+        display:block;
+        width:40px;
+        height:40px;
+        background-color:$white;
+        border:1px solid $bgBlue;
+        border-radius:50%;
+        cursor:pointer;
+    }
+}
+//form
+.formCopy{
+    background-color:$darakBlue;
+    .catch{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:18px 0;
+        color:$white;
+        font-size:35px;
+        text-align:center;
+        @media screen and (max-width:$pd_max){
+            font-size:25px;
+        }
+        @media screen and (max-width:$sp_max){
+            padding:10px;
+            font-size:20px;
+        }
+        .red{
+            font-weight:bold;
+        }
+    }
+}
+.formArea{
+    height:270px;
+    background:#9b9c9e url(/images/iacsicc/form_bg.jpg) bottom repeat-x;
+    @media screen and (max-width:$sp_max){
+        height:auto;
+    }
+    .form{
+        width:100%;
+        max-width:$pc_min;
+        margin:0 auto;
+        padding:30px 0;
+        @media screen and (max-width:$sp_max){
+            padding:10px;
+        }
+      .lpForm{
+            @include displayFlex;
+            @include vp(justify-content, center);
+            padding:0 0 10px 0;
+             @media screen and (max-width:$sp_max){
+                 display:block;
+            }
+            li{
+                @include displayFlex;
+                width:25%;
+                max-width:260px;
+                padding:0 7px;
+                @media screen and (max-width:$sp_max){
+                    width:100%;
+                    max-width:inherit;
+                    margin:10px 0;
+                    padding:0;
+                }
+               select{
+                    width:220px;
+                    max-width:85%;
+                    height:40px;
+                    background:$white url(/images/select.png) right 5px top 50% no-repeat;
+                    border:2px solid $formGray;
+                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                    @media screen and (max-width:$sp_max){
+                        width:85%;
+                        height:50px;
+                        border:none;
+                        box-shadow:none;
+                   }
+                }
+                .formStep{
+                    display:block;
+                    width:40px;
+                    max-width:15%;
+                    color:$white;
+                    font-size:20px;
+                    font-weight:bold;
+                    text-align:center;
+                    line-height:40px;
+                    background-color:$formGray;
+                    box-shadow:1px 1px 2px 0 rgba(0,0,0,0.3);
+                    @media screen and (max-width:$sp_max){
+                        width:15%;
+                        line-height:50px;
+                        background-color:$footGray;
+                        box-shadow:none;
+                    }
+                    .step{
+                        display:none;
+                    }
+                }
+                &.focusOn{
+                    select{
+                        border:2px solid $red;
+                    }
+                    .formStep{
+                        background-color:$red;
+                    }
+                }
+            }
+        }
+        .submit{
+            text-align:center;
+            padding:30px 0 20px 0;
+            background:url(/images/iacsicc/arrowForm.png) center top no-repeat,
+                url(//www.lvn.co.jp/images/pMark60_60.gif) right 80px top 40px no-repeat;
+                @media screen and (max-width:$pd_max){
+                    background:url(/images/iacsicc/arrowForm.png) center top no-repeat,
+                        url(//www.lvn.co.jp/images/pMark60_60.gif) right 10px top 40px no-repeat;
+            }
+            .submitButton{
+                display:block;
+                width:100%;
+                max-width:480px;
+                height:70px;
+                margin:0 auto;
+                color:$white;
+                font-size:24px;
+                font-weight:bold;
+                text-align:center;
+                background:#9e0f0b  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient($red , #9e0f0b);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient($red , #9e0f0b);
+                border:3px solid #9e0f0b;
+                border-radius:5px;
+                cursor:pointer;
+                &:hover{
+                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:$red  url(/public/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat;
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -moz-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -ms-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, -webkit-linear-gradient(#e53529 , $red);
+                background:url(/images/iacsicc/allowSubmit.png) right 15px top 50% no-repeat, linear-gradient(#e53529 , $red);
+                border:3px solid $red;
+                }
+            }
+        }
+        .pMark{
+            display:none;
+        }
+        .warning{
+            display:block;
+            width:100%;
+            max-width:42.0em;
+            margin:0 auto;
+            img{
+                padding-right:5px;
+                vertical-align:top;
+            }
+        }
+    }
+}
+.formButton{
+    position:fixed;
+    left:0;
+    bottom:-80px;
+    width:100%;
+    padding:10px;
+    background-color:$bgBlue;
+    @include vp(transition-duration, 0.3s);
+    &.show{
+        bottom:0;
+    }
+    a.button{
+        display:block;
+        color:$white;
+        font-size:18px;
+        font-weight:bold;
+        text-decoration:none;
+        text-align:center;
+        line-height:50px;
+        background-color:$red;
+        border-radius:5px;
+    }
+}
+.recentPrice{
+    padding:40px 0;
+    .inner{
+        @include contentWidth;
+        &.recentPrice{
+            padding-bottom:40px;
+        }
+        .recentPriceTitle{
+            margin:0 0 10px 0;
+            font-size:28px;
+            font-weight:bold;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-bottom:10px;
+                padding:0 10px;
+                font-size:20px;
+            }
+        }
+        .recentPriceList{
+            @include displayFlex;
+            @include vp(justify-content, space-between);
+            @media screen and (max-width:$sp_max){
+                display:block;
+            }
+            li{
+                display:block;
+                text-align:center;
+                border-bottom:1px solid $darkGray;
+                &:first-child{
+                    padding-left:0;
+                }
+                &:last-child{
+                    padding-right:0;
+                }
+                &.count{
+                    width:40%;
+                }
+                &.lowPrice{
+                    width:35%;
+                }
+                &.highPrice{
+                    width:20%;
+                }
+                @media screen and (max-width:$sp_max){
+                    width:100% !important;
+                }
+                h3{
+                    padding:5px 0;
+                    color:$white;
+                    font-size:18px;
+                    text-align:center;
+                    background-color:$darkGray;
+                }
+                p{
+                    padding:10px 0;
+                    font-size:22px;
+                    @media screen and (max-width:$sp_max){
+                        font-size:18px;
+                    }
+                    .red{
+                        font-size:1.4em;
+                        font-weight:bold;
+                    }
+                }
+            }
+        }
+        .showCount{
+        }
+        #trading{
+            @media screen and (max-width:$sp_max){
+                overflow:auto;
+            }
+            .priceTable{
+                width:100%;
+                .col01{
+                    width:3%;
+                }
+                .col02{
+                    width:14%;
+                }
+                .col03{
+                    width:16%;
+                }
+                .col04{
+                    width:13%;
+                }
+                .col05{
+                    width:6%;
+                }
+                .col06{
+                    width:8%;
+                }
+                .col07{
+                    width:7%;
+                }
+                .col08{
+                    width:7%;
+                }
+                .col09{
+                    width:6%;
+                }
+                .col10{
+                    width:6%;
+                }
+                .col11{
+                    width:14%;
+                }
+                th{
+                    padding:5px 0;
+                    background-color:$gray;
+                    text-align:center;
+                    border:1px solid $borderGray;
+                }
+                td{
+                    padding:10px 5px;
+                    background-color:$white;
+                    border:1px solid $borderGray;
+                }
+                @media screen and (max-width:$sp_max){
+                    width:auto;
+                    th,
+                    td{
+                        white-space:nowrap;
+                    }
+                }
+            }
+        }
+        .pager{
+            padding:10px 0;
+            .pagerList{
+                @include displayFlex;
+                @include vp(justify-content, center);
+                li{
+                    display:block;
+                    width:44px;
+                    height:44px;
+                    margin:0 1px;
+                    line-height:44px;
+                    font-size:16px;
+                    text-align:center;
+                    background-color:$lightGray;
+                    border-radius:3px;
+                    cursor:pointer;
+                    &.current,
+                    &:hover{
+                        color:$white;
+                        background-color:$darkGray;
+                    }
+                    &.end{
+                        width:58px;
+                        @media screen and (max-width:$sp_max){
+                            display:none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

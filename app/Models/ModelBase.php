@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class ModelBase extends Model
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function getPdo(): PDO
     {
         $pdo = DB::connection()->getPdo();

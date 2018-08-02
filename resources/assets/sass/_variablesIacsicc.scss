@@ -1,0 +1,31 @@
+/* _variablesIacsicc */
+
+// mediaquery
+$pc_min:1200px;
+$pd_max:1199px;
+$pd_min:641px;
+$sp_max:640px;
+
+// color
+$txt:#333333;
+$red:#bd1d28;
+$darakBlue:#111230;
+$blue:#053c69;
+$bgBlue:#111230;
+$mainText:#ffc619;
+$mainTextBorder:#664b20;
+// gray
+$gray:#dddedf;
+$darkGray:#777777;
+$lightGray:#eeeeee;
+$contentGray:#e6e6e6;
+$footGray:#5c5c5c;
+$borderGray:#c2c5c7;
+$formGray:#999999;
+
+$default_color:(
+	black:$txt,
+);
+
+
+

@@ -13,10 +13,17 @@ class AreaValue
     protected $pwd = '';
     protected $areaInfo = [];
 
+    const WHOLE_OF_COUNTRY = 99;    // 全国の ID
+
     public function __construct(string $pwd, array $areaInfo)
     {
         $this->pwd = $pwd;
         $this->areaInfo = $areaInfo;
+    }
+
+    public function where(): string
+    {
+        return $this->pwd;
     }
 
     public function prefectureName(): string
@@ -59,10 +66,92 @@ class AreaValue
         return $this->areaInfo['station']['id'];
     }
 
+    public function parentId(): int
+    {
+        $parentId = 0;
+        switch ($this->pwd)
+        {
+            case 'prefecture':
+                $parentId = self::WHOLE_OF_COUNTRY;
+                break;
+            case 'city':
+            case 'town':
+            case 'station':
+                $parentId = $this->areaInfo['prefecture']['id'];
+                break;
+            default:
+                break;
+        }
+        return $parentId;
+    }
+
     public function displayName(): string
     {
-        $displayName = '';
+        $displayName = $this->displayNameImpl($this->pwd);
+        return $displayName;
+    }
+
+    public function parentAreaName(): string
+    {
+        $parentName = '';
         switch ($this->pwd)
+        {
+            case 'prefecture':
+                $parentName = '全国';
+                break;
+            case 'city':
+            case 'town':
+            case 'station':
+                $parentName = $this->areaInfo['prefecture']['name'];
+                break;
+            default:
+                break;
+        }
+        return $parentName;
+    }
+
+    public function breadcrumb(string $siteName): array
+    {
+        $breadcrumb = [];
+        $breadcrumb[] = ['caption' => $siteName,
+                         'link' => '/'];
+        $pwd = $this->where();
+        if (($pwd == 'prefecture')||
+            ($pwd == 'city')||
+            ($pwd == 'town')||
+            ($pwd == 'station')){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/";
+            if ($pwd == 'prefecture'){
+                $link = '';
+            }
+            $breadcrumb[] = ['caption' => $this->areaInfo['prefecture']['name'],
+                            'link' => $link];
+        }
+        if (($pwd == 'city')||
+            ($pwd == 'town')||
+            ($pwd == 'station')){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/{$this->areaInfo['city']['alphabet']}/";
+            if ($pwd == 'city'){
+                $link = '';
+            }
+            $breadcrumb[] = ['caption' => $this->areaInfo['city']['name'],
+                            'link' => $link];
+        }
+        if ($pwd == 'town'){
+            $breadcrumb[] = ['caption' => $this->areaInfo['town']['name'],
+                            'link' => ""];
+        }
+        if ($pwd == 'station'){
+            $breadcrumb[] = ['caption' => $this->areaInfo['station']['name'] . "駅",
+                            'link' => ""];
+        }
+        return $breadcrumb;
+    }
+
+    protected function displayNameImpl(string $where): string
+    {
+        $displayName = '';
+        switch ($where)
         {
             case 'prefecture':
                 $displayName = $this->areaInfo['prefecture']['name'];
@@ -106,7 +195,7 @@ class AreaValue
 
     protected function displayStationName(): string
     {
-        $stationName = $this->areaInfo['station']['name'] . '(' . $this->displayCityName() . ')';
+        $stationName = $this->areaInfo['station']['name'] . '駅(' . $this->displayCityName() . ')';
         return $stationName;
     }
 

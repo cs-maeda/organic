@@ -11,17 +11,43 @@
 |
 */
 
-Route::domain('www.iacs-icc.dev')->group(function()
+Route::domain(env('APP_IACS_ICC_DOMAIN'))->group(function()
+//Route::domain('dev.iacs-icc.org')->group(function()
 {
-	Route::get('/',                                                     'iacsicc\IndexController@index');
-	Route::get('/{prefecture}/{city?}/{townId?}',                       'iacsicc\IndexController@area');
+// for test -->
+    Route::get('/test/{num}',                                           'ApiController@unitTest');
+// <-- for test
+// web api -->
+    Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
+    Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
+    Route::get('/api/trade/prefecture/{id}/{pageNum}/{action}',         'ApiController@prefectureTradeRecords');
+    Route::get('/api/trade/city/{id}/{pageNum}/{action}',               'ApiController@cityTradeRecords');
+    Route::get('/api/trade/town/{id}/{pageNum}/{action}',               'ApiController@townTradeRecords');
+    Route::get('/api/trade/station/{id}/{pageNum}/{action}',            'ApiController@stationTradeRecords');
+// <-- web api
+
+    Route::get('/',                                                     'iacsicc\IndexController@index');
+    Route::get('/{prefecture}/{city?}/{townId?}',                       'iacsicc\IndexController@area');
+    Route::get('/{prefecture}/{city}/station/{stationId}',              'iacsicc\IndexController@station');
 });
 
-Route::domain('www.rhs-inc.dev')->group(function()
+Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
+//Route::domain('dev.rhs-inc.com')->group(function()
 {
-	Route::get('/',                                                     'rhsinc\IndexController@index');
-	Route::get('/{prefecture}/{city?}/{townId?}',                       'rhsinc\IndexController@area');
+// for test -->
+    Route::get('/test/{num}',                                           'ApiController@unitTest');
+// <-- for test
+// web api -->
+    Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
+    Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
+    Route::get('/api/trade/prefecture/{id}/{pageNum}/{action}',         'ApiController@prefectureTradeRecords');
+    Route::get('/api/trade/city/{id}/{pageNum}/{action}',               'ApiController@cityTradeRecords');
+    Route::get('/api/trade/town/{id}/{pageNum}/{action}',               'ApiController@townTradeRecords');
+    Route::get('/api/trade/station/{id}/{pageNum}/{action}',            'ApiController@stationTradeRecords');
+// <-- web api
 
-
+    Route::get('/',                                                     'rhsinc\IndexController@index');
+    Route::get('/{prefecture}/{city?}/{townId?}',                       'rhsinc\IndexController@area');
+    Route::get('/{prefecture}/{city}/station/{stationId}',              'rhsinc\IndexController@station');
 });
 

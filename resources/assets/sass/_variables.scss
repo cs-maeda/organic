@@ -1,8 +1,41 @@
+/* _variables */
 
-// Body
-$body-bg: #f5f8fa;
+// color
+$black:#000000;
+$white:#ffffff;
+$a:#2980c3;
+$a_hover:#61a6da;
 
-// Typography
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$default_color:(
+	black:#000000,
+	white:#ffffff,
+	a:#2980c3,
+	a_hover:#61a6da,
+);
+
+//ベンダープレフィックス
+@mixin vp($property, $value) {
+	@each $prefix in -moz-, -ms-, -webkit-, '' {
+		#{$prefix}#{$property}: $value;
+	}
+}
+
+@mixin displayFlex{
+	display:-moz-flex;
+	display:-ms-flex;
+	display:-webkit-flex;
+	display:flex;
+}
+
+//content
+@mixin contentWidth{
+	box-sizing:border-box;
+	width:100%;
+	max-width:$pc_min;
+	margin:0 auto;
+    @media screen and (max-width:$pd_max){
+        padding:0 10px;
+    }
+}
+
+
