@@ -1,3 +1,3 @@
 {{--@section('content')--}}
-            <h1>KJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJKJ</h1>
+    @include('errors.bodyCommon')
 {{--@endsection--}}
