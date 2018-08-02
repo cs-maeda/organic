@@ -1,3 +1,3 @@
 {{--@section('content')--}}
-    @include('errors.bodyCommon')
+    {{--@include('errors.bodyCommon')--}}
 {{--@endsection--}}
