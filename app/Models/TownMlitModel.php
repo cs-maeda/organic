@@ -59,7 +59,7 @@ class TownMlitModel extends ModelBase
             "FROM `mst_town_mlit` " .
                 "LEFT JOIN mst_city ON mst_town_mlit.city_id = mst_city.city_id " .
                 "LEFT JOIN tbl_trade_count ON mst_town_mlit.town_id = tbl_trade_count.area_id AND tbl_trade_count.station = 0 " .
-            "WHERE mst_city.city_id = ? {$condition} AND mst_town_mlit.town_id > 0 ";
+            "WHERE mst_city.city_id = ? {$condition} AND mst_town_mlit.town_id > 0 AND mst_town_mlit.town_name != '（大字なし）'";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute($bindArray);
