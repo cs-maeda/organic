@@ -678,11 +678,11 @@ h6 {
       .recentPrice .inner .recentPriceList li:last-child {
         padding-right: 0; }
       .recentPrice .inner .recentPriceList li.count {
-        width: 32%; }
+        width: 28%; }
       .recentPrice .inner .recentPriceList li.lowPrice {
-        width: 32%; }
+        width: 40%; }
       .recentPrice .inner .recentPriceList li.highPrice {
-        width: 32%; }
+        width: 28%; }
       @media screen and (max-width: 640px) {
         .recentPrice .inner .recentPriceList li {
           width: 100% !important;

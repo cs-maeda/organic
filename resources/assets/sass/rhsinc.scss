@@ -591,13 +591,13 @@ h6{
                     padding-right:0;
                 }
                 &.count{
-                    width:32%;
+                    width:28%;
                 }
                 &.lowPrice{
-                    width:32%;
+                    width:40%;
                 }
                 &.highPrice{
-                    width:32%;
+                    width:28%;
                 }
                 @media screen and (max-width:$sp_max){
                     width:100% !important;
