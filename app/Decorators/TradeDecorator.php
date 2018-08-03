@@ -121,8 +121,10 @@ abstract class TradeDecorator
             $startPageNum = $totalPageNum - 4;
         }
 
-        for ($index = $startPageNum, $count = 0; ($index <= $totalPageNum) && ($count < 5); $index++, $count++){
-            $results['pager']['buttonNumber'][] = $index;
+        if ($totalPageNum > 1){
+            for ($index = $startPageNum, $count = 0; ($index <= $totalPageNum) && ($count < 5); $index++, $count++){
+                $results['pager']['buttonNumber'][] = $index;
+            }
         }
 
         if ($startPageNum <= 1){
