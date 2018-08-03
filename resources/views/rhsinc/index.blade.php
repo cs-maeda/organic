@@ -43,6 +43,6 @@
         @if ($body['where'] != 'index')
             @include('common.bodyBreadcrumb')
         @endif
-        @include('rhsinc/parts/common/bodyFoot')
+        @include('common/bodyFoot')
     </body>
 </html>

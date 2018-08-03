@@ -5,6 +5,7 @@
         <link href="/css/organic.css" rel="stylesheet" type="text/css">
         <link href="/css/{{$body['folder']}}.css" rel="stylesheet" type="text/css">
         <title>{{$body['headLine']}}</title>
+        <link rel="shortcut icon" href="/images/{{$body['folder']}}/favicon.ico">
     </head>
     <body>
         @include('common.bodyHead')
