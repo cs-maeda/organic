@@ -44,6 +44,6 @@
             @include('common.bodySfForm')
         </div>
         @include('common/bodyFormButton')
-        @include('iacsicc/parts/common/bodyFoot')
+        @include('common/bodyFoot')
     </body>
 </html>
