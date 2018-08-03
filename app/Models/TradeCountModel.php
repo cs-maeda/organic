@@ -13,18 +13,6 @@ class TradeCountModel extends ModelBase
     protected $primaryKey = 'tbl_trade_count_id';
     protected $table = 'tbl_trade_count';
 
-//    public function existArea(int $siteNumber, int $areaId, int $station): bool
-//    {
-//        $pdo = self::getPdo();
-//        $sql = "SELECT * FROM tbl_trade_count"
-//        $stmt = $pdo->prepare($sql);
-//        $stmt->execute([$siteNumber, $areaId, $station]);
-//
-//        $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-//        return $results;
-//
-//    }
-
     public function clearTable()
     {
         $pdo = self::getPdo();
