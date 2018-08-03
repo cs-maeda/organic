@@ -3,7 +3,7 @@
 <html>
     <head>
         <link href="/css/organic.css" rel="stylesheet" type="text/css">
-        <link href="/css/{{$body['css']}}" rel="stylesheet" type="text/css">
+        <link href="/css/{{$body['folder']}}.css" rel="stylesheet" type="text/css">
         <title>{{$body['headLine']}}</title>
     </head>
     <body>

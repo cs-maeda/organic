@@ -1,5 +1,4 @@
 <!-- priceList -->
-<h2 class="recentPriceTitle">{{$body['areaCaptionOf']}}不動産売却実績・不動産価格一覧</h2>
 <input type="hidden" id="prefectureId" value="{{$body['prefectureId']}}">
 <input type="hidden" id="cityId" value="{{$body['cityId']}}">
 <input type="hidden" id="townId" value="{{$body['townId']}}">

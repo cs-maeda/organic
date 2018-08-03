@@ -96,6 +96,11 @@ class IndexController extends BaseController
         return "{$prefixOf}土地価格・土地売買の相場";
     }
 
+    protected function subject(): string
+    {
+        return "土地価格・土地売買";
+    }
+
     protected function catchCopy(AreaValue $areaValue = null): array
     {
         $prefixOf = '';

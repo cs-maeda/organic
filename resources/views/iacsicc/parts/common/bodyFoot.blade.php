@@ -3,6 +3,11 @@
         <ul class="footerMenu">
             <li><a href="/">トップページ</a></li>
         </ul>
+
+        @foreach($body['eachLink'] as $link)
+            <a href="{{$link['link']}}">{{$link['caption']}}</a>
+        @endforeach
+
     </div>
 </footer>
 

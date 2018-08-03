@@ -66,6 +66,34 @@ class AreaValue
         return $this->areaInfo['station']['id'];
     }
 
+    public function currentId(): array
+    {
+        $res = [];
+        switch ($this->pwd)
+        {
+            case 'prefecture':
+                $res['areaId'] = self::prefectureId();
+                $res['station'] = 0;
+                break;
+            case 'city':
+                $res['areaId'] = self::cityId();
+                $res['station'] = 0;
+                break;
+            case 'town':
+                $res['areaId'] = self::townId();
+                $res['station'] = 0;
+                break;
+            case 'station':
+                $res['areaId'] = self::stationId();
+                $res['station'] = 1;
+                break;
+            case 'top':
+            default:
+                break;
+        }
+        return $res;
+    }
+
     public function parentId(): int
     {
         $parentId = 0;
@@ -79,7 +107,9 @@ class AreaValue
             case 'station':
                 $parentId = $this->areaInfo['prefecture']['id'];
                 break;
+            case 'top':
             default:
+                $parentId = self::WHOLE_OF_COUNTRY;
                 break;
         }
         return $parentId;
@@ -108,6 +138,25 @@ class AreaValue
                 break;
         }
         return $parentName;
+    }
+
+    public function linkAddress(): string
+    {
+        $link = '/';
+        $pwd = $this->where();
+        if ($pwd == 'prefecture'){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/";
+        }
+        if ($pwd == 'city'){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/{$this->areaInfo['city']['alphabet']}/";
+        }
+        if ($pwd == 'town'){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/{$this->areaInfo['city']['alphabet']}/{$this->areaInfo['town']['id']}";
+        }
+        if ($pwd == 'station'){
+            $link = "/{$this->areaInfo['prefecture']['alphabet']}/{$this->areaInfo['city']['alphabet']}/station/{$this->areaInfo['station']['id']}";
+        }
+        return $link;
     }
 
     public function breadcrumb(string $siteName): array
@@ -165,6 +214,7 @@ class AreaValue
             case 'station':
                 $displayName = $this->displayStationName();
                 break;
+            case 'top':
             default:
                 break;
         }

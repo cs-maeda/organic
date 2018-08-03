@@ -17,6 +17,7 @@ use App\Decorators\StationTradeDecorator;
 use App\Decorators\TownTradeDecorator;
 use App\Decorators\TradeDecorator;
 use App\Factories\AreaFactory;
+use App\Factories\EachLinkFactory;
 use App\Http\Controllers\Controller;
 use App\Models\TownMlitModel;
 use Illuminate\Database\ConnectionInterface;
@@ -30,8 +31,13 @@ abstract class BaseController extends Controller
     public function indexImpl()
     {
         $body = [];
+
+        $areaFactory = new AreaFactory();
+        $this->areaValue = $areaFactory->product();
+
         $body['meta'] = $this->meta();
         $body['headLine'] = $this->headLine();
+        $body['subject'] = $this->subject();
         $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy();
         $body['formId'] = $this->formId();
@@ -39,6 +45,9 @@ abstract class BaseController extends Controller
         $body['where'] = 'index';
         $body['areaCaption'] = '';
         $body['areaCaptionOf'] = '';
+
+        $eachLink = new EachLinkFactory($this->areaValue);
+        $body['eachLink'] = $eachLink->product();
 
         return $body;
     }
@@ -52,6 +61,7 @@ abstract class BaseController extends Controller
 
         $body['meta'] = $this->meta($this->areaValue);
         $body['headLine'] = $this->headLine($this->areaValue);
+        $body['subject'] = $this->subject();
         $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
@@ -65,6 +75,9 @@ abstract class BaseController extends Controller
         $body['areaCaptionOf'] = $body['areaCaption'] . 'の';
         $body['parentAreaCaption'] = $this->areaValue->parentAreaName();
 
+        $eachLink = new EachLinkFactory($this->areaValue);
+        $body['eachLink'] = $eachLink->product();
+
         return $body;
     }
 
@@ -77,6 +90,7 @@ abstract class BaseController extends Controller
 
         $body['meta'] = $this->meta($this->areaValue);
         $body['headLine'] = $this->headLine($this->areaValue);
+        $body['subject'] = $this->subject();
         $body['form'] = $this->form();
         $body['copy'] = $this->catchCopy($this->areaValue);
         $body['formId'] = $this->formId();
@@ -89,6 +103,9 @@ abstract class BaseController extends Controller
         $body['areaCaption'] = $this->areaValue->displayName();
         $body['areaCaptionOf'] = $this->areaValue->displayName() . 'の';
         $body['parentAreaCaption'] = $this->areaValue->parentAreaName();
+
+        $eachLink = new EachLinkFactory($this->areaValue);
+        $body['eachLink'] = $eachLink->product();
 
         return $body;
     }
@@ -162,6 +179,10 @@ abstract class BaseController extends Controller
      * Head line を返す.
      */
     abstract protected function headLine(AreaValue $areaValue = null): string ;
+    /*
+     * subject を返す.
+     */
+    abstract protected function subject(): string;
     /**
      * Catch copy を返す.
      */

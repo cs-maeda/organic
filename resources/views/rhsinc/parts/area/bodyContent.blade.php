@@ -20,6 +20,7 @@
     </div>
     <div class="inner trade">
         {{--売買実績テーブル--}}
+        <h2 class="recentPriceTitle">{{$body['areaCaptionOf']}}土地売却実績・土地価格一覧</h2>
         @include('common/bodyTradeTable')
     </div>
 </div>

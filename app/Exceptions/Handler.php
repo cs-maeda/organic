@@ -64,12 +64,12 @@ class Handler extends ExceptionHandler
         $res = strpos($root, 'iacs-icc');   // www.iacs-icc.org
         if ($res !== false){
             $body['headLine'] = '不動産価格・不動産売買の相場';
-            $body['css'] = 'iacsicc.css';
+            $body['folder'] = 'iacsicc';
         }
         $res = strpos($root, 'rhs-inc');    // www.rhs-inc.com
         if ($res !== false){
             $body['headLine'] = '土地価格・土地売買の相場';
-            $body['css'] = 'rhsinc.css';
+            $body['folder'] = 'rhsinc';
         }
         return response()->view("errors.common", ['body' => $body], $status);
     }

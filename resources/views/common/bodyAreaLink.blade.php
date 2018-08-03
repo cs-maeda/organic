@@ -2,7 +2,7 @@
     @isset($body['areaLink']['city'])
         <!--  市区町村の不動産価格・不動産売買実績を調べる -->
         <div class="inner second city">
-            <h2 class="areaLinktitle">{{$body['areaCaption']}}の不動産価格・不動産売買実績を調べる</h2>
+            <h2 class="areaLinktitle">{{$body['areaCaption']}}の{{$body['subject']}}実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['city'] as $city)
                     @if ($city['link'] == '')
@@ -18,7 +18,7 @@
     @isset($body['areaLink']['town'])
         <!--  町域の不動産価格・不動産売買実績を調べる -->
         <div class="inner second town">
-            <h2 class="areaLinktitle">{{$body['areaCaption']}}周辺の不動産価格・不動産売買実績を調べる</h2>
+            <h2 class="areaLinktitle">{{$body['areaCaption']}}周辺の{{$body['subject']}}実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['town'] as $town)
                     @if ($town['link'] == '')
@@ -34,7 +34,7 @@
     @isset($body['areaLink']['station'])
         <!--  ○○駅（○○県○○市）周辺の不動産価格・不動産売買実績を調べる -->
         <div class="inner second station">
-            <h2 class="areaLinktitle">{{$body['areaCaptionOf']}}駅周辺の不動産価格・不動産売買実績を調べる</h2>
+            <h2 class="areaLinktitle">{{$body['areaCaptionOf']}}駅周辺の{{$body['subject']}}実績を調べる</h2>
             <ul class="areaList">
                 @foreach($body['areaLink']['station'] as $station)
                     @if ($station['link'] == '')
