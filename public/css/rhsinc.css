@@ -702,7 +702,7 @@ h6 {
           font-size: 1.3em;
           font-weight: bold;
           white-space: nowrap; }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 1023px) {
     .recentPrice .inner #trading {
       padding: 0 10px;
       overflow: auto; } }
