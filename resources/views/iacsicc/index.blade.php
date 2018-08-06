@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123345750-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-123345750-1');
+        </script>
+
+        @if ($body['where'] == 'index')
+            <meta name="google-site-verification" content="rhXY8blnEGsN-T9Erg6z9XwngQOYqpjZgn7HD0wxkIA" />
+        @endif
+
         @include('common.htmlHead')
         <link href="/css/iacsicc.css" rel="stylesheet" type="text/css">
         <link rel="shortcut icon" href="/images/iacsicc/favicon.ico">
