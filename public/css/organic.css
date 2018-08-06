@@ -1,0 +1,33 @@
+/* Sass Document */
+.pageError {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 30px 30px 100px 30px;
+  background: url(/images/404.png) center bottom repeat-x; }
+  @media screen and (max-width: 640px) {
+    .pageError {
+      padding: 10px; } }
+  .pageError p {
+    box-sizing: border-box;
+    padding: 30px 0; }
+    @media screen and (max-width: 640px) {
+      .pageError p {
+        padding: 0; } }
+  .pageError a {
+    box-sizing: border-box;
+    display: block;
+    width: 10.0em;
+    margin: 30px 0;
+    padding: 10px;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3); }
+    .pageError a:hover {
+      margin: 28px 0 32px 0; }

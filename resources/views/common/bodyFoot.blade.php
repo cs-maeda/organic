@@ -1,13 +1,15 @@
 <footer class="pageFoot">
     <div class="inner">
         <ul class="footerMenu">
-            <li><a href="/">トップページ</a></li>
+            @foreach($body['eachLink'] as $link)
+            <li><a href="{{$link['link']}}">{{$link['caption']}}</a></li>
+            @endforeach
         </ul>
     </div>
 </footer>
 
 <p class="pageTop">
-    <span class="button"><img src="/images/iacsicc/pageTop.png" alt="ページトップへ" class="width100"></span>
+    <span class="button"><img src="/images/pageTop.png" alt="ページトップへ" class="width100"></span>
 </p>
 
 <!-- Global site tag (gtag.js) - Google Analytics START -->

@@ -70,6 +70,10 @@ class AreaFactory
             $pwd = 'prefecture';
             $res = $this->prefectureIdArea($this->prefectureId);
         }
+        else {
+            $pwd = 'top';
+            $res = [];
+        }
 
         $areaValue = new AreaValue($pwd, $res);
         return $areaValue;

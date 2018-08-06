@@ -1,0 +1,23 @@
+{{--@section('content')--}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/css/organic.css" rel="stylesheet" type="text/css">
+        <link href="/css/{{$body['folder']}}.css" rel="stylesheet" type="text/css">
+        <title>{{$body['headLine']}}</title>
+        <link rel="shortcut icon" href="/images/{{$body['folder']}}/favicon.ico">
+    </head>
+    <body>
+        @include('common.bodyHead')
+        @include('errors.bodyCommon')
+        <footer class="pageFoot">
+            <div class="inner">
+                <ul class="footerMenu">
+                    <li><a href="/">トップページ</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
+{{--@endsection--}}
+

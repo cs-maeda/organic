@@ -1,7 +1,7 @@
 <!-- prefectureLink -->
 <div class="areaLink">
     <div class="inner">
-        <h2 class="areaLinktitle">都道府県ごとに不動産価格・不動産売買の相場を調べる</h2>
+        <h2 class="areaLinktitle">都道府県ごとに{{$body['subject']}}の相場を調べる</h2>
         <ul>
             <li class="top clearfix">北海道・東北<span class="dn">▼</span></li>
             <li class="pref"><a href="/hokkaido">北海道</a></li>

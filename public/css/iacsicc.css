@@ -659,8 +659,9 @@ img {
           .recentPrice .inner .recentPriceList li p .red {
             font-size: 1.4em;
             font-weight: bold; }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 1199px) {
       .recentPrice .inner #trading {
+        padding: 0 10px;
         overflow: auto; } }
     .recentPrice .inner #trading .priceTable {
       width: 100%; }

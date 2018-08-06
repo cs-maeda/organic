@@ -574,7 +574,8 @@
         .showCount{
         }
         #trading{
-            @media screen and (max-width:$sp_max){
+            @media screen and (max-width:$pd_max){
+                padding:0 10px;
                 overflow:auto;
             }
             .priceTable{

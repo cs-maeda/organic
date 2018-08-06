@@ -591,13 +591,13 @@ h6{
                     padding-right:0;
                 }
                 &.count{
-                    width:32%;
+                    width:28%;
                 }
                 &.lowPrice{
-                    width:32%;
+                    width:40%;
                 }
                 &.highPrice{
-                    width:32%;
+                    width:28%;
                 }
                 @media screen and (max-width:$sp_max){
                     width:100% !important;
@@ -626,7 +626,7 @@ h6{
         .showCount{
         }
         #trading{
-            @media screen and (max-width:$sp_max){
+            @media screen and (max-width:$pd_max){
                 padding:0 10px;
                 overflow:auto;
             }
@@ -684,10 +684,14 @@ h6{
                     padding:5px;
                     background-color:$white;
                     border:1px solid $gray;
-                    &:nth-child(8),
-                    &:nth-child(9),
-                    &:nth-child(10){
-                        display:none;
+                }
+                tr{
+                    td{
+                        &:nth-child(8),
+                        &:nth-child(9),
+                        &:nth-child(10){
+                            display:none;
+                        }
                     }
                 }
                 @media screen and (max-width:$sp_max){
