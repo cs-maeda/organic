@@ -24,6 +24,8 @@ Route::domain(env('APP_IACS_ICC_DOMAIN'))->group(function()
     Route::get('/api/trade/city/{id}/{pageNum}/{action}',               'ApiController@cityTradeRecords');
     Route::get('/api/trade/town/{id}/{pageNum}/{action}',               'ApiController@townTradeRecords');
     Route::get('/api/trade/station/{id}/{pageNum}/{action}',            'ApiController@stationTradeRecords');
+    Route::get('/api/link/exist/{prefecture?}/{city?}/{townId?}',       'ApiController@linkExists');
+    Route::get('/api/link/exist/{prefecture}/{city}/station/{stationId}','ApiController@stationLinkExists');
 // <-- web api
 
     Route::get('/',                                                     'iacsicc\IndexController@index');
@@ -44,6 +46,8 @@ Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
     Route::get('/api/trade/city/{id}/{pageNum}/{action}',               'ApiController@cityTradeRecords');
     Route::get('/api/trade/town/{id}/{pageNum}/{action}',               'ApiController@townTradeRecords');
     Route::get('/api/trade/station/{id}/{pageNum}/{action}',            'ApiController@stationTradeRecords');
+    Route::get('/api/link/exist/{prefecture?}/{city?}/{townId?}',       'ApiController@linkExists');
+    Route::get('/api/link/exist/{prefecture}/{city}/station/{stationId}','ApiController@stationLinkExists');
 // <-- web api
 
     Route::get('/',                                                     'rhsinc\IndexController@index');
