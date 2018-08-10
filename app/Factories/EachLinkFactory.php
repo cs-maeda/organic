@@ -63,7 +63,7 @@ class EachLinkFactory
     public function existLink(Conditioner $conditioner, int $siteNumber, &$link): bool
     {
         $where = $this->areaValue->where();
-        if ($where == 'top'){
+        if (($where == 'top')||($where == 'prefecture')){
             $link['caption'] = $conditioner->pageCaption();
             $link['link'] = $conditioner->pageLink();
             return true;
