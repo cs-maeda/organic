@@ -26,6 +26,15 @@ class AreaValue
         return $this->pwd;
     }
 
+    public function validArea(): bool
+    {
+        $res = true;
+        if ($this->areaInfo['prefecture']['id'] == null){
+            $res = false;
+        }
+        return $res;
+    }
+
     public function prefectureName(): string
     {
         return $this->areaInfo['prefecture']['name'];
