@@ -55,3 +55,17 @@ Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
     Route::get('/{prefecture}/{city}/station/{stationId}',              'rhsinc\IndexController@station');
 });
 
+Route::domain(env('APP_GINATONIC_DOMAIN'))->group(function()
+{
+// for test -->
+    Route::get('/test/{num}',                                           'ApiController@unitTest');
+// <-- for test
+// web api -->
+    Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
+    Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
+// <-- web api
+
+    Route::get('/',                                                     'ginatonic\IndexController@index');
+    Route::get('/{prefecture}/{city?}/',                                'ginatonic\IndexController@area');
+});
+
