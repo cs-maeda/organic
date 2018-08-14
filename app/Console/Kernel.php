@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ImportPostedLandPrice;
 use App\Console\Commands\MakeRankingCommand;
 use App\Console\Commands\MakeTradeCountCommand;
 use Illuminate\Console\Scheduling\Schedule;
@@ -18,6 +19,8 @@ class Kernel extends ConsoleKernel
         //
         MakeRankingCommand::class,
         MakeTradeCountCommand::class,
+        ImportPostedLandPrice::class,
+
     ];
 
     /**
