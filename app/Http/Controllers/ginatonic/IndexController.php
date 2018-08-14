@@ -48,11 +48,11 @@ class IndexController extends BaseController
     protected function breadcrumb(AreaValue $areaValue = null): array
     {
         if ($areaValue == null){
-            $res[] = ['caption' => '不動産価格・不動産売買の相場',
+            $res[] = ['caption' => '地価公示価格・土地評価額がわかるサイト',
                         'link' => ''];
             return $res;
         }
-        $res = $areaValue->breadcrumb('不動産価格・不動産売買の相場');
+        $res = $areaValue->breadcrumb('地価公示価格・土地評価額がわかるサイト');
         return $res;
     }
 
@@ -65,11 +65,11 @@ class IndexController extends BaseController
             $prefix = $displayName;
             $prefixOf = $displayName . 'の';
         }
-        $res['title'] = "{$prefixOf}不動産価格・不動産売買の相場がわかるサイト";
-        $res['keywords'] = "不動産,{$prefix} 不動産価格,{$prefix} 不動産売買,国交省,土地総合情報システム";
-        $res['description'] = "不動産価格・不動産売買の相場では、国交省の公開データを元に、実際に行われた取引における不動産価格を無料で公開しています。不動産価格に詳しく、不動産売買実績も豊富な不動産会社に、無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
+        $res['title'] = "{$prefixOf}地価公示価格・土地評価額がわかるサイト";
+        $res['keywords'] = "地価公示価格,{$prefix} 地価,{$prefix} 公示地価,{$prefix} 土地評価額,{$prefix} 土地評価,{$prefix} 土地価格";
+        $res['description'] = "税金や公共事業用地取得時の基準となる地価公示価格がわかり、一般の土地取引の際の土地評価額の無料査定ができるサイトです。公示価格は国交省公表のデータが地域別で見やすくなっており、土地評価額は最大6社に一括で無料査定依頼ができ価格比較に最適です。";
         if ($prefix != ''){
-            $res['description'] = "国交省が公開している{$prefix}の不動産売却実績における不動産価格を無料で公開しています。{$prefix}の不動産価格に詳しく、不動産売買実績も豊富な会社に無料で査定依頼ができる窓口もあり、そちらも是非ご活用ください。";
+            $res['description'] = "{$prefix}の地価公示価格がわかるサイトです。一般の土地取引の際の土地評価額も最大6社に一括で無料査定依頼ができ価格比較に最適です。公示価格は、国交省公表のデータを{$prefix}内の市区町村・町域・駅ごとにし、推移がわかるグラフやランキング比較も交えて掲載しています。";
         }
         return $res;
     }
@@ -81,12 +81,12 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefixOf = $displayName . 'の';
         }
-        return "{$prefixOf}不動産価格・不動産売買の相場";
+        return "{$prefixOf}地価公示価格・土地評価額がわかるサイト";
     }
 
     protected function subject(): string
     {
-        return "不動産価格・不動産売買";
+        return "地価公示価格・土地評価額";
     }
 
     protected function catchCopy(AreaValue $areaValue = null): array
@@ -96,10 +96,10 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefixOf = $displayName . 'の';
         }
-        $res[0] = "{$prefixOf}不動産価格・不動産売買の相場がわかる！";
-        $res[1] = "{$prefixOf}エリア別の不動産売買実績を<span class='red'>無料</span>で公開中！";
-        $res[2] = "{$prefixOf}不動産価格を知りたい方向けの、<span class='red'>無料一括査定</span>の窓口も！";
-        $res[3] = "1分以内の簡単入力で最大<span class='red'>6社</span>に<span class='red'>一括査定依頼！</span>";
+        $res[0] = "{$prefixOf}<span class='red'>土地の評価額</span>が知りたい方必見";
+        $res[1] = "{$prefixOf}<span class='red'>地価公示価格</span>と<span class='red'>売却価格</span>がわかります！";
+        $res[2] = "{$prefixOf}あなたの<span class='red'>土地評価額(売却価格)</span>はいくら？";
+        $res[3] = "最短45秒で最大<span class='red'>6社</span>に<span class='red'>一括無料査定</span>";
 
         return $res;
     }
