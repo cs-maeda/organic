@@ -1,0 +1,384 @@
+/* rhsinc */
+
+@import "variablesGinatonic";
+@import "common";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.pc{
+    display:inherit;
+    @media screen and (max-width:$pd_max){
+        display:none;
+    }
+}
+.green{
+    color:$green;
+}
+.inner{
+    width:$pc-width;
+    margin-left:auto;
+    margin-right:auto;
+    @media screen and (max-width:$pd_max){
+        width:100%;
+    }
+}
+#pageHeader{
+    h1{
+        padding:2px 10px;
+        text-align:right;
+    }
+    .header{
+        padding:10px;
+        background-color:$green;
+        border-top:1px solid $gray;
+        a.logo{
+            color:$white;
+            text-decoration:none;
+            font-size:30px;
+            .s{
+                font-size:0.7em;
+            }
+            .ss{
+                padding:0 0.2em;
+                font-size:0.5em;
+            }
+            @media screen and (max-width:$sp_max){
+                font-size:5.0vw;
+            }
+        }
+    }
+}
+.mainV{
+    padding:20px 0;
+    .inner{
+        height:240px;
+        padding:30px;
+        background:url(/images/ginatonic/img_banner_pc.jpg) center top no-repeat;
+        .text{
+            h2,
+            p{
+                color:$white;
+                font-size:40px;
+                font-weight:bold;
+                text-shadow:0 0 3px $green,
+                    0 0 5px $green;
+            }
+        }
+    }
+    @media screen and (max-width:$pd_max){
+        padding:0 0 10px 0;
+        .inner{
+            position:relative;
+            height:auto;
+            padding:0;
+            background:none;
+            .text{
+                position:absolute;
+                top:2.5vw;
+                left:2.5vw;
+                h2,
+                p{
+                    font-size:4.8vw;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:$sp_max){
+    }
+}
+#contentArea{
+    @include displayFlex;
+    @include vp(justify-content, space-between);
+    #mainArea{
+        width:760px;
+    }
+    #sideArea{
+        width:380px;
+    }
+    @media screen and (max-width:$pd_max){
+        display:block;
+        padding:0 10px;
+        #mainArea,
+        #sideArea{
+            width:100%;
+        }
+    }
+}
+.prg{
+    padding:20px 0;
+    border-top:4px solid $green;
+    .titlePrg{
+        margin:0 0 20px 0;
+        padding:5px 0 5px 40px;
+        font-size:26px;
+        background:url(/images/ginatonic/ico_pc.jpg) left no-repeat;
+        &.cal{
+            background-image:url(/images/ginatonic/ico_calculator.jpg);
+        }
+        @media screen and (max-width:$pd_max){
+            margin-bottom:10px;
+            padding:30px 0 0 0;
+            font-size:3.8vw;
+            text-align:center;
+            background:url(/images/ginatonic/ico_pc.jpg) center top no-repeat;
+        }
+        @media screen and (max-width:$sp_max){
+            font-size:5.2vw;
+        }
+    }
+    .textPrg{
+        padding:0 0 20px 0;
+    }
+    .areaLink{
+        .inner{
+            position:relative;
+            width:100%;
+            max-width: 760px;
+            height:630px;
+            background:url(/images/ginatonic/img_map.jpg) center top no-repeat;
+            background-size:100%;
+            @media screen and (max-width:$pd_max){
+                position:static;
+                @include displayFlex;
+                @include vp(justify-content, between);
+                flex-wrap:wrap;
+                height:auto;
+                background:none;
+            }
+            .areaLinktitle{
+                display:none;
+            }
+            ul{
+                position:absolute;
+                @include displayFlex;
+                @include vp(justify-content, between);
+                flex-wrap:wrap;
+                width:13.0em;
+                @media screen and (max-width:$pd_max){
+                    position:static;
+                    width:50%;
+                    padding:0 10px 10px 10px;
+                }
+                @media screen and (max-width:$sp_max){
+                    display:block;
+                    width:100%;
+                    padding:0;
+                }
+                li{
+                    width:33.333%;
+                    text-align:center;
+                    a{
+                        display:block;
+                        padding:3px 0;
+                        text-decoration:none;
+                    }
+                    @media screen and (max-width:$sp_max){
+                        display:none;
+                        width:100%;
+                        &.top{
+                            display:block;
+                        }
+                    }
+                    &.top{
+                        width:100%;
+                        height:30px;
+                        margin:0 0 5px 0;
+                        color:$white;
+                        font-size:1.1em;
+                        line-height:30px;
+                        background-color:$gray;
+                        border-radius:5px;
+                        .dn{
+                            display:none;
+                        }
+                    }
+                }
+                &.hokaido{
+                    left:75%;
+                    top:190px;
+                    .top{
+                        background-color:$green;
+                    }
+                }
+                &.kanto{
+                    left:75%;
+                    top:300px;
+                    .top{
+                        background-color:$blue;
+                    }
+                }
+                &.hokuriku{
+                    left:30%;
+                    top:190px;
+                    .top{
+                        background-color:$mugi;
+                    }
+                }
+                &.tokai{
+                    left:75%;
+                    top:410px;
+                    .top{
+                        background-color:$green;
+                    }
+                }
+                &.kinki{
+                    left:53%;
+                    top:520px;
+                    .top{
+                        background-color:$blue;
+                    }
+                }
+                &.chugoku{
+                    left:20%;
+                    top:300px;
+                    .top{
+                        background-color:$mugi;
+                    }
+                }
+                &.shikoku{
+                    left:35%;
+                    top:520px;
+                    width:8.0em;
+                    li{
+                        width:50%;
+                        &.top{
+                            width:100%;
+                            background-color:$green;
+                        }
+                    }
+                    @media screen and (max-width:$pd_max){
+                        width:50%;
+                        li{
+                            width:33.333%;
+                        }
+                    }
+                    @media screen and (max-width:$sp_max){
+                        width:100%;
+                        li{
+                            width:100%;
+                        }
+                    }
+                }
+                &.kyushu{
+                    left:5%;
+                    top:410px;
+                    width:9.0em;
+                    li{
+                        width:50%;
+                        &.top{
+                            width:100%;
+                            background-color:$blue;
+                        }
+                    }
+                    @media screen and (max-width:$pd_max){
+                        width:50%;
+                        li{
+                            width:33.333%;
+                        }
+                    }
+                    @media screen and (max-width:$sp_max){
+                        width:100%;
+                        li{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.formSide{
+    margin:0 0 40px 0;
+    background-color:$lightGray;
+    h2{
+        padding:15px 0;
+        color:$white;
+        font-size:18px;
+        text-align:center;
+        background-color:$darkGray;
+    }
+    p{
+        padding:5px 0;
+        text-align:center;
+        font-size:20px;
+        .l{
+            font-size:1.8em;
+            font-family:Verdana, Geneva, "sans-serif";
+        }
+    }
+    .form{
+        padding:0 20px 20px 20px;
+        li{
+            @include displayFlex;
+            @include vp(justify-content, between);
+            padding:5px 0;
+            .formStep{
+                display:block;
+                width:12%;
+                height:40px;
+                color:$white;
+                font-size:18px;
+                font-weight:bold;
+                font-family: Verdana, Geneva, "sans-serif";
+                line-height:38px;
+                text-align:center;
+                background-color:$gray;
+                border:1px solid $gray;
+            }
+            select{
+                width:88%;
+                height:40px;
+                padding:0 10px;
+                background-color:$white;
+                border:1px solid $gray;
+            }
+            &.focusOn{
+                .formStep{
+                    background-color:$green;
+                    border-color:$green;
+                }
+                select{
+                    border-color:$green;
+                }
+            }
+        }
+        .submit{
+            padding:5px 0;
+            .submitButton{
+                width:100%;
+                color:$white;
+                font-size:18px;
+                line-height:50px;
+                text-align:center;
+                background-color:$orange;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+            }
+            &:hover{
+                @include alp80;
+            }
+        }
+    }
+}
+.formArea{
+    .warning,
+    .st4,
+    .formStep .step{
+        display:none;
+    }
+    .formSide &{
+        .pMark{
+            display:none;
+        }
+    }
+}
+
+@media screen and (max-width:$sp_max){
+}
