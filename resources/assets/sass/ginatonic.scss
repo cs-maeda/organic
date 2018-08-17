@@ -103,7 +103,6 @@ h6{
     }
     @media screen and (max-width:$pd_max){
         display:block;
-        padding:0 10px;
         #mainArea,
         #sideArea{
             width:100%;
@@ -113,6 +112,12 @@ h6{
 .prg{
     padding:20px 0;
     border-top:4px solid $green;
+    @media screen and (max-width:$pd_max){
+        padding:20px 10px;
+        &.full{
+            padding:20px 0;
+        }
+    }
     .titlePrg{
         margin:0 0 20px 0;
         padding:5px 0 5px 40px;
@@ -121,9 +126,15 @@ h6{
         &.cal{
             background-image:url(/images/ginatonic/ico_calculator.jpg);
         }
+        &.crown{
+            background-image:url(/images/ginatonic/ico_crown.jpg);
+        }
+        &.bubble{
+            background:url(/images/ginatonic/ico_speech_bubble.jpg);
+        }
         @media screen and (max-width:$pd_max){
             margin-bottom:10px;
-            padding:30px 0 0 0;
+            padding:40px 0 0 0;
             font-size:3.8vw;
             text-align:center;
             background:url(/images/ginatonic/ico_pc.jpg) center top no-repeat;
@@ -150,6 +161,10 @@ h6{
                 flex-wrap:wrap;
                 height:auto;
                 background:none;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-top:20px;
+                border-top:1px solid $darkGray;
             }
             .areaLinktitle{
                 display:none;
@@ -181,8 +196,19 @@ h6{
                     @media screen and (max-width:$sp_max){
                         display:none;
                         width:100%;
+                        height:50px;
+                        background-color:$lightGray;
+                        border-bottom:1px solid $darkGray;
+                        a{
+                            padding:0 10px;
+                            color:$txt;
+                            line-height:50px;
+                            text-align:left;
+                        }
                         &.top{
                             display:block;
+                            padding:0 10px;
+                            text-align:left;
                         }
                     }
                     &.top{
@@ -197,6 +223,15 @@ h6{
                         .dn{
                             display:none;
                         }
+                        @media screen and (max-width:$sp_max){
+                            height:50px;
+                            margin-bottom:0;
+                            color:$txt;
+                            line-height:50px;
+                            border-top:1px solid $lightGray;
+                            border-bottom:1px solid $darkGray;
+                            border-radius:0;
+                        }
                     }
                 }
                 &.hokaido{
@@ -204,6 +239,9 @@ h6{
                     top:190px;
                     .top{
                         background-color:$green;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.kanto{
@@ -211,6 +249,9 @@ h6{
                     top:300px;
                     .top{
                         background-color:$blue;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.hokuriku{
@@ -218,6 +259,9 @@ h6{
                     top:190px;
                     .top{
                         background-color:$mugi;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.tokai{
@@ -225,6 +269,9 @@ h6{
                     top:410px;
                     .top{
                         background-color:$green;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.kinki{
@@ -232,6 +279,9 @@ h6{
                     top:520px;
                     .top{
                         background-color:$blue;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.chugoku{
@@ -239,6 +289,9 @@ h6{
                     top:300px;
                     .top{
                         background-color:$mugi;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
                     }
                 }
                 &.shikoku{
@@ -250,6 +303,9 @@ h6{
                         &.top{
                             width:100%;
                             background-color:$green;
+                            @media screen and (max-width:$sp_max){
+                                background-color:$white;
+                            }
                         }
                     }
                     @media screen and (max-width:$pd_max){
@@ -274,6 +330,9 @@ h6{
                         &.top{
                             width:100%;
                             background-color:$blue;
+                            @media screen and (max-width:$sp_max){
+                                background-color:$white;
+                            }
                         }
                     }
                     @media screen and (max-width:$pd_max){
@@ -288,6 +347,107 @@ h6{
                             width:100%;
                         }
                     }
+                }
+            }
+        }
+    }
+    &.averageGraph{
+        .remark{
+            font-size:0.8em;
+            text-align:right;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+        }
+    }
+    .tableRanking{
+        width:100%;
+        border-collapse:collapse;
+        margin:0 0 40px 0;
+        th{
+            padding:10px;
+            text-align:center;
+            background-color:$lightGray;
+            border:1px solid $gray;
+            border-top:none;
+            @media screen and (max-width:$sp_max){
+                padding:5px;
+            }
+            &:first-child{
+                border-left:none;
+            }
+            &:last-child{
+                border-right:none;
+            }
+        }
+        td{
+            padding:10px;
+            background-color:$white;
+            border:1px solid $gray;
+            @media screen and (max-width:$sp_max){
+                padding:5px;
+                font-size:12px;
+                a{
+                    font-size:12px;
+                }
+            }
+            &:first-child{
+                border-left:none;
+            }
+            &:last-child{
+                border-right:none;
+            }
+            &.rank{
+                padding-left:40px;
+                white-space:nowrap;
+                background:10px no-repeat;
+                @media screen and (max-width:$sp_max){
+                    padding:5px;
+                    text-align:center;
+                    &.top1,
+                    &.top2,
+                    &.top3{
+                        padding:30px 5px 5px 5px;
+                        background-position:center 5px;
+                    }
+                }
+                &.top1{
+                    background-image:url(/images/ginatonic/ico_crown_yellow.jpg);
+                }
+                &.top2{
+                    background-image:url(/images/ginatonic/ico_crown_blow.jpg);
+                }
+                &.top3{
+                    background-image:url(/images/ginatonic/ico_crown_orange.jpg);
+                }
+            }
+            &.value{
+                text-align:right;
+            }
+            &.ratio{
+                padding-right:40px;
+                text-align:right;
+                background:right 10px top 50% no-repeat;
+                @media screen and (max-width:$sp_max){
+                    padding:5px;
+                    text-align:center;
+                    &.up,
+                    &.down,
+                    &.flat{
+                        padding:30px 5px 5px 5px;
+                        background-position:center 5px;
+                    }
+                }
+                &.up{
+                    color:$red;
+                    background-image:url(/images/ginatonic/ico_up.png);
+                }
+                &.down{
+                    color:$blue;
+                    background-image:url(/images/ginatonic/ico_down.png);
+                }
+                &.flat{
+                    background-image:url(/images/ginatonic/ico_flat.png);
                 }
             }
         }
