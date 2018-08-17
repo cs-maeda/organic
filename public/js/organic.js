@@ -54,10 +54,10 @@ function openPref(){
     {
         if($(this).hasClass('open')){
             $(this).removeClass('open');
-            $(this).parent('ul').children('li').slideUp(200);
+            $(this).parent('ul').children('.areaLink .pref').slideUp(200);
         } else {
             $(this).addClass('open');
-            $(this).parent('ul').children('li').slideDown(200);
+            $(this).parent('ul').children('.areaLink .pref').slideDown(200);
         }
     });
 }
