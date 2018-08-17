@@ -172,6 +172,9 @@ h6 {
 .green {
   color: #40b4a7; }
 
+.orange {
+  color: #f19931; }
+
 .inner {
   width: 1200px;
   margin-left: auto;
@@ -266,7 +269,7 @@ h6 {
     .prg .titlePrg.crown {
       background-image: url(/images/ginatonic/ico_crown.jpg); }
     .prg .titlePrg.bubble {
-      background: url(/images/ginatonic/ico_speech_bubble.jpg); }
+      background-image: url(/images/ginatonic/ico_speech_bubble.jpg); }
     @media screen and (max-width: 820px) {
       .prg .titlePrg {
         margin-bottom: 10px;
@@ -590,6 +593,8 @@ h6 {
         border-color: #40b4a7; }
       .formSide .form li.focusOn select {
         border-color: #40b4a7; }
+      .formSide .form li.st4 {
+        display: none; }
     .formSide .form .submit {
       padding: 5px 0; }
       .formSide .form .submit .submitButton {
@@ -602,14 +607,170 @@ h6 {
         border: none;
         border-radius: 5px;
         cursor: pointer; }
-      .formSide .form .submit:hover {
-        filter: alpha(opacity=80);
-        -moz-opacity: 0.8;
-        opacity: 0.8; }
+        .formSide .form .submit .submitButton:hover {
+          filter: alpha(opacity=80);
+          -moz-opacity: 0.8;
+          opacity: 0.8; }
+  .formSide .warning {
+    display: none; }
 
-.formArea .warning,
-.formArea .st4,
+#formBottom .catch1 {
+  padding: 10px 0;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  border-top: 1px solid #acacac; }
+  #formBottom .catch1 .l {
+    font-size: 2.0em; }
+#formBottom .catch2 {
+  background-color: #40b4a7; }
+  #formBottom .catch2 .top,
+  #formBottom .catch2 .bottom {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center; }
+    @media screen and (max-width: 820px) {
+      #formBottom .catch2 .top,
+      #formBottom .catch2 .bottom {
+        width: 100%; } }
+  #formBottom .catch2 .top {
+    font-size: 30px;
+    border-bottom: 1px solid #ffffff; }
+  #formBottom .catch2 .bottom {
+    font-size: 25px; }
+#formBottom .formArea {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0; }
+  @media screen and (max-width: 820px) {
+    #formBottom .formArea {
+      width: 100%; } }
+  #formBottom .formArea .lpForm {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
+    #formBottom .formArea .lpForm li {
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-justify-content: between;
+      -ms-justify-content: between;
+      -webkit-justify-content: between;
+      justify-content: between;
+      width: 30%;
+      padding: 0 10px; }
+      #formBottom .formArea .lpForm li.st4 {
+        display: none; }
+      #formBottom .formArea .lpForm li .formStep {
+        width: 12%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 20px;
+        line-height: 38px;
+        background-color: #acacac;
+        border: 1px solid #acacac; }
+      #formBottom .formArea .lpForm li select {
+        width: 88%;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #acacac; }
+#formBottom .submit {
+  padding: 50px 0 20px 0;
+  text-align: center;
+  background: url(/images/ginatonic/ico_arr_down.png) center 20px no-repeat; }
+  #formBottom .submit .submitButton {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #f19931;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; }
+    #formBottom .submit .submitButton:hover {
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      opacity: 0.8; }
+#formBottom .pMark {
+  display: block;
+  margin: -60px 0 60px auto; }
+  @media screen and (max-width: 820px) {
+    #formBottom .pMark {
+      display: none; } }
+#formBottom .warning {
+  display: none; }
+@media screen and (max-width: 640px) {
+  #formBottom {
+    display: none; } }
+
 .formArea .formStep .step {
   display: none; }
 .formSide .formArea .pMark {
   display: none; }
+
+.formButton {
+  position: fixed;
+  left: 0;
+  bottom: -80px;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  z-index: 100; }
+  .formButton.show {
+    bottom: 0; }
+  .formButton a.button {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: #f19931;
+    border-radius: 5px; }
+
+.pageTop {
+  position: fixed;
+  bottom: -50px;
+  right: 10%;
+  height: 40px;
+  width: 40px;
+  z-index: 999;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  @media screen and (max-width: 820px) {
+    .pageTop {
+      right: 10px; } }
+  .pageTop.on {
+    bottom: 30px; }
+    @media screen and (max-width: 640px) {
+      .pageTop.on {
+        bottom: 80px; } }
+  .pageTop .button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #464545;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5); }

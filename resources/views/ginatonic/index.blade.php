@@ -42,19 +42,11 @@
                 </section>
             </article>
         </div>
-        <div>
-            <div class="formCopy">
-                <p class="catch">
-                {{$body['areaCaptionOf']}}不動産価格・不動産売買の相場で無料一括査定<br>
-                <span class="red">最高価格</span>で売るなら<span class="red">最大6社</span>で比較検討<br>
-                <span class="red">1分以内</span>の簡単入力！<br>
-                @if ($body['where'] != 'index')
-                    {{$body['areaCaptionOf']}}不動産価格に詳しい
-                @else
-                    {{$body['form']['clientCount']}}社以上の
-                @endif
-                不動産会社が対応！
-                </p>
+        <div id="formBottom">
+            <h2 class="catch1">土地売却なら<span class="orange">最大<span class="l">6</span>社</span>にて比較！</h2>
+            <div class="catch2">
+                <p class="top">土地を高く売るなら最短45秒の入力で、全国{{$body['form']['clientCount']}}社以上の不動産会社が対応！</p>
+                <p class="bottom">最短45秒で土地評価額を査定 </p>
             </div>
             <?php $idNo++; ?>
             @include('common.bodySfForm')

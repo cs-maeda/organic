@@ -20,6 +20,9 @@ h6{
 .green{
     color:$green;
 }
+.orange{
+    color:$orange;
+}
 .inner{
     width:$pc-width;
     margin-left:auto;
@@ -130,7 +133,7 @@ h6{
             background-image:url(/images/ginatonic/ico_crown.jpg);
         }
         &.bubble{
-            background:url(/images/ginatonic/ico_speech_bubble.jpg);
+            background-image:url(/images/ginatonic/ico_speech_bubble.jpg);
         }
         @media screen and (max-width:$pd_max){
             margin-bottom:10px;
@@ -507,6 +510,9 @@ h6{
                     border-color:$green;
                 }
             }
+            &.st4{
+                display:none;
+            }
         }
         .submit{
             padding:5px 0;
@@ -520,16 +526,122 @@ h6{
                 border:none;
                 border-radius:5px;
                 cursor:pointer;
+                &:hover{
+                    @include alp80;
+                }
             }
+        }
+    }
+    .warning{
+        display:none;
+    }
+}
+#formBottom{
+    .catch1{
+        padding:10px 0;
+        font-size:23px;
+        font-weight:bold;
+        text-align:center;
+        border-top:1px solid $gray;
+        .l{
+            font-size:2.0em;
+        }
+    }
+    .catch2{
+        background-color:$green;
+        .top,
+        .bottom{
+            width:$pc-width;
+            margin:0 auto;
+            padding:15px 0;
+            color:$white;
+            font-weight:bold;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                width:100%;
+            }
+        }
+        .top{
+            font-size:30px;
+            border-bottom:1px solid $white;
+        }
+        .bottom{
+            font-size:25px;
+        }
+    }
+    .formArea{
+        width:$pc-width;
+        margin:0 auto;
+        padding:20px 0;
+        @media screen and (max-width:$pd_max){
+            width:100%;
+        }
+        .lpForm{
+            @include displayFlex;
+            @include vp(justify-content, center);
+            li{
+                @include displayFlex;
+                @include vp(justify-content, between);
+                width:30%;
+                padding:0 10px;
+                &.st4{
+                    display:none;
+                }
+                .formStep{
+                    width:12%;
+                    color:$white;
+                    text-align:center;
+                    font-size:20px;
+                    line-height:38px;
+                    background-color:$gray;
+                    border:1px solid $gray;
+                }
+                select{
+                    width:88%;
+                    height:40px;
+                    padding:0 10px;
+                    border:1px solid $gray;
+                }
+            }
+        }
+    }
+    .submit{
+        padding:50px 0 20px 0;
+        text-align:center;
+        background:url(/images/ginatonic/ico_arr_down.png) center 20px no-repeat;
+        .submitButton{
+            display:block;
+            width:100%;
+            max-width:420px;
+            margin:0 auto;
+            color:$white;
+            font-size:20px;
+            line-height:60px;
+            text-align:center;
+            background-color:$orange;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
             &:hover{
                 @include alp80;
             }
         }
     }
+    .pMark{
+        display:block;
+        margin:-60px 0 60px auto;
+        @media screen and (max-width:$pd_max){
+            display:none;
+        }
+    }
+    .warning{
+        display:none;
+    }
+    @media screen and (max-width:$sp_max){
+        display:none;
+    }
 }
 .formArea{
-    .warning,
-    .st4,
     .formStep .step{
         display:none;
     }
@@ -537,6 +649,59 @@ h6{
         .pMark{
             display:none;
         }
+    }
+}
+.formButton{
+    position:fixed;
+    left:0;
+    bottom:-80px;
+    width:100%;
+    padding:10px;
+    background-color:rgba(0,0,0,0.8);
+    @include vp(transition-duration, 0.3s);
+    z-index:100;
+    &.show{
+        bottom:0;
+    }
+    a.button{
+        display:block;
+        color:$white;
+        font-size:18px;
+        font-weight:bold;
+        text-decoration:none;
+        text-align:center;
+        line-height:50px;
+        background-color:$orange;
+        border-radius:5px;
+    }
+}
+
+.pageTop{
+    position:fixed;
+    bottom:-50px;
+    right:10%;
+    height:40px;
+    width:40px;
+    z-index:999;
+    @include vp(transition-duration, 0.3s);
+    @media screen and (max-width:$pd_max){
+        right:10px;
+    }
+    &.on{
+        bottom:30px;
+        @media screen and (max-width:$sp_max){
+            bottom:80px;
+        }
+    }
+    .button{
+        display:block;
+        width:40px;
+        height:40px;
+        background-color:$white;
+        border:1px solid $darkGray;
+        border-radius:50%;
+        cursor:pointer;
+        box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
     }
 }
 
