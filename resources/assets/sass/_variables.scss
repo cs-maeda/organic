@@ -20,6 +20,11 @@ $default_color:(
 	}
 }
 
+@mixin alp80{
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+}
 @mixin displayFlex{
 	display:-moz-flex;
 	display:-ms-flex;

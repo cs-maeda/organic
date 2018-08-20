@@ -1,0 +1,709 @@
+/* rhsinc */
+
+@import "variablesGinatonic";
+@import "common";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.pc{
+    display:inherit;
+    @media screen and (max-width:$pd_max){
+        display:none;
+    }
+}
+.green{
+    color:$green;
+}
+.orange{
+    color:$orange;
+}
+.inner{
+    width:$pc-width;
+    margin-left:auto;
+    margin-right:auto;
+    @media screen and (max-width:$pd_max){
+        width:100%;
+    }
+}
+#pageHeader{
+    h1{
+        padding:2px 10px;
+        text-align:right;
+    }
+    .header{
+        padding:10px;
+        background-color:$green;
+        border-top:1px solid $gray;
+        a.logo{
+            color:$white;
+            text-decoration:none;
+            font-size:30px;
+            .s{
+                font-size:0.7em;
+            }
+            .ss{
+                padding:0 0.2em;
+                font-size:0.5em;
+            }
+            @media screen and (max-width:$sp_max){
+                font-size:5.0vw;
+            }
+        }
+    }
+}
+.mainV{
+    padding:20px 0;
+    .inner{
+        height:240px;
+        padding:30px;
+        background:url(/images/ginatonic/img_banner_pc.jpg) center top no-repeat;
+        .text{
+            h2,
+            p{
+                color:$white;
+                font-size:40px;
+                font-weight:bold;
+                text-shadow:0 0 3px $green,
+                    0 0 5px $green;
+            }
+        }
+    }
+    @media screen and (max-width:$pd_max){
+        padding:0 0 10px 0;
+        .inner{
+            position:relative;
+            height:auto;
+            padding:0;
+            background:none;
+            .text{
+                position:absolute;
+                top:2.5vw;
+                left:2.5vw;
+                h2,
+                p{
+                    font-size:4.8vw;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:$sp_max){
+    }
+}
+#contentArea{
+    @include displayFlex;
+    @include vp(justify-content, space-between);
+    #mainArea{
+        width:760px;
+    }
+    #sideArea{
+        width:380px;
+    }
+    @media screen and (max-width:$pd_max){
+        display:block;
+        #mainArea,
+        #sideArea{
+            width:100%;
+        }
+    }
+}
+.prg{
+    padding:20px 0;
+    border-top:4px solid $green;
+    @media screen and (max-width:$pd_max){
+        padding:20px 10px;
+        &.full{
+            padding:20px 0;
+        }
+    }
+    .titlePrg{
+        margin:0 0 20px 0;
+        padding:5px 0 5px 40px;
+        font-size:26px;
+        background:url(/images/ginatonic/ico_pc.jpg) left no-repeat;
+        &.cal{
+            background-image:url(/images/ginatonic/ico_calculator.jpg);
+        }
+        &.crown{
+            background-image:url(/images/ginatonic/ico_crown.jpg);
+        }
+        &.bubble{
+            background-image:url(/images/ginatonic/ico_speech_bubble.jpg);
+        }
+        @media screen and (max-width:$pd_max){
+            margin-bottom:10px;
+            padding:40px 0 0 0;
+            font-size:3.8vw;
+            text-align:center;
+            background:url(/images/ginatonic/ico_pc.jpg) center top no-repeat;
+        }
+        @media screen and (max-width:$sp_max){
+            font-size:5.2vw;
+        }
+    }
+    .textPrg{
+        padding:0 0 20px 0;
+    }
+    .areaLink{
+        .inner{
+            position:relative;
+            width:100%;
+            max-width: 760px;
+            height:630px;
+            background:url(/images/ginatonic/img_map.jpg) center top no-repeat;
+            background-size:100%;
+            @media screen and (max-width:$pd_max){
+                position:static;
+                @include displayFlex;
+                @include vp(justify-content, between);
+                flex-wrap:wrap;
+                height:auto;
+                background:none;
+            }
+            @media screen and (max-width:$sp_max){
+                margin-top:20px;
+                border-top:1px solid $darkGray;
+            }
+            .areaLinktitle{
+                display:none;
+            }
+            ul{
+                position:absolute;
+                @include displayFlex;
+                @include vp(justify-content, between);
+                flex-wrap:wrap;
+                width:13.0em;
+                @media screen and (max-width:$pd_max){
+                    position:static;
+                    width:50%;
+                    padding:0 10px 10px 10px;
+                }
+                @media screen and (max-width:$sp_max){
+                    display:block;
+                    width:100%;
+                    padding:0;
+                }
+                li{
+                    width:33.333%;
+                    text-align:center;
+                    a{
+                        display:block;
+                        padding:3px 0;
+                        text-decoration:none;
+                    }
+                    @media screen and (max-width:$sp_max){
+                        display:none;
+                        width:100%;
+                        height:50px;
+                        background-color:$lightGray;
+                        border-bottom:1px solid $darkGray;
+                        a{
+                            padding:0 10px;
+                            color:$txt;
+                            line-height:50px;
+                            text-align:left;
+                        }
+                        &.top{
+                            display:block;
+                            padding:0 10px;
+                            text-align:left;
+                        }
+                    }
+                    &.top{
+                        width:100%;
+                        height:30px;
+                        margin:0 0 5px 0;
+                        color:$white;
+                        font-size:1.1em;
+                        line-height:30px;
+                        background-color:$gray;
+                        border-radius:5px;
+                        .dn{
+                            display:none;
+                        }
+                        @media screen and (max-width:$sp_max){
+                            height:50px;
+                            margin-bottom:0;
+                            color:$txt;
+                            line-height:50px;
+                            border-top:1px solid $lightGray;
+                            border-bottom:1px solid $darkGray;
+                            border-radius:0;
+                        }
+                    }
+                }
+                &.hokaido{
+                    left:75%;
+                    top:190px;
+                    .top{
+                        background-color:$green;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.kanto{
+                    left:75%;
+                    top:300px;
+                    .top{
+                        background-color:$blue;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.hokuriku{
+                    left:30%;
+                    top:190px;
+                    .top{
+                        background-color:$mugi;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.tokai{
+                    left:75%;
+                    top:410px;
+                    .top{
+                        background-color:$green;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.kinki{
+                    left:53%;
+                    top:520px;
+                    .top{
+                        background-color:$blue;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.chugoku{
+                    left:20%;
+                    top:300px;
+                    .top{
+                        background-color:$mugi;
+                        @media screen and (max-width:$sp_max){
+                            background-color:$white;
+                        }
+                    }
+                }
+                &.shikoku{
+                    left:35%;
+                    top:520px;
+                    width:8.0em;
+                    li{
+                        width:50%;
+                        &.top{
+                            width:100%;
+                            background-color:$green;
+                            @media screen and (max-width:$sp_max){
+                                background-color:$white;
+                            }
+                        }
+                    }
+                    @media screen and (max-width:$pd_max){
+                        width:50%;
+                        li{
+                            width:33.333%;
+                        }
+                    }
+                    @media screen and (max-width:$sp_max){
+                        width:100%;
+                        li{
+                            width:100%;
+                        }
+                    }
+                }
+                &.kyushu{
+                    left:5%;
+                    top:410px;
+                    width:9.0em;
+                    li{
+                        width:50%;
+                        &.top{
+                            width:100%;
+                            background-color:$blue;
+                            @media screen and (max-width:$sp_max){
+                                background-color:$white;
+                            }
+                        }
+                    }
+                    @media screen and (max-width:$pd_max){
+                        width:50%;
+                        li{
+                            width:33.333%;
+                        }
+                    }
+                    @media screen and (max-width:$sp_max){
+                        width:100%;
+                        li{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.averageGraph{
+        .remark{
+            font-size:0.8em;
+            text-align:right;
+            @media screen and (max-width:$pd_max){
+                text-align:left;
+            }
+        }
+    }
+    .tableRanking{
+        width:100%;
+        border-collapse:collapse;
+        margin:0 0 40px 0;
+        th{
+            padding:10px;
+            text-align:center;
+            background-color:$lightGray;
+            border:1px solid $gray;
+            border-top:none;
+            @media screen and (max-width:$sp_max){
+                padding:5px;
+            }
+            &:first-child{
+                border-left:none;
+            }
+            &:last-child{
+                border-right:none;
+            }
+        }
+        td{
+            padding:10px;
+            background-color:$white;
+            border:1px solid $gray;
+            @media screen and (max-width:$sp_max){
+                padding:5px;
+                font-size:12px;
+                a{
+                    font-size:12px;
+                }
+            }
+            &:first-child{
+                border-left:none;
+            }
+            &:last-child{
+                border-right:none;
+            }
+            &.rank{
+                padding-left:40px;
+                white-space:nowrap;
+                background:10px no-repeat;
+                @media screen and (max-width:$sp_max){
+                    padding:5px;
+                    text-align:center;
+                    &.top1,
+                    &.top2,
+                    &.top3{
+                        padding:30px 5px 5px 5px;
+                        background-position:center 5px;
+                    }
+                }
+                &.top1{
+                    background-image:url(/images/ginatonic/ico_crown_yellow.jpg);
+                }
+                &.top2{
+                    background-image:url(/images/ginatonic/ico_crown_blow.jpg);
+                }
+                &.top3{
+                    background-image:url(/images/ginatonic/ico_crown_orange.jpg);
+                }
+            }
+            &.value{
+                text-align:right;
+            }
+            &.ratio{
+                padding-right:40px;
+                text-align:right;
+                background:right 10px top 50% no-repeat;
+                @media screen and (max-width:$sp_max){
+                    padding:5px;
+                    text-align:center;
+                    &.up,
+                    &.down,
+                    &.flat{
+                        padding:30px 5px 5px 5px;
+                        background-position:center 5px;
+                    }
+                }
+                &.up{
+                    color:$red;
+                    background-image:url(/images/ginatonic/ico_up.png);
+                }
+                &.down{
+                    color:$blue;
+                    background-image:url(/images/ginatonic/ico_down.png);
+                }
+                &.flat{
+                    background-image:url(/images/ginatonic/ico_flat.png);
+                }
+            }
+        }
+    }
+}
+.formSide{
+    margin:0 0 40px 0;
+    background-color:$lightGray;
+    h2{
+        padding:15px 0;
+        color:$white;
+        font-size:18px;
+        text-align:center;
+        background-color:$darkGray;
+    }
+    p{
+        padding:5px 0;
+        text-align:center;
+        font-size:20px;
+        .l{
+            font-size:1.8em;
+            font-family:Verdana, Geneva, "sans-serif";
+        }
+    }
+    .form{
+        padding:0 20px 20px 20px;
+        li{
+            @include displayFlex;
+            @include vp(justify-content, between);
+            padding:5px 0;
+            .formStep{
+                display:block;
+                width:12%;
+                height:40px;
+                color:$white;
+                font-size:18px;
+                font-weight:bold;
+                font-family: Verdana, Geneva, "sans-serif";
+                line-height:38px;
+                text-align:center;
+                background-color:$gray;
+                border:1px solid $gray;
+            }
+            select{
+                width:88%;
+                height:40px;
+                padding:0 10px;
+                background-color:$white;
+                border:1px solid $gray;
+            }
+            &.focusOn{
+                .formStep{
+                    background-color:$green;
+                    border-color:$green;
+                }
+                select{
+                    border-color:$green;
+                }
+            }
+            &.st4{
+                display:none;
+            }
+        }
+        .submit{
+            padding:5px 0;
+            .submitButton{
+                width:100%;
+                color:$white;
+                font-size:18px;
+                line-height:50px;
+                text-align:center;
+                background-color:$orange;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+                &:hover{
+                    @include alp80;
+                }
+            }
+        }
+    }
+    .warning{
+        display:none;
+    }
+}
+#formBottom{
+    .catch1{
+        padding:10px 0;
+        font-size:23px;
+        font-weight:bold;
+        text-align:center;
+        border-top:1px solid $gray;
+        .l{
+            font-size:2.0em;
+        }
+    }
+    .catch2{
+        background-color:$green;
+        .top,
+        .bottom{
+            width:$pc-width;
+            margin:0 auto;
+            padding:15px 0;
+            color:$white;
+            font-weight:bold;
+            text-align:center;
+            @media screen and (max-width:$pd_max){
+                width:100%;
+            }
+        }
+        .top{
+            font-size:30px;
+            border-bottom:1px solid $white;
+        }
+        .bottom{
+            font-size:25px;
+        }
+    }
+    .formArea{
+        width:$pc-width;
+        margin:0 auto;
+        padding:20px 0;
+        @media screen and (max-width:$pd_max){
+            width:100%;
+        }
+        .lpForm{
+            @include displayFlex;
+            @include vp(justify-content, center);
+            li{
+                @include displayFlex;
+                @include vp(justify-content, between);
+                width:30%;
+                padding:0 10px;
+                &.st4{
+                    display:none;
+                }
+                .formStep{
+                    width:12%;
+                    color:$white;
+                    text-align:center;
+                    font-size:20px;
+                    line-height:38px;
+                    background-color:$gray;
+                    border:1px solid $gray;
+                }
+                select{
+                    width:88%;
+                    height:40px;
+                    padding:0 10px;
+                    border:1px solid $gray;
+                }
+            }
+        }
+    }
+    .submit{
+        padding:50px 0 20px 0;
+        text-align:center;
+        background:url(/images/ginatonic/ico_arr_down.png) center 20px no-repeat;
+        .submitButton{
+            display:block;
+            width:100%;
+            max-width:420px;
+            margin:0 auto;
+            color:$white;
+            font-size:20px;
+            line-height:60px;
+            text-align:center;
+            background-color:$orange;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            &:hover{
+                @include alp80;
+            }
+        }
+    }
+    .pMark{
+        display:block;
+        margin:-60px 0 60px auto;
+        @media screen and (max-width:$pd_max){
+            display:none;
+        }
+    }
+    .warning{
+        display:none;
+    }
+    @media screen and (max-width:$sp_max){
+        display:none;
+    }
+}
+.formArea{
+    .formStep .step{
+        display:none;
+    }
+    .formSide &{
+        .pMark{
+            display:none;
+        }
+    }
+}
+.formButton{
+    position:fixed;
+    left:0;
+    bottom:-80px;
+    width:100%;
+    padding:10px;
+    background-color:rgba(0,0,0,0.8);
+    @include vp(transition-duration, 0.3s);
+    z-index:100;
+    &.show{
+        bottom:0;
+    }
+    a.button{
+        display:block;
+        color:$white;
+        font-size:18px;
+        font-weight:bold;
+        text-decoration:none;
+        text-align:center;
+        line-height:50px;
+        background-color:$orange;
+        border-radius:5px;
+    }
+}
+
+.pageTop{
+    position:fixed;
+    bottom:-50px;
+    right:10%;
+    height:40px;
+    width:40px;
+    z-index:999;
+    @include vp(transition-duration, 0.3s);
+    @media screen and (max-width:$pd_max){
+        right:10px;
+    }
+    &.on{
+        bottom:30px;
+        @media screen and (max-width:$sp_max){
+            bottom:80px;
+        }
+    }
+    .button{
+        display:block;
+        width:40px;
+        height:40px;
+        background-color:$white;
+        border:1px solid $darkGray;
+        border-radius:50%;
+        cursor:pointer;
+        box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
+    }
+}
+
+@media screen and (max-width:$sp_max){
+}

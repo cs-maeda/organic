@@ -96,11 +96,21 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefixOf = $displayName . 'の';
         }
-        $res[0] = "{$prefixOf}<span class='red'>土地の評価額</span>が知りたい方必見";
-        $res[1] = "{$prefixOf}<span class='red'>地価公示価格</span>と<span class='red'>売却価格</span>がわかります！";
-        $res[2] = "{$prefixOf}あなたの<span class='red'>土地評価額(売却価格)</span>はいくら？";
+        if (!isset($areaValue)){
+            $prefixOf = '全国の';
+        }
+        $res[0] = "{$prefixOf}土地の評価額が知りたい方必見";
+        $res[1] = "{$prefixOf}地価公示価格と売却価格がわかります！";
+        $res[2] = "{$prefixOf}あなたの土地評価額(売却価格)はいくら？";
         $res[3] = "最短45秒で最大<span class='red'>6社</span>に<span class='red'>一括無料査定</span>";
 
+        return $res;
+    }
+
+    protected function form(): array
+    {
+        $res = ['clientCount' => '1,400',
+                'buttonValue' => '無料査定スタート'];
         return $res;
     }
 
