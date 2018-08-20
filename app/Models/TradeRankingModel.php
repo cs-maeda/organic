@@ -19,6 +19,15 @@ class TradeRankingModel extends ModelBase
     protected $primaryKey = 'tbl_trade_ranking_id';
     protected $table = 'tbl_trade_ranking';
 
+    public function clearTable(int $siteNumber)
+    {
+        $pdo = self::getPdo();
+        $sql = "DELETE FROM tbl_trade_ranking WHERE site_number = ?";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$siteNumber]);
+    }
+
     public function figure(Conditioner $conditioner, int $prefectureId, int $areaId, int $station = 0)
     {
         $bindArray = [];
@@ -47,15 +56,6 @@ class TradeRankingModel extends ModelBase
         $result['trade_count'] = $res['trade_count'];
 
         return $result;
-    }
-
-    public function clearTable()
-    {
-        $pdo = self::getPdo();
-        $sql = 'TRUNCATE TABLE tbl_trade_ranking';
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
     }
 
     public function importJapanAverage(string $domainName)
@@ -327,6 +327,95 @@ class TradeRankingModel extends ModelBase
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$prefectureId]);
     }
+
+    public function importPostedPricePrefectureRanking()
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "INSERT INTO " .
+                "tbl_trade_ranking " .
+                "( " .
+                    "site_number, " .
+                    "prefecture_id, " .
+                    "ranking, " .
+                    "area_id, " .
+                    "station, " .
+                    "avg_price, " .
+                    "min_price, " .
+                    "max_price, " .
+                    "trade_count " .
+                ") " .
+            "SELECT " .
+                "(@num := @num + 1) AS ranking, " .
+                "ranking_table.* " .
+            "FROM " .
+                "(SELECT @num:=0) AS dummy, " .
+                "( " .
+                    "SELECT " .
+                        "0 AS site_number, " .
+                        "0 AS prefecture_id, " .
+                        "mst_city.prefecture_id AS area_id, " .
+                        "0 AS station, " .
+                        "AVG(price) AS avg_price, " .
+                        "MIN(price) AS min_price, " .
+                        "MAX(price) AS max_price, " .
+                        "0 AS trade_count " .
+                    "FROM `view_posted_land_price` " .
+                        "LEFT JOIN mst_city ON view_posted_land_price.city_id = mst_city.city_id " .
+                    "GROUP BY mst_city.prefecture_id " .
+                    "ORDER BY avg_price DESC " .
+                ") AS ranking_table; ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+    }
+
+    public function importPostedPriceCityRanking(int $prefectureId)
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "INSERT INTO " .
+                "tbl_trade_ranking " .
+                "( " .
+                    "site_number, " .
+                    "prefecture_id, " .
+                    "ranking, " .
+                    "area_id, " .
+                    "station, " .
+                    "avg_price, " .
+                    "min_price, " .
+                    "max_price, " .
+                    "trade_count " .
+                ") " .
+            "SELECT " .
+                "(@num := @num + 1) AS ranking, " .
+                "ranking_table.* " .
+            "FROM " .
+                "(SELECT @num:=0) AS dummy, " .
+                "( " .
+                    "SELECT " .
+                        "0 AS site_number, " .
+                        "mst_city.prefecture_id AS prefecture_id, " .
+                        "mst_city.city_id AS area_id, " .
+                        "0 AS station, " .
+                        "AVG(price) AS avg_price, " .
+                        "MIN(price) AS min_price, " .
+                        "MAX(price) AS max_price, " .
+                        "0 AS trade_count " .
+                    "FROM `view_posted_land_price` " .
+                        "LEFT JOIN mst_city ON view_posted_land_price.city_id = mst_city.city_id " .
+                    "WHERE " .
+                        "prefecture_id = ? " .
+                    "GROUP BY mst_city.city_id " .
+                    "ORDER BY avg_price DESC " .
+                ") AS ranking_table; ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$prefectureId]);
+    }
+
+
+
 
 
 }
