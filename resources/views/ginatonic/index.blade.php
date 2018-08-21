@@ -21,25 +21,20 @@
     <body id="body_{{$body['where']}}">
         <?php $idNo = -1; ?>
         @include('ginatonic.parts.common.bodyHead')
-        @include('ginatonic/parts/common/bodyMainImg')
+        @include('ginatonic.parts.common.bodyMainImg')
         @if ($body['where'] != 'index')
             @include('common.bodyBreadcrumb')
         @endif
         <div id="contentArea" class="inner">
             <article id="mainArea">
                 @if ($body['where'] == 'index')
-                    @include('ginatonic/parts/index/bodyContent')
+                    @include('ginatonic.parts.index.bodyContent')
                 @else
-                    @include('ginatonic/parts/area/bodyContent')
+                    @include('ginatonic.parts.area.bodyContent')
                 @endif
             </article>
             <article id="sideArea">
-                <section class="formSide pc">
-                    <h2>あなたの土地評価額（売却価額）はいくら？</h2>
-                    <p>最短<span class="green"><span class="l">45</span>秒</span>で最大<span class="green"><span class="l">6</span>社</span>に一括無料査定</p>
-                    <?php $idNo++; ?>
-                    @include('common.bodySfForm')
-                </section>
+                @include('ginatonic.parts.common.bodySide')
             </article>
         </div>
         <div id="formBottom">
@@ -51,7 +46,7 @@
             <?php $idNo++; ?>
             @include('common.bodySfForm')
         </div>
-        @include('common/bodyFormButton')
-        @include('common/bodyFoot')
+        @include('common.bodyFormButton')
+        @include('common.bodyFoot')
     </body>
 </html>

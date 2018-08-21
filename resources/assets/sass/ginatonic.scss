@@ -455,7 +455,74 @@ h6{
             }
         }
     }
+    #sideArea &{
+        padding:0 0 40px 0;
+        border-top:none;
+        h2{
+            padding:15px 0;
+            color:$white;
+            font-size:15px;
+            text-align:center;
+            background-color:$darkGray;
+            &.crown{
+                padding:15px 10px 15px 35px;
+                background:$darkGray url(/images/ginatonic/ico_ranking.png) 10px no-repeat;
+            }
+        }
+        .tableRanking{
+            th,
+            td{
+                padding:10px 5px;
+                background:$white;
+                border-right:none;
+                border-left:none;
+                &.rank{
+                    text-align:center;
+                }
+                &.ratio{
+                    padding-right:20px;
+                    background:right 5px top 50% no-repeat;
+                    background-size:10px;
+                    &.up{
+                        background-image:url(/images/ginatonic/ico_up.png);
+                    }
+                    &.down{
+                        background-image:url(/images/ginatonic/ico_down.png);
+                    }
+                    &.flat{
+                        background-image:url(/images/ginatonic/ico_flat.png);
+                    }
+                }
+            }
+        }
+    }
 }
+
+.pageFoot{
+    padding:30px 0;
+    background-color:$darkGray;
+    @media screen and (max-width:$sp_max){
+        padding:10px 10px 80px 10px;
+    }
+    .footerMenu{
+        @include displayFlex;
+        @media screen and (max-width:$sp_max){
+            display:block;
+        }
+        li{
+            padding:3px 20px 3px 10px;
+            background:url(/images/ginatonic/ico_arrow.png) left no-repeat;
+            a{
+                color:$white;
+                text-decoration:none;
+                &:hover{
+                    color:$lightGray;
+                }
+            }
+        }
+    }
+}
+
 .formSide{
     margin:0 0 40px 0;
     background-color:$lightGray;
@@ -657,7 +724,7 @@ h6{
     bottom:-80px;
     width:100%;
     padding:10px;
-    background-color:rgba(0,0,0,0.8);
+    background-color:rgba(0,0,0,0.3);
     @include vp(transition-duration, 0.3s);
     z-index:100;
     &.show{
