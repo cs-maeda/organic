@@ -95,6 +95,16 @@ h6{
     @media screen and (max-width:$sp_max){
     }
 }
+.breadcrumb{
+    margin-bottom:15px;
+    #body_index &{
+        a{
+            pointer-events:none;
+            color:$txt;
+        }
+        cursor:text;
+    }
+}
 #contentArea{
     @include displayFlex;
     @include vp(justify-content, space-between);
@@ -746,7 +756,7 @@ h6{
 .pageTop{
     position:fixed;
     bottom:-50px;
-    right:10%;
+    right:3%;
     height:40px;
     width:40px;
     z-index:999;

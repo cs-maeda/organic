@@ -231,6 +231,14 @@ h6 {
           .mainV .inner .text p {
             font-size: 4.8vw; } }
 
+.breadcrumb {
+  margin-bottom: 15px; }
+  #body_index .breadcrumb {
+    cursor: text; }
+    #body_index .breadcrumb a {
+      pointer-events: none;
+      color: #1d1d1d; }
+
 #contentArea {
   display: -moz-flex;
   display: -ms-flex;
@@ -807,7 +815,7 @@ h6 {
 .pageTop {
   position: fixed;
   bottom: -50px;
-  right: 10%;
+  right: 3%;
   height: 40px;
   width: 40px;
   z-index: 999;

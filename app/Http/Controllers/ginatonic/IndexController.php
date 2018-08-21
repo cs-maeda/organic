@@ -81,7 +81,7 @@ class IndexController extends BaseController
             $displayName = $areaValue->displayName();
             $prefixOf = $displayName . 'の';
         }
-        return "{$prefixOf}地価公示価格・土地評価額がわかるサイト";
+        return "{$prefixOf}地価公示価格・{$prefixOf}土地評価額がわかるサイト";
     }
 
     protected function subject(): string

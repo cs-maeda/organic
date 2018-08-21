@@ -22,9 +22,7 @@
         <?php $idNo = -1; ?>
         @include('ginatonic.parts.common.bodyHead')
         @include('ginatonic.parts.common.bodyMainImg')
-        @if ($body['where'] != 'index')
-            @include('common.bodyBreadcrumb')
-        @endif
+        @include('common.bodyBreadcrumb')
         <div id="contentArea" class="inner">
             <article id="mainArea">
                 @if ($body['where'] == 'index')
