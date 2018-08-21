@@ -67,7 +67,62 @@ class MakePostedPriceRankingCommand extends CommandBase
         $model = new TradeRankingModel();
         $model->clearTable(self::POSTED_LAND_PRICE);
 
+        echo '------ www.ginatonic.net ------------------' . PHP_EOL;
+        $this->makeRankingImpl($model);
+    }
 
+    protected function makeRankingImpl(TradeRankingModel $tradeRankingModel)
+    {
+        echo '   prefecture ranking' . PHP_EOL;
+        $this->makePrefectureRanking($tradeRankingModel);
+
+        echo '   city ranking' . PHP_EOL;
+        $this->makeCityRanking($tradeRankingModel);
+
+        echo '   create tbl_trade_ranking_last' . PHP_EOL;
+        $tradeRankingModel->createPostedLandPriceLast();
+
+        echo '   prefecture ranking last' . PHP_EOL;
+        $this->makePrefectureRankingLast($tradeRankingModel);
+
+        echo '   city ranking last' . PHP_EOL;
+        $this->makeCityRankingLast($tradeRankingModel);
+
+        echo '   import year-over-year' . PHP_EOL;
+        $this->makeYearOverYear($tradeRankingModel);
+    }
+
+    protected function makeYearOverYear(TradeRankingModel $tradeRankingModel)
+    {
+        $tradeRankingModel->makeYearOverYear();
+    }
+
+    protected function makePrefectureRanking(TradeRankingModel $tradeRankingModel)
+    {
+        $tradeRankingModel->importPostedPricePrefectureRanking();
+    }
+
+    protected function makeCityRanking(TradeRankingModel $tradeRankingModel)
+    {
+        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
+        {
+            echo "     {$prefectureId}" . PHP_EOL;
+            $tradeRankingModel->importPostedPriceCityRanking($prefectureId);
+        }
+    }
+
+    protected function makePrefectureRankingLast(TradeRankingModel $tradeRankingModel)
+    {
+        $tradeRankingModel->importPostedPricePrefectureRankingLast();
+    }
+
+    protected function makeCityRankingLast(TradeRankingModel $tradeRankingModel)
+    {
+        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++)
+        {
+            echo "     {$prefectureId}" . PHP_EOL;
+            $tradeRankingModel->importPostedPriceCityRankingLast($prefectureId);
+        }
     }
 
     protected function sendErrorMessage(string $message)

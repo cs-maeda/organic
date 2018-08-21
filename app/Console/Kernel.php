@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ClearPostedLandPrice;
+use App\Console\Commands\ClearTradeRanking;
 use App\Console\Commands\ImportPostedLandPrice;
 use App\Console\Commands\MakeRankingCommand;
 use App\Console\Commands\MakeTradeCountCommand;
@@ -20,7 +22,8 @@ class Kernel extends ConsoleKernel
         MakeRankingCommand::class,
         MakeTradeCountCommand::class,
         ImportPostedLandPrice::class,
-
+        ClearPostedLandPrice::class,
+        ClearTradeRanking::class,
     ];
 
     /**
