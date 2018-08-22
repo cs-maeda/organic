@@ -10,7 +10,7 @@
         なお、当サイトでは国土交通省公表による標準地ごとの地価公示価格データを使用しております。<br>
         各エリアごとの平均値、変動率、地価ランキングは、国土交通省公表のデータに基づき、当サイトが独自に集計したものです。</p>
 </section>
-<section class="prg full top">
+<section class="prg full japan">
     <h2 class="titlePrg cal">日本全国の地価公示価格</h2>
     @include('common.bodyPrefectureLink')
 </section>
