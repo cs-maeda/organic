@@ -19,7 +19,6 @@
     <h2 class="titlePrg crown">{{$body['parentAreaCaption']}}の地価公示価格 都道府県ランキング</h2>
     @include('ginatonic.parts.common.bodyTableRanking')
 </section>
-@if ($body['where'] == 'prefecture')
 <section class="prg">
     <h2 class="titlePrg bubble">{{$body['areaCaptionOf']}}地価公示価格の傾向</h2>
     <p class="textPrg">{{$body['areaCaptionOf']}}地価公示価格の平均値は、47都道府県中○位で、前年比は○％の（上昇 or 下落）でした。<br>
@@ -28,7 +27,6 @@
         変動率で見ると、最も上昇率が高かったのは○○市で前年比+○○％<br>
         最も上昇率が低かったのは○○市で前年比-○○％でした。。</p>
 </section>
-@endif
 <section class="prg full">
     <h2 class="titlePrg cal">都道府県一覧</h2>
     @include('common.bodyPrefectureLink')
