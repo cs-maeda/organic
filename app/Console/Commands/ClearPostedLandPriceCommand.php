@@ -2,24 +2,24 @@
 
 namespace App\Console\Commands;
 
-use App\Models\TradeRankingModel;
+use App\Models\PostedLandPriceModel;
 use Illuminate\Console\Command;
 
-class ClearTradeRanking extends CommandBase
+class ClearPostedLandPriceCommand extends CommandBase
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'clear:trade_ranking';
+    protected $signature = 'clear:posted-land-price';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Truncate table tbl_trade_ranking.';
+    protected $description = 'Clear tbl_posted_land_price table.';
 
     /**
      * Create a new command instance.
@@ -43,11 +43,11 @@ class ClearTradeRanking extends CommandBase
         try {
             self::$errorInfo = 0;
 
-            $this->myEcho(' Start: Truncate table tbl_trade_ranking.');
+            $this->myEcho(' Start: Truncate table tbl_posted_land_price.');
 
-            TradeRankingModel::truncate();
+            PostedLandPriceModel::truncate();
 
-            $this->myEcho(' End: Truncate table tbl_trade_ranking.');
+            $this->myEcho(' End: Truncate table tbl_posted_land_price.');
 
             self::$errorInfo = 1;
         } catch (\Throwable $e) {

@@ -2,9 +2,10 @@
 
 namespace App\Console;
 
-use App\Console\Commands\ClearPostedLandPrice;
-use App\Console\Commands\ClearTradeRanking;
-use App\Console\Commands\ImportPostedLandPrice;
+use App\Console\Commands\ClearPostedLandPriceCommand;
+use App\Console\Commands\ClearTradeRankingCommand;
+use App\Console\Commands\ImportPostedLandPriceCommand;
+use App\Console\Commands\MakePostedPriceAverageCommand;
 use App\Console\Commands\MakeRankingCommand;
 use App\Console\Commands\MakeTradeCountCommand;
 use Illuminate\Console\Scheduling\Schedule;
@@ -21,9 +22,10 @@ class Kernel extends ConsoleKernel
         //
         MakeRankingCommand::class,
         MakeTradeCountCommand::class,
-        ImportPostedLandPrice::class,
-        ClearPostedLandPrice::class,
-        ClearTradeRanking::class,
+        ImportPostedLandPriceCommand::class,
+        ClearPostedLandPriceCommand::class,
+        ClearTradeRankingCommand::class,
+        MakePostedPriceAverageCommand::class,
     ];
 
     /**

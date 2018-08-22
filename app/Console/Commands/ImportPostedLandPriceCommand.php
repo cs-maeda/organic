@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\PostedLandPriceModel;
 use Illuminate\Console\Command;
 
-class ImportPostedLandPrice extends CommandBase
+class ImportPostedLandPriceCommand extends CommandBase
 {
     /**
      * The name and signature of the console command.
