@@ -659,12 +659,16 @@ h6 {
     #sideArea .prg h2 {
       padding: 15px 0;
       color: #ffffff;
-      font-size: 15px;
+      font-size: 16px;
       text-align: center;
       background-color: #464545; }
       #sideArea .prg h2.crown {
-        padding: 15px 10px 15px 35px;
+        padding: 10px 10px 10px 45px;
+        text-align: left;
         background: #464545 url(/images/ginatonic/ico_ranking.png) 10px no-repeat; }
+      #sideArea .prg h2 .l {
+        display: block;
+        font-size: 1.2em; }
     #sideArea .prg .tableRanking th,
     #sideArea .prg .tableRanking td {
       padding: 10px 5px;

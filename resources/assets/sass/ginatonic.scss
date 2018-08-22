@@ -580,12 +580,17 @@ h6{
         h2{
             padding:15px 0;
             color:$white;
-            font-size:15px;
+            font-size:16px;
             text-align:center;
             background-color:$darkGray;
             &.crown{
-                padding:15px 10px 15px 35px;
+                padding:10px 10px 10px 45px;
+                text-align:left;
                 background:$darkGray url(/images/ginatonic/ico_ranking.png) 10px no-repeat;
+            }
+            .l{
+                display:block;
+                font-size:1.2em;
             }
         }
         .tableRanking{
