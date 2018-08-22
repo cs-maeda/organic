@@ -49,6 +49,13 @@
         </table>
     @else
         <h2 class="crown">{{$body['parentAreaCaption']}}の地価公示価格上昇率<span class="l">市区町村ランキング</span></h2>
+        <div class="showRank">
+            <p class="rank1"><span class="red">0位</span>/00000市区町村</p>
+            <p class="rank2 up"><span class="red">00,000円</span>坪単価（+0.00％上昇）</p>
+            <p class="rank2 down"><span class="red">00,000円</span>坪単価（+0.00％上昇）</p>
+            <p class="rank2 flat"><span class="red">00,000円</span>坪単価（+0.00％上昇）</p>
+            <p class="memo">※2017年発表の地価公示価格から算出</p>
+        </div>
         <table class="tableRanking">
             <colgroup class="col1">
             <colgroup class="col2">

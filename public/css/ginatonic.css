@@ -692,6 +692,27 @@ h6 {
         #sideArea .prg .tableRanking th.ratio.flat,
         #sideArea .prg .tableRanking td.ratio.flat {
           background-image: url(/images/ginatonic/ico_flat.png); }
+    #sideArea .prg .showRank {
+      padding: 10px; }
+      #sideArea .prg .showRank p {
+        padding: 2px 0;
+        font-size: 18px; }
+        #sideArea .prg .showRank p .red {
+          font-size: 1.2em;
+          font-weight: bold; }
+        #sideArea .prg .showRank p.rank2 {
+          padding: 5px 20px 5px 5px;
+          text-align: right;
+          background: right 5px top 50% no-repeat; }
+          #sideArea .prg .showRank p.rank2.up {
+            background-image: url(/images/ginatonic/ico_up.png); }
+          #sideArea .prg .showRank p.rank2.down {
+            background-image: url(/images/ginatonic/ico_down.png); }
+          #sideArea .prg .showRank p.rank2.flat {
+            background-image: url(/images/ginatonic/ico_flat.png); }
+        #sideArea .prg .showRank p.memo {
+          font-size: 12px;
+          text-align: right; }
 
 .pageFoot {
   padding: 30px 0;

@@ -619,6 +619,35 @@ h6{
                 }
             }
         }
+        .showRank{
+            padding:10px;
+            p{
+                padding:2px 0;
+                font-size:18px;
+                .red{
+                    font-size:1.2em;
+                    font-weight:bold;
+                }
+                &.rank2{
+                    padding:5px 20px 5px 5px;
+                    text-align: right;
+                    background:right 5px top 50% no-repeat;
+                    &.up{
+                        background-image:url(/images/ginatonic/ico_up.png);
+                    }
+                    &.down{
+                        background-image:url(/images/ginatonic/ico_down.png);
+                    }
+                    &.flat{
+                        background-image:url(/images/ginatonic/ico_flat.png);
+                    }
+                }
+                &.memo{
+                    font-size:12px;
+                    text-align:right;
+                }
+            }
+        }
     }
 }
 
