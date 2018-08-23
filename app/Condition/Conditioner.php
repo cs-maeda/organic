@@ -52,7 +52,7 @@ class Conditioner
         }
         $res = strpos($root, 'ginatonic');    // www.ginatonic.com
         if ($res !== false){
-            $this->siteNumber = self::SITE_NUMBER_RHSINC;
+            $this->siteNumber = self::SITE_NUMBER_GINATONIC;
             $this->siteCaption = '地価公示価格・土地評価額がわかるサイト';
             $this->siteUrl = env('APP_GINATONIC_URL');
         }

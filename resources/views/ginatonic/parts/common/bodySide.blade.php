@@ -25,7 +25,7 @@
             @foreach($body['ranking']['city'] as $city)
                 <tr>
                     <td class="rank">{{$city['ranking']}}</td>
-                    <td><a href="#">{{$city['area']}}</a></td>
+                    <td><a href="{{$city['link']}}">{{$city['area']}}</a></td>
                     <td class="value">{{$city['average']}}/m<sup>2</sup></td>
                     @if ($city['compared'] == 'up')
                         <td class="ratio up">

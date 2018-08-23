@@ -27,34 +27,40 @@ class IndexController extends BaseController
     {
         $body = $this->indexImpl();
 
-        $body['ranking'] = $this->ranking($this->areaValue);
+        $body['ranking'] = $this->rankingOfTopPage($this->areaValue);
 
         $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
-        return view('ginatonic/index', ['body' => $body]);
+        return view('ginatonic.index', ['body' => $body]);
     }
 
     public function area(ConnectionInterface $conn, string $prefecture, string $city = null, int $townId = null)
     {
         $body = $this->areaImpl($prefecture, $city, $townId);
 
-        $tradeDecorator = $this->tradeDecorator($this->areaValue);
-        $body['figure'] = $tradeDecorator->figure();
-
-        $body['tradeTable']['pageNum'] = $tradeDecorator->pageNum();
-        $body['tradeTable']['recordsCount'] = $tradeDecorator->recordsCount();
+        $body['ranking'] = $this->rankingOfPrefecturePage($this->areaValue);
 
         $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
-        return view('ginatonic/index', ['body' => $body]);
+        return view('ginatonic.index', ['body' => $body]);
     }
 
-    protected function ranking(AreaValue $areaValue): array
+    protected function rankingOfTopPage(AreaValue $areaValue): array
     {
         $factory = new PostedLandPriceRankingFactory($areaValue);
 
         $res['prefecture'] = $factory->product(PostedLandPriceRankingFactory::PREFECTURE_RANKING);
         $res['city'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_IN_JAPAN);
+
+        return $res;
+    }
+
+    protected function rankingOfPrefecturePage(AreaValue $areaValue): array
+    {
+        $factory = new PostedLandPriceRankingFactory($areaValue);
+
+        $res['increase'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_OF_INCREASE);
+        $res['city'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_IN_PREFECTURE);
 
         return $res;
     }

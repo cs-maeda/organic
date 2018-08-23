@@ -20,7 +20,8 @@ class PostedLandPriceRankingFactory
     const PREFECTURE_RANKING = 0;           // 都道府県ランキング
     const CITY_RANKING_IN_JAPAN = 1;        // 市区町村／日本ランキング
     const CITY_RANKING_IN_PREFECTURE = 2;   // 市区町村／都道府県ランキング
-    const POINT_RANKING_IN_CITY = 3;        // 標準値／市区町村ランキング
+    const CITY_RANKING_OF_INCREASE = 3;     // 市区町村／都道府県ランキング（上昇率順）
+    const POINT_RANKING_IN_CITY = 4;        // 標準値／市区町村ランキング
 
     protected $areaValue = null;
 
@@ -42,6 +43,9 @@ class PostedLandPriceRankingFactory
                 break;
             case self::CITY_RANKING_IN_PREFECTURE:
                 $res = $this->cityRankingInPrefecture();
+                break;
+            case self::CITY_RANKING_OF_INCREASE:
+                $res = $this->cityRankingIncreaseOrder();
                 break;
             case self::POINT_RANKING_IN_CITY:
                 break;
@@ -69,6 +73,7 @@ class PostedLandPriceRankingFactory
                 [
                     'ranking' => $result['ranking'] . '位',
                     'area' => $result['prefecture_name'],
+                    'link' => "/{$result['prefecture_alphabet']}/",
                     'average' => number_format($result['avg_price'] / 10000, 1) . '万円',
                     'yearOverYear' => number_format($result['year_over_year'], 2) . '％',
                     'compared' => $compared
@@ -104,6 +109,7 @@ class PostedLandPriceRankingFactory
                 [
                     'ranking' => $ranking . '位',
                     'area' => $areaName,
+                    'link' => "/{$result['prefecture_alphabet']}/{$result['city_alphabet']}/",
                     'average' => number_format($result['avg_price'] / 10000, 1) . '万円',
                     'yearOverYear' => number_format($result['year_over_year'], 2) . '％',
                     'compared' => $compared
@@ -133,11 +139,44 @@ class PostedLandPriceRankingFactory
             $res[] =
                 [
                     'ranking' => $result['ranking'] . '位',
-                    'area' => $result['prefecture_name'],
+                    'area' => $result['city_name'],
+                    'link' => "/{$result['prefecture_alphabet']}/{$result['city_alphabet']}/",
                     'average' => number_format($result['avg_price'] / 10000, 1) . '万円',
                     'yearOverYear' => number_format($result['year_over_year'], 2) . '％',
                     'compared' => $compared
                 ];
+        }
+        return $res;
+    }
+
+    protected function cityRankingIncreaseOrder()
+    {
+        $model = new TradeRankingModel();
+
+        $prefectureId = $this->areaValue->prefectureId();
+        $results = $model->cityRankingIncreaseOrder($prefectureId);
+
+        $res = [];
+        $ranking = 1;
+        foreach ($results as $result)
+        {
+            $compared = 'up';
+            if ($result['year_over_year'] == 0){
+                $compared = 'flat';
+            }
+            if ($result['year_over_year'] < 0){
+                $compared = 'down';
+            }
+            $res[] =
+                [
+                    'ranking' => $ranking . '位',
+                    'area' => $result['city_name'],
+                    'link' => "/{$result['prefecture_alphabet']}/{$result['city_alphabet']}/",
+                    'average' => number_format($result['avg_price'] / 10000, 1) . '万円',
+                    'yearOverYear' => number_format($result['year_over_year'], 2) . '％',
+                    'compared' => $compared
+                ];
+            $ranking++;
         }
         return $res;
     }

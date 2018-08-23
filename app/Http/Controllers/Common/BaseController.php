@@ -43,6 +43,9 @@ abstract class BaseController extends Controller
         $body['formId'] = $this->formId();
         $body['areaLink'] = $this->areaList();
         $body['where'] = 'index';
+        $body['prefectureId'] = '';
+        $body['cityId'] = '';
+        $body['townId'] = '';
         $body['areaCaption'] = '';
         $body['areaCaptionOf'] = '';
 

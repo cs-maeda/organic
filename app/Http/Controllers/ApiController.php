@@ -143,7 +143,16 @@ class ApiController extends Controller
         return json_encode($link);
     }
 
-    protected function average(int $areaId)
+    public function average(int $areaId = 0)
+    {
+        $res["japan"] = $this->averageImpl(0);
+        if ($areaId > 0){
+            $res["area"] = $this->averageImpl($areaId);
+        }
+        return json_encode($res);
+    }
+
+    protected function averageImpl(int $areaId)
     {
         $model = new PostedLandPriceAverageModel();
         $results = $model->average($areaId);
@@ -151,9 +160,9 @@ class ApiController extends Controller
         $res = [];
         foreach ($results as $result)
         {
-            $res[$result['year']] = $result['average'];
+            $res[$result['year']] = "{$result['average']}";
         }
-        return json_encode($res);
+        return $res;
     }
 
     protected function tradeRecords($areaValue, $pageNum, $action)

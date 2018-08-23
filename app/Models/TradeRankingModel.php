@@ -589,6 +589,7 @@ class TradeRankingModel extends ModelBase
             "SELECT " .
                 "mst_prefecture.prefecture_id, " .
                 "mst_prefecture.prefecture_name, " .
+                "mst_prefecture.prefecture_alphabet, " .
                 "tbl_trade_ranking.ranking, " .
                 "tbl_trade_ranking.avg_price, " .
                 "tbl_trade_ranking.year_over_year " .
@@ -611,8 +612,10 @@ class TradeRankingModel extends ModelBase
             "SELECT " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
                 "mst_city.city_name, " .
+                "mst_city.city_alphabet, " .
                 "tbl_trade_ranking.ranking, " .
                 "tbl_trade_ranking.avg_price, " .
                 "tbl_trade_ranking.year_over_year " .
@@ -636,8 +639,10 @@ class TradeRankingModel extends ModelBase
             "SELECT " .
                 "mst_city.prefecture_id, " .
                 "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
                 "mst_city.city_id, " .
-                "mst_city.city_name AS area_name, " .
+                "mst_city.city_name, " .
+                "mst_city.city_alphabet, " .
                 "tbl_trade_ranking.ranking, " .
                 "tbl_trade_ranking.avg_price, " .
                 "tbl_trade_ranking.year_over_year " .
@@ -648,7 +653,34 @@ class TradeRankingModel extends ModelBase
             "LIMIT 30";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([$prefectureId]);
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function cityRankingIncreaseOrder(int $prefectureId): array
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "SELECT " .
+                "mst_city.prefecture_id, " .
+                "mst_city.prefecture_name, " .
+                "mst_city.prefecture_alphabet, " .
+                "mst_city.city_id, " .
+                "mst_city.city_name, " .
+                "mst_city.city_alphabet, " .
+                "tbl_trade_ranking.ranking, " .
+                "tbl_trade_ranking.avg_price, " .
+                "tbl_trade_ranking.year_over_year " .
+            "FROM `tbl_trade_ranking` " .
+                "LEFT JOIN mst_city ON tbl_trade_ranking.area_id = mst_city.city_id " .
+            "WHERE site_number = 2 AND tbl_trade_ranking.prefecture_id = ? " .
+            "ORDER BY tbl_trade_ranking.year_over_year DESC " .
+            "LIMIT 10";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$prefectureId]);
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         return $result;

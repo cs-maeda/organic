@@ -14,10 +14,9 @@
     <h2 class="titlePrg cal">日本全国の地価公示価格</h2>
     @include('common.bodyPrefectureLink')
 </section>
-@include('ginatonic.parts.common.bodyAverageGraph')
+@include('ginatonic.parts.common.bodyAverageIndexGraph')
 <section class="prg">
-    <h2 class="titlePrg crown">日本全国の地価公示価格 都道府県ランキング</h2>
-    @include('ginatonic.parts.common.bodyTableRanking')
+    @include('ginatonic.parts.common.bodyTableRankingTop')
 </section>
 <section class="prg">
     <h2 class="titlePrg bubble">地価公示価格と土地評価額(実際の売却価格）について</h2>

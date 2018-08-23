@@ -19,6 +19,10 @@
         <link rel="shortcut icon" href="/images/ginatonic/favicon.ico">
     </head>
     <body id="body_{{$body['where']}}">
+        <input type="hidden" id="prefectureId" value="{{$body['prefectureId']}}">
+        <input type="hidden" id="cityId" value="{{$body['cityId']}}">
+        <input type="hidden" id="areaCaptionOf" value="{{$body['areaCaptionOf']}}">
+
         <?php $idNo = -1; ?>
         @include('ginatonic.parts.common.bodyHead')
         @include('ginatonic.parts.common.bodyMainImg')
