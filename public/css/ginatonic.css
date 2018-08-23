@@ -262,6 +262,11 @@ h6 {
 .prg {
   padding: 20px 0;
   border-top: 4px solid #40b4a7; }
+  .prg .graphArea {
+    padding: 0 0 40px 0; }
+    @media screen and (max-width: 640px) {
+      .prg .graphArea {
+        padding-bottom: 10px; } }
   @media screen and (max-width: 820px) {
     .prg {
       padding: 20px 10px; }
