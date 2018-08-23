@@ -37,13 +37,13 @@
                         //線のカーブ
                         lineTension: 0,
                         // //背景色
-                        // backgroundColor: "rgba(179,181,198,0.2)",
+                        backgroundColor: "rgba(255,255,255,0.2)",
                         //枠線の色
                         borderColor: "rgba(56,153,195,1.0)",
                         //結合点の枠線の色
                         pointBorderColor: "rgba(56,153,195,1.0)",
                         // //結合点の背景色
-                        // pointBackgroundColor: "#fff",
+                        pointBackgroundColor: "#ffffff",
                         //結合点のサイズ
                         pointRadius: 4,
                         // //結合点のサイズ（ホバーしたとき）
