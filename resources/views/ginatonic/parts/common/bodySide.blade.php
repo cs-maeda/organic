@@ -19,33 +19,24 @@
             <tr>
                 <th>順位</th>
                 <th>市区町村</th>
-                <th>平米単価</th>
+                <th>平均単価/m<sup>2</sup></th>
                 <th>対前年比</th>
             </tr>
-            <tr>
-                <td class="rank">1位</td>
-                <td><a href="#">東京都中央区</a></td>
-                <td class="value">715万9079円/m<sup>2</sup></td>
-                <td class="ratio up">+13.32％</td>
-            </tr>
-            <tr>
-                <td class="rank">2位</td>
-                <td><a href="#">東京都中央区</a></td>
-                <td class="value">715万9079円/m<sup>2</sup></td>
-                <td class="ratio down">+13.32％</td>
-            </tr>
-            <tr>
-                <td class="rank">3位</td>
-                <td><a href="#">東京都中央区</a></td>
-                <td class="value">715万9079円/m<sup>2</sup></td>
-                <td class="ratio flat">+13.32％</td>
-            </tr>
-            <tr>
-                <td class="rank">4位</td>
-                <td><a href="#">東京都中央区</a></td>
-                <td class="value">715万9079円/m<sup>2</sup></td>
-                <td class="ratio up">+13.32％</td>
-            </tr>
+            @foreach($body['ranking']['city'] as $city)
+                <tr>
+                    <td class="rank">{{$city['ranking']}}</td>
+                    <td><a href="#">{{$city['area']}}</a></td>
+                    <td class="value">{{$city['average']}}/m<sup>2</sup></td>
+                    @if ($city['compared'] == 'up')
+                        <td class="ratio up">
+                    @elseif ($city['compared'] === 'down')
+                        <td class="ratio down">
+                    @else
+                        <td class="ratio flat">
+                    @endif
+                        {{$city['yearOverYear']}}</td>
+                </tr>
+            @endforeach
         </table>
     @else
         <h2 class="crown">{{$body['parentAreaCaption']}}の地価公示価格上昇率<span class="l">市区町村ランキング</span></h2>

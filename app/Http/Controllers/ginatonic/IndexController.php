@@ -11,8 +11,10 @@ use App\Decorators\StationTradeDecorator;
 use App\Decorators\TownTradeDecorator;
 use App\Decorators\TradeDecorator;
 use App\Factories\AreaFactory;
+use App\Factories\PostedLandPriceRankingFactory;
 use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
+use App\Models\PostedLandPriceAverageModel;
 use App\Models\TownMlitModel;
 use Illuminate\Database\ConnectionInterface;
 use \Illuminate\Support\Facades\Request;
@@ -24,6 +26,8 @@ class IndexController extends BaseController
     public function index(ConnectionInterface $conn)
     {
         $body = $this->indexImpl();
+
+        $body['ranking'] = $this->ranking($this->areaValue);
 
         $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
@@ -43,6 +47,16 @@ class IndexController extends BaseController
         $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
         return view('ginatonic/index', ['body' => $body]);
+    }
+
+    protected function ranking(AreaValue $areaValue): array
+    {
+        $factory = new PostedLandPriceRankingFactory($areaValue);
+
+        $res['prefecture'] = $factory->product(PostedLandPriceRankingFactory::PREFECTURE_RANKING);
+        $res['city'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_IN_JAPAN);
+
+        return $res;
     }
 
     protected function breadcrumb(AreaValue $areaValue = null): array

@@ -15,6 +15,18 @@ class PostedLandPriceAverageModel extends ModelBase
     protected $primaryKey = 'tbl_posted_land_price_average_id';
     protected $table = 'tbl_posted_land_price_average';
 
+    public function average(int $areaId)
+    {
+        $pdo = self::getPdo();
+        $sql = "SELECT * FROM tbl_posted_land_price_average WHERE area_id = ? ORDER BY year";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$areaId]);
+        $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
     public function japanAverage()
     {
         $pdo = self::getPdo();

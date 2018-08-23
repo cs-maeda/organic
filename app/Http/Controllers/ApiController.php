@@ -18,6 +18,7 @@ use App\Factories\StationAreaFactory;
 use App\Factories\TownAreaFactory;
 use App\Factories\TradeDecoratorFactory;
 use App\Models\CityModel;
+use App\Models\PostedLandPriceAverageModel;
 use App\Models\TownModel;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Http\Request;
@@ -140,6 +141,19 @@ class ApiController extends Controller
         $link['exist'] = $res;
 
         return json_encode($link);
+    }
+
+    protected function average(int $areaId)
+    {
+        $model = new PostedLandPriceAverageModel();
+        $results = $model->average($areaId);
+
+        $res = [];
+        foreach ($results as $result)
+        {
+            $res[$result['year']] = $result['average'];
+        }
+        return json_encode($res);
     }
 
     protected function tradeRecords($areaValue, $pageNum, $action)
