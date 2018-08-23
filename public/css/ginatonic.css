@@ -583,6 +583,8 @@ h6 {
             width: 100%; }
             .prg.japan .areaLink .inner ul.kyushu li {
               width: 100%; } }
+  .prg.averageGraph .discription {
+    padding: 0 0 10px 0; }
   .prg.averageGraph .remark {
     font-size: 0.8em;
     text-align: right; }

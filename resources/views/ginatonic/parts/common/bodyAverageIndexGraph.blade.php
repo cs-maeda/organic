@@ -1,7 +1,7 @@
 <!-- bodyAverageGraph.blade.php -->
 <section class="prg averageGraph">
     <h2 class="titlePrg cal">日本全体の地価公示価格平均推移</h2>
-    <div>
+    <div class="graphArea">
         <canvas id="indexCharts" width=“300px” height=“200px”></canvas>
         <p class="remark">※地価平均は全地点の公示価格平均値を算出、上昇率は新規測定地を除いた公示地点の平均上昇率</p>
     </div>
@@ -37,13 +37,13 @@
                         //線のカーブ
                         lineTension: 0,
                         // //背景色
-                        backgroundColor: "rgba(255,255,255,0.2)",
+                        backgroundColor: "rgba(255,255,255,1.0)",
                         //枠線の色
                         borderColor: "rgba(56,153,195,1.0)",
                         //結合点の枠線の色
                         pointBorderColor: "rgba(56,153,195,1.0)",
                         // //結合点の背景色
-                        pointBackgroundColor: "#ffffff",
+                        pointBackgroundColor: "rgba(255,255,255,1.0)",
                         //結合点のサイズ
                         pointRadius: 4,
                         // //結合点のサイズ（ホバーしたとき）
