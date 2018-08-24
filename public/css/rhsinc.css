@@ -124,6 +124,9 @@ img {
   visibility: hidden;
   clear: both; }
 
+.impactValue {
+  font-weight: bold; }
+
 .content {
   box-sizing: border-box;
   width: 100%;

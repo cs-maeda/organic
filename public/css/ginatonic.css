@@ -124,6 +124,9 @@ img {
   visibility: hidden;
   clear: both; }
 
+.impactValue {
+  font-weight: bold; }
+
 .content {
   box-sizing: border-box;
   width: 100%;
@@ -294,7 +297,8 @@ h6 {
       .prg .titlePrg {
         font-size: 5.2vw; } }
   .prg .textPrg {
-    padding: 0 0 20px 0; }
+    padding: 0 0 20px 0;
+    line-height: 2.0; }
   .prg .areaLink .inner {
     width: 100%;
     max-width: 760px; }
