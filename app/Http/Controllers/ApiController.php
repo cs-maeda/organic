@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Condition\Conditioner;
 use App\Factories\AreaFactory;
 use App\Factories\AreaFactoryEx;
 use App\Factories\CityAreaFactory;
@@ -20,6 +21,7 @@ use App\Factories\TradeDecoratorFactory;
 use App\Models\CityModel;
 use App\Models\PostedLandPriceAverageModel;
 use App\Models\TownModel;
+use App\Models\TradeRankingModel;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Http\Request;
 
@@ -143,13 +145,60 @@ class ApiController extends Controller
         return json_encode($link);
     }
 
-    public function average(int $areaId = 0)
+    public function ginatonicAverage(int $areaId = 0)
     {
         $res["japan"] = $this->averageImpl(0);
         if ($areaId > 0){
             $res["area"] = $this->averageImpl($areaId);
         }
         return json_encode($res);
+    }
+
+    public function ginatonicPrefectureDetail(int $prefectureId = 0)
+    {
+        $sentence = [];
+        $result = TradeRankingModel::where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+                            ->where('area_id', $prefectureId)->first();
+
+        $ratio = number_format($result['year_over_year'], 1);
+        $upDown = '下落';
+        if ($ratio >= 0){
+            $upDown = '上昇';
+        }
+        $sentence = "神奈川県の地価公示価格の平均価格は、47都道府県中<span class='impactValue'>{$result['ranking']}</span>位、前年比は<span class='impactValue'>{$ratio}</span>％の{$upDown}。<br/>";
+
+        $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
+                            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+                            ->where('tbl_trade_ranking.prefecture_id', $prefectureId)
+                            ->orderBy('avg_price', 'desc')->get();
+
+        $unitPrice = number_format($results[0]['avg_price'] / 10000, 1);
+        $sentence .= "神奈川県内で最も地価公示価格の平均が高い地域は{$results[0]['city_name']}で、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span><br/>";
+
+        $result = $results[count($results) - 1];
+        $unitPrice = number_format($result['avg_price'] / 10000, 1);
+
+        $sentence .= "また、最も地価公示価格の平均が低い地域は{$result['city_name']}、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span>です。<br/>";
+
+        $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
+            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+            ->where('tbl_trade_ranking.prefecture_id', $prefectureId)
+            ->orderBy('year_over_year', 'desc')->get();
+
+        $ratio = number_format($results[0]['year_over_year'], 1);
+        if ($ratio >= 0){
+            $ratio = '+' . $ratio;
+        }
+        $sentence .= "変動率で見ると、最も上昇率が高かったのは{$results[0]['city_name']}で前年比<span class='impactValue'>{$ratio}％</span>";
+
+        $result = $results[count($results) - 1];
+        $ratio = number_format($result['year_over_year'], 1);
+        if ($ratio >= 0){
+            $ratio = '+' . $ratio;
+        }
+        $sentence .= "最も上昇率が低かったのは{$result['city_name']}で前年比<span class='impactValue'>{$ratio}％</span>でした。";
+
+        return json_encode($sentence);
     }
 
     protected function averageImpl(int $areaId)

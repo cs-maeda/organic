@@ -60,7 +60,10 @@
                 ]
             },
             options: {
-                animation: false
+                animation: false,
+                tooltips: {
+                    enabled: false
+                }
             }
         });
     }

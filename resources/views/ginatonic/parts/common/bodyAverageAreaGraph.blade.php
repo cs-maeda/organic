@@ -95,12 +95,15 @@
                 ]
             },
             options: {
-                animation: false
+                animation: false,
+                tooltips: {
+                    enabled: false
+                }
             }
         });
     }
 
-    function retrieveAreaGraphSource(url)
+    function retrieveAreaGraphSource()
     {
         var prefectureId = $('#prefectureId').val();
         var cityId = $('#cityId').val();
