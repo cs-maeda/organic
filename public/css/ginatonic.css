@@ -670,6 +670,50 @@ h6 {
           background-image: url(/images/ginatonic/ico_down.png); }
         .prg .tableRanking td.ratio.flat {
           background-image: url(/images/ginatonic/ico_flat.png); }
+    .prg .tableRanking#point {
+      margin-bottom: 20px; }
+      .prg .tableRanking#point tr:nth-child(n + 22) {
+        max-height: 0; }
+        .prg .tableRanking#point tr:nth-child(n + 22) td {
+          height: 0;
+          padding: 0;
+          border: none;
+          font-size: 0;
+          overflow: hidden;
+          -moz-transition-duration: 0.1s;
+          -ms-transition-duration: 0.1s;
+          -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s; }
+      .prg .tableRanking#point.show tr:nth-child(n + 22) {
+        max-height: inherit; }
+        .prg .tableRanking#point.show tr:nth-child(n + 22) td {
+          display: table-cell;
+          height: inherit;
+          padding: 10px;
+          color: #1d1d1d;
+          font-size: 14px;
+          border: 1px solid #acacac;
+          -moz-transition-duration: 0.5s;
+          -ms-transition-duration: 0.5s;
+          -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s; }
+          .prg .tableRanking#point.show tr:nth-child(n + 22) td:first-child {
+            border-left: none; }
+          .prg .tableRanking#point.show tr:nth-child(n + 22) td:last-child {
+            border-right: none; }
+  .prg #showPointData {
+    display: block;
+    width: 12.0em;
+    margin: 10px auto;
+    padding: 10px 0;
+    color: #1d1d1d;
+    text-decoration: none;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #acacac;
+    border-radius: 5px; }
+    .prg #showPointData:hover {
+      background-color: #f3f3f3; }
   #sideArea .prg {
     padding: 0 0 40px 0;
     border-top: none; }

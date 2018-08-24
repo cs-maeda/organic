@@ -587,6 +587,55 @@ h6{
                 }
             }
         }
+        &#point{
+            margin-bottom:20px;
+            tr:nth-child(n + 22){
+                max-height:0;
+                td{
+                    height:0;
+                    padding:0;
+                    border:none;
+                    font-size:0;
+                    overflow:hidden;
+                    @include vp(transition-duration, 0.1s);
+                }
+            }
+            &.show{
+                tr:nth-child(n + 22){
+                    max-height:inherit;
+                    td{
+                        display:table-cell;
+                        height:inherit;
+                        padding:10px;
+                        color:$txt;
+                        font-size:14px;
+                        border:1px solid $gray;
+                        &:first-child{
+                            border-left:none;
+                        }
+                        &:last-child{
+                            border-right:none;
+                        }
+                        @include vp(transition-duration, 0.5s);
+                    }
+                }
+            }
+        }
+    }
+    #showPointData{
+        display:block;
+        width:12.0em;
+        margin: 10px auto;
+        padding:10px 0;
+        color:$txt;
+        text-decoration:none;
+        text-align:center;
+        background-color:$white;
+        border:1px solid $gray;
+        border-radius:5px;
+        &:hover{
+            background-color:$lightGray;
+        }
     }
     #sideArea &{
         padding:0 0 40px 0;
