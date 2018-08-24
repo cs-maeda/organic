@@ -592,12 +592,13 @@ h6{
             tr:nth-child(n + 22){
                 max-height:0;
                 td{
+                    display:block;
                     height:0;
                     padding:0;
                     border:none;
                     font-size:0;
                     overflow:hidden;
-                    @include vp(transition-duration, 0.1s);
+                    @include vp(transition-duration, 0s);
                 }
             }
             &.show{

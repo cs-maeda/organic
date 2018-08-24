@@ -675,15 +675,16 @@ h6 {
       .prg .tableRanking#point tr:nth-child(n + 22) {
         max-height: 0; }
         .prg .tableRanking#point tr:nth-child(n + 22) td {
+          display: block;
           height: 0;
           padding: 0;
           border: none;
           font-size: 0;
           overflow: hidden;
-          -moz-transition-duration: 0.1s;
-          -ms-transition-duration: 0.1s;
-          -webkit-transition-duration: 0.1s;
-          transition-duration: 0.1s; }
+          -moz-transition-duration: 0s;
+          -ms-transition-duration: 0s;
+          -webkit-transition-duration: 0s;
+          transition-duration: 0s; }
       .prg .tableRanking#point.show tr:nth-child(n + 22) {
         max-height: inherit; }
         .prg .tableRanking#point.show tr:nth-child(n + 22) td {
