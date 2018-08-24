@@ -127,6 +127,9 @@ img {
 .impactValue {
   font-weight: bold; }
 
+.noWrap {
+  white-space: nowrap; }
+
 .content {
   box-sizing: border-box;
   width: 100%;
@@ -298,7 +301,7 @@ h6 {
         font-size: 5.2vw; } }
   .prg .textPrg {
     padding: 0 0 20px 0;
-    line-height: 2.0; }
+    line-height: 1.6; }
     .prg .textPrg .impactValue {
       padding: 0 0.3em;
       font-size: 1.1em; }

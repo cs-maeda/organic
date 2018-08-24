@@ -131,6 +131,9 @@ img{
 .impactValue{
     font-weight:bold;
 }
+.noWrap{
+    white-space:nowrap;
+}
 .content{
 	@include contentWidth;
 	padding:10px;
