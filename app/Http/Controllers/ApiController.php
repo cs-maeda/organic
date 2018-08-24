@@ -165,7 +165,7 @@ class ApiController extends Controller
         if ($ratio >= 0){
             $upDown = '上昇';
         }
-        $sentence = "神奈川県の地価公示価格の平均価格は、47都道府県中<span class='impactValue'>{$result['ranking']}</span>位、前年比は<span class='impactValue'>{$ratio}</span>％の{$upDown}。<br/>";
+        $sentence = "神奈川県の地価公示価格の平均価格は、47都道府県中<span class='impactValue'>{$result['ranking']}位</span>、前年比は<span class='impactValue'>{$ratio}％</span>の{$upDown}。<br/>";
 
         $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
                             ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
