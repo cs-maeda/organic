@@ -20,11 +20,9 @@
     <h2 class="titlePrg cal">{{$body['areaCaption']}}周辺の地価公示価格</h2>
     @include('common.bodyAreaLink')
 </section>
-<section class="prg">
-    @if ($body['where'] == 'prefecture')
-        @include('ginatonic.parts.common.bodyTableRankingPrefecture')
-    @endif
-</section>
+@if ($body['where'] == 'prefecture')
+    @include('ginatonic.parts.area.bodyTableRankingPrefecture')
+@endif
 @include('ginatonic.parts.area.bodyAreaTrend')
 <section class="prg full">
     <h2 class="titlePrg cal">都道府県一覧</h2>

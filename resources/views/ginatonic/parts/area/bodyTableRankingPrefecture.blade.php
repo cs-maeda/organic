@@ -1,3 +1,4 @@
+<section class="prg">
     <h2 class="titlePrg crown">{{$body['areaCaptionOf']}}地価公示価格 都道府県ランキング</h2>
     <table class="tableRanking">
         <colgroup span="1" class="col1">
@@ -38,3 +39,4 @@
             @endif
         @endforeach
     </table>
+</section>
