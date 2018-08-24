@@ -53,15 +53,10 @@ class IndexController extends BaseController
         $results = PostedLandPriceModel::where('city_id', $cityId)->orderBy('tbl_posted_land_price_id')->get();
         $list = [];
         foreach($results as $result){
-            $stationName = $result['station_name'];
-            $res = preg_match("/停$/", $stationName);
-            if ($res === true){
-                $stationName = '';
-            }
             $list[] = [
                     'address' => $result['address'],
                     'price' => $result['price'],
-                    'station' => $stationName
+                    'station' => $result['station_name']
                 ];
         }
         return $list;
