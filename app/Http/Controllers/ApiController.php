@@ -201,7 +201,7 @@ class ApiController extends Controller
         if ($ratio >= 0){
             $ratio = '+' . $ratio;
         }
-        $sentence .= "最も上昇率が低かったのは{$result['city_name']}で前年比<span class='impactValue'>{$ratio}％</span>でした。";
+        $sentence .= "最も上昇率が低かったのは<span class='noWrap'>{$result['city_name']}</span>で前年比<span class='impactValue'>{$ratio}％</span>でした。";
 
         return json_encode($sentence);
     }
