@@ -11,15 +11,18 @@
         各エリアごとの平均値、変動率、地価ランキングは、国土交通省公表のデータに基づき、当サイトが独自に集計したものです。</p>
 </section>
 @include('ginatonic.parts.common.bodyAverageAreaGraph')
+@if ($body['where'] == 'city')
+    <section class="prg">
+        @include('ginatonic.parts.area.bodyTableLandPointList')
+    </section>
+@endif
 <section class="prg">
-    <h2 class="titlePrg cal">{{$body['areaCaptionOf']}}地価公示価格</h2>
+    <h2 class="titlePrg cal">{{$body['areaCaption']}}周辺の地価公示価格</h2>
     @include('common.bodyAreaLink')
 </section>
 <section class="prg">
     @if ($body['where'] == 'prefecture')
         @include('ginatonic.parts.common.bodyTableRankingPrefecture')
-    @else
-        @include('ginatonic.parts.common.bodyTableLandList')
     @endif
 </section>
 @include('ginatonic.parts.area.bodyAreaTrend')

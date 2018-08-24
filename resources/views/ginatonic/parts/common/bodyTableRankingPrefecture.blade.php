@@ -33,5 +33,8 @@
                 @endif
                     {{$increase['yearOverYear']}}</td>
             </tr>
+            @if ($increase['ranking'] == '10位')
+                @break;
+            @endif
         @endforeach
     </table>

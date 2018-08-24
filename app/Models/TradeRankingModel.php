@@ -677,7 +677,7 @@ class TradeRankingModel extends ModelBase
                 "LEFT JOIN mst_city ON tbl_trade_ranking.area_id = mst_city.city_id " .
             "WHERE site_number = 2 AND tbl_trade_ranking.prefecture_id = ? " .
             "ORDER BY tbl_trade_ranking.year_over_year DESC " .
-            "LIMIT 10";
+            "LIMIT 30";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$prefectureId]);

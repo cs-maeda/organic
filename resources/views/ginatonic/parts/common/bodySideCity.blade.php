@@ -6,12 +6,7 @@
 </section>
 <section class="prg">
     <h2 class="crown">
-        @if ($body['where'] == 'index')
-            日本全国の
-        @else
-            {{$body['areaCaptionOf']}}
-        @endif
-        地価公示価格<span class="l">市区町村ランキング</span></h2>
+        {{$body['areaCaptionOf']}}地価公示価格<span class="l">市区町村ランキング</span></h2>
     <table class="tableRanking">
         <colgroup class="col1">
         <colgroup class="col2">
@@ -23,7 +18,7 @@
             <th>平均単価/m<sup>2</sup></th>
             <th>対前年比</th>
         </tr>
-        @foreach($body['ranking']['city'] as $city)
+        @foreach($body['ranking']['increase'] as $city)
             <tr>
                 <td class="rank">{{$city['ranking']}}</td>
                 <td><a href="{{$city['link']}}">{{$city['area']}}</a></td>

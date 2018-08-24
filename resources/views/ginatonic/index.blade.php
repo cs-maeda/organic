@@ -38,7 +38,11 @@
                 @endif
             </article>
             <article id="sideArea">
-                @include('ginatonic.parts.common.bodySide')
+                @if ($body['where'] == 'city')
+                    @include('ginatonic.parts.common.bodySideCity')
+                @else
+                    @include('ginatonic.parts.common.bodySide')
+                @endif
             </article>
         </div>
         <div id="formBottom">

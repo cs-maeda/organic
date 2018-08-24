@@ -15,6 +15,7 @@ use App\Factories\PostedLandPriceRankingFactory;
 use App\Http\Controllers\Common\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\PostedLandPriceAverageModel;
+use App\Models\PostedLandPriceModel;
 use App\Models\TownMlitModel;
 use Illuminate\Database\ConnectionInterface;
 use \Illuminate\Support\Facades\Request;
@@ -39,10 +40,31 @@ class IndexController extends BaseController
         $body = $this->areaImpl($prefecture, $city, $townId);
 
         $body['ranking'] = $this->rankingOfPrefecturePage($this->areaValue);
-
+        if ($city != null){
+            $body['pointList'] = $this->pointList($this->areaValue->cityId());
+        }
         $body['breadcrumb'] = $this->breadcrumb($this->areaValue);
 
         return view('ginatonic.index', ['body' => $body]);
+    }
+
+    protected function pointList(int $cityId)
+    {
+        $results = PostedLandPriceModel::where('city_id', $cityId)->orderBy('tbl_posted_land_price_id')->get();
+        $list = [];
+        foreach($results as $result){
+            $stationName = $result['station_name'];
+            $res = preg_match("/停$/", $stationName);
+            if ($res === true){
+                $stationName = '';
+            }
+            $list[] = [
+                    'address' => $result['address'],
+                    'price' => $result['price'],
+                    'station' => $stationName
+                ];
+        }
+        return $list;
     }
 
     protected function rankingOfTopPage(AreaValue $areaValue): array
@@ -62,6 +84,28 @@ class IndexController extends BaseController
         $res['increase'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_OF_INCREASE);
         $res['city'] = $factory->product(PostedLandPriceRankingFactory::CITY_RANKING_IN_PREFECTURE);
 
+        return $res;
+    }
+
+    protected function areaList(AreaValue $areaValue = null): array
+    {
+        $res = [];
+        if (! isset($areaValue)){
+            $listDecorator = new ListDecorator();
+            $res = $listDecorator->prefectureList();
+            return $res;
+        }
+        $where = $areaValue->where();
+        switch ($where){
+            case 'prefecture':
+            case 'city':
+                $prefectureId = $areaValue->prefectureId();
+                $listDecorator = new PrefectureListDecorator($areaValue);
+                $res = $listDecorator->cityList($prefectureId);
+                break;
+            default:
+                break;
+        }
         return $res;
     }
 

@@ -182,9 +182,11 @@ class AreaFactory
     protected function initArea(): array
     {
         $res['prefecture']['name'] = '';
+        $res['prefecture']['alphabet'] = '';
         $res['prefecture']['id'] = 0;
         $res['city']['name'] = '';
         $res['city']['id'] = 0;
+        $res['city']['alphabet'] = '';
         $res['town']['name'] = '';
         $res['town']['id'] = 0;
         $res['station']['name'] = '';
