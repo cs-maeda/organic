@@ -299,6 +299,9 @@ h6 {
   .prg .textPrg {
     padding: 0 0 20px 0;
     line-height: 2.0; }
+    .prg .textPrg .impactValue {
+      padding: 0 0.3em;
+      font-size: 1.1em; }
   .prg .areaLink .inner {
     width: 100%;
     max-width: 760px; }
