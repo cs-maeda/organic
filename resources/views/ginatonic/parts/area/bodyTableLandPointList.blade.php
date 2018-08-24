@@ -6,7 +6,7 @@
         <tr>
             <th>住所</th>
             <th>価格（円/m<sup>2</sup>）</th>
-            <th>最寄り駅</th>
+            <th>最寄り駅（バス停）</th>
         </tr>
         @foreach($body['pointList'] as $list)
             <tr>
