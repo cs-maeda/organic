@@ -154,8 +154,13 @@ class ApiController extends Controller
         return json_encode($res);
     }
 
-    public function ginatonicPrefectureDetail(int $prefectureId = 0)
+    public function ginatonicPrefectureDetail(string $prefecture)
     {
+        $factory = new AreaFactory($prefecture);
+        $areaValue = $factory->product();
+        $areaCaption = $areaValue->displayName();
+        $prefectureId = $areaValue->prefectureId();
+
         $sentence = [];
         $result = TradeRankingModel::where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
                             ->where('area_id', $prefectureId)->first();
@@ -165,7 +170,7 @@ class ApiController extends Controller
         if ($ratio >= 0){
             $upDown = '上昇';
         }
-        $sentence = "神奈川県の地価公示価格の平均価格は、47都道府県中<span class='impactValue'>{$result['ranking']}位</span>、前年比は<span class='impactValue'>{$ratio}％</span>の{$upDown}。<br/>";
+        $sentence = "{$areaCaption}の地価公示価格の平均価格は、47都道府県中<span class='impactValue'>{$result['ranking']}位</span>、前年比は<span class='impactValue'>{$ratio}％</span>の{$upDown}。<br/>";
 
         $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
                             ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
@@ -173,7 +178,7 @@ class ApiController extends Controller
                             ->orderBy('avg_price', 'desc')->get();
 
         $unitPrice = number_format($results[0]['avg_price'] / 10000, 1);
-        $sentence .= "神奈川県内で最も地価公示価格の平均が高い地域は{$results[0]['city_name']}で、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span><br/>";
+        $sentence .= "{$areaCaption}内で最も地価公示価格の平均が高い地域は{$results[0]['city_name']}で、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span><br/>";
 
         $result = $results[count($results) - 1];
         $unitPrice = number_format($result['avg_price'] / 10000, 1);

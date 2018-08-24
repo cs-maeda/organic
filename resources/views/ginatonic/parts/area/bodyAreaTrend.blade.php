@@ -14,8 +14,8 @@
 
     function retrieveAreaDetailSource()
     {
-        var prefectureId = $('#prefectureId').val();
-        var url = '/api/posted/land/price/prefecture/detail/' + prefectureId;
+        var prefecture = $('#prefectureAlphabet').val();
+        var url = '/api/posted/land/price/prefecture/detail/' + prefecture;
         $.ajax(
             {
                 url: url,

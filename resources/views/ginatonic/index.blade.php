@@ -20,7 +20,9 @@
     </head>
     <body id="body_{{$body['where']}}">
         <input type="hidden" id="prefectureId" value="{{$body['prefectureId']}}">
+        <input type="hidden" id="prefectureAlphabet" value="{{$body['prefectureAlphabet']}}">
         <input type="hidden" id="cityId" value="{{$body['cityId']}}">
+        <input type="hidden" id="cityAlphabet" value="{{$body['cityAlphabet']}}">
         <input type="hidden" id="areaCaptionOf" value="{{$body['areaCaptionOf']}}">
 
         <?php $idNo = -1; ?>

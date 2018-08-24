@@ -71,7 +71,9 @@ abstract class BaseController extends Controller
         $body['areaLink'] = $this->areaList($this->areaValue);
         $body['where'] = $this->areaValue->where();
         $body['prefectureId'] = $this->areaValue->prefectureId();
+        $body['prefectureAlphabet'] = $this->areaValue->prefectureAlphabet();
         $body['cityId'] = $this->areaValue->cityId();
+        $body['cityAlphabet'] = $this->areaValue->cityAlphabet();
         $body['townId'] = $this->areaValue->townId();
         $body['stationId'] = 0;
         $body['areaCaption'] = $this->areaValue->displayName();
