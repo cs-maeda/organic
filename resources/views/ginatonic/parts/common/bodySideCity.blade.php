@@ -6,7 +6,12 @@
 </section>
 <section class="prg">
     <h2 class="crown">
-        {{$body['areaCaptionOf']}}地価公示価格<span class="l">市区町村ランキング</span></h2>
+        @if ($body['where'] == 'city')
+            {{$body['parentAreaCaption']}}の
+        @else
+            {{$body['areaCaptionOf']}}
+        @endif
+        地価公示価格<span class="l">市区町村ランキング</span></h2>
     <table class="tableRanking">
         <colgroup class="col1">
         <colgroup class="col2">

@@ -50,7 +50,10 @@ class IndexController extends BaseController
 
     protected function pointList(int $cityId)
     {
-        $results = PostedLandPriceModel::where('city_id', $cityId)->orderBy('tbl_posted_land_price_id')->get();
+        $results = PostedLandPriceModel::where('city_id', $cityId)
+            ->where('year', 2018)
+            ->orderBy('tbl_posted_land_price_id')
+            ->get();
         $list = [];
         foreach($results as $result){
             $list[] = [
@@ -175,9 +178,7 @@ class IndexController extends BaseController
 
     protected function formId(): string
     {
-        // TODO:
-        // 辻さんにフォーム ID 聞く！！
-        return 'tsfol111souba_fudosan';
+        return 'tsfol111wakaru_kojikakaku';
     }
 
 }
