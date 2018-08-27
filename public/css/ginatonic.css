@@ -678,8 +678,7 @@ h6 {
     -moz-justify-content: between;
     -ms-justify-content: between;
     -webkit-justify-content: between;
-    justify-content: between;
-    height: 40px; }
+    justify-content: between; }
     .prg .listRanking li > span {
       display: block;
       padding: 10px;

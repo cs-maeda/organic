@@ -592,7 +592,6 @@ h6{
         li{
             @include displayFlex;
             @include vp(justify-content, between);
-            height:40px;
             >span{
                 display:block;
                 padding:10px;
