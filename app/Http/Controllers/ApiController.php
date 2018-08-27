@@ -20,6 +20,7 @@ use App\Factories\TownAreaFactory;
 use App\Factories\TradeDecoratorFactory;
 use App\Models\CityModel;
 use App\Models\PostedLandPriceAverageModel;
+use App\Models\PostedLandPriceModel;
 use App\Models\TownModel;
 use App\Models\TradeRankingModel;
 use Illuminate\Database\ConnectionInterface;
@@ -204,6 +205,57 @@ class ApiController extends Controller
         $sentence .= "最も上昇率が低かったのは<span class='noWrap'>{$result['city_name']}</span>で前年比<span class='impactValue'>{$ratio}％</span>でした。";
 
         return json_encode($sentence);
+    }
+
+    protected function ginatonicCityDetail(Request $request, string $prefecture, string $city)
+    {
+        $factory = new AreaFactory($prefecture, $city);
+        $areaValue = $factory->product();
+        $areaCaption = $areaValue->displayName();
+        $prefectureName = $areaValue->prefectureName();
+        $prefectureId = $areaValue->prefectureId();
+        $cityId = $areaValue->cityId();
+
+        $result = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
+            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+            ->where('tbl_trade_ranking.prefecture_id', $prefectureId)
+            ->where('tbl_trade_ranking.area_id', $cityId)
+            ->first();
+
+        $ranking = $result['ranking'];
+        $ratio = number_format($result['year_over_year'], 1);
+        $upDown = '下落';
+        if ($ratio >= 0){
+            $upDown = '上昇';
+        }
+        $sentence = "{$areaCaption}の地価公示価格の平均値は、{$prefectureName}内で<span class='impactValue'>{$ranking}</span>位で、";
+        $sentence .= "前年比は<span class='impactValue'>{$ratio}</span>％の{$upDown}でした。<br/>";
+
+        $result = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
+            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+            ->where('tbl_trade_ranking.prefecture_id', 0)
+            ->where('tbl_trade_ranking.area_id', $cityId)
+            ->first();
+
+        $sentence .= "また、日本全国の市区町村別で見ると{$areaCaption}は{$result['ranking']}位で、さらに詳細に見ると、";
+
+        $results = PostedLandPriceModel::leftjoin('mst_city', 'tbl_posted_land_price.city_id', '=', 'mst_city.city_id')
+            ->where('tbl_posted_land_price.city_id', $cityId)
+            ->where('year', 2018)
+            ->orderBy('price', 'desc')->get();
+
+        $unitPrice = number_format($results[0]['price'] / 10000, 1);
+        $sentence .= "{$areaCaption}の標準地で最も高かったのは<span class='noWrap'>{$results[0]['address']}</span>で、１平方メートルあたりの単価は<span class='impactValue'>{$unitPrice}</span>万円、";
+
+        $result = $results[count($results) - 1];
+        $unitPrice = number_format($result['price'] / 10000, 1);
+        $sentence .= "最も低かったのは<span class='noWrap'>{$result['address']}</span>で、１平方メートルあたりの単価は<span class='impactValue'>{$unitPrice}</span>万円です。";
+
+        return json_encode($sentence);
+
+
+
+
     }
 
     protected function averageImpl(int $areaId)

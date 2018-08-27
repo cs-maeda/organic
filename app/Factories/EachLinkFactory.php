@@ -50,6 +50,13 @@ class EachLinkFactory
                 $links[] = $link;
             }
         }
+        if ($siteNumber !== Conditioner::SITE_NUMBER_GINATONIC){
+            $otherSiteConditioner = $this->otherSiteConditioner(env('APP_GINATONIC_URL'));
+            $res = $this->existLink($otherSiteConditioner, Conditioner::SITE_NUMBER_GINATONIC, $link);
+            if ($res === true){
+                $links[] = $link;
+            }
+        }
         // www.shopa.org
         $res = $this->shopaExistLink($link);
         if ($res === true){

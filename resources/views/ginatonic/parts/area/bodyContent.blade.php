@@ -22,8 +22,10 @@
 </section>
 @if ($body['where'] == 'prefecture')
     @include('ginatonic.parts.area.bodyTableRankingPrefecture')
+    @include('ginatonic.parts.area.bodyPrefectureTrend')
+@else
+    @include('ginatonic.parts.area.bodyCityTrend')
 @endif
-@include('ginatonic.parts.area.bodyAreaTrend')
 <section class="prg full">
     <h2 class="titlePrg cal">都道府県一覧</h2>
     @include('common.bodyPrefectureLink')

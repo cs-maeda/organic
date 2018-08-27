@@ -90,6 +90,9 @@ class MakePostedPriceRankingCommand extends CommandBase
 
         echo '   import year-over-year' . PHP_EOL;
         $this->makeYearOverYear($tradeRankingModel);
+
+        echo '   city ranking in Japan' . PHP_EOL;
+        $this->makeCityRankingInJapan($tradeRankingModel);
     }
 
     protected function makeYearOverYear(TradeRankingModel $tradeRankingModel)
@@ -109,6 +112,11 @@ class MakePostedPriceRankingCommand extends CommandBase
             echo "     {$prefectureId}" . PHP_EOL;
             $tradeRankingModel->importPostedPriceCityRanking($prefectureId);
         }
+    }
+
+    protected function makeCityRankingInJapan(TradeRankingModel $tradeRankingModel)
+    {
+        $tradeRankingModel->importPostedPriceCityRankingInJapan();
     }
 
     protected function makePrefectureRankingLast(TradeRankingModel $tradeRankingModel)
