@@ -587,38 +587,44 @@ h6{
                 }
             }
         }
-        &#point{
-            margin-bottom:20px;
-            tr:nth-child(n + 22){
-                max-height:0;
-                td{
-                    display:block;
-                    height:0;
-                    padding:0;
-                    border:none;
-                    font-size:0;
-                    overflow:hidden;
-                    @include vp(transition-duration, 0s);
+    }
+    .listRanking{
+        li{
+            @include displayFlex;
+            @include vp(justify-content, between);
+            height:40px;
+            >span{
+                display:block;
+                padding:10px;
+                line-height:20px;
+                border-bottom:1px solid $gray;
+            }
+            .col1{
+                width:50%;
+            }
+            .col2{
+                width:22%;
+                text-align:right;
+                border-left:1px solid $gray;
+                border-right:1px solid $gray;
+            }
+            .col3{
+                width:28%;
+            }
+            &.head{
+                background-color:$lightGray;
+                border-top:1px solid $gray;
+                span{
+                    text-align:center;
                 }
             }
-            &.show{
-                tr:nth-child(n + 22){
-                    max-height:inherit;
-                    td{
-                        display:table-cell;
-                        height:inherit;
-                        padding:10px;
-                        color:$txt;
-                        font-size:14px;
-                        border:1px solid $gray;
-                        &:first-child{
-                            border-left:none;
-                        }
-                        &:last-child{
-                            border-right:none;
-                        }
-                        @include vp(transition-duration, 0.5s);
-                    }
+            &:nth-child(n+22){
+                max-height:0;
+                overflow:hidden;
+                @include vp(transition-duration, 1.0s);
+                &.open{
+                    max-height:200px;
+                    height:auto;
                 }
             }
         }
