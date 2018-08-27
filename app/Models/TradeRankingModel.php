@@ -637,7 +637,7 @@ class TradeRankingModel extends ModelBase
                 "tbl_trade_ranking.year_over_year " .
             "FROM `tbl_trade_ranking` " .
                 "LEFT JOIN mst_prefecture ON tbl_trade_ranking.area_id = mst_prefecture.prefecture_id " .
-            "WHERE site_number = 2 AND tbl_trade_ranking.prefecture_id = 0 " .
+            "WHERE site_number = 2 AND tbl_trade_ranking.prefecture_id = 0 AND area_id < 99 " .
             "ORDER BY tbl_trade_ranking.ranking";
 
         $stmt = $pdo->prepare($sql);
@@ -663,7 +663,7 @@ class TradeRankingModel extends ModelBase
                 "tbl_trade_ranking.year_over_year " .
             "FROM `tbl_trade_ranking` " .
                 "LEFT JOIN mst_city ON tbl_trade_ranking.area_id = mst_city.city_id " .
-            "WHERE site_number = 2 AND area_id > 1000 " .
+            "WHERE site_number = 2 AND tbl_trade_ranking.prefecture_id = 0 AND area_id > 1000 " .
             "ORDER BY tbl_trade_ranking.avg_price DESC " .
             "LIMIT 100";
 

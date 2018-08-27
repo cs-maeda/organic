@@ -58,7 +58,7 @@ class IndexController extends BaseController
         foreach($results as $result){
             $list[] = [
                     'address' => $result['address'],
-                    'price' => $result['price'],
+                    'price' => number_format($result['price']),
                     'station' => $result['station_name']
                 ];
         }

@@ -187,9 +187,9 @@ class ApiController extends Controller
         $sentence .= "また、最も地価公示価格の平均が低い地域は<span class='noWrap'>{$result['city_name']}</span>、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span>です。<br/>";
 
         $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
-            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
-            ->where('tbl_trade_ranking.prefecture_id', $prefectureId)
-            ->orderBy('year_over_year', 'desc')->get();
+                            ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
+                            ->where('tbl_trade_ranking.prefecture_id', $prefectureId)
+                            ->orderBy('year_over_year', 'desc')->get();
 
         $ratio = number_format($results[0]['year_over_year'], 1);
         if ($ratio >= 0){
