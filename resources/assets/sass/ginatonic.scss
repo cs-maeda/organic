@@ -588,6 +588,61 @@ h6{
             }
         }
     }
+    .listRanking{
+        li{
+            @include displayFlex;
+            @include vp(justify-content, between);
+            >span{
+                display:block;
+                padding:10px;
+                line-height:20px;
+                border-bottom:1px solid $gray;
+            }
+            .col1{
+                width:50%;
+            }
+            .col2{
+                width:22%;
+                text-align:right;
+                border-left:1px solid $gray;
+                border-right:1px solid $gray;
+            }
+            .col3{
+                width:28%;
+            }
+            &.head{
+                background-color:$lightGray;
+                border-top:1px solid $gray;
+                span{
+                    text-align:center;
+                }
+            }
+            &:nth-child(n+22){
+                max-height:0;
+                overflow:hidden;
+                @include vp(transition-duration, 1.0s);
+                &.open{
+                    max-height:200px;
+                    height:auto;
+                }
+            }
+        }
+    }
+    #showPointData{
+        display:block;
+        width:12.0em;
+        margin: 10px auto;
+        padding:10px 0;
+        color:$txt;
+        text-decoration:none;
+        text-align:center;
+        background-color:$white;
+        border:1px solid $gray;
+        border-radius:5px;
+        &:hover{
+            background-color:$lightGray;
+        }
+    }
     #sideArea &{
         padding:0 0 40px 0;
         border-top:none;

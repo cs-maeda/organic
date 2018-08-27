@@ -1,18 +1,38 @@
-    <h2 class="titlePrg crown">{{$body['areaCaptionOf']}}地価公示価格一覧</h2>
-    <table class="tableRanking">
-        <colgroup span="1" class="col1">
-        <colgroup span="1" class="col2">
-        <colgroup span="1" class="col3">
-        <tr>
-            <th>住所</th>
-            <th>価格（円/m<sup>2</sup>）</th>
-            <th>最寄り駅（バス停）</th>
-        </tr>
-        @foreach($body['pointList'] as $list)
-            <tr>
-                <td>{{$list['address']}}</td>
-                <td class="value">{{$list['price']}}円/m<sup>2</sup></td>
-                <td>{{$list['station']}}</td>
-            </tr>
-        @endforeach
-    </table>
+<script>
+    $().ready(function()
+    {
+        $('.listRanking li:nth-child(21)').attr('id', 'showPoint');
+        $('#showPointData').on('click',
+        function(){
+            if($('.listRanking li').hasClass('open')){
+                $('.listRanking li').removeClass('open');
+                $(this).text('全てのデータを表示');
+            } else {
+                $('.listRanking li').addClass('open');
+                $(this).text('閉じる');
+            }
+        });
+        
+    });
+</script>
+
+
+<h2 id="pointTitle" class="titlePrg crown">{{$body['areaCaptionOf']}}地価公示価格一覧</h2>
+<ul class="listRanking">
+    <li class="head">
+        <span class="col1">住所</span>
+        <span class="col2">価格（円/m<sup>2</sup>）</span>
+        <span class="col3">最寄り駅（バス停）</span>
+    </li>
+    @foreach($body['pointList'] as $list)
+    <li>
+        <span class="col1">{{$list['address']}}</span>
+        <span class="value col2">{{$list['price']}}円/m<sup>2</sup></span>
+        <span class="col3">{{$list['station']}}</span>
+    </li>
+    @endforeach
+</ul>
+
+@if(count($body['pointList']) > 20)
+    <a href="#showPoint" id="showPointData">全てのデータを表示</a>
+@endif
