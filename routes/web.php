@@ -66,6 +66,8 @@ Route::domain(env('APP_GINATONIC_DOMAIN'))->group(function()
     Route::get('/api/posted/land/price/average/{aId?}/',                'ApiController@ginatonicAverage');
     Route::get('/api/posted/land/price/prefecture/detail/{pId}/',       'ApiController@ginatonicPrefectureDetail');
     Route::get('/api/posted/land/price/city/detail/{pId}/{cId}/',       'ApiController@ginatonicCityDetail');
+    Route::get('/api/link/exist/{prefecture?}/{city?}/{townId?}',       'ApiController@linkExists');
+    Route::get('/api/link/exist/{prefecture}/{city}/station/{stationId}','ApiController@stationLinkExists');
 // <-- web api
 
     Route::get('/',                                                     'ginatonic\IndexController@index');
