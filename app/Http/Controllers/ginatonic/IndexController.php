@@ -127,7 +127,12 @@ class IndexController extends BaseController
             $prefix = $displayName;
             $prefixOf = $displayName . 'の';
         }
-        $res['title'] = "{$prefixOf}地価公示価格・土地評価額がわかるサイト";
+        if (isset($areaValue)){
+            $res['title'] = "{$prefixOf}地価公示価格・土地評価額がわかるサイト｜最新版";
+        }
+        else {
+            $res['title'] = "地価公示価格・土地評価額がわかるサイト｜全国対応・最新版";
+        }
         $res['keywords'] = "地価公示価格,{$prefix} 地価,{$prefix} 公示地価,{$prefix} 土地評価額,{$prefix} 土地評価,{$prefix} 土地価格";
         $res['description'] = "税金や公共事業用地取得時の基準となる地価公示価格がわかり、一般の土地取引の際の土地評価額の無料査定ができるサイトです。公示価格は国交省公表のデータが地域別で見やすくなっており、土地評価額は最大6社に一括で無料査定依頼ができ価格比較に最適です。";
         if ($prefix != ''){
