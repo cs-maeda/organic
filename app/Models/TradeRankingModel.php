@@ -593,6 +593,48 @@ class TradeRankingModel extends ModelBase
         $stmt->execute([$prefectureId]);
     }
 
+    public function importPostedPriceCityRankingInJapanLast()
+    {
+        $pdo = self::getPdo();
+        $sql =
+            "INSERT INTO " .
+                "tbl_trade_ranking_last " .
+                "( " .
+                    "ranking, " .
+                    "site_number, " .
+                    "prefecture_id, " .
+                    "area_id, " .
+                    "station, " .
+                    "avg_price, " .
+                    "min_price, " .
+                    "max_price, " .
+                    "trade_count " .
+                ") " .
+            "SELECT " .
+                "(@num := @num + 1) AS ranking, " .
+                "ranking_table.* " .
+            "FROM " .
+                "(SELECT @num:=0) AS dummy, " .
+                "( " .
+                    "SELECT " .
+                        "2 AS site_number, " .
+                        "0 AS prefecture_id, " .
+                        "mst_city.city_id AS area_id, " .
+                        "0 AS station, " .
+                        "AVG(price) AS avg_price, " .
+                        "MIN(price) AS min_price, " .
+                        "MAX(price) AS max_price, " .
+                        "0 AS trade_count " .
+                    "FROM `view_posted_land_price_last` " .
+                        "LEFT JOIN mst_city ON view_posted_land_price_last.city_id = mst_city.city_id " .
+                    "GROUP BY mst_city.city_id " .
+                    "ORDER BY avg_price DESC " .
+            ") AS ranking_table";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+    }
+
     public function makeYearOverYear()
     {
         $pdo = self::getPdo();
