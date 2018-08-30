@@ -686,13 +686,22 @@ h6 {
       border-bottom: 1px solid #acacac; }
     .prg .listRanking li .col1 {
       width: 50%; }
+      @media screen and (max-width: 640px) {
+        .prg .listRanking li .col1 {
+          width: 40%; } }
     .prg .listRanking li .col2 {
       width: 22%;
       text-align: right;
       border-left: 1px solid #acacac;
       border-right: 1px solid #acacac; }
+      @media screen and (max-width: 640px) {
+        .prg .listRanking li .col2 {
+          width: 35%; } }
     .prg .listRanking li .col3 {
       width: 28%; }
+      @media screen and (max-width: 640px) {
+        .prg .listRanking li .col3 {
+          width: 25%; } }
     .prg .listRanking li.head {
       background-color: #f3f3f3;
       border-top: 1px solid #acacac; }
