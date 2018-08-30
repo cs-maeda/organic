@@ -600,15 +600,24 @@ h6{
             }
             .col1{
                 width:50%;
+                @media screen and (max-width:$sp_max){
+                    width:40%;
+                }
             }
             .col2{
                 width:22%;
                 text-align:right;
                 border-left:1px solid $gray;
                 border-right:1px solid $gray;
+                @media screen and (max-width:$sp_max){
+                    width:35%;
+                }
             }
             .col3{
                 width:28%;
+                @media screen and (max-width:$sp_max){
+                    width:25%;
+                }
             }
             &.head{
                 background-color:$lightGray;
