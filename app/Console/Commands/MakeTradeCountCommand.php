@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Condition\Conditioner;
 use App\Models\TradeCountModel;
 use App\Models\TradeRankingModel;
 use App\Models\TradeRecordsModel;
@@ -71,7 +72,7 @@ class MakeTradeCountCommand extends CommandBase
     protected function makeTradeCount()
     {
         $tradeCountModel = new TradeCountModel();
-        $tradeCountModel->clearTable();
+        $tradeCountModel->clearTable([Conditioner::SITE_NUMBER_IACSICC, Conditioner::SITE_NUMBER_RHSINC]);
 
         for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++){
             $this->importTradeCount('iacs-icc.org', $tradeCountModel, $prefectureId);

@@ -1,0 +1,1039 @@
+@charset "UTF-8";
+/* rhsinc */
+/* _variablesIacsicc */
+/* commont */
+/* _variables */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif"; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+table,
+th,
+td,
+ul,
+dl,
+form,
+input,
+textarea,
+select,
+option,
+optgroup,
+button,
+a,
+sup {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-size: 14px;
+  font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+  font-weight: normal;
+  line-height: 1.4;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; }
+
+dev,
+span,
+section,
+article,
+li,
+dt,
+dd {
+  box-sizing: border-box; }
+
+li {
+  list-style: none; }
+
+table {
+  border-collapse: collapse; }
+
+a {
+  color: #2980c3; }
+  a:hover {
+    color: #61a6da; }
+
+sup {
+  font-size: 0.6em; }
+
+.textCenter {
+  text-align: center; }
+
+.textLeft {
+  text-align: left; }
+
+.textRight {
+  text-align: right; }
+
+.red {
+  color: #d20012;
+  vertical-align: length; }
+
+img {
+  border: none;
+  vertical-align: bottom; }
+
+.pc,
+.pd,
+.sp {
+  display: none; }
+
+@media screen and (min-width: 1199px) {
+  .pc {
+    display: inherit; } }
+
+@media screen and (min-width: 641px) {
+  .pcpd {
+    display: inherit; } }
+@media screen and (max-width: 640px) {
+  .pcpd {
+    display: none; } }
+
+@media screen and (max-width: 820px) {
+  .pd {
+    display: inherit; } }
+
+@media screen and (max-width: 640px) {
+  .sp {
+    display: inherit; } }
+
+.width100 {
+  width: 100%; }
+
+.clearfix {
+  zoom: 100%; }
+
+.clearfix:after {
+  display: block;
+  content: ".";
+  margin: 0;
+  padding: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both; }
+
+.impactValue {
+  font-weight: bold; }
+
+.noWrap {
+  white-space: nowrap; }
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1199px;
+  margin: 0 auto;
+  padding: 10px; }
+  @media screen and (max-width: 820px) {
+    .content {
+      padding: 0 10px; } }
+
+.breadcrumb .listBreadcrumb {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1199px;
+  margin: 0 auto; }
+  @media screen and (max-width: 820px) {
+    .breadcrumb .listBreadcrumb {
+      padding: 0 10px; } }
+  .breadcrumb .listBreadcrumb li {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    float: left; }
+    .breadcrumb .listBreadcrumb li:after {
+      content: ">";
+      padding: 0 10px; }
+    .breadcrumb .listBreadcrumb li:last-child:after {
+      content: ""; }
+    .breadcrumb .listBreadcrumb li a {
+      text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif"; }
+
+.pc {
+  display: inherit; }
+  @media screen and (max-width: 820px) {
+    .pc {
+      display: none; } }
+
+.green {
+  color: #40b4a7; }
+
+.orange {
+  color: #f19931; }
+
+.inner {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 820px) {
+    .inner {
+      width: 100%; } }
+
+#pageHeader h1 {
+  padding: 2px 10px;
+  text-align: right; }
+#pageHeader .header {
+  padding: 10px;
+  background-color: #40b4a7;
+  border-top: 1px solid #acacac; }
+  #pageHeader .header a.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px; }
+    #pageHeader .header a.logo .s {
+      font-size: 0.7em; }
+    #pageHeader .header a.logo .ss {
+      padding: 0 0.2em;
+      font-size: 0.5em; }
+    @media screen and (max-width: 640px) {
+      #pageHeader .header a.logo {
+        font-size: 5.0vw; } }
+
+.mainV {
+  padding: 20px 0; }
+  .mainV .inner {
+    height: 240px;
+    padding: 30px;
+    background: url(/images/ginatonic/img_banner_pc.jpg) center top no-repeat; }
+    .mainV .inner .text h2,
+    .mainV .inner .text p {
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 0 0 3px #40b4a7, 0 0 5px #40b4a7; }
+  @media screen and (max-width: 820px) {
+    .mainV {
+      padding: 0 0 10px 0; }
+      .mainV .inner {
+        position: relative;
+        height: auto;
+        padding: 0;
+        background: none; }
+        .mainV .inner .text {
+          position: absolute;
+          top: 2.5vw;
+          left: 2.5vw; }
+          .mainV .inner .text h2,
+          .mainV .inner .text p {
+            font-size: 4.8vw; } }
+
+.breadcrumb {
+  margin-bottom: 15px; }
+  #body_index .breadcrumb {
+    cursor: text; }
+    #body_index .breadcrumb a {
+      pointer-events: none;
+      color: #1d1d1d; }
+
+#contentArea {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between; }
+  #contentArea #mainArea {
+    width: 760px; }
+  #contentArea #sideArea {
+    width: 380px; }
+  @media screen and (max-width: 820px) {
+    #contentArea {
+      display: block; }
+      #contentArea #mainArea,
+      #contentArea #sideArea {
+        width: 100%; } }
+
+.prg {
+  padding: 20px 0;
+  border-top: 4px solid #40b4a7; }
+  .prg .graphArea {
+    padding: 0 0 40px 0; }
+    @media screen and (max-width: 640px) {
+      .prg .graphArea {
+        padding-bottom: 10px; } }
+  @media screen and (max-width: 820px) {
+    .prg {
+      padding: 20px 10px; }
+      .prg.full {
+        padding: 20px 0; } }
+  .prg .titlePrg {
+    margin: 0 0 20px 0;
+    padding: 5px 0 5px 40px;
+    font-size: 26px;
+    background: url(/images/ginatonic/ico_pc.jpg) left 10px no-repeat; }
+    .prg .titlePrg.cal {
+      background-image: url(/images/ginatonic/ico_calculator.jpg); }
+    .prg .titlePrg.crown {
+      background-image: url(/images/ginatonic/ico_crown.jpg); }
+    .prg .titlePrg.bubble {
+      background-image: url(/images/ginatonic/ico_speech_bubble.jpg); }
+    @media screen and (max-width: 820px) {
+      .prg .titlePrg {
+        margin-bottom: 10px;
+        padding: 40px 0 0 0;
+        font-size: 3.8vw;
+        text-align: center;
+        background: url(/images/ginatonic/ico_pc.jpg) center top no-repeat; } }
+    @media screen and (max-width: 640px) {
+      .prg .titlePrg {
+        font-size: 5.2vw; } }
+  .prg .textPrg {
+    padding: 0 0 20px 0;
+    line-height: 1.6; }
+    .prg .textPrg .impactValue {
+      padding: 0 0.3em;
+      font-size: 1.1em; }
+  .prg .areaLink .inner {
+    width: 100%;
+    max-width: 760px; }
+    .prg .areaLink .inner .areaLinktitle {
+      display: none; }
+    .prg .areaLink .inner .areaList,
+    .prg .areaLink .inner .region {
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      border-top: 1px solid #acacac;
+      border-left: 1px solid #acacac; }
+      .prg .areaLink .inner .areaList li,
+      .prg .areaLink .inner .region li {
+        width: 25%;
+        background-color: #f3f3f3;
+        border: 1px solid #acacac;
+        border-top: none;
+        border-left: none; }
+        @media screen and (max-width: 820px) {
+          .prg .areaLink .inner .areaList li,
+          .prg .areaLink .inner .region li {
+            width: 33.333%; } }
+        @media screen and (max-width: 640px) {
+          .prg .areaLink .inner .areaList li,
+          .prg .areaLink .inner .region li {
+            width: 50%; } }
+        .prg .areaLink .inner .areaList li a,
+        .prg .areaLink .inner .region li a {
+          display: block;
+          padding: 10px 0;
+          text-align: center; }
+        .prg .areaLink .inner .areaList li.top,
+        .prg .areaLink .inner .region li.top {
+          width: 100%;
+          padding: 10px;
+          background-color: #ffffff; }
+          @media screen and (max-width: 640px) {
+            .prg .areaLink .inner .areaList li.top,
+            .prg .areaLink .inner .region li.top {
+              padding: 0 10px;
+              line-height: 50px; } }
+          .prg .areaLink .inner .areaList li.top .dn,
+          .prg .areaLink .inner .region li.top .dn {
+            display: none; }
+            @media screen and (max-width: 640px) {
+              .prg .areaLink .inner .areaList li.top .dn,
+              .prg .areaLink .inner .region li.top .dn {
+                display: block;
+                padding: 0 20px;
+                float: right; } }
+          @media screen and (max-width: 640px) {
+            .prg .areaLink .inner .areaList li.top.open .dn,
+            .prg .areaLink .inner .region li.top.open .dn {
+              -moz-transform: rotate(180deg);
+              -ms-transform: rotate(180deg);
+              -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); } }
+        @media screen and (max-width: 640px) {
+          .prg .areaLink .inner .areaList li.pref,
+          .prg .areaLink .inner .region li.pref {
+            display: none;
+            width: 100%;
+            padding: 0; }
+            .prg .areaLink .inner .areaList li.pref a,
+            .prg .areaLink .inner .region li.pref a {
+              display: block;
+              padding: 0 10px;
+              color: #1d1d1d;
+              text-align: left;
+              line-height: 50px;
+              text-decoration: none; } }
+    .prg .areaLink .inner .region {
+      margin-bottom: 10px; }
+      @media screen and (max-width: 640px) {
+        .prg .areaLink .inner .region {
+          margin-bottom: 0;
+          border: none; } }
+      @media screen and (max-width: 640px) {
+        .prg .areaLink .inner .region.hokaido {
+          border-top: 1px solid #acacac; } }
+  .prg.japan .areaLink .inner {
+    position: relative;
+    height: 630px;
+    background: url(/images/ginatonic/img_map.jpg) center top no-repeat;
+    background-size: 100%; }
+    @media screen and (max-width: 820px) {
+      .prg.japan .areaLink .inner {
+        position: static;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        -moz-justify-content: between;
+        -ms-justify-content: between;
+        -webkit-justify-content: between;
+        justify-content: between;
+        flex-wrap: wrap;
+        height: auto;
+        background: none; } }
+    @media screen and (max-width: 640px) {
+      .prg.japan .areaLink .inner {
+        margin-top: 20px;
+        border-top: 1px solid #464545; } }
+    .prg.japan .areaLink .inner .areaLinktitle {
+      display: none; }
+    .prg.japan .areaLink .inner ul {
+      position: absolute;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-justify-content: between;
+      -ms-justify-content: between;
+      -webkit-justify-content: between;
+      justify-content: between;
+      flex-wrap: wrap;
+      width: 13.0em;
+      border: none; }
+      @media screen and (max-width: 820px) {
+        .prg.japan .areaLink .inner ul {
+          position: static;
+          width: 50%;
+          padding: 0 10px 10px 10px; } }
+      @media screen and (max-width: 640px) {
+        .prg.japan .areaLink .inner ul {
+          display: block;
+          width: 100%;
+          padding: 0; } }
+      .prg.japan .areaLink .inner ul li {
+        width: 33.333%;
+        text-align: center; }
+        .prg.japan .areaLink .inner ul li a {
+          display: block;
+          padding: 3px 0;
+          text-decoration: none; }
+        @media screen and (max-width: 640px) {
+          .prg.japan .areaLink .inner ul li {
+            display: none;
+            width: 100%;
+            height: 50px;
+            background-color: #f3f3f3;
+            border-bottom: 1px solid #464545; }
+            .prg.japan .areaLink .inner ul li a {
+              padding: 0 10px;
+              color: #1d1d1d;
+              line-height: 50px;
+              text-align: left; }
+            .prg.japan .areaLink .inner ul li.top {
+              display: block;
+              padding: 0 10px;
+              text-align: left; } }
+        .prg.japan .areaLink .inner ul li.top {
+          width: 100%;
+          height: 30px;
+          padding: 0;
+          color: #ffffff;
+          font-size: 1.1em;
+          line-height: 30px;
+          background-color: #acacac;
+          border-radius: 5px;
+          border: none; }
+          .prg.japan .areaLink .inner ul li.top .dn {
+            display: none; }
+            @media screen and (max-width: 640px) {
+              .prg.japan .areaLink .inner ul li.top .dn {
+                display: block;
+                padding: 0 20px;
+                float: right; } }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul li.top.open .dn {
+              -moz-transform: rotate(180deg);
+              -ms-transform: rotate(180deg);
+              -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); } }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul li.top {
+              height: 50px;
+              padding: 0 10px;
+              color: #1d1d1d;
+              line-height: 50px;
+              border-top: 1px solid #f3f3f3;
+              border-bottom: 1px solid #464545;
+              border-radius: 0; } }
+        .prg.japan .areaLink .inner ul li.pref {
+          background: none;
+          border: none; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul li.pref {
+              background-color: #f3f3f3;
+              border-bottom: 1px solid #acacac; } }
+      .prg.japan .areaLink .inner ul.hokaido {
+        left: 75%;
+        top: 190px; }
+        .prg.japan .areaLink .inner ul.hokaido .top {
+          background-color: #40b4a7; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.hokaido .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.kanto {
+        left: 75%;
+        top: 300px; }
+        .prg.japan .areaLink .inner ul.kanto .top {
+          background-color: #3899c3; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.kanto .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.hokuriku {
+        left: 30%;
+        top: 190px; }
+        .prg.japan .areaLink .inner ul.hokuriku .top {
+          background-color: #dbb14c; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.hokuriku .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.tokai {
+        left: 75%;
+        top: 410px; }
+        .prg.japan .areaLink .inner ul.tokai .top {
+          background-color: #40b4a7; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.tokai .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.kinki {
+        left: 53%;
+        top: 520px; }
+        .prg.japan .areaLink .inner ul.kinki .top {
+          background-color: #3899c3; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.kinki .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.chugoku {
+        left: 20%;
+        top: 300px; }
+        .prg.japan .areaLink .inner ul.chugoku .top {
+          background-color: #dbb14c; }
+          @media screen and (max-width: 640px) {
+            .prg.japan .areaLink .inner ul.chugoku .top {
+              background-color: #ffffff; } }
+      .prg.japan .areaLink .inner ul.shikoku {
+        left: 35%;
+        top: 520px;
+        width: 8.0em; }
+        .prg.japan .areaLink .inner ul.shikoku li {
+          width: 50%; }
+          .prg.japan .areaLink .inner ul.shikoku li.top {
+            width: 100%;
+            background-color: #40b4a7; }
+            @media screen and (max-width: 640px) {
+              .prg.japan .areaLink .inner ul.shikoku li.top {
+                background-color: #ffffff; } }
+        @media screen and (max-width: 820px) {
+          .prg.japan .areaLink .inner ul.shikoku {
+            width: 50%; }
+            .prg.japan .areaLink .inner ul.shikoku li {
+              width: 33.333%; } }
+        @media screen and (max-width: 640px) {
+          .prg.japan .areaLink .inner ul.shikoku {
+            width: 100%; }
+            .prg.japan .areaLink .inner ul.shikoku li {
+              width: 100%; } }
+      .prg.japan .areaLink .inner ul.kyushu {
+        left: 5%;
+        top: 410px;
+        width: 9.0em; }
+        .prg.japan .areaLink .inner ul.kyushu li {
+          width: 50%; }
+          .prg.japan .areaLink .inner ul.kyushu li.top {
+            width: 100%;
+            background-color: #3899c3; }
+            @media screen and (max-width: 640px) {
+              .prg.japan .areaLink .inner ul.kyushu li.top {
+                background-color: #ffffff; } }
+        @media screen and (max-width: 820px) {
+          .prg.japan .areaLink .inner ul.kyushu {
+            width: 50%; }
+            .prg.japan .areaLink .inner ul.kyushu li {
+              width: 33.333%; } }
+        @media screen and (max-width: 640px) {
+          .prg.japan .areaLink .inner ul.kyushu {
+            width: 100%; }
+            .prg.japan .areaLink .inner ul.kyushu li {
+              width: 100%; } }
+  .prg.averageGraph .discription {
+    padding: 0 0 10px 0; }
+  .prg.averageGraph .remark {
+    font-size: 0.8em;
+    text-align: right; }
+    @media screen and (max-width: 820px) {
+      .prg.averageGraph .remark {
+        text-align: left; } }
+  .prg .tableRanking {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 40px 0; }
+    .prg .tableRanking th {
+      padding: 10px;
+      text-align: center;
+      background-color: #f3f3f3;
+      border: 1px solid #acacac;
+      border-top: none; }
+      @media screen and (max-width: 640px) {
+        .prg .tableRanking th {
+          padding: 5px; } }
+      .prg .tableRanking th:first-child {
+        border-left: none; }
+      .prg .tableRanking th:last-child {
+        border-right: none; }
+    .prg .tableRanking td {
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid #acacac; }
+      @media screen and (max-width: 640px) {
+        .prg .tableRanking td {
+          padding: 5px;
+          font-size: 12px; }
+          .prg .tableRanking td a {
+            font-size: 12px; } }
+      .prg .tableRanking td:first-child {
+        border-left: none; }
+      .prg .tableRanking td:last-child {
+        border-right: none; }
+      .prg .tableRanking td.rank {
+        padding-left: 40px;
+        white-space: nowrap;
+        background: 10px no-repeat; }
+        @media screen and (max-width: 640px) {
+          .prg .tableRanking td.rank {
+            padding: 5px;
+            text-align: center; }
+            .prg .tableRanking td.rank.top1, .prg .tableRanking td.rank.top2, .prg .tableRanking td.rank.top3 {
+              padding: 30px 5px 5px 5px;
+              background-position: center 5px; } }
+        .prg .tableRanking td.rank.top1 {
+          background-image: url(/images/ginatonic/ico_crown_yellow.jpg); }
+        .prg .tableRanking td.rank.top2 {
+          background-image: url(/images/ginatonic/ico_crown_blow.jpg); }
+        .prg .tableRanking td.rank.top3 {
+          background-image: url(/images/ginatonic/ico_crown_orange.jpg); }
+      .prg .tableRanking td.value {
+        text-align: right; }
+      .prg .tableRanking td.ratio {
+        padding-right: 40px;
+        text-align: right;
+        background: right 10px top 50% no-repeat; }
+        @media screen and (max-width: 640px) {
+          .prg .tableRanking td.ratio {
+            padding: 5px;
+            text-align: center; }
+            .prg .tableRanking td.ratio.up, .prg .tableRanking td.ratio.down, .prg .tableRanking td.ratio.flat {
+              padding: 30px 5px 5px 5px;
+              background-position: center 5px; } }
+        .prg .tableRanking td.ratio.up {
+          color: #d20012;
+          background-image: url(/images/ginatonic/ico_up.png); }
+        .prg .tableRanking td.ratio.down {
+          color: #3899c3;
+          background-image: url(/images/ginatonic/ico_down.png); }
+        .prg .tableRanking td.ratio.flat {
+          background-image: url(/images/ginatonic/ico_flat.png); }
+  .prg .listRanking li {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -moz-justify-content: between;
+    -ms-justify-content: between;
+    -webkit-justify-content: between;
+    justify-content: between; }
+    .prg .listRanking li > span {
+      display: block;
+      padding: 10px;
+      line-height: 20px;
+      border-bottom: 1px solid #acacac; }
+    .prg .listRanking li .col1 {
+      width: 50%; }
+    .prg .listRanking li .col2 {
+      width: 22%;
+      text-align: right;
+      border-left: 1px solid #acacac;
+      border-right: 1px solid #acacac; }
+    .prg .listRanking li .col3 {
+      width: 28%; }
+    .prg .listRanking li.head {
+      background-color: #f3f3f3;
+      border-top: 1px solid #acacac; }
+      .prg .listRanking li.head span {
+        text-align: center; }
+    .prg .listRanking li:nth-child(n+22) {
+      max-height: 0;
+      overflow: hidden;
+      -moz-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      -webkit-transition-duration: 1s;
+      transition-duration: 1s; }
+      .prg .listRanking li:nth-child(n+22).open {
+        max-height: 200px;
+        height: auto; }
+  .prg #showPointData {
+    display: block;
+    width: 12.0em;
+    margin: 10px auto;
+    padding: 10px 0;
+    color: #1d1d1d;
+    text-decoration: none;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #acacac;
+    border-radius: 5px; }
+    .prg #showPointData:hover {
+      background-color: #f3f3f3; }
+  #sideArea .prg {
+    padding: 0 0 40px 0;
+    border-top: none; }
+    #sideArea .prg h2 {
+      padding: 15px 0;
+      color: #ffffff;
+      font-size: 16px;
+      text-align: center;
+      background-color: #464545; }
+      #sideArea .prg h2.crown {
+        padding: 10px 10px 10px 45px;
+        text-align: left;
+        background: #464545 url(/images/ginatonic/ico_ranking.png) 10px no-repeat; }
+      #sideArea .prg h2 .l {
+        display: block;
+        font-size: 1.2em; }
+    #sideArea .prg .tableRanking th,
+    #sideArea .prg .tableRanking td {
+      padding: 10px 5px;
+      background: #ffffff;
+      border-right: none;
+      border-left: none; }
+      #sideArea .prg .tableRanking th.rank,
+      #sideArea .prg .tableRanking td.rank {
+        text-align: center; }
+      #sideArea .prg .tableRanking th.ratio,
+      #sideArea .prg .tableRanking td.ratio {
+        padding-right: 20px;
+        background: right 5px top 50% no-repeat;
+        background-size: 10px; }
+        #sideArea .prg .tableRanking th.ratio.up,
+        #sideArea .prg .tableRanking td.ratio.up {
+          background-image: url(/images/ginatonic/ico_up.png); }
+        #sideArea .prg .tableRanking th.ratio.down,
+        #sideArea .prg .tableRanking td.ratio.down {
+          background-image: url(/images/ginatonic/ico_down.png); }
+        #sideArea .prg .tableRanking th.ratio.flat,
+        #sideArea .prg .tableRanking td.ratio.flat {
+          background-image: url(/images/ginatonic/ico_flat.png); }
+    #sideArea .prg .showRank {
+      padding: 10px; }
+      #sideArea .prg .showRank p {
+        padding: 2px 0;
+        font-size: 18px; }
+        #sideArea .prg .showRank p .red {
+          font-size: 1.2em;
+          font-weight: bold; }
+        #sideArea .prg .showRank p.rank2 {
+          padding: 5px 20px 5px 5px;
+          text-align: right;
+          background: right 5px top 50% no-repeat; }
+          #sideArea .prg .showRank p.rank2.up {
+            background-image: url(/images/ginatonic/ico_up.png); }
+          #sideArea .prg .showRank p.rank2.down {
+            background-image: url(/images/ginatonic/ico_down.png); }
+          #sideArea .prg .showRank p.rank2.flat {
+            background-image: url(/images/ginatonic/ico_flat.png); }
+        #sideArea .prg .showRank p.memo {
+          font-size: 12px;
+          text-align: right; }
+
+.pageFoot {
+  padding: 30px 0;
+  background-color: #464545; }
+  @media screen and (max-width: 640px) {
+    .pageFoot {
+      padding: 10px 10px 80px 10px; } }
+  .pageFoot .footerMenu {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex; }
+    @media screen and (max-width: 640px) {
+      .pageFoot .footerMenu {
+        display: block; } }
+    .pageFoot .footerMenu li {
+      padding: 3px 20px 3px 10px;
+      background: url(/images/ginatonic/ico_arrow.png) left no-repeat; }
+      .pageFoot .footerMenu li a {
+        color: #ffffff;
+        text-decoration: none; }
+        .pageFoot .footerMenu li a:hover {
+          color: #f3f3f3; }
+
+.formSide {
+  margin: 0 0 40px 0;
+  background-color: #f3f3f3; }
+  .formSide h2 {
+    padding: 15px 0;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    background-color: #464545; }
+  .formSide p {
+    padding: 5px 0;
+    text-align: center;
+    font-size: 20px; }
+    .formSide p .l {
+      font-size: 1.8em;
+      font-family: Verdana, Geneva, "sans-serif"; }
+  .formSide .form {
+    padding: 0 20px 20px 20px; }
+    .formSide .form li {
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-justify-content: between;
+      -ms-justify-content: between;
+      -webkit-justify-content: between;
+      justify-content: between;
+      padding: 5px 0; }
+      .formSide .form li .formStep {
+        display: block;
+        width: 12%;
+        height: 40px;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: Verdana, Geneva, "sans-serif";
+        line-height: 38px;
+        text-align: center;
+        background-color: #acacac;
+        border: 1px solid #acacac; }
+      .formSide .form li select {
+        width: 88%;
+        height: 40px;
+        padding: 0 10px;
+        background-color: #ffffff;
+        border: 1px solid #acacac; }
+      .formSide .form li.focusOn .formStep {
+        background-color: #40b4a7;
+        border-color: #40b4a7; }
+      .formSide .form li.focusOn select {
+        border-color: #40b4a7; }
+      .formSide .form li.st4 {
+        display: none; }
+    .formSide .form .submit {
+      padding: 5px 0; }
+      .formSide .form .submit .submitButton {
+        width: 100%;
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 50px;
+        text-align: center;
+        background-color: #f19931;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer; }
+        .formSide .form .submit .submitButton:hover {
+          filter: alpha(opacity=80);
+          -moz-opacity: 0.8;
+          opacity: 0.8; }
+  .formSide .warning {
+    display: none; }
+
+#formBottom .catch1 {
+  padding: 10px 0;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  border-top: 1px solid #acacac; }
+  #formBottom .catch1 .l {
+    font-size: 2.0em; }
+#formBottom .catch2 {
+  background-color: #40b4a7; }
+  #formBottom .catch2 .top,
+  #formBottom .catch2 .bottom {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center; }
+    @media screen and (max-width: 820px) {
+      #formBottom .catch2 .top,
+      #formBottom .catch2 .bottom {
+        width: 100%; } }
+  #formBottom .catch2 .top {
+    font-size: 30px;
+    border-bottom: 1px solid #ffffff; }
+  #formBottom .catch2 .bottom {
+    font-size: 25px; }
+#formBottom .formArea {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0; }
+  @media screen and (max-width: 820px) {
+    #formBottom .formArea {
+      width: 100%; } }
+  #formBottom .formArea .lpForm {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
+    #formBottom .formArea .lpForm li {
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+      -moz-justify-content: between;
+      -ms-justify-content: between;
+      -webkit-justify-content: between;
+      justify-content: between;
+      width: 30%;
+      padding: 0 10px; }
+      #formBottom .formArea .lpForm li.st4 {
+        display: none; }
+      #formBottom .formArea .lpForm li .formStep {
+        width: 12%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 20px;
+        line-height: 38px;
+        background-color: #acacac;
+        border: 1px solid #acacac; }
+      #formBottom .formArea .lpForm li select {
+        width: 88%;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #acacac; }
+#formBottom .submit {
+  padding: 50px 0 20px 0;
+  text-align: center;
+  background: url(/images/ginatonic/ico_arr_down.png) center 20px no-repeat; }
+  #formBottom .submit .submitButton {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #f19931;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; }
+    #formBottom .submit .submitButton:hover {
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      opacity: 0.8; }
+#formBottom .pMark {
+  display: block;
+  margin: -60px 0 60px auto; }
+  @media screen and (max-width: 820px) {
+    #formBottom .pMark {
+      display: none; } }
+#formBottom .warning {
+  display: none; }
+@media screen and (max-width: 640px) {
+  #formBottom {
+    display: none; } }
+
+.formArea .formStep .step {
+  display: none; }
+.formSide .formArea .pMark {
+  display: none; }
+
+.formButton {
+  position: fixed;
+  left: 0;
+  bottom: -80px;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  z-index: 100; }
+  .formButton.show {
+    bottom: 0; }
+  .formButton a.button {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: #f19931;
+    border-radius: 5px; }
+
+.pageTop {
+  position: fixed;
+  bottom: -50px;
+  right: 3%;
+  height: 40px;
+  width: 40px;
+  z-index: 999;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  @media screen and (max-width: 820px) {
+    .pageTop {
+      right: 10px; } }
+  .pageTop.on {
+    bottom: 30px; }
+    @media screen and (max-width: 640px) {
+      .pageTop.on {
+        bottom: 80px; } }
+  .pageTop .button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #464545;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5); }

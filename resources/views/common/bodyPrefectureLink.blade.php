@@ -2,7 +2,7 @@
 <div class="areaLink">
     <div class="inner">
         <h2 class="areaLinktitle">都道府県ごとに{{$body['subject']}}の相場を調べる</h2>
-        <ul>
+        <ul class="hokaido region">
             <li class="top clearfix">北海道・東北<span class="dn">▼</span></li>
             <li class="pref"><a href="/hokkaido">北海道</a></li>
             <li class="pref"><a href="/aomori">青森県</a></li>
@@ -12,7 +12,7 @@
             <li class="pref"><a href="/yamagata">山形県</a></li>
             <li class="pref"><a href="/fukushima">福島県</a></li>
         </ul>
-        <ul>
+        <ul class="kanto region">
             <li class="top clearfix">関東<span class="dn">▼</span></li>
             <li class="pref"><a href="/tokyo">東京都</a></li>
             <li class="pref"><a href="/kanagawa">神奈川県</a></li>
@@ -22,7 +22,7 @@
             <li class="pref"><a href="/tochigi">栃木県</a></li>
             <li class="pref"><a href="/gunma">群馬県</a></li>
         </ul>
-        <ul class="hokuriku">
+        <ul class="hokuriku region">
             <li class="top clearfix">北陸・甲信越<span class="dn">▼</span></li>
             <li class="pref"><a href="/yamanashi">山梨県</a></li>
             <li class="pref"><a href="/nagano">長野県</a></li>
@@ -31,14 +31,14 @@
             <li class="pref"><a href="/ishikawa">石川県</a></li>
             <li class="pref"><a href="/fukui">福井県</a></li>
         </ul>
-        <ul class="tokai">
+        <ul class="tokai region">
             <li class="top clearfix">東海<span class="dn">▼</span></li>
             <li class="pref"><a href="/aichi">愛知県</a></li>
             <li class="pref"><a href="/gifu">岐阜県</a></li>
             <li class="pref"><a href="/mie">三重県</a></li>
             <li class="pref"><a href="/shizuoka">静岡県</a></li>
         </ul>
-        <ul class="kinki">
+        <ul class="kinki region">
             <li class="top clearfix">近畿<span class="dn">▼</span></li>
             <li class="pref"><a href="/osaka">大阪府</a></li>
             <li class="pref"><a href="/kyoto">京都府</a></li>
@@ -47,7 +47,7 @@
             <li class="pref"><a href="/shiga">滋賀県</a></li>
             <li class="pref"><a href="/wakayama">和歌山県</a></li>
         </ul>
-        <ul class="chugoku">
+        <ul class="chugoku region">
             <li class="top clearfix">中国<span class="dn">▼</span></li>
             <li class="pref"><a href="/tottori">鳥取県</a></li>
             <li class="pref"><a href="/shimane">島根県</a></li>
@@ -55,14 +55,14 @@
             <li class="pref"><a href="/hiroshima">広島県</a></li>
             <li class="pref"><a href="/yamaguchi">山口県</a></li>
         </ul>
-        <ul class="shikoku">
+        <ul class="shikoku region">
             <li class="top clearfix">四国<span class="dn">▼</span></li>
             <li class="pref"><a href="/tokushima">徳島県</a></li>
             <li class="pref"><a href="/kagawa">香川県</a></li>
             <li class="pref"><a href="/ehime">愛媛県</a></li>
             <li class="pref"><a href="/kochi">高知県</a></li>
         </ul>
-        <ul class="kyushu">
+        <ul class="kyushu region">
             <li class="top clearfix">九州・沖縄<span class="dn">▼</span></li>
             <li class="pref"><a href="/fukuoka">福岡県</a></li>
             <li class="pref"><a href="/saga">佐賀県</a></li>

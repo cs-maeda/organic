@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Condition\Conditioner;
 use App\Models\ModelBase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -13,13 +14,18 @@ class TradeCountModel extends ModelBase
     protected $primaryKey = 'tbl_trade_count_id';
     protected $table = 'tbl_trade_count';
 
-    public function clearTable()
+    public function clearTable(array $sites)
     {
         $pdo = self::getPdo();
-        $sql = "TRUNCATE TABLE tbl_trade_count";
+        $sql = "DELETE FROM tbl_trade_count WHERE site_number IN (";
+        foreach ($sites as $site){
+            $sql .= "?,";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql .= ")";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute($sites);
     }
 
     public function getTradeCount(string $domainName, int $prefectureId): array
@@ -129,6 +135,22 @@ class TradeCountModel extends ModelBase
                     "WHERE station.city_id = ? AND station.station_id != 0 {$condition}" .
                     "GROUP BY station.station_id, station.station_name " .
                     "ORDER BY station.station_id ", [$cityId]);
+    }
+
+    public function importStandardPointCount(int $prefectureId)
+    {
+        $siteNumber = Conditioner::SITE_NUMBER_GINATONIC;
+        DB::insert(
+            "INSERT INTO tbl_trade_count (site_number, area_id, station, trade_count) " .
+                    "SELECT " .
+                        "{$siteNumber} AS site_number, " .
+                        "mst_city.city_id AS area_id, " .
+                        "0 AS station, " .
+                        "COUNT(mst_city.city_id) AS trade_count " .
+                    "FROM mst_city " .
+                        "LEFT JOIN view_posted_land_price ON mst_city.city_id = view_posted_land_price.city_id " .
+                    "WHERE mst_city.prefecture_id = ? " .
+                    "GROUP BY mst_city.city_id", [$prefectureId]);
     }
 
 }

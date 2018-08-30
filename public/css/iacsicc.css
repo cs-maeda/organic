@@ -124,6 +124,12 @@ img {
   visibility: hidden;
   clear: both; }
 
+.impactValue {
+  font-weight: bold; }
+
+.noWrap {
+  white-space: nowrap; }
+
 .content {
   box-sizing: border-box;
   width: 100%;

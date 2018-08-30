@@ -29,6 +29,7 @@ class Conditioner
 
     const SITE_NUMBER_IACSICC = 0;      // www.iacs-icc.org
     const SITE_NUMBER_RHSINC = 1;       // www.rhs-inc.com
+    const SITE_NUMBER_GINATONIC = 2;    // www.ginatonic.net
 
     protected function __construct(AreaValue $areaValue, string $root = null)
     {
@@ -48,6 +49,12 @@ class Conditioner
             $this->siteNumber = self::SITE_NUMBER_RHSINC;
             $this->siteCaption = '土地価格・土地売買の相場';
             $this->siteUrl = env('APP_RHS_INC_URL');
+        }
+        $res = strpos($root, 'ginatonic');    // www.ginatonic.com
+        if ($res !== false){
+            $this->siteNumber = self::SITE_NUMBER_GINATONIC;
+            $this->siteCaption = '地価公示価格・土地評価額がわかるサイト';
+            $this->siteUrl = env('APP_GINATONIC_URL');
         }
     }
 

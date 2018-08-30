@@ -22,6 +22,9 @@ class MakeRankingCommand extends CommandBase
      */
     protected $description = 'Make tbl_trade_ranking table';
 
+    const TRADE_ESTATE_SITE = 0;
+    const TRADE_LAND_SITE = 1;
+
     /**
      * Create a new command instance.
      *
@@ -67,7 +70,8 @@ class MakeRankingCommand extends CommandBase
     protected function makeRanking()
     {
         $tradeRankingModel = new TradeRankingModel();
-        $tradeRankingModel->clearTable();
+        $tradeRankingModel->clearTable(self::TRADE_ESTATE_SITE);
+        $tradeRankingModel->clearTable(self::TRADE_LAND_SITE);
 
         echo '------ www.iacs-icc.org ------------------' . PHP_EOL;
         $this->makeRankingImpl('iacs-icc.org', $tradeRankingModel);

@@ -55,3 +55,22 @@ Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
     Route::get('/{prefecture}/{city}/station/{stationId}',              'rhsinc\IndexController@station');
 });
 
+Route::domain(env('APP_GINATONIC_DOMAIN'))->group(function()
+{
+// for test -->
+    Route::get('/test/{num}',                                           'ApiController@unitTest');
+// <-- for test
+// web api -->
+    Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
+    Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
+    Route::get('/api/posted/land/price/average/{aId?}/',                'ApiController@ginatonicAverage');
+    Route::get('/api/posted/land/price/prefecture/detail/{pId}/',       'ApiController@ginatonicPrefectureDetail');
+    Route::get('/api/posted/land/price/city/detail/{pId}/{cId}/',       'ApiController@ginatonicCityDetail');
+    Route::get('/api/link/exist/{prefecture?}/{city?}/{townId?}',       'ApiController@linkExists');
+    Route::get('/api/link/exist/{prefecture}/{city}/station/{stationId}','ApiController@stationLinkExists');
+// <-- web api
+
+    Route::get('/',                                                     'ginatonic\IndexController@index');
+    Route::get('/{prefecture}/{city?}/',                                'ginatonic\IndexController@area');
+});
+

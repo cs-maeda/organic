@@ -45,6 +45,16 @@ class AreaValue
         return $this->areaInfo['prefecture']['id'];
     }
 
+    public function prefectureAlphabet(): string
+    {
+        if (isset($this->areaInfo['prefecture']['alphabet'])){
+            return $this->areaInfo['prefecture']['alphabet'];
+        }
+        else {
+            return '';
+        }
+    }
+
     public function cityName(): string
     {
         return $this->areaInfo['city']['name'];
@@ -53,6 +63,16 @@ class AreaValue
     public function cityId(): int
     {
         return $this->areaInfo['city']['id'];
+    }
+
+    public function cityAlphabet(): string
+    {
+        if (isset($this->areaInfo['city']['alphabet'])){
+            return $this->areaInfo['city']['alphabet'];
+        }
+        else {
+            return '';
+        }
     }
 
     public function townName(): string
