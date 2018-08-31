@@ -71,9 +71,7 @@ class MakeStandardPointCountCommand extends CommandBase
         $tradeCountModel = new TradeCountModel();
         $tradeCountModel->clearTable([Conditioner::SITE_NUMBER_GINATONIC]);
 
-        for ($prefectureId = 1; $prefectureId <= 47; $prefectureId++){
-            $tradeCountModel->importStandardPointCount($prefectureId);
-        }
+        $tradeCountModel->importStandardPointCount();
     }
 
     protected function sendErrorMessage(string $message)
