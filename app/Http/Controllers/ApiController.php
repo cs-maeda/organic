@@ -179,12 +179,12 @@ class ApiController extends Controller
                             ->orderBy('avg_price', 'desc')->get();
 
         $unitPrice = number_format($results[0]['avg_price'] / 10000, 1);
-        $sentence .= "{$areaCaption}内で最も地価公示価格の平均が高い地域は<span class='noWrap'>{$results[0]['city_name']}</span>で、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span><br/>";
+        $sentence .= "{$areaCaption}内で最も地価公示価格の平均が高い地域は{$results[0]['city_name']}で、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span><br/>";
 
         $result = $results[count($results) - 1];
         $unitPrice = number_format($result['avg_price'] / 10000, 1);
 
-        $sentence .= "また、最も地価公示価格の平均が低い地域は<span class='noWrap'>{$result['city_name']}</span>、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span>です。<br/>";
+        $sentence .= "また、最も地価公示価格の平均が低い地域は{$result['city_name']}、1平方メートルあたり単価の平均は<span class='impactValue'>{$unitPrice}万円</span>です。<br/>";
 
         $results = TradeRankingModel::leftjoin('mst_city', 'area_id', '=', 'mst_city.city_id')
                             ->where('site_number', Conditioner::SITE_NUMBER_GINATONIC)
@@ -195,14 +195,14 @@ class ApiController extends Controller
         if ($ratio >= 0){
             $ratio = '+' . $ratio;
         }
-        $sentence .= "変動率で見ると、最も上昇率が高かったのは<span class='noWrap'>{$results[0]['city_name']}</span>で前年比<span class='impactValue'>{$ratio}％</span>";
+        $sentence .= "変動率で見ると、最も上昇率が高かったのは{$results[0]['city_name']}で前年比<span class='impactValue'>{$ratio}％</span>";
 
         $result = $results[count($results) - 1];
         $ratio = number_format($result['year_over_year'], 1);
         if ($ratio >= 0){
             $ratio = '+' . $ratio;
         }
-        $sentence .= "最も上昇率が低かったのは<span class='noWrap'>{$result['city_name']}</span>で前年比<span class='impactValue'>{$ratio}％</span>でした。";
+        $sentence .= "最も上昇率が低かったのは{$result['city_name']}で前年比<span class='impactValue'>{$ratio}％</span>でした。";
 
         return json_encode($sentence);
     }
