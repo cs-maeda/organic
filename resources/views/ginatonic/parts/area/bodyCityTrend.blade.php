@@ -29,7 +29,7 @@
                     storeCityDetail(res);
                 },
                 function () {
-                    alert('詳細データの取得に失敗しました');
+                    $('#cityDetail').hide();
                 });
     }
 

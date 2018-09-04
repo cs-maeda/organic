@@ -28,7 +28,7 @@
                     storePrefectureDetail(res);
                 },
                 function () {
-                    alert('詳細データの取得に失敗しました');
+                    $('#prefectureDetail').hide();
                 });
     }
 

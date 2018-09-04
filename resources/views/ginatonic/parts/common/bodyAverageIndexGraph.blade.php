@@ -82,7 +82,7 @@
                     storeIndexGraph(res);
                 },
                 function () {
-                    alert('グラフデータの取得に失敗しました');
+                    $('.averageGraph').hide();
                 });
     }
 

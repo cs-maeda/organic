@@ -137,20 +137,24 @@ class TradeCountModel extends ModelBase
                     "ORDER BY station.station_id ", [$cityId]);
     }
 
-    public function importStandardPointCount(int $prefectureId)
+    public function importStandardPointCount()
     {
         $siteNumber = Conditioner::SITE_NUMBER_GINATONIC;
-        DB::insert(
+
+        $pdo = self::getPdo();
+        $sql =
             "INSERT INTO tbl_trade_count (site_number, area_id, station, trade_count) " .
-                    "SELECT " .
-                        "{$siteNumber} AS site_number, " .
-                        "mst_city.city_id AS area_id, " .
-                        "0 AS station, " .
-                        "COUNT(mst_city.city_id) AS trade_count " .
-                    "FROM mst_city " .
-                        "LEFT JOIN view_posted_land_price ON mst_city.city_id = view_posted_land_price.city_id " .
-                    "WHERE mst_city.prefecture_id = ? " .
-                    "GROUP BY mst_city.city_id", [$prefectureId]);
+            "SELECT " .
+                "{$siteNumber} AS site_number, " .
+                "view_posted_land_price.city_id AS area_id, " .
+                "0 AS station, " .
+                "COUNT(view_posted_land_price.city_id) AS trade_count " .
+            "FROM view_posted_land_price " .
+                "LEFT JOIN mst_city ON view_posted_land_price.city_id = mst_city.city_id " .
+            "GROUP BY view_posted_land_price.city_id";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
     }
 
 }
