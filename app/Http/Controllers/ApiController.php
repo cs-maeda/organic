@@ -30,6 +30,10 @@ class ApiController extends Controller
 {
     protected $conn;
 
+    const IACS_ICC_CREATOR_ID = 6;
+    const RHS_INC_CREATOR_ID = 7;
+    const GINATONIC_CREATOR_ID = 8;
+
     public function __construct(ConnectionInterface $conn)
     {
         $this->conn = $conn;
@@ -38,6 +42,19 @@ class ApiController extends Controller
     public function unitTest(int $id)
     {
         $factory = new StationAreaFactory(500);
+    }
+
+    public function iacsiccSitemap(Request $request)
+    {
+        $host = $request->root();
+
+        $helper = new \App\Helper\iacsicc\SitemapHelper($request, self::IACS_ICC_CREATOR_ID);
+        $helper->clear();
+        $helper->top();
+        $helper->prefecture();
+        $helper->city();
+        $helper->town();
+        $helper->station();
     }
 
     public function cityList(int $prefectureId)

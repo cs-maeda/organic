@@ -18,6 +18,7 @@ Route::domain(env('APP_IACS_ICC_DOMAIN'))->group(function()
     Route::get('/test/{num}',                                           'ApiController@unitTest');
 // <-- for test
 // web api -->
+    Route::get('/api/sitemap/',                                         'ApiController@iacsiccSitemap');
     Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
     Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
     Route::get('/api/trade/prefecture/{id}/{pageNum}/{action}',         'ApiController@prefectureTradeRecords');
@@ -40,6 +41,7 @@ Route::domain(env('APP_RHS_INC_DOMAIN'))->group(function()
     Route::get('/test/{num}',                                           'ApiController@unitTest');
 // <-- for test
 // web api -->
+    Route::get('/api/sitemap/',                                         'ApiController@rhsincSitemap');
     Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
     Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
     Route::get('/api/trade/prefecture/{id}/{pageNum}/{action}',         'ApiController@prefectureTradeRecords');
@@ -61,6 +63,7 @@ Route::domain(env('APP_GINATONIC_DOMAIN'))->group(function()
     Route::get('/test/{num}',                                           'ApiController@unitTest');
 // <-- for test
 // web api -->
+    Route::get('/api/sitemap/',                                         'ApiController@ginatonicSitemap');
     Route::get('/api/form/city/{prefectureId}',                         'ApiController@cityList');
     Route::get('/api/form/town/{cityId}',                               'ApiController@townList');
     Route::get('/api/posted/land/price/average/{aId?}/',                'ApiController@ginatonicAverage');
