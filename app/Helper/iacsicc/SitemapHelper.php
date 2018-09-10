@@ -14,8 +14,6 @@ use App\Models\SitemapUrlModel;
 
 class SitemapHelper extends SitemapBaseHelper
 {
-    const IACS_ICC_CREATOR_ID = 6;
-
     public function city()
     {
         $model = new SitemapUrlModel();

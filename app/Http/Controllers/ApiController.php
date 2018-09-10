@@ -46,16 +46,35 @@ class ApiController extends Controller
 
     public function iacsiccSitemap(Request $request)
     {
-        $host = $request->root();
+        $helper = new \App\Helper\iacsicc\SitemapHelper($request, Conditioner::SITE_NUMBER_IACSICC,self::IACS_ICC_CREATOR_ID);
 
-        $helper = new \App\Helper\iacsicc\SitemapHelper($request, self::IACS_ICC_CREATOR_ID);
         $helper->clear();
         $helper->top();
         $helper->prefecture();
         $helper->city();
         $helper->town();
         $helper->station();
+
+        $res['result'] = true;
+        return response()->json($res);
     }
+
+    public function rhsincSitemap(Request $request)
+    {
+        $helper = new \App\Helper\iacsicc\SitemapHelper($request, Conditioner::SITE_NUMBER_RHSINC,self::RHS_INC_CREATOR_ID);
+
+        $helper->clear();
+        $helper->top();
+        $helper->prefecture();
+        $helper->city();
+        $helper->town();
+        $helper->station();
+
+        $res['result'] = true;
+        return response()->json($res);
+    }
+
+    
 
     public function cityList(int $prefectureId)
     {
