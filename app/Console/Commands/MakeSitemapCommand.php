@@ -88,7 +88,7 @@ class MakeSitemapCommand extends CommandBase
         $res = storage_path('app/public/sitemap/');
         if (env('APP_ENV') !== 'local')
         {
-            $res = env('SITEMAP_STORAGE_PATH');
+            $res = env('SITEMAP_STORAGE_PATH') . '/';
         }
 
         $domains = explode('.', $this->creatorInfo['server']);
