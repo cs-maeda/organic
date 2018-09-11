@@ -61,7 +61,7 @@ class ApiController extends Controller
 
     public function rhsincSitemap(Request $request)
     {
-        $helper = new \App\Helper\iacsicc\SitemapHelper($request, Conditioner::SITE_NUMBER_RHSINC,self::RHS_INC_CREATOR_ID);
+        $helper = new \App\Helper\rhsinc\SitemapHelper($request, Conditioner::SITE_NUMBER_RHSINC,self::RHS_INC_CREATOR_ID);
 
         $helper->clear();
         $helper->top();
@@ -74,7 +74,18 @@ class ApiController extends Controller
         return response()->json($res);
     }
 
-    
+    public function ginatonicSitemap(Request $request)
+    {
+        $helper = new \App\Helper\ginatonic\SitemapHelper($request, Conditioner::SITE_NUMBER_GINATONIC,self::GINATONIC_CREATOR_ID);
+
+        $helper->clear();
+        $helper->top();
+        $helper->prefecture();
+        $helper->city();
+
+        $res['result'] = true;
+        return response()->json($res);
+    }
 
     public function cityList(int $prefectureId)
     {
