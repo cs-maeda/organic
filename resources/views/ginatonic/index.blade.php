@@ -2,16 +2,16 @@
 <html lang="ja">
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123345750-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125091823-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'UA-123345750-1');
+            gtag('config', 'UA-125091823-1');
         </script>
         @if ($body['where'] == 'index')
-            <meta name="google-site-verification" content="rhXY8blnEGsN-T9Erg6z9XwngQOYqpjZgn7HD0wxkIA" />
+            <meta name="google-site-verification" content="nK0DVnwV65HTXjs296mraHUcT32Eb0CjOMjlnkSCjN4" />
         @endif
 
         @include('common.htmlHead')
