@@ -51,7 +51,7 @@ class MakeSitemapCommand extends CommandBase
 
             $this->myEcho(' Start: Make tbl_trade_ranking table.');
 
-//            $this->makeRanking();
+            $this->generate();
 
             $this->send(self::MAIL_TO,
                 "[make:sitemap] {$this->creatorInfo['name']}({$this->creatorInfo['server']}) successful",
@@ -81,6 +81,41 @@ class MakeSitemapCommand extends CommandBase
         $res['server'] = $result['server'];
 
         return $res;
+    }
+
+    protected function storagePath(): string
+    {
+        $res = storage_path('app/public/sitemap/');
+        if (env('APP_ENV') !== 'local')
+        {
+            $res = env('SITEMAP_STORAGE_PATH');
+        }
+
+        $domains = explode('.', $this->creatorInfo['server']);
+        $res .= $domains[1];
+        return $res;
+    }
+
+    protected function generate()
+    {
+        $storage = $this->storagePath($this->creatorId);
+        echo $storage . PHP_EOL;
+        exit;
+
+        SitemapCreatorModel::where('creator_id', $this->creatorId)
+            ->where('ng_flag', 0)
+            ->orderBy('url_id')
+            ->chunk(100, function($results)
+            {
+                foreach ($results as $result)
+                {
+                    $url = $result['url'];
+                }
+            });
+
+
+
+
     }
 
     protected function sendErrorMessage(string $message)
