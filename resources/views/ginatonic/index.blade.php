@@ -4,11 +4,11 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125091823-1"></script>
         <script>
-         ?window.dataLayer = window.dataLayer || [];
-         ?function gtag(){dataLayer.push(arguments);}
-         ?gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-         ?gtag('config', 'UA-125091823-1');
+            gtag('config', 'UA-125091823-1');
         </script>
         @if ($body['where'] == 'index')
             <meta name="google-site-verification" content="nK0DVnwV65HTXjs296mraHUcT32Eb0CjOMjlnkSCjN4" />
