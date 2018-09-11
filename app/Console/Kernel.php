@@ -7,6 +7,7 @@ use App\Console\Commands\ClearTradeRankingCommand;
 use App\Console\Commands\ImportPostedLandPriceCommand;
 use App\Console\Commands\MakePostedPriceAverageCommand;
 use App\Console\Commands\MakeRankingCommand;
+use App\Console\Commands\MakeSitemapCommand;
 use App\Console\Commands\MakeStandardPointCountCommand;
 use App\Console\Commands\MakeTradeCountCommand;
 use Illuminate\Console\Scheduling\Schedule;
@@ -28,6 +29,7 @@ class Kernel extends ConsoleKernel
         ClearTradeRankingCommand::class,
         MakePostedPriceAverageCommand::class,
         MakeStandardPointCountCommand::class,
+        MakeSitemapCommand::class,
     ];
 
     /**
