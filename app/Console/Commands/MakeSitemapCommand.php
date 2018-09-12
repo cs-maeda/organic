@@ -146,21 +146,6 @@ class MakeSitemapCommand extends CommandBase
         unset($xmlHelper);
     }
 
-    protected function xmlHeaderWriter()
-    {
-
-    }
-
-    protected function xmlContentsWriter()
-    {
-
-    }
-
-    protected function xmlFooterWriter()
-    {
-
-    }
-
     protected function sendErrorMessage(string $message)
     {
         $this->send(self::MAIL_TO,
