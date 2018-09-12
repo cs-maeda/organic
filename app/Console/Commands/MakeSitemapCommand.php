@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Helper\XmlSitemapHelper;
 use App\Models\SitemapCreatorModel;
+use App\Models\SitemapUrlModel;
 use Illuminate\Console\Command;
 
 class MakeSitemapCommand extends CommandBase
@@ -24,6 +26,7 @@ class MakeSitemapCommand extends CommandBase
     protected $creatorId = null;
     protected $creatorInfo = [];
 
+    const WRITE_LIMIT_COUNT = 50000;
     /**
      * Create a new command instance.
      *
@@ -86,35 +89,75 @@ class MakeSitemapCommand extends CommandBase
     protected function storagePath(): string
     {
         $res = storage_path('app/public/sitemap/');
-        if (env('APP_ENV') !== 'local')
-        {
+        if (env('APP_ENV') !== 'local') {
             $res = env('SITEMAP_STORAGE_PATH');
         }
 
         $domains = explode('.', $this->creatorInfo['server']);
         $res .= $domains[1];
+
+        if (file_exists($res) === false) {
+            mkdir($res, 0777, true);
+        }
+        $res .= '/';
         return $res;
+    }
+
+    protected function xmlFilePath(int $number): string
+    {
+        $path = $this->storagePath();
+        $xmlFileNameFormat = "sitemap_%d.xml";
+
+        $xmlFileName = sprintf($xmlFileNameFormat, $number);
+        $filePath = $path . $xmlFileName;
+
+        return $filePath;
     }
 
     protected function generate()
     {
-        $storage = $this->storagePath($this->creatorId);
-        echo $storage . PHP_EOL;
-        exit;
+        $writeCounter = 0;
+        $fileNumber = 0;
 
-        SitemapCreatorModel::where('creator_id', $this->creatorId)
-            ->where('ng_flag', 0)
-            ->orderBy('url_id')
-            ->chunk(100, function($results)
-            {
-                foreach ($results as $result)
-                {
-                    $url = $result['url'];
-                }
-            });
+        $xmlFilePath = $this->xmlFilePath($fileNumber);
+        $xmlHelper = new XmlSitemapHelper($xmlFilePath);
+        $xmlHelper->writeHeader();
 
+        foreach (SitemapUrlModel::where('creator_id', $this->creatorId)
+                    ->where('ng_flag', 0)
+                    ->orderBy('url_id')
+                    ->cursor() as $result)
+        {
+            $xmlHelper->writeContents($result['url']);
 
+            $writeCounter++;
+            if ($writeCounter >= self::WRITE_LIMIT_COUNT) {
+                $fileNumber++;
+                $xmlHelper->writeFooter();
+                unset($xmlHelper);
 
+                $xmlFilePath = $this->xmlFilePath($fileNumber);
+                $xmlHelper = new XmlSitemapHelper($xmlFilePath);
+                $writeCounter = 0;
+            }
+        }
+
+        $xmlHelper->writeFooter();
+        unset($xmlHelper);
+    }
+
+    protected function xmlHeaderWriter()
+    {
+
+    }
+
+    protected function xmlContentsWriter()
+    {
+
+    }
+
+    protected function xmlFooterWriter()
+    {
 
     }
 
