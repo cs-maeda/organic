@@ -39,7 +39,7 @@ class MakeSitemapCommand extends CommandBase
 
     /**
      * Execute the console command.
-     *
+     * @throws \Throwable
      */
     public function handle()
     {
@@ -114,6 +114,9 @@ class MakeSitemapCommand extends CommandBase
         return $filePath;
     }
 
+    /**
+     * @throws \Exception
+     */
     protected function generate()
     {
         $writeCounter = 0;
