@@ -39,7 +39,7 @@ class SitemapUrlCheckerCommand extends CommandBase
      */
     public function handle()
     {
-		//
+		// 引数取得
 		$this->creatorId = $this->argument('creatorId');
 
 		$this->errorTrap();
@@ -99,11 +99,26 @@ class SitemapUrlCheckerCommand extends CommandBase
 			)
 		);
 		foreach ($urlList as $urlId => $url) {
-			$res = @file_get_contents($url, false, $context);
-			// HTTPステータスが200以外の場合はNGフラグ
-			$pos = strpos($http_response_header[0], '200');
-			if ($pos === false) {
-				$ngItem[] = $urlId;
+			// 試行回数の初期化
+			$errCnt = 0;
+			// 最大試行回数
+			$maxTries = 3;
+			while (true) {
+				try {
+					$res = @file_get_contents($url, false, $context);
+					// HTTPステータスが200以外の場合はNGフラグ
+					$pos = strpos($http_response_header[0], '200');
+					if ($pos === false) {
+						$ngItem[] = $urlId;
+					}
+					break;
+				} catch (\Exception $e) {
+					sleep(1);
+					if (++$errCnt === $maxTries) {
+						// 最大試行回数になった場合、HTTPステータスを取得する処理を飛ばす
+						break;
+					}
+				}
 			}
 		}
 
