@@ -76,9 +76,8 @@ class SitemapUrlCheckerCommand extends CommandBase
 	 */
 	protected function urlCheck()
 	{
-		$ngItem = array();
-
 		// サイトマップURLを取得
+		$urlList = array();
 		foreach (SitemapUrlModel::where('creator_id', $this->creatorId)
 					 ->orderBy('url_id')
 					 ->cursor() as $result)
@@ -87,6 +86,7 @@ class SitemapUrlCheckerCommand extends CommandBase
 		}
 
 		// 404チェック
+		$ngItem = array();
 		$context = stream_context_create(
 			array(
 				// HTTPステータス4xx, 5xxなどでWarnningエラーが出ないように設定
