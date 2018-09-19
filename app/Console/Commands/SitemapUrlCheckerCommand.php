@@ -98,11 +98,12 @@ class SitemapUrlCheckerCommand extends CommandBase
 				),
 			)
 		);
+		// 最大試行回数
+		$maxTries = 3;
 		foreach ($urlList as $urlId => $url) {
 			// 試行回数の初期化
 			$errCnt = 0;
-			// 最大試行回数
-			$maxTries = 3;
+			// 再試行処理
 			while (true) {
 				try {
 					$res = @file_get_contents($url, false, $context);
