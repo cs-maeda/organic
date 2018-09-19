@@ -46,6 +46,18 @@ class XmlSitemapHelper
     }
 
     /**
+     * @throws \Exception
+     */
+    public function writeParentHeader()
+    {
+        $header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        $res = fputs($this->handle, $header);
+        if ($res === false){
+            throw new \Exception('XML file write header error occurred.');
+        }
+    }
+
+    /**
      * @param string $url
      * @throws \Exception
      */
@@ -55,6 +67,22 @@ class XmlSitemapHelper
 
         $ymd = date('Y-m-d');
         $contents = sprintf($contentsFormat, $url, $ymd, $this->changeFreq);
+        $res = fputs($this->handle, $contents);
+        if ($res === false) {
+            throw new \Exception('XML file write contents error occurred.');
+        }
+    }
+
+    /**
+     * @param string $url
+     * @throws \Exception
+     */
+    public function writeParentContents(string $url)
+    {
+        $contentsFormat = " <sitemap>\n  <loc>%s</loc>\n  <lastmod>%s</lastmod>\n </sitemap>\n";
+
+        $ymd = date('Y-m-d');
+        $contents = sprintf($contentsFormat, $url, $ymd);
         $res = fputs($this->handle, $contents);
         if ($res === false) {
             throw new \Exception('XML file write contents error occurred.');
@@ -72,4 +100,18 @@ class XmlSitemapHelper
             throw new \Exception('XML file write footer error occurred.');
         }
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function writeParentFooter()
+    {
+        $footer = "</sitemapindex>\n";
+        $res = fputs($this->handle, $footer);
+        if ($res === false) {
+            throw new \Exception('XML file write footer error occurred.');
+        }
+    }
+
+
 }

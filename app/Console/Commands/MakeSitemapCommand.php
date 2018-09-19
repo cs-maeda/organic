@@ -119,10 +119,13 @@ class MakeSitemapCommand extends CommandBase
      */
     protected function generate()
     {
+        $fileNames = [];
         $writeCounter = 0;
         $fileNumber = 0;
 
         $xmlFilePath = $this->xmlFilePath($fileNumber);
+        $parts = pathinfo($xmlFilePath);
+        $fileNames[] = $parts['basename'];
         $xmlHelper = new XmlSitemapHelper($xmlFilePath);
         $xmlHelper->writeHeader();
 
@@ -140,12 +143,35 @@ class MakeSitemapCommand extends CommandBase
                 unset($xmlHelper);
 
                 $xmlFilePath = $this->xmlFilePath($fileNumber);
+                $parts = pathinfo($xmlFilePath);
+                $fileNames[] = $parts['basename'];
                 $xmlHelper = new XmlSitemapHelper($xmlFilePath);
                 $writeCounter = 0;
             }
         }
 
         $xmlHelper->writeFooter();
+        unset($xmlHelper);
+
+        $this->generateParentXmlFile($fileNames);
+    }
+
+    /**
+     * @param array $files
+     * @throws \Exception
+     */
+    protected function generateParentXmlFile(array $files)
+    {
+        $filePath = $this->storagePath();
+        $filePath .= 'sitemap.xml';
+        $xmlHelper = new XmlSitemapHelper($filePath);
+        $xmlHelper->writeParentHeader();
+
+        foreach ($files as $file){
+            $xmlHelper->writeParentContents('https://www.sumaistar.com/sitemaps/' . $file);
+        }
+
+        $xmlHelper->writeParentFooter();
         unset($xmlHelper);
     }
 
