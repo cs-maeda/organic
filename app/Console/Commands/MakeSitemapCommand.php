@@ -23,7 +23,6 @@ class MakeSitemapCommand extends CommandBase
      */
     protected $description = 'Make sitemap.xml files.';
 
-    protected $creatorId = null;
     protected $creatorInfo = [];
 
     const WRITE_LIMIT_COUNT = 50000;
@@ -44,8 +43,8 @@ class MakeSitemapCommand extends CommandBase
     public function handle()
     {
         //
-        $this->creatorId = $this->argument('creatorId');
-        $this->creatorInfo = $this->creator($this->creatorId);
+        $creatorId = $this->argument('creatorId');
+        $this->creatorInfo = $this->creator($creatorId);
 
         $this->errorTrap();
 
@@ -54,7 +53,7 @@ class MakeSitemapCommand extends CommandBase
 
             $this->myEcho(' Start: Make tbl_trade_ranking table.');
 
-            $this->generate();
+            $this->generate($creatorId);
 
             $this->send(self::MAIL_TO,
                 "[make:sitemap] {$this->creatorInfo['name']}({$this->creatorInfo['server']}) successful",
@@ -115,9 +114,10 @@ class MakeSitemapCommand extends CommandBase
     }
 
     /**
+     * @param int $creatorId
      * @throws \Exception
      */
-    protected function generate()
+    protected function generate(int $creatorId)
     {
         $fileNames = [];
         $writeCounter = 0;
@@ -129,7 +129,7 @@ class MakeSitemapCommand extends CommandBase
         $xmlHelper = new XmlSitemapHelper($xmlFilePath);
         $xmlHelper->writeHeader();
 
-        foreach (SitemapUrlModel::where('creator_id', $this->creatorId)
+        foreach (SitemapUrlModel::where('creator_id', $creatorId)
                     ->where('ng_flag', 0)
                     ->orderBy('url_id')
                     ->cursor() as $result)
@@ -146,6 +146,7 @@ class MakeSitemapCommand extends CommandBase
                 $parts = pathinfo($xmlFilePath);
                 $fileNames[] = $parts['basename'];
                 $xmlHelper = new XmlSitemapHelper($xmlFilePath);
+                $xmlHelper->writeHeader();
                 $writeCounter = 0;
             }
         }
