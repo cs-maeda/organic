@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018 年 9 朁E19 日 09:30
+-- Generation Time: 2018 年 9 朁E20 日 05:46
 -- サーバのバージョン： 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -31,7 +31,7 @@ CREATE TABLE `sitemap_url` (
   `url_id` bigint(20) UNSIGNED NOT NULL COMMENT 'URLテーブルID',
   `url` varchar(255) NOT NULL COMMENT 'サイトマップ掲載URL',
   `creator_id` smallint(5) UNSIGNED NOT NULL COMMENT '登録したクラスID',
-  `ng_flag` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:ページが存在する 1:ページが存在しない'
+  `ng_flag` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0:ページが存在する 1:ページが存在しない'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
