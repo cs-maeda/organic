@@ -92,14 +92,19 @@ class MakeSitemapCommand extends CommandBase
             $res = env('SITEMAP_STORAGE_PATH');
         }
 
-        $domains = explode('.', $this->creatorInfo['server']);
-        $res .= $domains[1];
+        $res .= $this->domainName();
 
         if (file_exists($res) === false) {
             mkdir($res, 0777, true);
         }
         $res .= '/';
         return $res;
+    }
+
+    protected function domainName(): string
+    {
+        $domains = explode('.', $this->creatorInfo['server']);
+        return $domains[1];
     }
 
     protected function xmlFilePath(int $number): string
@@ -167,9 +172,10 @@ class MakeSitemapCommand extends CommandBase
         $filePath .= 'sitemap.xml';
         $xmlHelper = new XmlSitemapHelper($filePath);
         $xmlHelper->writeParentHeader();
+        $domain = $this->domainName();
 
         foreach ($files as $file){
-            $xmlHelper->writeParentContents('https://www.sumaistar.com/sitemaps/' . $file);
+            $xmlHelper->writeParentContents('https://www.sumaistar.com/sitemaps/' . $domain . '/' . $file);
         }
 
         $xmlHelper->writeParentFooter();
