@@ -156,10 +156,10 @@ class EachLinkFactory
         switch (env('APP_ENV')){
             case 'local':
                 if ($retry === 0){
-                    $domain = 'http://www.shopa.dev/';
+                    $domain = 'http://www.shopa.localhost/';
                 }
                 elseif ($retry === 1) {
-                    $domain = 'http://www.shopa.localhost/';
+                    $domain = 'http://www.shopa.dev/';
                 }
                 else {
                     $domain = 'http://www.shopa.test/';
