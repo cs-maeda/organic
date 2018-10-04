@@ -112,22 +112,29 @@ class EachLinkFactory
 
     protected function shopaExistLink(&$link): bool
     {
-        $domain = $this->shopaDomain();
-        $url = $domain . 'api' . $this->areaValue->linkAddress();
-        $options =
-            [
-                'http' => [
-                    'method' => 'GET',
-                    'header' => 'User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
-                    'ignore_errors' => true
-                ],
-                'ssl' => [
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                ]
-            ];
-        $json = @file_get_contents($url, false, stream_context_create($options));
-        $results = json_decode($json);
+        for ($retry = 0; $retry < 3; $retry++){
+            try {
+                $domain = $this->shopaDomain($retry);
+                $url = $domain . 'api' . $this->areaValue->linkAddress();
+                $options =
+                    [
+                        'http' => [
+                            'method' => 'GET',
+                            'header' => 'User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
+                            'ignore_errors' => true
+                        ],
+                        'ssl' => [
+                            'verify_peer' => false,
+                            'verify_peer_name' => false,
+                        ]
+                    ];
+                $json = file_get_contents($url, false, stream_context_create($options));
+                $results = json_decode($json);
+            }
+            catch (\Throwable $e){
+                continue;
+            }
+        }
 
         $link = [];
         if ($results->shopa === false){
@@ -143,12 +150,20 @@ class EachLinkFactory
         return true;
     }
 
-    protected function shopaDomain(): string
+    protected function shopaDomain(int $retry = 0): string
     {
         $domain = '';
         switch (env('APP_ENV')){
             case 'local':
-                $domain = 'http://www.shopa.dev/';
+                if ($retry === 0){
+                    $domain = 'http://www.shopa.dev/';
+                }
+                elseif ($retry === 1) {
+                    $domain = 'http://www.shopa.localhost/';
+                }
+                else {
+                    $domain = 'http://www.shopa.test/';
+                }
                 break;
             case 'staging':
                 $domain = 'http://stg.shopa.org/';
