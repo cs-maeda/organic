@@ -112,6 +112,7 @@ class EachLinkFactory
 
     protected function shopaExistLink(&$link): bool
     {
+        $results = null;
         for ($retry = 0; $retry < 3; $retry++){
             try {
                 $domain = $this->shopaDomain($retry);
@@ -137,6 +138,9 @@ class EachLinkFactory
         }
 
         $link = [];
+        if ($results == null){
+            return false;
+        }
         if ($results->shopa === false){
             return false;
         }
